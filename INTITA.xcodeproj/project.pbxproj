@@ -15,6 +15,7 @@
 		3FF299F7254ADD830087AEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F5254ADD830087AEC7 /* LaunchScreen.storyboard */; };
 		3FF29A07254AE4460087AEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF29A09254AE4460087AEC7 /* Localizable.strings */; };
 		3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF29A11254C0BEC0087AEC7 /* String+localized.swift */; };
+		64B74F3B254C70E3004E6A4E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		3FF29A0B254AE44C0087AEC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF29A0C254AE44C0087AEC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF29A11254C0BEC0087AEC7 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		64B74F3A254C70E3004E6A4E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF29A11254C0BEC0087AEC7 /* String+localized.swift */,
+				64B74F3A254C70E3004E6A4E /* MainCoordinator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				3FF299EF254ADD800087AEC7 /* ViewController.swift in Sources */,
 				3FF299EB254ADD800087AEC7 /* AppDelegate.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
+				64B74F3B254C70E3004E6A4E /* MainCoordinator.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
