@@ -14,6 +14,7 @@
 		3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F3254ADD830087AEC7 /* Assets.xcassets */; };
 		3FF299F7254ADD830087AEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F5254ADD830087AEC7 /* LaunchScreen.storyboard */; };
 		3FF29A07254AE4460087AEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF29A09254AE4460087AEC7 /* Localizable.strings */; };
+		3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF29A11254C0BEC0087AEC7 /* String+localized.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3FF29A08254AE4460087AEC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF29A0B254AE44C0087AEC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF29A0C254AE44C0087AEC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3FF29A11254C0BEC0087AEC7 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		3FF299E9254ADD800087AEC7 /* INTITA */ = {
 			isa = PBXGroup;
 			children = (
+				3FF29A14254C0BFF0087AEC7 /* Extensions */,
 				3FF29A09254AE4460087AEC7 /* Localizable.strings */,
 				3FF299EA254ADD800087AEC7 /* AppDelegate.swift */,
 				3FF299EC254ADD800087AEC7 /* SceneDelegate.swift */,
@@ -74,6 +77,14 @@
 				3FF299F8254ADD830087AEC7 /* Info.plist */,
 			);
 			path = INTITA;
+			sourceTree = "<group>";
+		};
+		3FF29A14254C0BFF0087AEC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3FF29A11254C0BEC0087AEC7 /* String+localized.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			files = (
 				3FF299EF254ADD800087AEC7 /* ViewController.swift in Sources */,
 				3FF299EB254ADD800087AEC7 /* AppDelegate.swift in Sources */,
+				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
