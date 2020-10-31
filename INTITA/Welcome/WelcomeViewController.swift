@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, Storyboarded {
+class WelcomeViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: WelcomeCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: Coordinator {
+class WelcomeCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -17,8 +17,15 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = ViewController.instantiate()
+        let vc = WelcomeViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func displayLogin() {
+        // TODO: add functionality..
+        
+        // let loginCoordinator = LoginCoordinator(navigationController: navigationController)
+        // loginCoordinator.start()
     }
 }
