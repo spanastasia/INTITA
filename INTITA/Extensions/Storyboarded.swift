@@ -24,7 +24,11 @@ extension Storyboarded where Self: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
         // instantiate a view controller with that identifier, and force cast as the type that was requested
-        return storyboard.instantiateViewController(withIdentifier: className) as! Self
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: className) as? Self else {
+            fatalError("instantiate is not very good for: ClassName \(className)")
+        }
+        
+        return viewController
         
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var coordinator: MainCoordinator?
+    var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // create the main navigation controller to be used for our app
@@ -23,17 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coordinator?.start()
 
         // create a basic UIWindow and activate it
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navController
-        window.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
 
         return true
     }
-
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        return true
-//    }
 
     // MARK: UISceneSession Lifecycle
 
