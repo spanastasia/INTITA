@@ -19,9 +19,12 @@ extension Storyboarded where Self: UIViewController {
 
         // this splits by the dot and uses everything after, giving "MyViewController"
         let className = fullName.components(separatedBy: ".")[1]
+        
+        let storyboardName = className.replacingOccurrences(of: "ViewController", with: "")
 
         // load our storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        
 
         // instantiate a view controller with that identifier, and force cast as the type that was requested
         guard let viewController = storyboard.instantiateViewController(withIdentifier: className) as? Self else {
@@ -29,6 +32,5 @@ extension Storyboarded where Self: UIViewController {
         }
         
         return viewController
-        
     }
 }
