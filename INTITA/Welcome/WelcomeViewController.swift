@@ -7,12 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WelcomeViewController: UIViewController, Storyboarded {
+    
+    weak var coordinator: WelcomeCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(NSLocalizedString("start", comment: ""))
+        print("moto".localized)
     }
 
 
