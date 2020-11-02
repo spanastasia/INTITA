@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  WelcomeViewController.swift
 //  INTITA
 //
-//  Created by Anastasiia Spiridonova on 29.10.2020.
+//  Created by Svitlana Korostelova on 01.11.2020.
 //
 
 import UIKit
@@ -32,8 +32,8 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         startBtn.layer.cornerRadius = 5.0
-        startBtn.titleLabel?.text = "start".localized
-        skipBtn.titleLabel?.text = "skip".localized
+        startBtn.setTitle("start".localized, for: .normal)
+        skipBtn.setTitle("skip".localized, for: .normal)
         mottoLabel.text = "moto".localized
         startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -46,8 +46,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     }
     
     @IBAction func goToLogInBtn(_ sender: UIButton) {
-        // loginCoordinator.start() or childCoordinators[0].start()
-        // skip also there
+        coordinator?.displayLogin()
     }
     func setupScrollView() {
       scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +57,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
       
       self.view.addSubview(scrollView)
       NSLayoutConstraint.activate([
-        scrollView.topAnchor.constraint(equalTo: self.line.bottomAnchor, constant: 200),
+        scrollView.topAnchor.constraint(equalTo: self.line.bottomAnchor, constant: 150),
         scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
         scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
         scrollView.bottomAnchor.constraint(equalTo: self.pageControl.topAnchor, constant: -20)

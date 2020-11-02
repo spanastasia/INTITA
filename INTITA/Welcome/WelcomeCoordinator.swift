@@ -23,11 +23,8 @@ class WelcomeCoordinator: Coordinator {
     }
     
     func displayLogin() {
-        // TODO: add functionality..
-        
-        // let loginCoordinator = LoginCoordinator(navigationController: navigationController)
-        //TODO for START/> btn below
-        // loginCoordinator.start() or childCoordinators[0].start()
-        
+         let loginCoordinator = LogInCoordinator(navigationController: navigationController)
+        childCoordinators.append(loginCoordinator)
+        loginCoordinator.start()
     }
 }
