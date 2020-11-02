@@ -16,10 +16,10 @@
 		3FF29A07254AE4460087AEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF29A09254AE4460087AEC7 /* Localizable.strings */; };
 		3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF29A11254C0BEC0087AEC7 /* String+localized.swift */; };
 		3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAC972254DAAFF00AED580 /* RequestAPI.swift */; };
-		64B74F3B254C70E3004E6A4E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* MainCoordinator.swift */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
 		64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F40254C71F2004E6A4E /* Storyboarded.swift */; };
+		BACA00F5254F4ECB002B84ED /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACA00F4254F4ECB002B84ED /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,19 +31,17 @@
 		3FF299F3254ADD830087AEC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FF299F6254ADD830087AEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FF299F8254ADD830087AEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FF29A00254AE3910087AEC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Welcome.strings; sourceTree = "<group>"; };
 		3FF29A01254AE3910087AEC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		3FF29A02254AE3A90087AEC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Welcome.strings; sourceTree = "<group>"; };
 		3FF29A03254AE3A90087AEC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3FF29A08254AE4460087AEC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF29A0B254AE44C0087AEC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF29A0C254AE44C0087AEC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF29A11254C0BEC0087AEC7 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		3FFAC972254DAAFF00AED580 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
-		64B74F3A254C70E3004E6A4E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		64B74F3D254C71B1004E6A4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		64B74F40254C71F2004E6A4E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		BACA00F4254F4ECB002B84ED /* PromoTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,22 +97,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		64B74F47254DC369004E6A4E /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
-				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
-				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
-			);
-			path = Welcome;
-			sourceTree = "<group>";
-		};
 		3FFAC975254DAB0700AED580 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				3FFAC972254DAAFF00AED580 /* RequestAPI.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		64B74F47254DC369004E6A4E /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
+				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
+				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
+				BACA00F4254F4ECB002B84ED /* PromoTextView.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +196,7 @@
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
+				BACA00F5254F4ECB002B84ED /* PromoTextView.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,8 +208,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FF299F1254ADD800087AEC7 /* Base */,
-				3FF29A00254AE3910087AEC7 /* uk */,
-				3FF29A02254AE3A90087AEC7 /* ru */,
 			);
 			name = Welcome.storyboard;
 			sourceTree = "<group>";
@@ -361,8 +359,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P237PGTCQB;
+				DEVELOPMENT_TEAM = G4P58KM7MY;
 				INFOPLIST_FILE = INTITA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,8 +379,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P237PGTCQB;
+				DEVELOPMENT_TEAM = G4P58KM7MY;
 				INFOPLIST_FILE = INTITA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

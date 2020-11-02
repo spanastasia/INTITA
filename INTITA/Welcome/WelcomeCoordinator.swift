@@ -26,6 +26,8 @@ class WelcomeCoordinator: Coordinator {
         // TODO: add functionality..
         
         // let loginCoordinator = LoginCoordinator(navigationController: navigationController)
-        // loginCoordinator.start()
+        //TODO for START/> btn below
+        // loginCoordinator.start() or childCoordinators[0].start()
+        
     }
 }
