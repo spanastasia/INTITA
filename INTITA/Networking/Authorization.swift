@@ -6,31 +6,25 @@
 //
 
 import Foundation
+
 class Authorization {
-    public static func login(email: String, password: String, completion: @escaping (Result<LoginResponse, Error>) -> Void) {
-        guard let url = URL(string: RequestAPI.loginPath)
-        else {
-            return
-        }
-        let data = RequestAPI.prepareData(email: email, password: password)
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = data
+    
+    public static func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        guard let request = ApiURL.login(email: email, password: password).request
+        else { return }
         RequestAPI.request(request: request) { (result: Result<LoginResponse, Error>) in
-            completion(result)
+            switch result {
+            case .failure(let error):
+                completion(error)
+            case .success(let response):
+                UserDefaults.standard.set(response.token, forKey: ApiURL.key)
+                completion(nil)
+            }
         }
     }
-    public static func logout(token: String, completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
-        guard let url = URL(string: RequestAPI.logoutPath)
-        else {
-            return
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let authValue: String = "Bearer \(token)"
-        request.setValue(authValue, forHTTPHeaderField: "Authorization")
-
+    
+    public static func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
+        guard let request = ApiURL.logout.request else { return }
         RequestAPI.request(request: request) { (result: Result<LogoutResponse, Error>) in
             completion(result)
         }
