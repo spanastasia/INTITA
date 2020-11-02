@@ -14,6 +14,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     var coordinator: WelcomeCoordinator?
     @IBOutlet weak var line: UIView!
     
+    @IBOutlet weak var skipBtn: UIButton!
     private var scrollView = UIScrollView(frame: .zero)
     private var stackView = UIStackView(frame: .zero)
     var views:[UIView] = []
@@ -31,14 +32,23 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         startBtn.layer.cornerRadius = 5.0
-        line.layer.cornerRadius = 3.0
+        startBtn.titleLabel?.text = "start".localized
+        skipBtn.titleLabel?.text = "skip".localized
+        mottoLabel.text = "moto".localized
+        startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         mottoLabel.adjustsFontSizeToFitWidth = true
+        line.layer.cornerRadius = 3.0
         setupPageControll()
         setupScrollView()
         setupStackView(scrollView: scrollView)
         views = createAndAddViews(to: stackView)
     }
     
+    @IBAction func goToLogInBtn(_ sender: UIButton) {
+        // loginCoordinator.start() or childCoordinators[0].start()
+        // skip also there
+    }
     func setupScrollView() {
       scrollView.translatesAutoresizingMaskIntoConstraints = false
       scrollView.backgroundColor = .white

@@ -36,6 +36,9 @@
                                 <state key="normal" title="START /&gt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToLogInBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KJS-MV-HBC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROGRAM THE FUTURE  " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCo-XY-WyK">
                                 <rect key="frame" x="70" y="150" width="280" height="30"/>
@@ -84,6 +87,7 @@
                     <connections>
                         <outlet property="line" destination="ge6-SB-pzY" id="h2F-07-mqx"/>
                         <outlet property="mottoLabel" destination="JCo-XY-WyK" id="sTx-FI-Z3E"/>
+                        <outlet property="skipBtn" destination="ahv-DJ-VZD" id="ole-J4-FV0"/>
                         <outlet property="startBtn" destination="uca-Of-E2p" id="TTc-r6-Hyx"/>
                     </connections>
                 </viewController>
