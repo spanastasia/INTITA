@@ -11,7 +11,6 @@
 		3F54E923254E94E700426261 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E922254E94E700426261 /* ApiError.swift */; };
 		3F54E926254E97FB00426261 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E925254E97FB00426261 /* Authorization.swift */; };
 		3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */; };
-		3FF299EB254ADD800087AEC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF299EA254ADD800087AEC7 /* AppDelegate.swift */; };
 		3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF299EC254ADD800087AEC7 /* SceneDelegate.swift */; };
 		3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */; };
 		3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F0254ADD800087AEC7 /* Welcome.storyboard */; };
@@ -23,6 +22,10 @@
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
 		64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F40254C71F2004E6A4E /* Storyboarded.swift */; };
+		846E63A7254FFD3F00C737C4 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E63A6254FFD3F00C737C4 /* LogIn.storyboard */; };
+		846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63A9254FFD6600C737C4 /* LogInViewController.swift */; };
+		846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */; };
+		846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63B6255007C200C737C4 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +34,6 @@
 		3F54E925254E97FB00426261 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		3FF299E7254ADD800087AEC7 /* INTITA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INTITA.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FF299EA254ADD800087AEC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FF299EC254ADD800087AEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3FF299F1254ADD800087AEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Welcome.storyboard; sourceTree = "<group>"; };
@@ -50,6 +52,10 @@
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		64B74F3D254C71B1004E6A4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		64B74F40254C71F2004E6A4E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		846E63A6254FFD3F00C737C4 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		846E63A9254FFD6600C737C4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
+		846E63B6255007C200C737C4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,7 @@
 		3F54E91E254E8F9400426261 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				3FF299EA254ADD800087AEC7 /* AppDelegate.swift */,
+				846E63B6255007C200C737C4 /* AppDelegate.swift */,
 				3FF299EC254ADD800087AEC7 /* SceneDelegate.swift */,
 				3FF299F5254ADD830087AEC7 /* LaunchScreen.storyboard */,
 			);
@@ -101,6 +107,7 @@
 		3FF299E9254ADD800087AEC7 /* INTITA */ = {
 			isa = PBXGroup;
 			children = (
+				846E63A5254FFD2600C737C4 /* LogIn */,
 				3F54E91D254E8F3500426261 /* Models */,
 				3FFAC975254DAB0700AED580 /* Networking */,
 				3FF29A14254C0BFF0087AEC7 /* Extensions */,
@@ -141,6 +148,16 @@
 				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		846E63A5254FFD2600C737C4 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				846E63A6254FFD3F00C737C4 /* LogIn.storyboard */,
+				846E63A9254FFD6600C737C4 /* LogInViewController.swift */,
+				846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +223,7 @@
 				3FF29A07254AE4460087AEC7 /* Localizable.strings in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
+				846E63A7254FFD3F00C737C4 /* LogIn.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +236,9 @@
 			files = (
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
 				3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */,
-				3FF299EB254ADD800087AEC7 /* AppDelegate.swift in Sources */,
+				846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */,
+				846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */,
+				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
