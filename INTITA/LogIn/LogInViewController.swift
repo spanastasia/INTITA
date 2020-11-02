@@ -33,7 +33,6 @@ class LogInViewController: UIViewController, Storyboarded {
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
-    
     weak var coordinator: LogInCoordinator?
 
     //MARK:- Actions
