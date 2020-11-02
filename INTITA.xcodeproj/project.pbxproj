@@ -11,6 +11,7 @@
 		3F54E923254E94E700426261 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E922254E94E700426261 /* ApiError.swift */; };
 		3F54E926254E97FB00426261 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E925254E97FB00426261 /* Authorization.swift */; };
 		3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */; };
+		3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6FD35255084F200702D43 /* ApiURL.swift */; };
 		3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF299EC254ADD800087AEC7 /* SceneDelegate.swift */; };
 		3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */; };
 		3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F0254ADD800087AEC7 /* Welcome.storyboard */; };
@@ -26,6 +27,7 @@
 		846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63A9254FFD6600C737C4 /* LogInViewController.swift */; };
 		846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */; };
 		846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63B6255007C200C737C4 /* AppDelegate.swift */; };
+		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,7 @@
 		3F54E922254E94E700426261 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		3F54E925254E97FB00426261 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		3FB6FD35255084F200702D43 /* ApiURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
 		3FF299E7254ADD800087AEC7 /* INTITA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INTITA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF299EC254ADD800087AEC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		846E63A9254FFD6600C737C4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		846E63B6255007C200C737C4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				3FFAC972254DAAFF00AED580 /* RequestAPI.swift */,
+				3FB6FD35255084F200702D43 /* ApiURL.swift */,
 				3F54E922254E94E700426261 /* ApiError.swift */,
 				3F54E925254E97FB00426261 /* Authorization.swift */,
 			);
@@ -145,6 +150,7 @@
 			children = (
 				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
 				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
+				BAF940CD2550754300AE50CE /* PromoTextView.swift */,
 				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
 			);
 			path = Welcome;
@@ -239,6 +245,7 @@
 				846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */,
 				846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */,
 				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
+				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
@@ -247,6 +254,7 @@
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
+				BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
