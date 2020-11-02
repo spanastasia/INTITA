@@ -21,9 +21,4 @@ class LogInCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
-    
-//    func invalidScreen() {
-//        let invalidCoordinator = InvalidCoordinator(navigationController:navigationController)
-//        invalidCoordinator.start()
-//    }
 }
