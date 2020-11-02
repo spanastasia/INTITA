@@ -9,29 +9,36 @@ import Foundation
 class RequestAPI {
     private static let path = "https://intita.com/"
     private static let version = "api/v1"
+    public static var loginPath: String {
+        return "\(path)\(version)/login"
+    }
+    public static var logoutPath: String {
+        return "\(path)\(version)/logout"
+    }
     
-    static func request(jsonData: Data?, completitionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        guard let jsonData = jsonData else {
-            return
-        }
-        
+    public static func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let session = URLSession.shared
         
-        guard let url = URL(string: "\(path)\(version)/login")
-        else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
-            completitionHandler(data, response, error)
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                completionHandler(.failure(ApiError.taskError))
+                return
+            }
+            guard let data = data else {
+                completionHandler(.failure(ApiError.noData))
+                return
+            }
+            do {
+                let response = try JSONDecoder().decode(T.self, from: data)
+                completionHandler(.success(response))
+            } catch {
+                completionHandler(.failure(error))
+            }
         }
-        
         task.resume()
     }
     
-    static func prepareData(email: String, password: String) -> Data? {
+    public static func prepareData(email: String, password: String) -> Data? {
         let json = [
             "email" : email,
             "password" : password
