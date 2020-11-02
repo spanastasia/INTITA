@@ -16,30 +16,23 @@ class RequestAPI {
         return "\(path)\(version)/logout"
     }
     
-    public static func request<T: Codable>(url: URL, jsonData: Data?, completitionHandler: @escaping (Result<T, Error>) -> Void) {
-        guard let jsonData = jsonData else {
-            return
-        }
+    public static func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let session = URLSession.shared
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             if error != nil {
-                completitionHandler(.failure(ApiError.taskError))
+                completionHandler(.failure(ApiError.taskError))
                 return
             }
             guard let data = data else {
-                completitionHandler(.failure(ApiError.noData))
+                completionHandler(.failure(ApiError.noData))
                 return
             }
             do {
                 let response = try JSONDecoder().decode(T.self, from: data)
-                completitionHandler(.success(response))
+                completionHandler(.success(response))
             } catch {
-                completitionHandler(.failure(error))
+                completionHandler(.failure(error))
             }
         }
         task.resume()
