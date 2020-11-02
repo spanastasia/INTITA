@@ -55,13 +55,4 @@ class RequestAPI {
         
         return data
     }
-    public static func prepareData(token: String) -> Data? {
-        let json = [
-            "token" : token
-        ]
-        guard let data = try? JSONSerialization.data(withJSONObject: json, options: [])
-        else { return nil }
-        
-        return data
-    }
 }
