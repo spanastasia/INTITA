@@ -7,7 +7,9 @@
 
 import UIKit
 
-class InvalidViewController: UIViewController {
+class InvalidViewController: UIViewController, Storyboarded {
+    
+    var coordinator: InvalidCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()

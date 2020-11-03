@@ -41,6 +41,9 @@ class LogInViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
+        
+        coordinator?.invalidScreen()
+        
         errorLabel.isHidden = true
         guard let password = passwordTextField.text, let email = emailTextField.text else {
             return
