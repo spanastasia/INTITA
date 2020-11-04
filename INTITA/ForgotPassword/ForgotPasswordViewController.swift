@@ -1,0 +1,102 @@
+//
+//  ForgotPasswordViewController.swift
+//  INTITA
+//
+//  Created by Viacheslav Markov on 03.11.2020.
+//
+
+import UIKit
+
+class ForgotPasswordViewController: UIViewController, Storyboarded {
+    
+    weak var coordinator: ForgotPasswordCoordinator?
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    @IBOutlet weak var blueLineView: UIView!
+    
+    @IBOutlet weak var recoveryLabel: UILabel!
+    @IBOutlet weak var explanationTextLabel: UILabel!
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var invalidTextLabel: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.recoveryLabel.text = "passRecovery".localized
+        self.explanationTextLabel.text = "textRecovery".localized
+        
+        setupInvalidTextLabel()
+        setupEmailTextField()
+        setupSendButton()
+
+        emailTextField.delegate = self
+        
+    }
+    
+    func setupInvalidTextLabel() {
+        
+        let title = ""
+        invalidTextLabel.text = title
+        invalidTextLabel.textColor = .red
+
+    }
+    
+    func setupEmailTextField() {
+
+        emailTextField.layer.cornerRadius = 4
+        emailTextField.borderStyle = .line
+        emailTextField.keyboardAppearance = .dark
+        emailTextField.backgroundColor = .white
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.placeholder = "Enter your Email"
+        emailTextField.clearButtonMode = .whileEditing
+        
+    }
+    
+    func setupSendButton() {
+        
+        let titleLocalized = "send".localized
+        sendButton.layer.cornerRadius = 8
+        sendButton.setTitle(titleLocalized, for: .normal)
+        
+    }
+    
+    @IBAction func pressedSendButton(_ sender: UIButton) {
+        
+        guard let textEmail = self.emailTextField.text else { return }
+        
+        if textEmail == "" {
+            self.invalidTextLabel.attributedText = NSAttributedString(string: "You don't entered Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        } else if textEmail.count <= 6 {
+            self.invalidTextLabel.attributedText = NSAttributedString(string: "You entered too small Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            emailTextField.text = ""
+        } else if (!textEmail.contains("@") && !textEmail.contains(".")) {
+            self.invalidTextLabel.attributedText = NSAttributedString(string: "You entered Email without . or @", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            emailTextField.text = ""
+        } else {
+            invalidTextLabel.text = ""
+        }
+    }
+    
+}
+
+extension ForgotPasswordViewController : UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        //For symbol
+        if textField == emailTextField {
+            //Here change this characters based on your requirement
+            let allowedCharacters = CharacterSet(charactersIn:".@_-0123456789ABCDFGHJKLMNPQRSTVWXZabcdfg hjklmnpqrstvwxz")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+
+        return true
+    }
+    
+}
