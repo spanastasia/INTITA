@@ -21,7 +21,7 @@
 "inputEmail" = "Input email";
 "wrongEmail" = "Wrong email";
 "logIn" = "Log In/>";
-"skip" = "Skip";
+"skip" = "SKIP ⟩";
 "send" = "SEND />";
 "textRecovery" = "To reset your password, enter your email below. In this e-mail the link to reset your password will be sent. The link is active for 30 min.";
 "passRecovery" = "Password recovery";

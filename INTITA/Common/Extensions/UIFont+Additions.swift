@@ -16,4 +16,7 @@ extension UIFont {
     class var primaryFontRegular: UIFont {
         return UIFont(name: "Roboto-Regular", size: 26.0)!
     }
+    class var primaryFontThin: UIFont {
+        return UIFont(name: "Roboto-Thin", size: 18.0)!
+    }
 }
