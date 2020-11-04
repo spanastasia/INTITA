@@ -20,7 +20,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var emailTextField: UITextField!
     
-    @IBOutlet weak var invalidTxtLabel: UILabel!
+    @IBOutlet weak var invalidTextLabel: UILabel!
     @IBOutlet weak var sendButton: UIButton!
 
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         self.recoveryLabel.text = "passRecovery".localized
         self.explanationTextLabel.text = "textRecovery".localized
         
-        setupInvalidTxtLabel()
+        setupInvalidTextLabel()
         setupEmailTextField()
         setupSendButton()
 
@@ -37,11 +37,11 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         
     }
     
-    func setupInvalidTxtLabel() {
+    func setupInvalidTextLabel() {
         
         let title = ""
-        self.invalidTxtLabel.text = title
-        self.invalidTxtLabel.textColor = .red
+        self.invalidTextLabel.text = title
+        self.invalidTextLabel.textColor = .red
 
     }
     
@@ -70,15 +70,15 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         guard let textEmail = self.emailTextField.text else { return }
         
         if textEmail == "" {
-            self.invalidTxtLabel.attributedText = NSAttributedString(string: "You don't entered Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            self.invalidTextLabel.attributedText = NSAttributedString(string: "You don't entered Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
         } else if textEmail.count <= 6 {
-            self.invalidTxtLabel.attributedText = NSAttributedString(string: "You entered too small Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            self.invalidTextLabel.attributedText = NSAttributedString(string: "You entered too small Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             emailTextField.text = ""
         } else if (!textEmail.contains("@") && !textEmail.contains(".")) {
-            self.invalidTxtLabel.attributedText = NSAttributedString(string: "You entered Email without . or @", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            self.invalidTextLabel.attributedText = NSAttributedString(string: "You entered Email without . or @", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             emailTextField.text = ""
         } else {
-            invalidTxtLabel.text = ""
+            invalidTextLabel.text = ""
         }
     }
     
