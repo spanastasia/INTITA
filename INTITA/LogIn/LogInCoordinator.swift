@@ -22,9 +22,9 @@ class LogInCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func invalidScreen() {
+    func forgotPasswordScreen() {
                
-            let invalidCoordinator = InvalidCoordinator(navigationController: navigationController)
+            let invalidCoordinator = ForgotPasswordCoordinator(navigationController: navigationController)
             invalidCoordinator.start()
         }
 }

@@ -1,5 +1,5 @@
 //
-//  InvalidViewController.swift
+//  ForgotPasswordViewController.swift
 //  INTITA
 //
 //  Created by Viacheslav Markov on 03.11.2020.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class InvalidViewController: UIViewController, Storyboarded {
+class ForgotPasswordViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: InvalidCoordinator?
+    weak var coordinator: ForgotPasswordCoordinator?
     
     @IBOutlet weak var logoImageView: UIImageView!
     
@@ -84,7 +84,7 @@ class InvalidViewController: UIViewController, Storyboarded {
     
 }
 
-extension InvalidViewController : UITextFieldDelegate {
+extension ForgotPasswordViewController : UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
@@ -100,5 +100,3 @@ extension InvalidViewController : UITextFieldDelegate {
     }
     
 }
-
-
