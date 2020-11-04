@@ -34,6 +34,7 @@ class PromoTextView: UIView {
     func setupText() {
         textLabel.isUserInteractionEnabled = false
         textLabel.textColor = UIColor(named: "mainColor")
+        textLabel.font = UIFont.primaryFontLight
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.numberOfLines = 0
         textLabel.baselineAdjustment = .alignBaselines

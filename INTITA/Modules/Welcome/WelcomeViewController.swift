@@ -10,6 +10,7 @@ import UIKit
 class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegate {
     @IBOutlet weak var mottoLabel: UILabel!
     
+    @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var startBtn: UIButton!
     var coordinator: WelcomeCoordinator?
     @IBOutlet weak var line: UIView!
@@ -33,12 +34,22 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         super.viewDidLoad()
         startBtn.layer.cornerRadius = 5.0
         startBtn.setTitle("start".localized, for: .normal)
-        skipBtn.setTitle("skip".localized, for: .normal)
-        mottoLabel.text = "moto".localized
         startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        startBtn.titleLabel?.textAlignment = .center
+        startBtn.titleLabel?.font = UIFont.primaryFontRegular
+        
+        mottoLabel.text = "moto".localized
+        mottoLabel.textAlignment = .center
         mottoLabel.adjustsFontSizeToFitWidth = true
-        line.layer.cornerRadius = 3.0
+        mottoLabel.font = UIFont.primaryFontRegular
+        
+        skipBtn.setTitle("skip".localized, for: .normal)
+        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        skipBtn.titleLabel?.font = UIFont.primaryFontThin
+        skipBtn.titleLabel?.textAlignment = .left
+        
+//        line.layer.cornerRadius = 3.0
+        logo.layer.cornerRadius = 5.0
         setupPageControll()
         setupScrollView()
         setupStackView(scrollView: scrollView)
