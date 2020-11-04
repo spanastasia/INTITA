@@ -48,7 +48,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="KhS-0d-rrV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" name="mainColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -61,6 +61,7 @@
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="xoe-4b-d9A">
                                 <rect key="frame" x="16" y="60" width="83" height="30"/>
+                                <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ymd-Nq-HAz"/>
                                 </constraints>
@@ -99,7 +100,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="76" height="23"/>
+        <image name="logo" width="837" height="213"/>
         <namedColor name="mainColor">
             <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
