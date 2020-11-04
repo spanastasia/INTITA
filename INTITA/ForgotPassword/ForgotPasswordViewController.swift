@@ -40,28 +40,28 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     func setupInvalidTextLabel() {
         
         let title = ""
-        self.invalidTextLabel.text = title
-        self.invalidTextLabel.textColor = .red
+        invalidTextLabel.text = title
+        invalidTextLabel.textColor = .red
 
     }
     
     func setupEmailTextField() {
 
-        self.emailTextField.layer.cornerRadius = 4
-        self.emailTextField.borderStyle = .line
-        self.emailTextField.keyboardAppearance = .dark
-        self.emailTextField.backgroundColor = .white
-        self.emailTextField.keyboardType = .emailAddress
-        self.emailTextField.placeholder = "Enter your Email"
-        self.emailTextField.clearButtonMode = .whileEditing
+        emailTextField.layer.cornerRadius = 4
+        emailTextField.borderStyle = .line
+        emailTextField.keyboardAppearance = .dark
+        emailTextField.backgroundColor = .white
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.placeholder = "Enter your Email"
+        emailTextField.clearButtonMode = .whileEditing
         
     }
     
     func setupSendButton() {
         
         let titleLocalized = "send".localized
-        self.sendButton.layer.cornerRadius = 8
-        self.sendButton.setTitle(titleLocalized, for: .normal)
+        sendButton.layer.cornerRadius = 8
+        sendButton.setTitle(titleLocalized, for: .normal)
         
     }
     
