@@ -1,14 +1,14 @@
 //
-//  LogInCoordinator.swift
+//  ForgotPasswordCoordinator.swift
 //  INTITA
 //
-//  Created by Stepan Niemykin on 02.11.2020.
+//  Created by Viacheslav Markov on 03.11.2020.
 //
 
 import Foundation
 import UIKit
 
-class LogInCoordinator: Coordinator {
+class ForgotPasswordCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -17,14 +17,9 @@ class LogInCoordinator: Coordinator {
     }
 
     func start() {
-        let vc = LogInViewController.instantiate()
+        let vc = ForgotPasswordViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func forgotPasswordScreen() {
-               
-            let invalidCoordinator = ForgotPasswordCoordinator(navigationController: navigationController)
-            invalidCoordinator.start()
-        }
 }
