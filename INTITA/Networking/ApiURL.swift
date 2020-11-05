@@ -11,19 +11,19 @@ enum ApiURL {
     case login(email: String, password: String)
     case logout
     
-    var path: String {
+    static var path: String {
         return "https://intita.com/"
     }
-    var apiVersion: String {
+    static var apiVersion: String {
         return "api/v1"
     }
     
     var url: String {
         switch self {
         case .login:
-            return "\(path)\(apiVersion)/login"
+            return "\(ApiURL.path)\(ApiURL.apiVersion)/login"
         case .logout:
-            return "\(path)\(apiVersion)/logout"
+            return "\(ApiURL.path)\(ApiURL.apiVersion)/logout"
         }
     }
     
