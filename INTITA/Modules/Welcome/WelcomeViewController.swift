@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+// перезалить картинку лого
+// корнер радиус 10
 class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegate {
     @IBOutlet weak var mottoLabel: UILabel!
     
@@ -32,7 +33,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startBtn.layer.cornerRadius = 5.0
+        startBtn.layer.cornerRadius = 10.0
         startBtn.setTitle("start".localized, for: .normal)
         startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         startBtn.titleLabel?.textAlignment = .center
@@ -47,9 +48,8 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         skipBtn.titleLabel?.font = UIFont.primaryFontThin
         skipBtn.titleLabel?.textAlignment = .left
-        
-//        line.layer.cornerRadius = 3.0
-        logo.layer.cornerRadius = 5.0
+
+        logo.layer.cornerRadius = 10.0
         setupPageControll()
         setupScrollView()
         setupStackView(scrollView: scrollView)
@@ -68,10 +68,10 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
       
       self.view.addSubview(scrollView)
       NSLayoutConstraint.activate([
-        scrollView.topAnchor.constraint(equalTo: self.line.bottomAnchor, constant: 150),
+        scrollView.topAnchor.constraint(equalTo: self.line.bottomAnchor, constant: 32),
         scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
         scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-        scrollView.bottomAnchor.constraint(equalTo: self.pageControl.topAnchor, constant: -20)
+        scrollView.bottomAnchor.constraint(equalTo: self.pageControl.topAnchor, constant: -24)
         ])
     }
 
@@ -115,9 +115,36 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     }
     
     func setupPageControll() {
-        pageControl.backgroundColor = .none
-        pageControl.pageIndicatorTintColor = UIColor(named: "mainColor")
-        pageControl.currentPageIndicatorTintColor = .lightGray
+//        pageControl.backgroundColor = .none
+//        pageControl.pageIndicatorTintColor = .black
+//        UIColor(named: "mainColor")
+        pageControl.currentPageIndicatorTintColor = UIColor(named: "mainColor")
+        pageControl.transform = CGAffineTransform(scaleX: 2, y: 2)
+//        pageControl.subviews[0].subviews[0].subviews[0].layer.borderWidth = 5
+        
+//        let dot = UIImage()
+//        dot.backgroundColor = .black
+//        dot.layer.borderColor = UIColor.red.cgColor
+//        dot.layer.borderWidth = 5
+        
+//        pageControl.subviews[0].subviews[0].insertSubview(dot, at: 0)
+//        subviews[0].layer.borderColor = UIColor.red.cgColor
+        
+        pageControl.preferredIndicatorImage = UIImage(named: "dotPageControl")
+        
+        
+        
+//        print(dots)
+//        pageControl.subviews.forEach { (view) in
+////            print(view.subviews.count)
+//            view.layer.borderWidth = 2
+//            view.layer.borderColor = UIColor.green.cgColor
+//            view.subviews[0].layer.borderWidth = 2
+//            view.subviews[0].layer.borderColor = UIColor.red.cgColor
+//            view.subviews[0].subviews[0].layer.borderWidth = 5
+//            view.subviews[0].subviews[0].layer.borderColor = UIColor.blue.cgColor
+//        }
+//        pageControl.subviews[0].subviews[0].
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(pageControl)
         pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
@@ -125,6 +152,8 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         pageControl.numberOfPages = texts.count
             //  if switch pages will be required by user click
 //        pageControl.addTarget(self, action: #selector(pageControlTapped), for: .valueChanged)
+        
+//        pageControl.setIndicatorImage(UIImage(named: "dotPageControl"), forPage: 0)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
