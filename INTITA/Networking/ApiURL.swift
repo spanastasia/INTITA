@@ -18,10 +18,6 @@ enum ApiURL {
         return "api/v1"
     }
     
-    var defaults: UserDefaultsManager {
-        return UserDefaultsManager.instance
-    }
-    
     var url: String {
         switch self {
         case .login:
@@ -58,7 +54,7 @@ enum ApiURL {
         case .login:
             return "application/json"
         case .logout:
-            guard let token = defaults.token else {
+            guard let token = UserData.token else {
                 return nil
             }
             return "Bearer \(token)"

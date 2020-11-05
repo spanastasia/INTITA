@@ -8,7 +8,6 @@
 import Foundation
 
 class Authorization {
-    private static let defaults = UserDefaultsManager.instance
     
     public static func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
         guard let request = ApiURL.login(email: email, password: password).request
@@ -18,7 +17,7 @@ class Authorization {
             case .failure(let error):
                 completion(error)
             case .success(let response):
-                defaults.token = response.token
+                UserDefaultsManager.addValue(response.token, by: AppConstans.tokenKey)
                 completion(nil)
             }
         }
