@@ -17,7 +17,7 @@ class Authorization {
             case .failure(let error):
                 completion(error)
             case .success(let response):
-                UserDefaults.standard.set(response.token, forKey: ApiURL.key)
+                UserDefaultsManager.addValue(response.token, by: AppConstans.tokenKey)
                 completion(nil)
             }
         }
