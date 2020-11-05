@@ -38,7 +38,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         startBtn.titleLabel?.textAlignment = .center
         startBtn.titleLabel?.font = UIFont.primaryFontRegular
         
-        mottoLabel.text = "moto".localized
+        mottoLabel.text = "motto".localized
         mottoLabel.textAlignment = .center
         mottoLabel.adjustsFontSizeToFitWidth = true
         mottoLabel.font = UIFont.primaryFontRegular
