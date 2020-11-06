@@ -115,7 +115,8 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     
     func setupPageControll() {
         stackViewPageControl.numberOfPages = texts.count
-        stackViewPageControl.transition(next: 0)
+        stackViewPageControl.currentPageImage = UIImage(named: "pageControlCurrentPage")
+        stackViewPageControl.otherPagesImage = UIImage(named: "pageControlOtherPage")
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

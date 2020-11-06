@@ -7,8 +7,8 @@
 
 import UIKit
 
-
-@IBDesignable class UIPageControlStackView: UIStackView { // emulates UIPageControl behaviour
+// emulates UIPageControl behaviour
+class UIPageControlStackView: UIStackView {
     @IBInspectable var currentPageImage: UIImage?
     @IBInspectable var otherPagesImage: UIImage?
     @IBInspectable var numberOfPages: Int = 0 {
@@ -17,25 +17,19 @@ import UIKit
         }
     }
     
-    private lazy var active: UIImageView! = {
-        return subviews.first as! UIImageView
-    }()
-    
-    func transition(next: Int) { //The next active page control
-        UIView.animate(withDuration: 0.5) {
-            guard let currentDot = self.subviews[next] as? UIImageView else {return}
-            currentDot.image = self.currentPageImage
-            self.active.image = currentDot.image
-            if next != 0 {
-                guard let previousDot = self.subviews[next-1] as? UIImageView else {return}
-                
-                previousDot.image = self.otherPagesImage
-            }
-        }
-        // here should be reverce scrolling pages
+    private var currentPageNumber = 0    
+    private var active: UIImageView? {
+        return subviews[currentPageNumber] as? UIImageView
     }
     
-    private func insertSubviews(_ n: Int) { //for the first fill
+    func transition(next: Int) {
+            guard let currentDot = subviews[next] as? UIImageView else {return}
+            active?.image = otherPagesImage
+            currentDot.image = currentPageImage
+            currentPageNumber = next
+    }
+    
+    private func insertSubviews(_ n: Int) {
         subviews.forEach { view in
             view.removeFromSuperview()
         }
@@ -47,6 +41,6 @@ import UIKit
             view.image = otherPagesImage
             addArrangedSubview(view)
         }
-        active.image = currentPageImage
+        active?.image = currentPageImage
     }
 }
