@@ -24,6 +24,7 @@ class AlertView: UIView {
     }()
     
     private let shadowRadius: CGFloat = 4
+    private let shadowOpacity: Float = 0.25
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,27 +43,27 @@ class AlertView: UIView {
         return view
     }
     
-    func customize(superview: UIView, header: String, message: String, buttonTitle: String) {
+    func customize(superview: UIView, header: String, message: NSAttributedString, buttonTitle: String) {
         errorHeader.text = header
-        errorMessage.text = message
+        errorMessage.attributedText = message
         backButton.setTitle(buttonTitle, for: .normal)
         
         errorHeader.layer.shadowRadius = shadowRadius
         errorHeader.layer.shadowColor = UIColor.black.cgColor
         errorHeader.layer.shadowOffset = CGSize(width: 0, height: 4)
-        errorHeader.layer.shadowOpacity = 0.25
+        errorHeader.layer.shadowOpacity = shadowOpacity
         backButton.backgroundColor = UIColor.white
         backButton.layer.borderWidth = 1
         backButton.layer.borderColor = UIColor(named: "mainColor")?.cgColor
         backButton.layer.cornerRadius = 10
-        backButton.layer.shadowColor = UIColor(named: "buttonShadow")?.cgColor
+        backButton.layer.shadowColor = UIColor(named: "mainColor")?.cgColor
         backButton.layer.shadowRadius = shadowRadius
         backButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        backButton.layer.shadowOpacity = 1
+        backButton.layer.shadowOpacity = shadowOpacity
         backButton.titleLabel?.layer.shadowRadius = shadowRadius
         backButton.titleLabel?.layer.shadowColor = UIColor.black.cgColor
         backButton.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 4)
-        backButton.titleLabel?.layer.shadowOpacity = 0.25
+        backButton.titleLabel?.layer.shadowOpacity = shadowOpacity
         
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.4
@@ -84,4 +85,6 @@ class AlertView: UIView {
         isHidden = true
         blurEffectFrame.removeFromSuperview()
     }
+    
+    
 }
