@@ -37,11 +37,6 @@ class LogInViewController: UIViewController, Storyboarded {
 
     //MARK:- Actions
     
-    @IBAction func forgotPasswordPressed(_ sender: Any) {
-        
-        coordinator?.forgotPasswordScreen()
-    }
-    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         showSafari("https://intita.com/register")
     }
