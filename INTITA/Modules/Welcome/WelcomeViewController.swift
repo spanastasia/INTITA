@@ -43,7 +43,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         startBtn.titleLabel?.layer.shadowOpacity = 0.5
         startBtn.titleLabel?.layer.shadowRadius = 4.0
         
-        mottoLabel.text = "moto".localized
+        mottoLabel.text = "motto".localized
         mottoLabel.textAlignment = .center
         mottoLabel.adjustsFontSizeToFitWidth = true
         mottoLabel.font = UIFont.primaryFontRegular

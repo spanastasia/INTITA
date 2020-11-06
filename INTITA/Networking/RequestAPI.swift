@@ -7,14 +7,6 @@
 import Foundation
 
 class RequestAPI {
-    private static let path = "https://intita.com/"
-    private static let version = "api/v1"
-    public static var loginPath: String {
-        return "\(path)\(version)/login"
-    }
-    public static var logoutPath: String {
-        return "\(path)\(version)/logout"
-    }
     
     public static func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let session = URLSession.shared

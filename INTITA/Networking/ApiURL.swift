@@ -11,9 +11,6 @@ enum ApiURL {
     case login(email: String, password: String)
     case logout
     
-    static var key: String {
-        return "intitaToken"
-    }
     var path: String {
         return "https://intita.com/"
     }
@@ -57,7 +54,7 @@ enum ApiURL {
         case .login:
             return "application/json"
         case .logout:
-            guard let token = UserDefaults.standard.string(forKey: ApiURL.key) else {
+            guard let token = UserData.token else {
                 return nil
             }
             return "Bearer \(token)"
