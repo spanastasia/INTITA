@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahv-DJ-VZD">
-                                <rect key="frame" x="315" y="60" width="83" height="30"/>
+                                <rect key="frame" x="300" y="60" width="98" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qGR-cW-JhG"/>
                                 </constraints>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uca-Of-E2p">
-                                <rect key="frame" x="24" y="757" width="366" height="55"/>
+                                <rect key="frame" x="24" y="783" width="366" height="55"/>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="dEi-4k-F5p"/>
@@ -68,26 +68,40 @@
                                     <constraint firstAttribute="height" constant="93" id="8zh-D2-H4G"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSf-tu-YFB" customClass="UIPageControlStackView" customModule="INTITA" customModuleProvider="target">
+                                <rect key="frame" x="87" y="734" width="240" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="A1b-bS-yUI"/>
+                                    <constraint firstAttribute="width" constant="240" id="bTf-tm-2Nf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberOfPages">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="currentPageImage" value="pageControlCurrentPage"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="otherPagesImage" value="pageControlOtherPage"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uca-Of-E2p" secondAttribute="bottom" constant="50" id="2Pi-gk-fQt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uca-Of-E2p" secondAttribute="bottom" constant="24" id="2Pi-gk-fQt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JCo-XY-WyK" secondAttribute="trailing" constant="24" id="8be-Tc-Jrs"/>
                             <constraint firstItem="uca-Of-E2p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="8ga-3K-Yw4"/>
+                            <constraint firstItem="JSf-tu-YFB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="B3V-e4-hUd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xoe-4b-d9A" secondAttribute="trailing" constant="24" id="D7H-vT-gOg"/>
                             <constraint firstItem="ge6-SB-pzY" firstAttribute="top" secondItem="JCo-XY-WyK" secondAttribute="bottom" constant="30" id="D7h-sG-eRn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uca-Of-E2p" secondAttribute="trailing" constant="24" id="DFn-7D-Jsn"/>
                             <constraint firstItem="JCo-XY-WyK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="KYs-95-qgv"/>
                             <constraint firstItem="ge6-SB-pzY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UUX-ci-IPF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ahv-DJ-VZD" secondAttribute="trailing" constant="16" id="gxg-Y9-kKo"/>
-                            <constraint firstItem="ahv-DJ-VZD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="kLv-Kr-v5i"/>
-                            <constraint firstItem="uca-Of-E2p" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mrT-RY-q80"/>
+                            <constraint firstItem="ahv-DJ-VZD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="300" id="jb6-Lu-wTR"/>
                             <constraint firstItem="ahv-DJ-VZD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ody-wK-Hd7"/>
+                            <constraint firstItem="uca-Of-E2p" firstAttribute="top" secondItem="JSf-tu-YFB" secondAttribute="bottom" constant="24" id="p8U-Kj-B9B"/>
                             <constraint firstItem="JCo-XY-WyK" firstAttribute="top" secondItem="xoe-4b-d9A" secondAttribute="bottom" constant="35" id="qXR-jl-a7y"/>
                             <constraint firstItem="xoe-4b-d9A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="sc6-gu-H48"/>
                             <constraint firstItem="xoe-4b-d9A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="vf5-fR-11f"/>
-                            <constraint firstItem="JCo-XY-WyK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xES-O7-yuU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -95,6 +109,7 @@
                         <outlet property="logo" destination="xoe-4b-d9A" id="QJp-Ra-STh"/>
                         <outlet property="mottoLabel" destination="JCo-XY-WyK" id="sTx-FI-Z3E"/>
                         <outlet property="skipBtn" destination="ahv-DJ-VZD" id="ole-J4-FV0"/>
+                        <outlet property="stackViewPageControl" destination="JSf-tu-YFB" id="vpe-tl-CyZ"/>
                         <outlet property="startBtn" destination="uca-Of-E2p" id="TTc-r6-Hyx"/>
                     </connections>
                 </viewController>
@@ -104,7 +119,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="837" height="213"/>
+        <image name="logo" width="327" height="93"/>
+        <image name="pageControlCurrentPage" width="33.5" height="32"/>
+        <image name="pageControlOtherPage" width="33.5" height="32.5"/>
         <namedColor name="mainColor">
             <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
