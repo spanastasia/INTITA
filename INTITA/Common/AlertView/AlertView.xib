@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+        <array key="Roboto-Thin.ttf">
+            <string>Roboto-Thin</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="AlertView" customModule="INTITA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="429" height="349"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" distribution="equalSpacing" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="nIo-Mf-h28">
+                    <rect key="frame" x="24" y="24" width="381" height="301"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv3-T0-x4h">
+                            <rect key="frame" x="0.0" y="0.0" width="381" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="v29-oY-6MR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="28"/>
+                            <color key="textColor" name="mainColor"/>
+                            <color key="highlightedColor" name="mainColor"/>
+                            <color key="shadowColor" name="shadow"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAR-UD-RgO">
+                            <rect key="frame" x="0.0" y="64" width="381" height="158"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="158" id="2ss-M9-d4Q"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="16"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKW-La-iuo">
+                            <rect key="frame" x="0.0" y="246" width="381" height="55"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="ufr-CT-4ff"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
+                            <state key="normal">
+                                <color key="titleColor" name="mainColor"/>
+                                <color key="titleShadowColor" name="shadow"/>
+                            </state>
+                            <connections>
+                                <action selector="backButtonTapped" destination="iN0-l3-epB" eventType="touchUpInside" id="tJ8-gs-wV0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="IAR-UD-RgO" firstAttribute="leading" secondItem="nIo-Mf-h28" secondAttribute="leading" id="9cW-OZ-W4D"/>
+                        <constraint firstItem="Pv3-T0-x4h" firstAttribute="leading" secondItem="nIo-Mf-h28" secondAttribute="leading" id="CKV-TN-vZf"/>
+                        <constraint firstItem="Pv3-T0-x4h" firstAttribute="top" secondItem="nIo-Mf-h28" secondAttribute="top" id="JEO-my-bxy"/>
+                        <constraint firstAttribute="trailing" secondItem="Pv3-T0-x4h" secondAttribute="trailing" id="JdE-mr-WyM"/>
+                        <constraint firstAttribute="trailing" secondItem="IAR-UD-RgO" secondAttribute="trailing" id="gHu-r5-Md5"/>
+                        <constraint firstAttribute="trailing" secondItem="iKW-La-iuo" secondAttribute="trailing" id="gau-ui-PED"/>
+                        <constraint firstAttribute="bottom" secondItem="iKW-La-iuo" secondAttribute="bottom" id="iSJ-FP-vrl"/>
+                        <constraint firstItem="iKW-La-iuo" firstAttribute="leading" secondItem="nIo-Mf-h28" secondAttribute="leading" id="qmR-Ny-buv"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nIo-Mf-h28" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="6la-XK-DnX"/>
+                <constraint firstAttribute="trailing" secondItem="nIo-Mf-h28" secondAttribute="trailing" constant="24" id="IbM-hn-FyV"/>
+                <constraint firstAttribute="bottom" secondItem="nIo-Mf-h28" secondAttribute="bottom" constant="24" id="Q6D-vT-y4k"/>
+                <constraint firstItem="nIo-Mf-h28" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="Ykc-Zn-JwB"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+            <connections>
+                <outlet property="backButton" destination="iKW-La-iuo" id="I38-J6-z6w"/>
+                <outlet property="errorHeader" destination="Pv3-T0-x4h" id="WwG-GU-PvN"/>
+                <outlet property="errorMessage" destination="IAR-UD-RgO" id="Iqh-gx-UH1"/>
+            </connections>
+            <point key="canvasLocation" x="218" y="-280"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="mainColor">
+            <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="shadow">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
