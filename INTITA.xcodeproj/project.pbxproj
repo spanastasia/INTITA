@@ -29,6 +29,7 @@
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
+		64F78E4025557CAE002C1565 /* ValidateEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E3F25557CAE002C1565 /* ValidateEmail.swift */; };
 		846E63A7254FFD3F00C737C4 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E63A6254FFD3F00C737C4 /* LogIn.storyboard */; };
 		846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63A9254FFD6600C737C4 /* LogInViewController.swift */; };
 		846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */; };
@@ -67,6 +68,7 @@
 		64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		64F78E3F25557CAE002C1565 /* ValidateEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateEmail.swift; sourceTree = "<group>"; };
 		846E63A6254FFD3F00C737C4 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		846E63A9254FFD6600C737C4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */,
 				3F2E76FE255408B100853140 /* UserData.swift */,
 				3F0780A12554066500E0332F /* AppConstans.swift */,
+				64F78E3F25557CAE002C1565 /* ValidateEmail.swift */,
 				49F53E9D25531234008327A6 /* Localization */,
 				BA8D88642552D917005A44C2 /* Fonts */,
 				3FF29A14254C0BFF0087AEC7 /* Extensions */,
@@ -316,6 +319,7 @@
 				846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */,
 				846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */,
 				64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */,
+				64F78E4025557CAE002C1565 /* ValidateEmail.swift in Sources */,
 				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,

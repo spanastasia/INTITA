@@ -52,6 +52,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owu-vr-3Xa">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="40"/>
                                         <state key="normal" title="Forgot password?"/>
+                                        <connections>
+                                            <action selector="forgotPasswordPressed:" destination="QqK-Yh-PRA" eventType="touchUpInside" id="zMx-9H-8nI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWn-os-Vgk">
                                         <rect key="frame" x="196" y="0.0" width="186" height="40"/>

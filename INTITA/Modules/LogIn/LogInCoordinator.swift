@@ -24,7 +24,7 @@ class LogInCoordinator: Coordinator {
     
     func forgotPasswordScreen() {
                
-            let invalidCoordinator = ForgotPasswordCoordinator(navigationController: navigationController)
-            invalidCoordinator.start()
+            let forgotPasswordScreen = ForgotPasswordCoordinator(navigationController: navigationController)
+        forgotPasswordScreen.start()
         }
 }

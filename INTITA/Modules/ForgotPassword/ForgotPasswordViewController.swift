@@ -11,6 +11,8 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     weak var coordinator: ForgotPasswordCoordinator?
     
+    var validateEmail = ValidateEmail()
+    
     @IBOutlet weak var logoImageView: UIImageView!
     
     @IBOutlet weak var blueLineView: UIView!
@@ -32,8 +34,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         setupInvalidTextLabel()
         setupEmailTextField()
         setupSendButton()
-
-        emailTextField.delegate = self
         
     }
     
@@ -69,34 +69,12 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         
         guard let textEmail = self.emailTextField.text else { return }
         
-        if textEmail == "" {
-            self.invalidTextLabel.attributedText = NSAttributedString(string: "You don't entered Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-        } else if textEmail.count <= 6 {
-            self.invalidTextLabel.attributedText = NSAttributedString(string: "You entered too small Email", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-            emailTextField.text = ""
-        } else if (!textEmail.contains("@") && !textEmail.contains(".")) {
-            self.invalidTextLabel.attributedText = NSAttributedString(string: "You entered Email without . or @", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
-            emailTextField.text = ""
+        if !validateEmail.validateEmail(email: textEmail) {
+            invalidTextLabel.isHidden = false
+            invalidTextLabel.text = "You entered wrong Email"
         } else {
-            invalidTextLabel.text = ""
+            invalidTextLabel.text = "Your Email sent"
         }
-    }
-    
-}
-
-extension ForgotPasswordViewController : UITextFieldDelegate {
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        //For symbol
-        if textField == emailTextField {
-            //Here change this characters based on your requirement
-            let allowedCharacters = CharacterSet(charactersIn:".@_-0123456789ABCDFGHJKLMNPQRSTVWXZabcdfg hjklmnpqrstvwxz")
-            let characterSet = CharacterSet(charactersIn: string)
-            return allowedCharacters.isSuperset(of: characterSet)
-        }
-
-        return true
     }
     
 }
