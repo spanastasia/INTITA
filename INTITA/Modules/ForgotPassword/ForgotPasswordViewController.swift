@@ -11,7 +11,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     weak var coordinator: ForgotPasswordCoordinator?
     
-    var validateEmail = ValidateEmail()
+    var validateEmail = Validate()
     
     @IBOutlet weak var logoImageView: UIImageView!
     
