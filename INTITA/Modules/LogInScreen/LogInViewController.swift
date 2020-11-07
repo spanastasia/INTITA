@@ -27,13 +27,14 @@ enum CredentialsError {
 
 class LogInViewController: UIViewController, Storyboarded {
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
     weak var coordinator: LogInCoordinator?
+    var viewModel: LogInViewModel?
 
     //MARK:- Actions
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -46,11 +47,14 @@ class LogInViewController: UIViewController, Storyboarded {
         guard let password = passwordTextField.text, let email = emailTextField.text else {
             return
         }
-        validateCredentials(password, email)
+        if validateCredentials(password, email) {
+            viewModel?.login(email: email, password: password)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
     
     override func viewWillLayoutSubviews() {
@@ -58,32 +62,52 @@ class LogInViewController: UIViewController, Storyboarded {
         setupUI()
     }
     
+    func handleViewModelUpdateWith(error: Error?) {
+        if let error = error {
+            print("ERRORORROOR \(error)")
+            return
+        }
+    }
+    
     private func setupUI() {
         registerButton.setTitle("register".localized, for: .normal)
         forgotPasswordButton.setTitle("forgotPass".localized, for: .normal)
         logInButton.setTitle("logIn".localized, for: .normal)
+        logInButton.layer.cornerRadius = 10.0
         
+        //text fields
         passwordTextField.placeholder = "inputPassword".localized
+        passwordTextField.layer.borderWidth = 1.0
+        passwordTextField.layer.cornerRadius = 5.0
         emailTextField.placeholder = "inputEmail".localized
+        emailTextField.layer.borderWidth = 1.0
+        emailTextField.layer.cornerRadius = 5.0
+        
+        
     }
     
-    private func validateCredentials(_ password: String, _ email: String) {
+    private func validateCredentials(_ password: String, _ email: String) -> Bool {
+        var result = true
         if password.isEmpty {
             errorLabel.isHidden = false
             errorLabel.text = CredentialsError.passwordIsEmpty.getString()
+            result = false
         } else if email.isEmpty {
             errorLabel.isHidden = false
             errorLabel.text = CredentialsError.emailIsEmpty.getString()
+            result = false
         }
         guard email.contains("@") else {
             errorLabel.isHidden = false
             errorLabel.text = CredentialsError.wrongEmail.getString()
-            return
+            return false
         }
         if email.components(separatedBy: "@")[1].isEmpty {
             errorLabel.isHidden = false
             errorLabel.text = CredentialsError.wrongEmail.getString()
+            result = false
         }
+        return result
     }
     
     private func showSafari(_ url: String) {

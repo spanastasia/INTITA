@@ -18,7 +18,10 @@ class LogInCoordinator: Coordinator {
 
     func start() {
         let vc = LogInViewController.instantiate()
+        let viewModel = LogInViewModel()
         vc.coordinator = self
+        viewModel.delegate = self
+        vc.viewModel = viewModel
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -27,4 +30,15 @@ class LogInCoordinator: Coordinator {
             let forgotPasswordScreen = ForgotPasswordCoordinator(navigationController: navigationController)
         forgotPasswordScreen.start()
         }
+}
+
+extension LogInCoordinator: LogInViewModelDelegate {
+    func loginSuccess() {
+        let successCoordinator = WelcomeCoordinator(navigationController: navigationController)
+        childCoordinators.append(successCoordinator)
+        print("success")
+        DispatchQueue.main.async {
+            successCoordinator.start()
+        }
+    }
 }
