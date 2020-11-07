@@ -38,6 +38,7 @@
 		BA8D88672552D9CF005A44C2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D88662552D94D005A44C2 /* Roboto-Light.ttf */; };
 		BA8D88692552D9D1005A44C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D88652552D94D005A44C2 /* Roboto-Regular.ttf */; };
 		BA8D886C2552DF3D005A44C2 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D886B2552DF3A005A44C2 /* Roboto-Thin.ttf */; };
+		BA8D8872255487C2005A44C2 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8871255487C2005A44C2 /* CustomPageControl.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		BA8D88652552D94D005A44C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		BA8D88662552D94D005A44C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		BA8D886B2552DF3A005A44C2 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		BA8D8871255487C2005A44C2 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 			children = (
 				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
 				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
+				BA8D8871255487C2005A44C2 /* CustomPageControl.swift */,
 				BAF940CD2550754300AE50CE /* PromoTextView.swift */,
 				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
 			);
@@ -332,6 +335,7 @@
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
+				BA8D8872255487C2005A44C2 /* CustomPageControl.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
 				BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */,
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
