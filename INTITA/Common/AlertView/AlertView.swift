@@ -43,9 +43,9 @@ class AlertView: UIView {
         return view
     }
     
-    func customize(superview: UIView, header: String, message: NSAttributedString, buttonTitle: String) {
+    func customize(superview: UIView, header: String, message: String, buttonTitle: String) {
         errorHeader.text = header
-        errorMessage.attributedText = message
+        errorMessage.text = message
         backButton.setTitle(buttonTitle, for: .normal)
         
         errorHeader.layer.shadowRadius = shadowRadius
@@ -76,14 +76,17 @@ class AlertView: UIView {
         NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
         NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: -24).isActive = true
         NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 196).isActive = true
+        self.isHidden = true
+        blurEffectFrame.isHidden = true
     }
     
     func showAlert() {
+        blurEffectFrame.isHidden = false
         self.isHidden = false
     }
     func hideAlert() {
         isHidden = true
-        blurEffectFrame.removeFromSuperview()
+        blurEffectFrame.isHidden = true
     }
     
     
