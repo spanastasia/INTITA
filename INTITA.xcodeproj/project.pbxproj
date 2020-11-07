@@ -29,11 +29,11 @@
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
-		846E63A7254FFD3F00C737C4 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E63A6254FFD3F00C737C4 /* LogIn.storyboard */; };
-		846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63A9254FFD6600C737C4 /* LogInViewController.swift */; };
-		846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */; };
 		846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63B6255007C200C737C4 /* AppDelegate.swift */; };
 		848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848EE5052553FBF30042E3D8 /* LogInViewModel.swift */; };
+		84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A08F592556B9AE00565689 /* LogIn.storyboard */; };
+		84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A08F5A2556B9AE00565689 /* LogInViewController.swift */; };
+		84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */; };
 		BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */; };
 		BA8D88672552D9CF005A44C2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D88662552D94D005A44C2 /* Roboto-Light.ttf */; };
 		BA8D88692552D9D1005A44C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D88652552D94D005A44C2 /* Roboto-Regular.ttf */; };
@@ -68,11 +68,11 @@
 		64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
-		846E63A6254FFD3F00C737C4 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
-		846E63A9254FFD6600C737C4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		846E63B6255007C200C737C4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		848EE5052553FBF30042E3D8 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		84A08F592556B9AE00565689 /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		84A08F5A2556B9AE00565689 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 		BA8D88652552D94D005A44C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		BA8D88662552D94D005A44C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -130,8 +130,6 @@
 		3FF299E9254ADD800087AEC7 /* INTITA */ = {
 			isa = PBXGroup;
 			children = (
-				848EE5052553FBF30042E3D8 /* LogInViewModel.swift */,
-				846E63A5254FFD2600C737C4 /* LogIn */,
 				3F54E91D254E8F3500426261 /* Models */,
 				3FFAC975254DAB0700AED580 /* Networking */,
 				BA8D88512552C37F005A44C2 /* Modules */,
@@ -193,14 +191,15 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
-		846E63A5254FFD2600C737C4 /* LogIn */ = {
+		84A08F622556B9E800565689 /* LogInScreen */ = {
 			isa = PBXGroup;
 			children = (
-				846E63A6254FFD3F00C737C4 /* LogIn.storyboard */,
-				846E63A9254FFD6600C737C4 /* LogInViewController.swift */,
-				846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */,
+				84A08F592556B9AE00565689 /* LogIn.storyboard */,
+				84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */,
+				84A08F5A2556B9AE00565689 /* LogInViewController.swift */,
+				848EE5052553FBF30042E3D8 /* LogInViewModel.swift */,
 			);
-			path = LogIn;
+			path = LogInScreen;
 			sourceTree = "<group>";
 		};
 		BA8D88502552C365005A44C2 /* Common */ = {
@@ -219,8 +218,8 @@
 		BA8D88512552C37F005A44C2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				84A08F622556B9E800565689 /* LogInScreen */,
 				64F78E272551D9EB002C1565 /* ForgotPassword */,
-				846E63A5254FFD2600C737C4 /* LogIn */,
 				64B74F47254DC369004E6A4E /* Welcome */,
 			);
 			path = Modules;
@@ -299,10 +298,10 @@
 				BA8D88692552D9D1005A44C2 /* Roboto-Regular.ttf in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
+				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
 				BA8D88672552D9CF005A44C2 /* Roboto-Light.ttf in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
-				846E63A7254FFD3F00C737C4 /* LogIn.storyboard in Resources */,
 				BA8D886C2552DF3D005A44C2 /* Roboto-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,10 +316,9 @@
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
 				3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */,
-				846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */,
-				846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */,
 				64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */,
 				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
+				84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
@@ -334,6 +332,7 @@
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
 				BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */,
+				84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */,
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
