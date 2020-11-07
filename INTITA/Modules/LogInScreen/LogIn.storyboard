@@ -91,7 +91,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XEp-en-jDC">
                                 <rect key="frame" x="24" y="351.5" width="366" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="En9-PO-HPD">
                                 <rect key="frame" x="32" y="785" width="350" height="2"/>
@@ -161,7 +161,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="76" height="23"/>
+        <image name="logo" width="327" height="93"/>
         <namedColor name="mainColor">
             <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

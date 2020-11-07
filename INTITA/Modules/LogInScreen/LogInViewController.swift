@@ -117,9 +117,3 @@ class LogInViewController: UIViewController, Storyboarded {
         present(safariViewController, animated: true, completion: nil)
     }
 }
-
-extension LogInViewController {
-    static func instatiate() -> Self {
-        return LogInViewController() as! Self
-    }
-}
