@@ -24,6 +24,12 @@ class LogInCoordinator: Coordinator {
         vc.viewModel = viewModel
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func forgotPasswordScreen() {
+               
+            let invalidCoordinator = ForgotPasswordCoordinator(navigationController: navigationController)
+            invalidCoordinator.start()
+        }
 }
 
 extension LogInCoordinator: LogInViewModelDelegate {

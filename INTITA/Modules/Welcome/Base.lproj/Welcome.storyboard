@@ -21,9 +21,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qGR-cW-JhG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" name="mainColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="SKIP ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="goToLogInBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FQb-LY-jhm"/>
@@ -48,7 +48,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="KhS-0d-rrV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="mainColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -61,6 +61,7 @@
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="xoe-4b-d9A">
                                 <rect key="frame" x="16" y="60" width="83" height="30"/>
+                                <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ymd-Nq-HAz"/>
                                 </constraints>
@@ -88,6 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="line" destination="ge6-SB-pzY" id="h2F-07-mqx"/>
+                        <outlet property="logo" destination="xoe-4b-d9A" id="QJp-Ra-STh"/>
                         <outlet property="mottoLabel" destination="JCo-XY-WyK" id="sTx-FI-Z3E"/>
                         <outlet property="skipBtn" destination="ahv-DJ-VZD" id="ole-J4-FV0"/>
                         <outlet property="startBtn" destination="uca-Of-E2p" id="TTc-r6-Hyx"/>
@@ -99,7 +101,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="76" height="23"/>
+        <image name="logo" width="837" height="213"/>
         <namedColor name="mainColor">
             <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
