@@ -113,6 +113,7 @@
 		3FF299E9254ADD800087AEC7 /* INTITA */ = {
 			isa = PBXGroup;
 			children = (
+				848EE5052553FBF30042E3D8 /* LogInViewModel.swift */,
 				846E63A5254FFD2600C737C4 /* LogIn */,
 				3F54E91D254E8F3500426261 /* Models */,
 				3FFAC975254DAB0700AED580 /* Networking */,
@@ -164,7 +165,6 @@
 				846E63A6254FFD3F00C737C4 /* LogIn.storyboard */,
 				846E63A9254FFD6600C737C4 /* LogInViewController.swift */,
 				846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */,
-				848EE5052553FBF30042E3D8 /* LogInViewModel.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
