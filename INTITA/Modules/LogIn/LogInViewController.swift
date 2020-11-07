@@ -36,7 +36,6 @@ class LogInViewController: UIViewController, Storyboarded {
     weak var coordinator: LogInCoordinator?
 
     //MARK:- Actions
-    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         showSafari("https://intita.com/register")
     }
