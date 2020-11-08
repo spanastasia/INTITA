@@ -54,6 +54,7 @@ class LogInViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
     

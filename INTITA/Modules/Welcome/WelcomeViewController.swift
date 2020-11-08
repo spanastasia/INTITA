@@ -9,13 +9,14 @@ import UIKit
 
 class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegate {
     @IBOutlet weak var mottoLabel: UILabel!
-    
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var startBtn: UIButton!
     var coordinator: WelcomeCoordinator?
     @IBOutlet weak var line: UIView!
+    @IBOutlet weak var arrowImg: UIImageView!
     
     @IBOutlet weak var skipBtn: UIButton!
+
     private var scrollView = UIScrollView(frame: .zero)
     private var stackView = UIStackView(frame: .zero)
     var views:[UIView] = []
@@ -32,7 +33,8 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
         startBtn.layer.cornerRadius = 10.0
         startBtn.setTitle("start".localized, for: .normal)
         startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -52,8 +54,10 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         mottoLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
         mottoLabel.layer.shadowRadius = 4.0
         
-        skipBtn.setTitle("skip".localized, for: .normal)
+        arrowImg.image = UIImage(named:"skipArrow")
+
         skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        skipBtn.setTitle("skip".localized, for: .normal)
         skipBtn.titleLabel?.font = UIFont.primaryFontThin
         skipBtn.titleLabel?.textAlignment = .left
         
@@ -63,7 +67,11 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         setupStackView(scrollView: scrollView)
         views = createAndAddViews(to: stackView)
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
     @IBAction func goToLogInBtn(_ sender: UIButton) {
         coordinator?.displayLogin()
     }
