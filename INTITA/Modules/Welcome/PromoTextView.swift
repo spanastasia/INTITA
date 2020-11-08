@@ -33,7 +33,7 @@ class PromoTextView: UIView {
     
     func setupText() {
         textLabel.isUserInteractionEnabled = false
-        textLabel.textColor = UIColor(named: "mainColor")
+        textLabel.textColor = .black
         textLabel.font = UIFont.primaryFontLight
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.numberOfLines = 0
@@ -43,6 +43,10 @@ class PromoTextView: UIView {
         textLabel.sizeToFit()
         textLabel.backgroundColor = .clear
         textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.layer.shadowColor = UIColor.black.cgColor
+        textLabel.layer.shadowOpacity = 0.5
+        textLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
+        textLabel.layer.shadowRadius = 4.0
         
         self.addSubview(textLabel)
         
