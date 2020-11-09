@@ -16,7 +16,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     @IBOutlet weak var arrowImg: UIImageView!
     
     @IBOutlet weak var skipBtn: UIButton!
-
+    
     private var scrollView = UIScrollView(frame: .zero)
     private var stackView = UIStackView(frame: .zero)
     var views:[UIView] = []
@@ -30,48 +30,26 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
                  "promo6".localized,
                  "promo7".localized,]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem
-        startBtn.layer.cornerRadius = 10.0
-        startBtn.setTitle("start".localized, for: .normal)
-        startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        startBtn.titleLabel?.textAlignment = .center
-        startBtn.titleLabel?.font = UIFont.primaryFontRegular
-        startBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
-        startBtn.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 4)
-        startBtn.titleLabel?.layer.shadowOpacity = 0.5
-        startBtn.titleLabel?.layer.shadowRadius = 4.0
         
-        mottoLabel.text = "motto".localized
-        mottoLabel.textAlignment = .center
-        mottoLabel.adjustsFontSizeToFitWidth = true
-        mottoLabel.font = UIFont.primaryFontRegular
-        mottoLabel.layer.shadowColor = UIColor.black.cgColor
-        mottoLabel.layer.shadowOpacity = 0.5
-        mottoLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
-        mottoLabel.layer.shadowRadius = 4.0
+        setupMottoLabel()
+        setupStartBtn()
+        setupSkipBtn()
+        logo.rounded()
         
-        arrowImg.image = UIImage(named:"skipArrow")
-
-        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        skipBtn.setTitle("skip".localized, for: .normal)
-        skipBtn.titleLabel?.font = UIFont.primaryFontThin
-        skipBtn.titleLabel?.textAlignment = .left
-        
-        logo.layer.cornerRadius = 10.0
         setupPageControll()
         setupScrollView()
         setupStackView(scrollView: scrollView)
         views = createAndAddViews(to: stackView)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
+    
     @IBAction func goToLogInBtn(_ sender: UIButton) {
         coordinator?.displayLogin()
     }
@@ -140,6 +118,32 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
             view.updateViewCenterXAnchor(with: constant)
         }
     }
+    
+    func setupStartBtn(){
+        startBtn.setTitle("start".localized, for: .normal)
+        startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        startBtn.titleLabel?.textAlignment = .center
+        startBtn.titleLabel?.font = UIFont.primaryFontRegular
+        startBtn.titleLabel?.shadowed()
+        startBtn.rounded()
+    }
+    func setupSkipBtn() {
+        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        skipBtn.setTitle("skip".localized, for: .normal)
+        skipBtn.titleLabel?.font = UIFont.primaryFontThin
+        skipBtn.titleLabel?.textAlignment = .left
+        
+        arrowImg.image = UIImage(named:"skipArrow")
+    }
+    
+    func setupMottoLabel() {
+        mottoLabel.text = "motto".localized
+        mottoLabel.textAlignment = .center
+        mottoLabel.adjustsFontSizeToFitWidth = true
+        mottoLabel.font = UIFont.primaryFontRegular
+        mottoLabel.shadowed()
+    }
+    
 }
 
 
