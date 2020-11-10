@@ -32,9 +32,6 @@ class AlertView: UIView {
         return animator
     }
     
-    private let shadowRadius: CGFloat = 4
-    private let shadowOpacity: Float = 0.25
-    
     private var contacts: NSAttributedString {
         let string = NSMutableAttributedString()
         let text = "get more info".localized
@@ -59,39 +56,18 @@ class AlertView: UIView {
         super.init(coder: coder)
     }
     
-    func loadView() -> UIView {
-        let bundleName = Bundle(for: type(of: self))
-        let nibName = String(describing: type(of: self))
-        let nib = UINib(nibName: nibName, bundle: bundleName)
-        let view = nib.instantiate(withOwner: nil, options: nil).first as! UIView
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }
-    
     func setUp() {
         guard let superview = self.superview else { return }
         
-        errorHeader.layer.shadowRadius = shadowRadius
-        errorHeader.layer.shadowColor = UIColor.black.cgColor
-        errorHeader.layer.shadowOffset = CGSize(width: 0, height: 4)
-        errorHeader.layer.shadowOpacity = shadowOpacity
-        backButton.backgroundColor = UIColor.white
-        backButton.layer.borderWidth = 1
-        backButton.layer.borderColor = UIColor(named: "mainColor")?.cgColor
-        backButton.layer.cornerRadius = 10
-        backButton.layer.shadowColor = UIColor(named: "mainColor")?.cgColor
-        backButton.layer.shadowRadius = shadowRadius
-        backButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        backButton.layer.shadowOpacity = shadowOpacity
-        backButton.titleLabel?.layer.shadowRadius = shadowRadius
-        backButton.titleLabel?.layer.shadowColor = UIColor.black.cgColor
-        backButton.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 4)
-        backButton.titleLabel?.layer.shadowOpacity = shadowOpacity
+        errorHeader.shadowed()
         
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.4
-        self.layer.shadowOffset = CGSize(width: 4, height: 4)
-        self.layer.shadowRadius = 16
+        backButton.backgroundColor = UIColor.white
+        
+        backButton.bordered()
+        backButton.rounded()
+        backButton.shadowed(shadowColor: UIColor.primaryColor.cgColor)
+        backButton.titleLabel?.shadowed()
+        self.shadowed(shadowOffset: CGSize(width: 4, height: 4), shadowRadius: 16, shadowOpacity: 0.4)
         
         blurEffectView.frame = superview.bounds
         let gesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
