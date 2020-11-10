@@ -8,18 +8,19 @@
 import UIKit
 
 class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegate {
-    @IBOutlet weak var mottoLabel: UILabel!
+    var coordinator: WelcomeCoordinator?
     
+    @IBOutlet weak var mottoLabel: UILabel!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var startBtn: UIButton!
-    var coordinator: WelcomeCoordinator?
     @IBOutlet weak var line: UIView!
-    
+    @IBOutlet weak var arrowImg: UIImageView!
     @IBOutlet weak var skipBtn: UIButton!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     private var scrollView = UIScrollView(frame: .zero)
     private var stackView = UIStackView(frame: .zero)
     var views:[UIView] = []
-    @IBOutlet weak var stackViewPageControl: UIPageControlStackView!
     
     let texts = ["promo1".localized,
                  "promo2".localized,
@@ -29,39 +30,24 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
                  "promo6".localized,
                  "promo7".localized,]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButtonItem
         
-        startBtn.layer.cornerRadius = 10.0
-        startBtn.setTitle("start".localized, for: .normal)
-        startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        startBtn.titleLabel?.textAlignment = .center
-        startBtn.titleLabel?.font = UIFont.primaryFontRegular
-        startBtn.titleLabel?.layer.shadowColor = UIColor.black.cgColor
-        startBtn.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 4)
-        startBtn.titleLabel?.layer.shadowOpacity = 0.5
-        startBtn.titleLabel?.layer.shadowRadius = 4.0
-        
-        mottoLabel.text = "motto".localized
-        mottoLabel.textAlignment = .center
-        mottoLabel.adjustsFontSizeToFitWidth = true
-        mottoLabel.font = UIFont.primaryFontRegular
-        mottoLabel.layer.shadowColor = UIColor.black.cgColor
-        mottoLabel.layer.shadowOpacity = 0.5
-        mottoLabel.layer.shadowOffset = CGSize(width: 0, height: 4)
-        mottoLabel.layer.shadowRadius = 4.0
-        
-        skipBtn.setTitle("skip".localized, for: .normal)
-        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        skipBtn.titleLabel?.font = UIFont.primaryFontThin
-        skipBtn.titleLabel?.textAlignment = .left
-        
-        logo.layer.cornerRadius = 10.0
+        setupMottoLabel()
+        setupStartBtn()
+        setupSkipBtn()
+        logo.rounded()
+
         setupPageControll()
         setupScrollView()
         setupStackView(scrollView: scrollView)
         views = createAndAddViews(to: stackView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @IBAction func goToLogInBtn(_ sender: UIButton) {
@@ -79,7 +65,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
             scrollView.topAnchor.constraint(equalTo: self.line.bottomAnchor, constant: 32),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            scrollView.bottomAnchor.constraint(equalTo: self.stackViewPageControl.topAnchor, constant: -24)
+            scrollView.bottomAnchor.constraint(equalTo: self.pageControl.topAnchor, constant: -24)
         ])
     }
     
@@ -114,24 +100,55 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     }
     
     func setupPageControll() {
-        stackViewPageControl.numberOfPages = texts.count
-        stackViewPageControl.currentPageImage = UIImage(named: "pageControlCurrentPage")
-        stackViewPageControl.otherPagesImage = UIImage(named: "pageControlOtherPage")
+        pageControl.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
+        pageControl.currentPageIndicatorTintColor = UIColor.primaryColor
+        pageControl.bordered()
+        pageControl.layer.borderColor = UIColor.white.cgColor
+        pageControl.subviews.first?.subviews.first?.subviews.forEach({ circle in
+            circle.bordered()
+            circle.layer.cornerRadius = circle.bounds.height / 2
+            circle.layer.borderColor = UIColor.primaryColor.cgColor
+        })
     }
-    
+        
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.bounds.width
         let pageFraction = scrollView.contentOffset.x/pageWidth
-        let constantFraction = pageFraction
         
-        stackViewPageControl.transition(next: Int((round(pageFraction))))
+        pageControl.currentPage = Int((round(pageFraction)))
         
         for (index, view) in views.enumerated() {
             guard let view = view as? PromoTextView else { return }
-            let constant = pageWidth * (CGFloat(index) - constantFraction)
+            let constant = pageWidth * (CGFloat(index) - pageFraction)
             view.updateViewCenterXAnchor(with: constant)
         }
     }
+    
+    func setupStartBtn(){
+        startBtn.setTitle("start".localized, for: .normal)
+        startBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        startBtn.titleLabel?.textAlignment = .center
+        startBtn.titleLabel?.font = UIFont.primaryFontRegular
+        startBtn.titleLabel?.shadowed()
+        startBtn.rounded()
+    }
+    func setupSkipBtn() {
+        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        skipBtn.setTitle("skip".localized, for: .normal)
+        skipBtn.titleLabel?.font = UIFont.primaryFontLight
+        skipBtn.titleLabel?.textAlignment = .left
+        
+        arrowImg.image = UIImage(named:"skipArrow")
+    }
+    
+    func setupMottoLabel() {
+        mottoLabel.text = "motto".localized
+        mottoLabel.textAlignment = .center
+        mottoLabel.adjustsFontSizeToFitWidth = true
+        mottoLabel.font = UIFont.primaryFontRegular
+        mottoLabel.shadowed()
+    }
+    
 }
 
 

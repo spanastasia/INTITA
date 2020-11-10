@@ -30,19 +30,16 @@
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
 		64F78E4025557CAE002C1565 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E3F25557CAE002C1565 /* Validate.swift */; };
-		846E63A7254FFD3F00C737C4 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846E63A6254FFD3F00C737C4 /* LogIn.storyboard */; };
-		846E63AA254FFD6600C737C4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63A9254FFD6600C737C4 /* LogInViewController.swift */; };
-		846E63AD254FFD7500C737C4 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */; };
 		846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63B6255007C200C737C4 /* AppDelegate.swift */; };
 		848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848EE5052553FBF30042E3D8 /* LogInViewModel.swift */; };
 		84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A08F592556B9AE00565689 /* LogIn.storyboard */; };
 		84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A08F5A2556B9AE00565689 /* LogInViewController.swift */; };
 		84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */; };
+		BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */; };
+		BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */; };
+		BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */; };
+		BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */; };
 		BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */; };
-		BA8D88672552D9CF005A44C2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D88662552D94D005A44C2 /* Roboto-Light.ttf */; };
-		BA8D88692552D9D1005A44C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D88652552D94D005A44C2 /* Roboto-Regular.ttf */; };
-		BA8D886C2552DF3D005A44C2 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA8D886B2552DF3A005A44C2 /* Roboto-Thin.ttf */; };
-		BA8D8872255487C2005A44C2 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D8871255487C2005A44C2 /* CustomPageControl.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,19 +71,16 @@
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		64F78E3F25557CAE002C1565 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
-		846E63A6254FFD3F00C737C4 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
-		846E63A9254FFD6600C737C4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		846E63AC254FFD7500C737C4 /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		846E63B6255007C200C737C4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		848EE5052553FBF30042E3D8 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		84A08F592556B9AE00565689 /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		84A08F5A2556B9AE00565689 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
+		BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+BorderRadius+CornerRadius.swift"; sourceTree = "<group>"; };
+		BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
+		BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.ttf"; sourceTree = "<group>"; };
 		BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
-		BA8D88652552D94D005A44C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		BA8D88662552D94D005A44C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		BA8D886B2552DF3A005A44C2 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
-		BA8D8871255487C2005A44C2 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +151,8 @@
 				BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */,
 				64B74F3D254C71B1004E6A4E /* Coordinator.swift */,
 				64B74F40254C71F2004E6A4E /* Storyboarded.swift */,
+				BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */,
+				BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -185,7 +181,6 @@
 			children = (
 				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
 				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
-				BA8D8871255487C2005A44C2 /* CustomPageControl.swift */,
 				BAF940CD2550754300AE50CE /* PromoTextView.swift */,
 				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
 			);
@@ -240,9 +235,8 @@
 		BA8D88642552D917005A44C2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				BA8D88662552D94D005A44C2 /* Roboto-Light.ttf */,
-				BA8D886B2552DF3A005A44C2 /* Roboto-Thin.ttf */,
-				BA8D88652552D94D005A44C2 /* Roboto-Regular.ttf */,
+				BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */,
+				BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -307,14 +301,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FF299F7254ADD830087AEC7 /* LaunchScreen.storyboard in Resources */,
-				BA8D88692552D9D1005A44C2 /* Roboto-Regular.ttf in Resources */,
+				BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */,
+				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
-				BA8D88672552D9CF005A44C2 /* Roboto-Light.ttf in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
-				BA8D886C2552DF3D005A44C2 /* Roboto-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,14 +329,15 @@
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
+				BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
+				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
-				BA8D8872255487C2005A44C2 /* CustomPageControl.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
 				BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */,
 				84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */,
