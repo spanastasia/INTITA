@@ -25,3 +25,8 @@
 "send" = "SEND />";
 "textRecovery" = "To reset your password, enter your email below. In this e-mail the link to reset your password will be sent. The link is active for 30 min.";
 "passRecovery" = "Password recovery";
+"error occured" = "Error Occured";
+"back" = "Back/>";
+"no data" = "Data not found.";
+"task error" = "Unable to contact server.";
+"get more info" = "For more information call";

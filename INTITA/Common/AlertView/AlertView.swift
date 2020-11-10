@@ -34,6 +34,7 @@ class AlertView: UIView {
     
     private let shadowRadius: CGFloat = 4
     private let shadowOpacity: Float = 0.25
+    
     private var contacts: NSAttributedString {
         let string = NSMutableAttributedString()
         let text = "get more info".localized
@@ -93,8 +94,9 @@ class AlertView: UIView {
         self.layer.shadowRadius = 16
         
         blurEffectView.frame = superview.bounds
-        let gesture = UIGestureRecognizer(target: blurEffectView, action: #selector(blurEffectViewTapped))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
         blurEffectView.addGestureRecognizer(gesture)
+        blurEffectView.isUserInteractionEnabled = true
         
         superview.addSubview(blurEffectView)
         NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
@@ -114,10 +116,8 @@ class AlertView: UIView {
         string.append(NSAttributedString(string: message + "\n\n"))
         string.append(contacts)
         errorMessage.attributedText = string
-    }
-    
-    @objc func blurEffectViewTapped(_ sender: UIGestureRecognizer) {
-        hideAlert()
+        errorMessage.font = UIFont.primaryFontLight.withSize(16)
+        errorMessage.textAlignment = .center
     }
     
     func showAlert() {
