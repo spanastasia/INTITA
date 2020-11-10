@@ -9,13 +9,43 @@ import UIKit
 
 class AlertView: UIView {
     
-    @IBOutlet weak var errorHeader: UILabel!
+    //MARK:- Outlets
+    @IBOutlet private weak var errorHeader: UILabel!
     
-    @IBOutlet weak var errorMessage: UITextView!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet private weak var errorMessage: UITextView!
+    @IBOutlet private weak var backButton: UIButton!
+    
+    //MARK:- Actions
     @IBAction func backButtonTapped() {
-        hideAlert()
+        hide()
     }
+    
+    //MARK:- Methods
+    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
+        if !setUped {
+            setUp()
+        }
+        errorHeader.text = header
+        backButton.setTitle(buttonTitle, for: .normal)
+        
+        let string = NSMutableAttributedString()
+        string.append(NSAttributedString(string: message + "\n\n"))
+        string.append(contacts)
+        errorMessage.attributedText = string
+        errorMessage.font = UIFont.primaryFontLight.withSize(16)
+        errorMessage.textAlignment = .center
+        show()
+    }
+    
+    func show() {
+        animator.startAnimation()
+    }
+    func hide() {
+        animator.startAnimation()
+    }
+    
+    //MARK:- Private properties
+    private var setUped = false
     
     private lazy var blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .regular)
@@ -48,15 +78,8 @@ class AlertView: UIView {
         return string
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    func setUp() {
+    //MARK:- Private methods
+    private func setUp() {
         guard let superview = self.superview else { return }
         
         errorHeader.shadowed()
@@ -69,39 +92,27 @@ class AlertView: UIView {
         backButton.titleLabel?.shadowed()
         self.shadowed(shadowOffset: CGSize(width: 4, height: 4), shadowRadius: 16, shadowOpacity: 0.4)
         
-        blurEffectView.frame = superview.bounds
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
-        blurEffectView.addGestureRecognizer(gesture)
-        blurEffectView.isUserInteractionEnabled = true
-        
-        superview.addSubview(blurEffectView)
-        NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
-        NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: -24).isActive = true
-        NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 196).isActive = true
+        setUpBlurEffect(superview: superview)
         
         superview.bringSubviewToFront(self)
         self.alpha = 0
-        blurEffectView.alpha = 0
+        setUped = true
     }
     
-    func customize(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
-        errorHeader.text = header
-        backButton.setTitle(buttonTitle, for: .normal)
+    private func setUpBlurEffect(superview: UIView) {
+        blurEffectView.frame = superview.bounds
         
-        let string = NSMutableAttributedString()
-        string.append(NSAttributedString(string: message + "\n\n"))
-        string.append(contacts)
-        errorMessage.attributedText = string
-        errorMessage.font = UIFont.primaryFontLight.withSize(16)
-        errorMessage.textAlignment = .center
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        blurEffectView.addGestureRecognizer(gesture)
+        
+        blurEffectView.isUserInteractionEnabled = true
+        
+        blurEffectView.alpha = 0
+        
+        superview.addSubview(blurEffectView)
+        
+        NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
+        NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: -24).isActive = true
+        NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 196).isActive = true
     }
-    
-    func showAlert() {
-        animator.startAnimation()
-    }
-    func hideAlert() {
-        animator.startAnimation()
-    }
-    
-    
 }
