@@ -10,21 +10,45 @@ import UIKit
 class AlertView: UIView {
     
     @IBOutlet weak var errorHeader: UILabel!
-    @IBOutlet weak var errorMessage: UILabel!
-    @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var errorMessage: UITextView!
+    @IBOutlet weak var backButton: UIButton!
     @IBAction func backButtonTapped() {
         hideAlert()
     }
     
-    private lazy var blurEffectFrame: UIVisualEffectView = {
+    private lazy var blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
         return blurView
     }()
     
+    private var animator: UIViewPropertyAnimator {
+        let alpha: CGFloat = self.alpha == 0 ? 1 : 0
+        let animator = UIViewPropertyAnimator(duration: 0.2, curve: .easeIn) {
+            self.alpha = alpha
+            self.blurEffectView.alpha = alpha
+        }
+        return animator
+    }
+    
     private let shadowRadius: CGFloat = 4
     private let shadowOpacity: Float = 0.25
+    private var contacts: NSAttributedString {
+        let string = NSMutableAttributedString()
+        let text = "get more info".localized
+        var phoneNumberAttributes: [NSAttributedString.Key: Any] = [
+            .link: URL(string: "tel://" + AppConstans.phoneNumber1.replacingOccurrences(of: " ", with: ""))!,
+            ]
+        let phoneNumber1 = NSAttributedString(string: AppConstans.phoneNumber1, attributes: phoneNumberAttributes)
+        phoneNumberAttributes = [ .link: URL(string: "tel://" + AppConstans.phoneNumber2.replacingOccurrences(of: " ", with: ""))! ]
+        let phoneNumber2 = NSAttributedString(string: AppConstans.phoneNumber2, attributes: phoneNumberAttributes)
+        string.append(NSAttributedString(string: text + "\n"))
+        string.append(phoneNumber1)
+        string.append(NSAttributedString(string: "\n"))
+        string.append(phoneNumber2)
+        return string
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,10 +67,8 @@ class AlertView: UIView {
         return view
     }
     
-    func customize(superview: UIView, header: String, message: String, buttonTitle: String) {
-        errorHeader.text = header
-        errorMessage.text = message
-        backButton.setTitle(buttonTitle, for: .normal)
+    func setUp() {
+        guard let superview = self.superview else { return }
         
         errorHeader.layer.shadowRadius = shadowRadius
         errorHeader.layer.shadowColor = UIColor.black.cgColor
@@ -70,23 +92,39 @@ class AlertView: UIView {
         self.layer.shadowOffset = CGSize(width: 4, height: 4)
         self.layer.shadowRadius = 16
         
-        blurEffectFrame.frame = superview.bounds
-        superview.addSubview(blurEffectFrame)
-        superview.addSubview(self)
+        blurEffectView.frame = superview.bounds
+        let gesture = UIGestureRecognizer(target: blurEffectView, action: #selector(blurEffectViewTapped))
+        blurEffectView.addGestureRecognizer(gesture)
+        
+        superview.addSubview(blurEffectView)
         NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
         NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: -24).isActive = true
         NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 196).isActive = true
-        self.isHidden = true
-        blurEffectFrame.isHidden = true
+        
+        superview.bringSubviewToFront(self)
+        self.alpha = 0
+        blurEffectView.alpha = 0
+    }
+    
+    func customize(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
+        errorHeader.text = header
+        backButton.setTitle(buttonTitle, for: .normal)
+        
+        let string = NSMutableAttributedString()
+        string.append(NSAttributedString(string: message + "\n\n"))
+        string.append(contacts)
+        errorMessage.attributedText = string
+    }
+    
+    @objc func blurEffectViewTapped(_ sender: UIGestureRecognizer) {
+        hideAlert()
     }
     
     func showAlert() {
-        blurEffectFrame.isHidden = false
-        self.isHidden = false
+        animator.startAnimation()
     }
     func hideAlert() {
-        isHidden = true
-        blurEffectFrame.isHidden = true
+        animator.startAnimation()
     }
     
     

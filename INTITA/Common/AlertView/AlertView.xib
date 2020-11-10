@@ -4,14 +4,12 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
-        </array>
-        <array key="Roboto-Thin.ttf">
-            <string>Roboto-Thin</string>
         </array>
     </customFonts>
     <objects>
@@ -35,15 +33,24 @@
                             <color key="shadowColor" name="shadow"/>
                             <size key="shadowOffset" width="0.0" height="0.0"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAR-UD-RgO">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWd-vx-ddb">
                             <rect key="frame" x="0.0" y="64" width="381" height="158"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="158" id="2ss-M9-d4Q"/>
+                                <constraint firstAttribute="height" constant="158" id="6r5-fI-umW"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="16"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <attributedString key="attributedText">
+                                <fragment content="Text">
+                                    <attributes>
+                                        <color key="NSColor" systemColor="labelColor"/>
+                                        <font key="NSFont" size="16" name="Roboto-Thin"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                        </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKW-La-iuo">
                             <rect key="frame" x="0.0" y="246" width="381" height="55"/>
                             <constraints>
@@ -60,11 +67,9 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="IAR-UD-RgO" firstAttribute="leading" secondItem="nIo-Mf-h28" secondAttribute="leading" id="9cW-OZ-W4D"/>
                         <constraint firstItem="Pv3-T0-x4h" firstAttribute="leading" secondItem="nIo-Mf-h28" secondAttribute="leading" id="CKV-TN-vZf"/>
                         <constraint firstItem="Pv3-T0-x4h" firstAttribute="top" secondItem="nIo-Mf-h28" secondAttribute="top" id="JEO-my-bxy"/>
                         <constraint firstAttribute="trailing" secondItem="Pv3-T0-x4h" secondAttribute="trailing" id="JdE-mr-WyM"/>
-                        <constraint firstAttribute="trailing" secondItem="IAR-UD-RgO" secondAttribute="trailing" id="gHu-r5-Md5"/>
                         <constraint firstAttribute="trailing" secondItem="iKW-La-iuo" secondAttribute="trailing" id="gau-ui-PED"/>
                         <constraint firstAttribute="bottom" secondItem="iKW-La-iuo" secondAttribute="bottom" id="iSJ-FP-vrl"/>
                         <constraint firstItem="iKW-La-iuo" firstAttribute="leading" secondItem="nIo-Mf-h28" secondAttribute="leading" id="qmR-Ny-buv"/>
@@ -85,7 +90,7 @@
             <connections>
                 <outlet property="backButton" destination="iKW-La-iuo" id="I38-J6-z6w"/>
                 <outlet property="errorHeader" destination="Pv3-T0-x4h" id="WwG-GU-PvN"/>
-                <outlet property="errorMessage" destination="IAR-UD-RgO" id="Iqh-gx-UH1"/>
+                <outlet property="errorMessage" destination="AWd-vx-ddb" id="gbB-1G-Tg2"/>
             </connections>
             <point key="canvasLocation" x="218" y="-280"/>
         </view>
@@ -97,5 +102,11 @@
         <namedColor name="shadow">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
