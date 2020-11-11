@@ -33,6 +33,7 @@
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
 		64F78E4025557CAE002C1565 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E3F25557CAE002C1565 /* Validate.swift */; };
+		64F78E7D255C5889002C1565 /* INTITATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E7C255C5889002C1565 /* INTITATests.swift */; };
 		846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E63B6255007C200C737C4 /* AppDelegate.swift */; };
 		848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848EE5052553FBF30042E3D8 /* LogInViewModel.swift */; };
 		84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A08F592556B9AE00565689 /* LogIn.storyboard */; };
@@ -45,6 +46,16 @@
 		BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		64F78E75255C5874002C1565 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FF299DF254ADD800087AEC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FF299E6254ADD800087AEC7;
+			remoteInfo = INTITA;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -77,6 +88,9 @@
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		64F78E3F25557CAE002C1565 /* Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
+		64F78E70255C5874002C1565 /* INTITATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = INTITATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64F78E74255C5874002C1565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64F78E7C255C5889002C1565 /* INTITATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INTITATests.swift; sourceTree = "<group>"; };
 		846E63A6254FFD3F00C737C4 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		846E63B6255007C200C737C4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		848EE5052553FBF30042E3D8 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
@@ -93,6 +107,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		3FF299E4254ADD800087AEC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F78E6D255C5874002C1565 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF299E9254ADD800087AEC7 /* INTITA */,
+				64F78E71255C5874002C1565 /* INTITATests */,
 				3FF299E8254ADD800087AEC7 /* Products */,
 				3F2B29C9255A789C00DDE683 /* Recovered References */,
 			);
@@ -152,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF299E7254ADD800087AEC7 /* INTITA.app */,
+				64F78E70255C5874002C1565 /* INTITATests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +246,15 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		64F78E71255C5874002C1565 /* INTITATests */ = {
+			isa = PBXGroup;
+			children = (
+				64F78E7C255C5889002C1565 /* INTITATests.swift */,
+				64F78E74255C5874002C1565 /* Info.plist */,
+			);
+			path = INTITATests;
+			sourceTree = "<group>";
+		};
 		84A08F622556B9E800565689 /* LogInScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +320,24 @@
 			productReference = 3FF299E7254ADD800087AEC7 /* INTITA.app */;
 			productType = "com.apple.product-type.application";
 		};
+		64F78E6F255C5874002C1565 /* INTITATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64F78E79255C5874002C1565 /* Build configuration list for PBXNativeTarget "INTITATests" */;
+			buildPhases = (
+				64F78E6C255C5874002C1565 /* Sources */,
+				64F78E6D255C5874002C1565 /* Frameworks */,
+				64F78E6E255C5874002C1565 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64F78E76255C5874002C1565 /* PBXTargetDependency */,
+			);
+			name = INTITATests;
+			productName = INTITATests;
+			productReference = 64F78E70255C5874002C1565 /* INTITATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -299,6 +349,10 @@
 				TargetAttributes = {
 					3FF299E6254ADD800087AEC7 = {
 						CreatedOnToolsVersion = 12.1;
+					};
+					64F78E6F255C5874002C1565 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 3FF299E6254ADD800087AEC7;
 					};
 				};
 			};
@@ -318,6 +372,7 @@
 			projectRoot = "";
 			targets = (
 				3FF299E6254ADD800087AEC7 /* INTITA */,
+				64F78E6F255C5874002C1565 /* INTITATests */,
 			);
 		};
 /* End PBXProject section */
@@ -336,7 +391,13 @@
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
 				3F2E7708255474A100853140 /* AlertView.xib in Resources */,
-				BA8D886C2552DF3D005A44C2 /* Roboto-Thin.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64F78E6E255C5874002C1565 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +430,6 @@
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3F2E770B255474C600853140 /* AlertView.swift in Sources */,
-				BA8D8872255487C2005A44C2 /* CustomPageControl.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
 				BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */,
 				84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */,
@@ -379,7 +439,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		64F78E6C255C5874002C1565 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64F78E7D255C5889002C1565 /* INTITATests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		64F78E76255C5874002C1565 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FF299E6254ADD800087AEC7 /* INTITA */;
+			targetProxy = 64F78E75255C5874002C1565 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3FF299F0254ADD800087AEC7 /* Welcome.storyboard */ = {
@@ -567,6 +643,46 @@
 			};
 			name = Release;
 		};
+		64F78E77255C5874002C1565 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = INTITATests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MarkovViacheslav.INTITATests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/INTITA.app/INTITA";
+			};
+			name = Debug;
+		};
+		64F78E78255C5874002C1565 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = INTITATests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MarkovViacheslav.INTITATests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/INTITA.app/INTITA";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -584,6 +700,15 @@
 			buildConfigurations = (
 				3FF299FC254ADD830087AEC7 /* Debug */,
 				3FF299FD254ADD830087AEC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64F78E79255C5874002C1565 /* Build configuration list for PBXNativeTarget "INTITATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64F78E77255C5874002C1565 /* Debug */,
+				64F78E78255C5874002C1565 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
