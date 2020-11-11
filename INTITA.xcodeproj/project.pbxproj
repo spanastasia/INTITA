@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */; };
 		3F0780A22554066500E0332F /* AppConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0780A12554066500E0332F /* AppConstans.swift */; };
+		3F2B29D7255AB84100DDE683 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B29D6255AB84100DDE683 /* CurrentUser.swift */; };
 		3F2B29CC255A7FE500DDE683 /* UIView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B29CB255A7FE500DDE683 /* UIView+fromNib.swift */; };
 		3F2E76FF255408B100853140 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E76FE255408B100853140 /* UserData.swift */; };
 		3F2E7708255474A100853140 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2E7707255474A100853140 /* AlertView.xib */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		3F0780A12554066500E0332F /* AppConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstans.swift; sourceTree = "<group>"; };
+		3F2B29D6255AB84100DDE683 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		3F2B29CB255A7FE500DDE683 /* UIView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fromNib.swift"; sourceTree = "<group>"; };
 		3F2E76FE255408B100853140 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		3F2E7707255474A100853140 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				3F54E91A254E8F2B00426261 /* LoginResponse.swift */,
 				3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */,
+				3F2B29D6255AB84100DDE683 /* CurrentUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
+				3F2B29D7255AB84100DDE683 /* CurrentUser.swift in Sources */,
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
