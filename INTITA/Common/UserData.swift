@@ -11,4 +11,9 @@ class UserData {
     static var token: String? {
         return UserDefaultsManager.getValue(by: AppConstans.tokenKey)
     }
+    private(set) static var currentUser: CurrentUser?
+    
+    static func set(currentUser: CurrentUser) {
+        UserData.currentUser = currentUser
+    }
 }
