@@ -20,6 +20,30 @@ class AlertView: UIView {
         hide()
     }
     
+    //MARK:- Methods
+    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
+        if !setUped {
+            setUp()
+        }
+        errorHeader.text = header
+        backButton.setTitle(buttonTitle, for: .normal)
+        
+        let string = NSMutableAttributedString()
+        string.append(NSAttributedString(string: message + "\n\n"))
+        string.append(contacts)
+        errorMessage.attributedText = string
+        errorMessage.font = UIFont.primaryFontLight.withSize(16)
+        errorMessage.textAlignment = .center
+        show()
+    }
+    
+    func show() {
+        animator.startAnimation()
+    }
+    func hide() {
+        animator.startAnimation()
+    }
+    
     //MARK:- Private properties
     private var setUped = false
     
@@ -52,30 +76,6 @@ class AlertView: UIView {
         string.append(NSAttributedString(string: "\n"))
         string.append(phoneNumber2)
         return string
-    }
-    
-    //MARK:- Methods
-    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
-        if !setUped {
-            setUp()
-        }
-        errorHeader.text = header
-        backButton.setTitle(buttonTitle, for: .normal)
-        
-        let string = NSMutableAttributedString()
-        string.append(NSAttributedString(string: message + "\n\n"))
-        string.append(contacts)
-        errorMessage.attributedText = string
-        errorMessage.font = UIFont.primaryFontLight.withSize(16)
-        errorMessage.textAlignment = .center
-        show()
-    }
-    
-    func show() {
-        animator.startAnimation()
-    }
-    func hide() {
-        animator.startAnimation()
     }
     
     //MARK:- Private methods
