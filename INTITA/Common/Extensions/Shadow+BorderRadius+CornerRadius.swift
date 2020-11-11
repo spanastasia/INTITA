@@ -8,18 +8,23 @@
 import UIKit
 
 extension UIView {
-    func bordered () {
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.primaryColor.cgColor
+    func bordered(borderWidth: CGFloat = 1, borderColor: CGColor = UIColor.primaryColor.cgColor) {
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor
     }
-    func rounded() {
-        self.layer.cornerRadius = 10
+    func rounded(cornerRadius: CGFloat = 10) {
+        self.layer.cornerRadius = cornerRadius
     }
-    func shadowed() {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowRadius = 4.0
-        self.layer.shadowOpacity = 0.25
+    func shadowed(
+        shadowColor: CGColor = UIColor.black.cgColor,
+        shadowOffset: CGSize = CGSize(width: 0, height: 4),
+        shadowRadius: CGFloat = 4.0, shadowOpacity: Float = 0.25
+    )
+    {
+        self.layer.shadowColor = shadowColor
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = shadowOpacity
     }
 }
 
