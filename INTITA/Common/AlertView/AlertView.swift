@@ -20,30 +20,6 @@ class AlertView: UIView {
         hide()
     }
     
-    //MARK:- Methods
-    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
-        if !setUped {
-            setUp()
-        }
-        errorHeader.text = header
-        backButton.setTitle(buttonTitle, for: .normal)
-        
-        let string = NSMutableAttributedString()
-        string.append(NSAttributedString(string: message + "\n\n"))
-        string.append(contacts)
-        errorMessage.attributedText = string
-        errorMessage.font = UIFont.primaryFontLight.withSize(16)
-        errorMessage.textAlignment = .center
-        show()
-    }
-    
-    func show() {
-        animator.startAnimation()
-    }
-    func hide() {
-        animator.startAnimation()
-    }
-    
     //MARK:- Private properties
     private var setUped = false
     
@@ -76,6 +52,30 @@ class AlertView: UIView {
         string.append(NSAttributedString(string: "\n"))
         string.append(phoneNumber2)
         return string
+    }
+    
+    //MARK:- Methods
+    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
+        if !setUped {
+            setUp()
+        }
+        errorHeader.text = header
+        backButton.setTitle(buttonTitle, for: .normal)
+        
+        let string = NSMutableAttributedString()
+        string.append(NSAttributedString(string: message + "\n\n"))
+        string.append(contacts)
+        errorMessage.attributedText = string
+        errorMessage.font = UIFont.primaryFontLight.withSize(16)
+        errorMessage.textAlignment = .center
+        show()
+    }
+    
+    func show() {
+        animator.startAnimation()
+    }
+    func hide() {
+        animator.startAnimation()
     }
     
     //MARK:- Private methods
@@ -113,6 +113,6 @@ class AlertView: UIView {
         
         NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
         NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: -24).isActive = true
-        NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 196).isActive = true
+        NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .centerY, multiplier: 1, constant: -20).isActive = true
     }
 }
