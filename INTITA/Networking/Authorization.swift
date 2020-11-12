@@ -18,7 +18,7 @@ class Authorization {
                 completion(error)
             case .success(let response):
                 UserDefaultsManager.addValue(response.token, by: AppConstans.tokenKey)
-                completion(nil)
+                fetchUserInfo { completion($0) }
             }
         }
     }
@@ -30,10 +30,8 @@ class Authorization {
         }
     }
     
-    public static func currentUser(completion: @escaping (Error?) -> Void) {
-        guard let request = ApiURL.currentUser.request else {
-    
-            return }
+    public static func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+        guard let request = ApiURL.currentUser.request else { return }
         RequestAPI.request(request: request) { (result: Result<CurrentUser, Error>) in
             switch result {
             case .success(let user):
