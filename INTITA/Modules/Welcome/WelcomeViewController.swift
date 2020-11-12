@@ -32,6 +32,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ActivityIndicatorView.start()
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem
         

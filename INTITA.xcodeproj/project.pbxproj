@@ -45,6 +45,7 @@
 		BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */; };
 		BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */; };
 		BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */; };
+		BAAB2BCA255DC67300D6D528 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
 		BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.ttf"; sourceTree = "<group>"; };
 		BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
+		BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +272,7 @@
 				BA8D88642552D917005A44C2 /* Fonts */,
 				3FF29A14254C0BFF0087AEC7 /* Extensions */,
 				3F2E770D255474D300853140 /* AlertView */,
+				BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
+				BAAB2BCA255DC67300D6D528 /* ActivityIndicatorView.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3F2E770B255474C600853140 /* AlertView.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
