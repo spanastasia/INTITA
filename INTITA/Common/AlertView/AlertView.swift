@@ -113,6 +113,6 @@ class AlertView: UIView {
         
         NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
         NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: -24).isActive = true
-        NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 196).isActive = true
+        NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .centerY, multiplier: 1, constant: -20).isActive = true
     }
 }

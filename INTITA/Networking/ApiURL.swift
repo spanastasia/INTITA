@@ -10,6 +10,7 @@ import Foundation
 enum ApiURL {
     case login(email: String, password: String)
     case logout
+    case currentUser
     
     var path: String {
         return "https://intita.com/"
@@ -24,6 +25,8 @@ enum ApiURL {
             return "\(path)\(apiVersion)/login"
         case .logout:
             return "\(path)\(apiVersion)/logout"
+        case .currentUser:
+            return "\(path)\(apiVersion)/currentUser"
         }
     }
     
@@ -31,6 +34,8 @@ enum ApiURL {
         switch self {
         case .login, .logout:
             return "POST"
+        case .currentUser:
+            return "GET"
         }
     }
     
@@ -44,7 +49,7 @@ enum ApiURL {
             guard let data = try? JSONSerialization.data(withJSONObject: json, options: [])
             else { return nil }
             return data
-        case .logout:
+        case .logout, .currentUser:
             return nil
         }
     }
@@ -53,7 +58,7 @@ enum ApiURL {
         switch self {
         case .login:
             return "application/json"
-        case .logout:
+        case .logout, .currentUser:
             guard let token = UserData.token else {
                 return nil
             }
@@ -65,7 +70,7 @@ enum ApiURL {
         switch self {
         case .login:
             return "Content-Type"
-        case .logout:
+        case .logout, .currentUser:
             return "Authorization"
         }
     }
@@ -81,7 +86,7 @@ enum ApiURL {
         case .login:
             request.setValue(value, forHTTPHeaderField: headerField)
             request.httpBody = bodyParams
-        case .logout:
+        case .logout, .currentUser:
             request.setValue(value, forHTTPHeaderField: headerField)
         }
         return request

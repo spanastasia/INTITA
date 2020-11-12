@@ -29,4 +29,18 @@ class Authorization {
             completion(result)
         }
     }
+    
+    public static func currentUser(completion: @escaping (Error?) -> Void) {
+        guard let request = ApiURL.currentUser.request else {
+    
+            return }
+        RequestAPI.request(request: request) { (result: Result<CurrentUser, Error>) in
+            switch result {
+            case .success(let user):
+                UserData.set(currentUser: user)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
 }
