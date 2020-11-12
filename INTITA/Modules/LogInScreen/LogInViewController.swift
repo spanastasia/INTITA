@@ -9,14 +9,14 @@ import UIKit
 import SafariServices
 
 enum CredentialsError {
-    case passwordIsEmpty
+    case wrongPassword
     case emailIsEmpty
     case wrongEmail
     
     func getString() -> String {
         switch self {
-        case .passwordIsEmpty:
-            return "inputPassword".localized
+        case .wrongPassword:
+            return "wrongPassword".localized
         case .emailIsEmpty:
             return "inputEmail".localized
         case .wrongEmail:
@@ -35,6 +35,8 @@ class LogInViewController: UIViewController, Storyboarded {
     
     weak var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
+    let validator = Validate()
+    let alert = AlertView().fromNib()
 
     //MARK:- Actions
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -42,18 +44,25 @@ class LogInViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
-        
         errorLabel.isHidden = true
         guard let password = passwordTextField.text, let email = emailTextField.text else {
             return
         }
-        if validateCredentials(password, email) {
+        if !validator.validateEmail(email: email) {
+            errorLabel.isHidden = false
+            
+            errorLabel.text = CredentialsError.wrongEmail.getString()
+        } else if !validator.validatePassword(password: password) {
+            errorLabel.isHidden = false
+            errorLabel.text = CredentialsError.wrongPassword.getString()
+        } else {
             viewModel?.login(email: email, password: password)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(alert)
         navigationController?.setNavigationBarHidden(false, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
@@ -66,7 +75,9 @@ class LogInViewController: UIViewController, Storyboarded {
     func handleViewModelUpdateWith(error: Error?) {
         if let error = error {
             print("ERRORORROOR \(error)")
-            return
+            DispatchQueue.main.async {
+                self.alert.customizeAndShow(message: error.localizedDescription)
+            }
         }
     }
     
@@ -74,41 +85,15 @@ class LogInViewController: UIViewController, Storyboarded {
         registerButton.setTitle("register".localized, for: .normal)
         forgotPasswordButton.setTitle("forgotPass".localized, for: .normal)
         logInButton.setTitle("logIn".localized, for: .normal)
-        logInButton.layer.cornerRadius = 10.0
-        
+        logInButton.rounded(cornerRadius: 10.0)
         //text fields
         passwordTextField.placeholder = "inputPassword".localized
-        passwordTextField.layer.borderWidth = 1.0
-        passwordTextField.layer.cornerRadius = 5.0
+        passwordTextField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
+        passwordTextField.rounded(cornerRadius: 5.0)
+        
         emailTextField.placeholder = "inputEmail".localized
-        emailTextField.layer.borderWidth = 1.0
-        emailTextField.layer.cornerRadius = 5.0
-        
-        
-    }
-    
-    private func validateCredentials(_ password: String, _ email: String) -> Bool {
-        var result = true
-        if password.isEmpty {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.passwordIsEmpty.getString()
-            result = false
-        } else if email.isEmpty {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.emailIsEmpty.getString()
-            result = false
-        }
-        guard email.contains("@") else {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.wrongEmail.getString()
-            return false
-        }
-        if email.components(separatedBy: "@")[1].isEmpty {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.wrongEmail.getString()
-            result = false
-        }
-        return result
+        emailTextField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
+        emailTextField.rounded(cornerRadius: 5.0)
     }
     
     private func showSafari(_ url: String) {

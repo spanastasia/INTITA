@@ -17,7 +17,7 @@
 "promo7" = "In the future there are two types of jobs: those, where You`ll tell the machine what to do - programming, and those, where the machine is going to tell you what to do!";
 "register" = "Register";
 "forgotPass" = "Forgot password?";
-"inputPassword" = "Input password";
+"wrongPassword" = "Wrong password";
 "inputEmail" = "Input email";
 "wrongEmail" = "Wrong email";
 "logIn" = "Log In/>";
