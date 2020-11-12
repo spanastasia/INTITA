@@ -66,11 +66,6 @@ class LogInViewController: UIViewController, Storyboarded {
     func handleViewModelUpdateWith(error: Error?) {
         if let error = error {
             print("ERRORORROOR \(error)")
-            DispatchQueue.main.async {
-                let alert: AlertView = AlertView.fromNib()
-                self.view.addSubview(alert)
-                alert.customizeAndShow(message: error.localizedDescription)
-            }
             return
         }
     }
