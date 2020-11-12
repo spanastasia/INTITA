@@ -18,7 +18,13 @@ class Authorization {
                 completion(error)
             case .success(let response):
                 UserDefaultsManager.addValue(response.token, by: AppConstans.tokenKey)
-                completion(nil)
+                currentUser { error in
+                    if error != nil {
+                        completion(error)
+                    } else {
+                        completion(nil)
+                    }
+                }
             }
         }
     }
@@ -31,9 +37,7 @@ class Authorization {
     }
     
     public static func currentUser(completion: @escaping (Error?) -> Void) {
-        guard let request = ApiURL.currentUser.request else {
-    
-            return }
+        guard let request = ApiURL.currentUser.request else { return }
         RequestAPI.request(request: request) { (result: Result<CurrentUser, Error>) in
             switch result {
             case .success(let user):
