@@ -15,11 +15,28 @@ class ProfileViewController: UITableViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(ProfileHeader.self, forCellReuseIdentifier: "ProfileHeader")
-        tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
-        tableView.register(ProfileFooter.self, forCellReuseIdentifier: "ProfileFooter")
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "ProfileHeader", bundle: nil), forCellReuseIdentifier: "ProfileHeader")
+        tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
+        tableView.register(UINib(nibName: "ProfileFooter", bundle: nil), forCellReuseIdentifier: "ProfileFooter")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.bringSubviewToFront(tableView.visibleCells[0])
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 268
+        case rowNumber - 1:
+            return 66
+        default:
+            return (view.safeAreaLayoutGuide.layoutFrame.height - 334) / 4
+        }
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowNumber
     }
@@ -27,11 +44,12 @@ class ProfileViewController: UITableViewController, Storyboarded {
         var cell: UITableViewCell
         switch indexPath.row {
         case 0:
-            cell = (tableView.dequeueReusableCell(withIdentifier: "ProfileHeader") as? ProfileHeader) ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeader") as! ProfileHeader
         case rowNumber - 1:
-            cell = (tableView.dequeueReusableCell(withIdentifier: "ProfileFooter") as? ProfileFooter) ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooter") as! ProfileFooter
+            cell.frame.size.height = 66
         default:
-            cell = (tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell) ?? UITableViewCell()
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
         }
         return cell
     }
