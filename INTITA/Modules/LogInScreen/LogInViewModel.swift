@@ -9,12 +9,12 @@ import Foundation
 
 typealias LogInViewModelCallback = (Error?) -> Void
 
-protocol LogInViewModelDelegate {
+protocol LogInViewModelDelegate: AnyObject {
     func loginSuccess()
 }
 
 class LogInViewModel {
-    var delegate: LogInViewModelDelegate?
+    weak var delegate: LogInViewModelDelegate?
     var updateCallback: LogInViewModelCallback?
     
     func subscribe(updateCallback: LogInViewModelCallback?) {
