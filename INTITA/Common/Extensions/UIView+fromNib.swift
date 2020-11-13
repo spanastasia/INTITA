@@ -8,15 +8,13 @@
 import UIKit
 
 extension UIView {
-    func fromNib() -> Self {
-        let bundleName = Bundle(for: type(of: self))
-        let nibName = String(describing: type(of: self))
-        let nib = UINib(nibName: nibName, bundle: bundleName)
-        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? Self
+    class func fromNib<T: UIView>() -> T {
+        guard let view = Bundle.main.loadNibNamed(
+            String(describing: T.self),
+                owner: nil, options: nil)?[0] as? T
         else {
-            return Self()
+            fatalError("could not load Nib from bundle using fromNib()")
         }
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
 }

@@ -9,18 +9,18 @@ import Foundation
 
 // MARK:- CurrentUser
 struct CurrentUser: Codable {
-    let id: Int
-    let firstName, fullName: String
-    let middleName: String?
-    let secondName: String
-    let nickname: String?
-    let birthday, email: String
-    let facebook, linkedin: String?
-    let twitter, phone, address: String?
-    let avatar: URL?
-    let role: Int
+    var id: Int
+    var firstName, fullName: String
+    var middleName: String?
+    var secondName: String
+    var nickname: String?
+    var birthday, email: String
+    var facebook, linkedin: String?
+    var twitter, phone, address: String?
+    var avatar: URL?
+    var role: Int
     
-    let preferSpecializations: [PreferSpecialization]
+    var preferSpecializations: [PreferSpecialization]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
