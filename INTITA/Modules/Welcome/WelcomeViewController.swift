@@ -32,7 +32,6 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ActivityIndicatorView.start()
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backBarButtonItem
         
@@ -52,7 +51,13 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     }
     
     @IBAction func goToLogInBtn(_ sender: UIButton) {
-        coordinator?.displayLogin()
+//        coordinator?.displayLogin()
+        //MARK: testing run below
+        ActivityIndicatorView.startSpinner()
+        DispatchQueue.global(qos: .background).async {
+            sleep(3)
+            ActivityIndicatorView.stopSpinner()
+        }
     }
     func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
