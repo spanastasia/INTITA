@@ -39,7 +39,8 @@ class LogInViewController: UIViewController, Storyboarded {
     weak var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
     let validator = Validate()
-    let alert = AlertView().fromNib()
+    let alert: AlertView = AlertView.fromNib()
+
 
     //MARK:- Actions
     @IBAction func registerButtonPressed(_ sender: UIButton) {
