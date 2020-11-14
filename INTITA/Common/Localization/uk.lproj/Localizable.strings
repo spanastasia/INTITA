@@ -18,7 +18,7 @@
 "auth" = "Авторизація";
 "register" = "Зареєструватися";
 "forgotPass" = "Забув пароль?";
-"wrongPassword" = "Не правильний пароль";
+"wrongPassword" = "Неправильний пароль";
 "inputPassword" = "Введіть пароль";
 "inputEmail" = "Введіть пошту";
 "wrongEmail" = "Не правильна пошта";

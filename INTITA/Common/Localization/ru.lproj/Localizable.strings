@@ -18,7 +18,7 @@
 "auth" = "Авторизация";
 "register" = "Зарегистрироваться";
 "forgotPass" = "Забыл пароль?";
-"wrongPassword" = "Не правильный пароль";
+"wrongPassword" = "Неправильный пароль";
 "inputPassword" = "Введите пароль";
 "inputEmail" = "Введите почту";
 "wrongEmail" = "Не правильная почта";
