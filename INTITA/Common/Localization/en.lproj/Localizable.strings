@@ -15,9 +15,11 @@
 "promo5" = "Don`t lose your chance to get creative, promissing and lucrative job, plan your future today!";
 "promo6" = "You want to make money doing what you like and enjoy modern career, don`t you? Choose your way to IT world!";
 "promo7" = "In the future there are two types of jobs: those, where You`ll tell the machine what to do - programming, and those, where the machine is going to tell you what to do!";
+"auth" = "Autorization";
 "register" = "Register";
 "forgotPass" = "Forgot password?";
-"inputPassword" = "Input password";
+"wrongPassword" = "Wrong password";
+"inputPassword" = "Input Password";
 "inputEmail" = "Input email";
 "wrongEmail" = "Wrong email";
 "logIn" = "Log In/>";

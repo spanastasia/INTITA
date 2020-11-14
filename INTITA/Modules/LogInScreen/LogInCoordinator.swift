@@ -26,10 +26,9 @@ class LogInCoordinator: Coordinator {
     }
     
     func forgotPasswordScreen() {
-               
-            let forgotPasswordScreen = ForgotPasswordCoordinator(navigationController: navigationController)
+        let forgotPasswordScreen = ForgotPasswordCoordinator(navigationController: navigationController)
         forgotPasswordScreen.start()
-        }
+    }
 }
 
 extension LogInCoordinator: LogInViewModelDelegate {
