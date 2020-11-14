@@ -22,7 +22,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugS-Oe-Uut">
-                        <rect key="frame" x="0.0" y="0.0" width="474" height="260"/>
+                        <rect key="frame" x="0.0" y="0.0" width="474" height="308"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWithoutBackgroung" translatesAutoresizingMaskIntoConstraints="NO" id="lJd-YN-elw">
                                 <rect key="frame" x="174.5" y="21" width="125" height="30"/>
@@ -75,7 +75,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qse-Hb-MYw">
-                                <rect key="frame" x="8" y="203" width="458" height="54"/>
+                                <rect key="frame" x="71" y="203" width="332" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="kmF-Em-cFE"/>
                                 </constraints>
@@ -83,19 +83,30 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ij8-dx-qrF">
+                                <rect key="frame" x="71" y="257" width="332" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="NrG-B9-0he"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="mainColor"/>
                         <constraints>
                             <constraint firstItem="lJd-YN-elw" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="3ZZ-32-SeQ"/>
-                            <constraint firstAttribute="bottom" secondItem="Qse-Hb-MYw" secondAttribute="bottom" constant="3" id="3oP-g0-4GQ"/>
                             <constraint firstItem="lJd-YN-elw" firstAttribute="top" secondItem="ugS-Oe-Uut" secondAttribute="top" constant="21" id="7eh-0k-Nbx"/>
-                            <constraint firstAttribute="trailing" secondItem="Qse-Hb-MYw" secondAttribute="trailing" constant="8" id="B8h-rh-TIP"/>
+                            <constraint firstItem="ij8-dx-qrF" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="MJZ-n1-d4g"/>
                             <constraint firstItem="Qse-Hb-MYw" firstAttribute="top" secondItem="RLK-XV-D6J" secondAttribute="bottom" constant="3" id="RLl-rS-rV5"/>
                             <constraint firstItem="RLK-XV-D6J" firstAttribute="top" secondItem="lJd-YN-elw" secondAttribute="bottom" constant="19" id="SKN-0Y-eTN"/>
-                            <constraint firstItem="Qse-Hb-MYw" firstAttribute="leading" secondItem="ugS-Oe-Uut" secondAttribute="leading" constant="8" id="Sc8-f3-zDg"/>
                             <constraint firstItem="Qse-Hb-MYw" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="X1G-Qe-qu2"/>
                             <constraint firstItem="RLK-XV-D6J" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="dxV-g8-vIU"/>
-                            <constraint firstAttribute="height" constant="260" id="wWH-n5-cB5"/>
+                            <constraint firstAttribute="bottom" secondItem="ij8-dx-qrF" secondAttribute="bottom" constant="20" id="fGa-Zn-iKa"/>
+                            <constraint firstAttribute="height" constant="308" id="jLA-2r-MT3"/>
+                            <constraint firstItem="Qse-Hb-MYw" firstAttribute="width" secondItem="ij8-dx-qrF" secondAttribute="width" id="k2h-ZG-0RC"/>
+                            <constraint firstItem="ij8-dx-qrF" firstAttribute="top" secondItem="Qse-Hb-MYw" secondAttribute="bottom" id="wQB-nc-bMo"/>
+                            <constraint firstItem="ij8-dx-qrF" firstAttribute="width" secondItem="ugS-Oe-Uut" secondAttribute="width" multiplier="0.7" id="wX9-fu-ygO"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -112,8 +123,8 @@
                 <outlet property="avatarView" destination="amO-lp-LyI" id="ure-dt-Vo9"/>
                 <outlet property="avatarWrapperView" destination="qFJ-cs-5SH" id="tGD-RU-J2k"/>
                 <outlet property="container" destination="ugS-Oe-Uut" id="rWA-qu-2Ra"/>
-                <outlet property="editBtn" destination="Ua9-CR-JUF" id="2db-H5-Qua"/>
-                <outlet property="label" destination="Qse-Hb-MYw" id="9Ph-K4-79c"/>
+                <outlet property="nameLabel" destination="Qse-Hb-MYw" id="9Ph-K4-79c"/>
+                <outlet property="specializationLabel" destination="ij8-dx-qrF" id="Vzf-bj-54j"/>
             </connections>
             <point key="canvasLocation" x="186.95652173913044" y="103.125"/>
         </tableViewCell>

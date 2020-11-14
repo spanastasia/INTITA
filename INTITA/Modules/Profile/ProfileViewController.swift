@@ -30,11 +30,11 @@ class ProfileViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 268
+            return 316
         case rowNumber - 1:
             return 66
         default:
-            return (view.safeAreaLayoutGuide.layoutFrame.height - 334) / 4
+            return (view.safeAreaLayoutGuide.layoutFrame.height - 382) / 4
         }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

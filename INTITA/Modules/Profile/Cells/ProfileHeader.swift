@@ -10,41 +10,54 @@ import UIKit
 class ProfileHeader: UITableViewCell {
 
     @IBOutlet weak var container: UIView!
-    @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var avatarWrapperView: UIView!
     @IBOutlet weak var avatarView: UIImageView!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var specializationLabel: UILabel!
     
-   
-    @IBAction func editBtnTapped() {
-    }
+    
+    //MARK: - awakeFromNib()
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setupContainer()
+        drawGappedBorder()
+        
+        guard let user = UserData.currentUser else {
+            return
+        }
+        nameLabel.text = user.fullName
+    }
+    
+    //MARK: - Actions
+    @IBAction func editBtnTapped() {
+    }
+    
+    //MARK: - Methods
+    
+    
+    //MARK: - Private methods
+    private func drawGappedBorder() {
+        drawArc(from: 25, to: 308)
+        drawArc(from: 275, to: 175)
+        drawArc(from: 170, to: 40)
+    }
+    
+    private func drawArc(from start: Int, to end: Int) {
+        let shape = CAShapeLayer()
+        let radius = avatarWrapperView.frame.width / 2
+        shape.lineWidth = 1
+        let path = UIBezierPath()
+        path.addArc(withCenter: CGPoint(x: radius, y: radius), radius: radius, startAngle: CGFloat(start).toRadians(), endAngle: CGFloat(end).toRadians(), clockwise: false)
+        shape.path = path.cgPath
+        shape.strokeColor = UIColor.white.cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        avatarWrapperView.layer.addSublayer(shape)
+    }
+    
+    private func setupContainer() {
         container.rounded(cornerRadius: 5)
         container.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         container.shadowed()
-        drawArc(around: avatarWrapperView, color: UIColor.white.cgColor, lineWidth: 1, from: 275, to: 308)
-        drawArc(around: avatarWrapperView, color: UIColor.primaryColor.cgColor, lineWidth: 2, from: 40, to: 25)
-        drawArc(around: avatarWrapperView, color: UIColor.primaryColor.cgColor, lineWidth: 2, from: 175, to: 170)
-    }
-    
-    func drawArc(around view: UIView, color: CGColor, lineWidth: CGFloat, from start: Int, to end: Int) {
-        let shape = CAShapeLayer()
-        shape.lineWidth = lineWidth
-        let path = UIBezierPath()
-        path.addArc(withCenter: CGPoint(x: view.frame.width / 2, y: view.frame.width / 2), radius: view.frame.width / 2, startAngle: CGFloat(start).toRadians(), endAngle: CGFloat(end).toRadians(), clockwise: false)
-        shape.path = path.cgPath
-        shape.strokeColor = color
-        shape.fillColor = UIColor.clear.cgColor
-        view.layer.addSublayer(shape)
-    }
-    
-}
-
-
-extension CGFloat {
-    func toRadians() -> CGFloat {
-        return self * CGFloat(Double.pi) / 180.0
     }
 }

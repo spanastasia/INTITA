@@ -27,6 +27,7 @@
 		3F879855255E73D10094D6D9 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879853255E73D10094D6D9 /* ProfileHeader.xib */; };
 		3F87985A255E74060094D6D9 /* ProfileFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879858255E74060094D6D9 /* ProfileFooter.swift */; };
 		3F87985B255E74060094D6D9 /* ProfileFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879859255E74060094D6D9 /* ProfileFooter.xib */; };
+		3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */; };
 		3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */; };
 		3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6FD35255084F200702D43 /* ApiURL.swift */; };
 		3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF299EC254ADD800087AEC7 /* SceneDelegate.swift */; };
@@ -89,6 +90,7 @@
 		3F879853255E73D10094D6D9 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
 		3F879858255E74060094D6D9 /* ProfileFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooter.swift; sourceTree = "<group>"; };
 		3F879859255E74060094D6D9 /* ProfileFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFooter.xib; sourceTree = "<group>"; };
+		3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+toRadians.swift"; sourceTree = "<group>"; };
 		3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		3FB6FD35255084F200702D43 /* ApiURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
 		3FF299E7254ADD800087AEC7 /* INTITA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INTITA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +239,7 @@
 				3F2B29CB255A7FE500DDE683 /* UIView+fromNib.swift */,
 				BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */,
 				64B74F3D254C71B1004E6A4E /* Coordinator.swift */,
+				3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */,
 				64B74F40254C71F2004E6A4E /* Storyboarded.swift */,
 				BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */,
 				BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */,
@@ -465,6 +468,7 @@
 				3F87985A255E74060094D6D9 /* ProfileFooter.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
+				3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				3F879841255E70D30094D6D9 /* ProfileViewController.swift in Sources */,
