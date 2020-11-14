@@ -10,15 +10,11 @@ import UIKit
 class AlertView: UIView {
     
     //MARK:- Outlets
+    @IBOutlet private weak var blurView: UIVisualEffectView!
+    @IBOutlet private weak var alertView: UIView!
     @IBOutlet private weak var errorHeader: UILabel!
-    
-    @IBOutlet private weak var errorMessage: UITextView!
+    @IBOutlet weak var errorMessage: UITextView!
     @IBOutlet private weak var backButton: UIButton!
-    
-    //MARK:- Actions
-    @IBAction func backButtonTapped() {
-        hide()
-    }
     
     //MARK:- Methods
     func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
@@ -34,30 +30,17 @@ class AlertView: UIView {
         errorMessage.attributedText = string
         errorMessage.font = UIFont.primaryFontLight.withSize(16)
         errorMessage.textAlignment = .center
-        show()
-    }
-    
-    func show() {
-        animator.startAnimation()
-    }
-    func hide() {
+        errorMessage.textColor = .black
         animator.startAnimation()
     }
     
     //MARK:- Private properties
     private var setUped = false
     
-    private lazy var blurEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .regular)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        return blurView
-    }()
-    
     private var animator: UIViewPropertyAnimator {
         let alpha: CGFloat = self.alpha == 0 ? 1 : 0
         let animator = UIViewPropertyAnimator(duration: 0.2, curve: .easeIn) {
             self.alpha = alpha
-            self.blurEffectView.alpha = alpha
         }
         return animator
     }
@@ -80,7 +63,9 @@ class AlertView: UIView {
     
     //MARK:- Private methods
     private func setUp() {
-        guard let superview = self.superview else { return }
+        if let superview = self.superview {
+            self.frame = superview.frame
+        }
         
         errorHeader.shadowed()
         
@@ -90,29 +75,31 @@ class AlertView: UIView {
         backButton.rounded()
         backButton.shadowed(shadowColor: UIColor.primaryColor.cgColor)
         backButton.titleLabel?.shadowed()
-        self.shadowed(shadowOffset: CGSize(width: 4, height: 4), shadowRadius: 16, shadowOpacity: 0.4)
         
-        setUpBlurEffect(superview: superview)
+        alertView.shadowed(shadowOffset: CGSize(width: 4, height: 4), shadowRadius: 16, shadowOpacity: 0.4)
         
-        superview.bringSubviewToFront(self)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hide))
+        gesture.delegate = self
+        blurView.addGestureRecognizer(gesture)
         self.alpha = 0
         setUped = true
     }
     
-    private func setUpBlurEffect(superview: UIView) {
-        blurEffectView.frame = superview.bounds
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
-        blurEffectView.addGestureRecognizer(gesture)
-        
-        blurEffectView.isUserInteractionEnabled = true
-        
-        blurEffectView.alpha = 0
-        
-        superview.addSubview(blurEffectView)
-        
-        NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 24).isActive = true
-        NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: -24).isActive = true
-        NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: superview.safeAreaLayoutGuide, attribute: .centerY, multiplier: 1, constant: -20).isActive = true
+    @objc private func hide() {
+        animator.startAnimation()
+    }
+}
+
+extension AlertView: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        var point = touch.location(in: backButton)
+        if backButton.frame(forAlignmentRect: self.frame).contains(point) {
+            return true
+        }
+        point = touch.location(in: self)
+        if alertView.frame.contains(point) {
+            return false
+        }
+        return true
     }
 }
