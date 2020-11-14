@@ -26,13 +26,6 @@ enum CredentialsError {
 }
 
 class LogInViewController: UIViewController, Storyboarded {
-//    @IBOutlet weak var errorLabel: UILabel!
-//    @IBOutlet weak var emailTextField: UITextField!
-//    @IBOutlet weak var passwordTextField: UITextField!
-//    @IBOutlet weak var logInButton: UIButton!
-//    @IBOutlet weak var forgotPasswordButton: UIButton!
-//    @IBOutlet weak var registerButton: UIButton!
-    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,29 +33,6 @@ class LogInViewController: UIViewController, Storyboarded {
     var viewModel: LogInViewModel?
     let validator = Validate()
     let alert: AlertView = AlertView.fromNib()
-
-
-    //MARK:- Actions
-    @IBAction func registerButtonPressed(_ sender: UIButton) {
-        showSafari("https://intita.com/register")
-    }
-    
-//    @IBAction func logInButtonPressed(_ sender: UIButton) {
-//        errorLabel.isHidden = true
-//        guard let password = passwordTextField.text, let email = emailTextField.text else {
-//            return
-//        }
-//        if !validator.validateEmail(email: email) {
-//            errorLabel.isHidden = false
-//
-//            errorLabel.text = CredentialsError.wrongEmail.getString()
-//        } else if !validator.validatePassword(password: password) {
-//            errorLabel.isHidden = false
-//            errorLabel.text = CredentialsError.wrongPassword.getString()
-//        } else {
-//            viewModel?.login(email: email, password: password)
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,11 +45,6 @@ class LogInViewController: UIViewController, Storyboarded {
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        //setupUI()
-    }
-    
     func handleViewModelUpdateWith(error: Error?) {
         if let error = error {
             print("ERRORORROOR \(error)")
@@ -88,21 +53,6 @@ class LogInViewController: UIViewController, Storyboarded {
             }
         }
     }
-    
-//    private func setupUI() {
-//        registerButton.setTitle("register".localized, for: .normal)
-//        forgotPasswordButton.setTitle("forgotPass".localized, for: .normal)
-//        logInButton.setTitle("logIn".localized, for: .normal)
-//        logInButton.rounded(cornerRadius: 10.0)
-//        //text fields
-//        passwordTextField.placeholder = "inputPassword".localized
-//        passwordTextField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
-//        passwordTextField.rounded(cornerRadius: 5.0)
-//
-//        emailTextField.placeholder = "inputEmail".localized
-//        emailTextField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
-//        emailTextField.rounded(cornerRadius: 5.0)
-//    }
     
     private func showSafari(_ url: String) {
         guard let url = URL(string: url) else { return }
@@ -144,28 +94,28 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
-        guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-        guard let passwordCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-        guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell else { return UITableViewCell() }
-        guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
         
         switch indexPath.row {
         case 0:
+            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
             return logoCell
         case 1:
+            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             emailCell.textField.placeholder = "inputEmail".localized
             emailCell.textField.textContentType = .emailAddress
             return emailCell
         case 2:
+            guard let passwordCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             passwordCell.textField.placeholder = "inputPassword".localized
             passwordCell.textField.textContentType = .password
             passwordCell.textField.isSecureTextEntry = true
             return passwordCell
         case 3:
+            guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
             linksCell.delegate = self
             return linksCell
         case 4:
+            guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell else { return UITableViewCell() }
             buttonCell.delegate = self
             return buttonCell
         default:
