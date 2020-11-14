@@ -40,6 +40,14 @@
 		84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A08F592556B9AE00565689 /* LogIn.storyboard */; };
 		84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A08F5A2556B9AE00565689 /* LogInViewController.swift */; };
 		84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */; };
+		84BF645C255E8B4000E2E036 /* LogoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF645A255E8B4000E2E036 /* LogoTableViewCell.swift */; };
+		84BF645D255E8B4000E2E036 /* LogoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF645B255E8B4000E2E036 /* LogoTableViewCell.xib */; };
+		84BF6462255E8CC200E2E036 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF6460255E8CC200E2E036 /* TextTableViewCell.swift */; };
+		84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6461255E8CC200E2E036 /* TextTableViewCell.xib */; };
+		84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF6466255E8F6500E2E036 /* RegisterButtonTableViewCell.swift */; };
+		84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6467255E8F6500E2E036 /* RegisterButtonTableViewCell.xib */; };
+		84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */; };
+		84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */; };
 		BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */; };
 		BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */; };
 		BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */; };
@@ -98,6 +106,14 @@
 		84A08F592556B9AE00565689 /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		84A08F5A2556B9AE00565689 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
+		84BF645A255E8B4000E2E036 /* LogoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoTableViewCell.swift; sourceTree = "<group>"; };
+		84BF645B255E8B4000E2E036 /* LogoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoTableViewCell.xib; sourceTree = "<group>"; };
+		84BF6460255E8CC200E2E036 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		84BF6461255E8CC200E2E036 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
+		84BF6466255E8F6500E2E036 /* RegisterButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButtonTableViewCell.swift; sourceTree = "<group>"; };
+		84BF6467255E8F6500E2E036 /* RegisterButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterButtonTableViewCell.xib; sourceTree = "<group>"; };
+		84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksTableViewCell.swift; sourceTree = "<group>"; };
+		84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinksTableViewCell.xib; sourceTree = "<group>"; };
 		BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+BorderRadius+CornerRadius.swift"; sourceTree = "<group>"; };
 		BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -251,12 +267,28 @@
 		84A08F622556B9E800565689 /* LogInScreen */ = {
 			isa = PBXGroup;
 			children = (
+				84BF6459255E8B1D00E2E036 /* LogInCells */,
 				84A08F592556B9AE00565689 /* LogIn.storyboard */,
 				84A08F5B2556B9AE00565689 /* LogInCoordinator.swift */,
 				84A08F5A2556B9AE00565689 /* LogInViewController.swift */,
 				848EE5052553FBF30042E3D8 /* LogInViewModel.swift */,
 			);
 			path = LogInScreen;
+			sourceTree = "<group>";
+		};
+		84BF6459255E8B1D00E2E036 /* LogInCells */ = {
+			isa = PBXGroup;
+			children = (
+				84BF645A255E8B4000E2E036 /* LogoTableViewCell.swift */,
+				84BF645B255E8B4000E2E036 /* LogoTableViewCell.xib */,
+				84BF6460255E8CC200E2E036 /* TextTableViewCell.swift */,
+				84BF6461255E8CC200E2E036 /* TextTableViewCell.xib */,
+				84BF6466255E8F6500E2E036 /* RegisterButtonTableViewCell.swift */,
+				84BF6467255E8F6500E2E036 /* RegisterButtonTableViewCell.xib */,
+				84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */,
+				84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */,
+			);
+			path = LogInCells;
 			sourceTree = "<group>";
 		};
 		BA8D88502552C365005A44C2 /* Common */ = {
@@ -375,14 +407,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BF645D255E8B4000E2E036 /* LogoTableViewCell.xib in Resources */,
 				3FF299F7254ADD830087AEC7 /* LaunchScreen.storyboard in Resources */,
 				BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */,
+				84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */,
+				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
+				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
 				3F2E7708255474A100853140 /* AlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,8 +437,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
+				84BF645C255E8B4000E2E036 /* LogoTableViewCell.swift in Sources */,
 				3F2B29CC255A7FE500DDE683 /* UIView+fromNib.swift in Sources */,
 				3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */,
 				64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */,
@@ -411,10 +449,12 @@
 				84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
+				84BF6462255E8CC200E2E036 /* TextTableViewCell.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
+				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,

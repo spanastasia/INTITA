@@ -9,14 +9,14 @@ import UIKit
 import SafariServices
 
 enum CredentialsError {
-    case passwordIsEmpty
+    case wrongPassword
     case emailIsEmpty
     case wrongEmail
     
     func getString() -> String {
         switch self {
-        case .passwordIsEmpty:
-            return "inputPassword".localized
+        case .wrongPassword:
+            return "wrongPassword".localized
         case .emailIsEmpty:
             return "inputEmail".localized
         case .wrongEmail:
@@ -26,89 +26,32 @@ enum CredentialsError {
 }
 
 class LogInViewController: UIViewController, Storyboarded {
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var forgotPasswordButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     weak var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
-
-    //MARK:- Actions
-    @IBAction func registerButtonPressed(_ sender: UIButton) {
-        showSafari("https://intita.com/register")
-    }
-    
-    @IBAction func logInButtonPressed(_ sender: UIButton) {
-        
-        errorLabel.isHidden = true
-        guard let password = passwordTextField.text, let email = emailTextField.text else {
-            return
-        }
-        if validateCredentials(password, email) {
-            viewModel?.login(email: email, password: password)
-        }
-    }
+    let validator = Validate()
+    let alert: AlertView = AlertView.fromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        registerCells()
+        
+        view.addSubview(alert)
         navigationController?.setNavigationBarHidden(false, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        setupUI()
     }
     
     func handleViewModelUpdateWith(error: Error?) {
         if let error = error {
             print("ERRORORROOR \(error)")
-            return
+            DispatchQueue.main.async {
+                self.alert.customizeAndShow(message: error.localizedDescription)
+            }
         }
-    }
-    
-    private func setupUI() {
-        registerButton.setTitle("register".localized, for: .normal)
-        forgotPasswordButton.setTitle("forgotPass".localized, for: .normal)
-        logInButton.setTitle("logIn".localized, for: .normal)
-        logInButton.layer.cornerRadius = 10.0
-        
-        //text fields
-        passwordTextField.placeholder = "inputPassword".localized
-        passwordTextField.layer.borderWidth = 1.0
-        passwordTextField.layer.cornerRadius = 5.0
-        emailTextField.placeholder = "inputEmail".localized
-        emailTextField.layer.borderWidth = 1.0
-        emailTextField.layer.cornerRadius = 5.0
-        
-        
-    }
-    
-    private func validateCredentials(_ password: String, _ email: String) -> Bool {
-        var result = true
-        if password.isEmpty {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.passwordIsEmpty.getString()
-            result = false
-        } else if email.isEmpty {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.emailIsEmpty.getString()
-            result = false
-        }
-        guard email.contains("@") else {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.wrongEmail.getString()
-            return false
-        }
-        if email.components(separatedBy: "@")[1].isEmpty {
-            errorLabel.isHidden = false
-            errorLabel.text = CredentialsError.wrongEmail.getString()
-            result = false
-        }
-        return result
     }
     
     private func showSafari(_ url: String) {
@@ -116,5 +59,102 @@ class LogInViewController: UIViewController, Storyboarded {
         
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)
+    }
+    
+    func registerCells() {
+        let logoCell = UINib(nibName: "LogoTableViewCell", bundle: nil)
+        let textCell = UINib(nibName: "TextTableViewCell", bundle: nil)
+        let registerButtonCell = UINib(nibName: "RegisterButtonTableViewCell", bundle: nil)
+        let linksCell = UINib(nibName: "LinksTableViewCell", bundle: nil)
+        tableView.register(logoCell, forCellReuseIdentifier: "reuseForLogo")
+        tableView.register(textCell, forCellReuseIdentifier: "reuseForText")
+        tableView.register(registerButtonCell, forCellReuseIdentifier: "reuseForButton")
+        tableView.register(linksCell, forCellReuseIdentifier: "reuseForLinks")
+    }
+}
+
+extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return view.frame.height / 3
+        case 1, 2:
+            return view.frame.height / 9
+        case 3:
+            return 25
+        case 4:
+            return 100
+        default:
+            return 125.0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.row {
+        case 0:
+            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
+            return logoCell
+        case 1:
+            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            emailCell.textField.placeholder = "inputEmail".localized
+            emailCell.textField.textContentType = .emailAddress
+            return emailCell
+        case 2:
+            guard let passwordCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            passwordCell.textField.placeholder = "inputPassword".localized
+            passwordCell.textField.textContentType = .password
+            passwordCell.textField.isSecureTextEntry = true
+            return passwordCell
+        case 3:
+            guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
+            linksCell.delegate = self
+            return linksCell
+        case 4:
+            guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell else { return UITableViewCell() }
+            buttonCell.delegate = self
+            return buttonCell
+        default:
+            return UITableViewCell()
+        }
+    }
+}
+
+extension LogInViewController: RegisterButtonTableViewCellDelegate {
+    func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
+        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? TextTableViewCell else { return }
+        guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
+        
+        guard let password = passwordCell.textField.text, let email = emailCell.textField.text else {
+            return
+        }
+        
+        if !validator.validateEmail(email: email) {
+            emailCell.errorLabel.isHidden = false
+            emailCell.errorImage.isHidden = false
+            emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
+            emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+        } else if !validator.validatePassword(password: password) {
+            passwordCell.errorLabel.isHidden = false
+            passwordCell.errorImage.isHidden = false
+            passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
+            passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+        } else {
+            viewModel?.login(email: email, password: password)
+        }
+    }
+}
+
+extension LogInViewController: LinksTableViewCellDelegate {
+    func linksTableViewCellDidPressRegister(_ sender: LinksTableViewCell) {
+        showSafari("https://intita.com/register")
+    }
+    
+    func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {
+        coordinator?.forgotPasswordScreen()
     }
 }
