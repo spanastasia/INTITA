@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="KGk-i7-Jjw" customClass="TextTableViewCell" customModule="INTITA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="145"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHC-3C-b15">
+                        <rect key="frame" x="16" y="8" width="369" height="87"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="didBeginEditing:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="FGK-4g-AW6"/>
+                        </connections>
+                    </textField>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C17-y3-Nmd">
+                        <rect key="frame" x="317" y="24.5" width="52" height="51"/>
+                        <color key="tintColor" red="1" green="0.36862435329999999" blue="0.51020655709999996" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="C17-y3-Nmd" secondAttribute="height" multiplier="1:1" id="Qdx-0S-eDv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hf-iG-osq">
+                        <rect key="frame" x="16" y="99" width="369" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="1" green="0.36862435329999999" blue="0.51020655709999996" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="C17-y3-Nmd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.69" id="DbS-jI-FoG"/>
+                    <constraint firstItem="PHC-3C-b15" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="ENf-eK-8N7"/>
+                    <constraint firstItem="6hf-iG-osq" firstAttribute="top" secondItem="PHC-3C-b15" secondAttribute="bottom" constant="4" id="LuQ-W9-sic"/>
+                    <constraint firstItem="C17-y3-Nmd" firstAttribute="height" secondItem="PHC-3C-b15" secondAttribute="height" multiplier="0.6" id="QLm-0Y-800"/>
+                    <constraint firstItem="6hf-iG-osq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="XkX-zZ-hqX"/>
+                    <constraint firstItem="PHC-3C-b15" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hCf-Ir-K0x"/>
+                    <constraint firstAttribute="trailing" secondItem="C17-y3-Nmd" secondAttribute="trailing" constant="32" id="nP0-dI-OHd"/>
+                    <constraint firstItem="PHC-3C-b15" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pYl-O5-Vgw"/>
+                    <constraint firstItem="6hf-iG-osq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pnu-ai-VV2"/>
+                    <constraint firstItem="PHC-3C-b15" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="rOP-M1-k59"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="errorImage" destination="C17-y3-Nmd" id="uW4-Rx-XTt"/>
+                <outlet property="errorLabel" destination="6hf-iG-osq" id="ofy-3E-S43"/>
+                <outlet property="textField" destination="PHC-3C-b15" id="79a-AF-6ef"/>
+            </connections>
+            <point key="canvasLocation" x="-80.434782608695656" y="127.56696428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>
