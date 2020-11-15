@@ -53,10 +53,10 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     @IBAction func goToLogInBtn(_ sender: UIButton) {
 //        coordinator?.displayLogin()
         //MARK: testing run below
-        ActivityIndicatorView.startSpinner()
+        self.startSpinner()
         DispatchQueue.global(qos: .background).async {
             sleep(3)
-            ActivityIndicatorView.stopSpinner()
+            self.stopSpinner()
         }
     }
     func setupScrollView() {
