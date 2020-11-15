@@ -42,7 +42,9 @@ class LogInViewController: UIViewController, Storyboarded {
         
         view.addSubview(alert)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
+        viewModel?.subscribe(updateCallback: handleViewModelUpdateWith,
+                             startSpinnerCallback: startSpinner,
+                             stopSpinnerCallback: stopSpinner)
     }
     
     func handleViewModelUpdateWith(error: Error?) {

@@ -16,17 +16,25 @@ protocol LogInViewModelDelegate: AnyObject {
 class LogInViewModel {
     weak var delegate: LogInViewModelDelegate?
     var updateCallback: LogInViewModelCallback?
+    var startSpinnerCallback: (() -> ())?
+    var stopSpinnerCallback: (() -> ())?
     
-    func subscribe(updateCallback: LogInViewModelCallback?) {
+    func subscribe(updateCallback: LogInViewModelCallback?,
+                   startSpinnerCallback: (() -> ())?,
+                   stopSpinnerCallback: (() -> ())? ) {
         self.updateCallback = updateCallback
+        self.startSpinnerCallback = startSpinnerCallback
+        self.stopSpinnerCallback = stopSpinnerCallback
     }
     
     func login(email: String, password: String) {
-        Authorization.login(email: email, password: password, completion: { error in
+        startSpinnerCallback?()
+        Authorization.login(email: email, password: password, completion: { [weak self] error in
+            self?.stopSpinnerCallback?()
             if let error = error {
-                self.updateCallback?(error)
+                self?.updateCallback?(error)
             } else {
-                self.delegate?.loginSuccess()
+                self?.delegate?.loginSuccess()
             }
         })
     }
