@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MyriadPro-Regular.ttf">
+            <string>MyriadPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ProfileTableViewCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="107" id="KGk-i7-Jjw" customClass="ProfileTableViewCell" customModule="INTITA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="107"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="363" height="107"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lk-gc-96P">
+                        <rect key="frame" x="29" y="26" width="305" height="55"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OfD-7m-OZ7">
+                                <rect key="frame" x="17" y="12.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="EDq-vs-ak6"/>
+                                    <constraint firstAttribute="height" constant="30" id="Hsc-td-sBQ"/>
+                                </constraints>
+                                <state key="normal" image="mail"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Повідомлення" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-Yu-6YK">
+                                <rect key="frame" x="70" y="0.0" width="235" height="55"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a1D-Yu-6YK" firstAttribute="centerY" secondItem="5Lk-gc-96P" secondAttribute="centerY" id="35V-hl-2SI"/>
+                            <constraint firstAttribute="bottom" secondItem="a1D-Yu-6YK" secondAttribute="bottom" id="49d-Ip-yQb"/>
+                            <constraint firstAttribute="trailing" secondItem="a1D-Yu-6YK" secondAttribute="trailing" id="7Te-Ce-sdu"/>
+                            <constraint firstItem="a1D-Yu-6YK" firstAttribute="top" secondItem="5Lk-gc-96P" secondAttribute="top" id="Grp-6n-kcQ"/>
+                            <constraint firstItem="OfD-7m-OZ7" firstAttribute="centerY" secondItem="5Lk-gc-96P" secondAttribute="centerY" id="IPa-xm-yFm"/>
+                            <constraint firstAttribute="height" constant="55" id="Ow9-MQ-fNF"/>
+                            <constraint firstItem="a1D-Yu-6YK" firstAttribute="leading" secondItem="OfD-7m-OZ7" secondAttribute="trailing" constant="23" id="aeB-0p-hET"/>
+                            <constraint firstItem="OfD-7m-OZ7" firstAttribute="leading" secondItem="5Lk-gc-96P" secondAttribute="leading" constant="17" id="xsz-Vw-DKe"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5Lk-gc-96P" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="08I-Hf-FXY"/>
+                    <constraint firstItem="5Lk-gc-96P" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Fj2-2q-GS9"/>
+                    <constraint firstItem="5Lk-gc-96P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="29" id="L8g-6f-b3J"/>
+                    <constraint firstAttribute="trailing" secondItem="5Lk-gc-96P" secondAttribute="trailing" constant="29" id="uW6-6g-lYB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="button" destination="OfD-7m-OZ7" id="Jch-bn-n9w"/>
+                <outlet property="container" destination="5Lk-gc-96P" id="ALA-du-Sbd"/>
+                <outlet property="label" destination="a1D-Yu-6YK" id="v8h-Zv-tcL"/>
+            </connections>
+            <point key="canvasLocation" x="93.478260869565219" y="41.852678571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mail" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
