@@ -46,6 +46,7 @@ class LogInViewController: UIViewController, Storyboarded {
     }
     
     func handleViewModelUpdateWith(error: Error?) {
+        self.stopSpinner()
         if let error = error {
             print("ERRORORROOR \(error)")
             DispatchQueue.main.async {
@@ -144,6 +145,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         } else {
+            self.startSpinner()
             viewModel?.login(email: email, password: password)
         }
     }
