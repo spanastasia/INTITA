@@ -28,11 +28,15 @@ enum CredentialsError {
 class LogInViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
     weak var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
     let validator = Validate()
     let alert: AlertView = AlertView.fromNib()
+    
+    //private let keyboardHeight: CGFloat = 200.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +47,46 @@ class LogInViewController: UIViewController, Storyboarded {
         view.addSubview(alert)
         navigationController?.setNavigationBarHidden(false, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidAppear),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidDissapear),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardDidAppear(notification: NSNotification) {
+        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        else { return }
+
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        
+        UIView.animate(withDuration: 3, animations: {
+            self.tableViewBottomContraint.constant = keyboardHeight
+            self.tableViewTopConstraint.constant = -keyboardHeight
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @objc func keyboardDidDissapear(notification: NSNotification) {
+        UIView.animate(withDuration: 3, animations: {
+            self.tableViewBottomContraint.constant = 0
+            self.tableViewTopConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        })
     }
     
     func handleViewModelUpdateWith(error: Error?) {

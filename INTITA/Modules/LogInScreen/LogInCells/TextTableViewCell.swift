@@ -16,8 +16,16 @@ class TextTableViewCell: UITableViewCell {
     @IBAction func didBeginEditing(_ sender: UITextField) {
         setupUI()
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
+        textField.addTarget(self, action: #selector(textFieldDidChange),
+                                  for: .editingChanged)
+
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
         setupUI()
     }
     
