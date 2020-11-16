@@ -28,11 +28,15 @@ enum CredentialsError {
 class LogInViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
     weak var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
     let validator = Validate()
     let alert: AlertView = AlertView.fromNib()
+    
+    private let keyboardHeight: CGFloat = 200.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +47,33 @@ class LogInViewController: UIViewController, Storyboarded {
         view.addSubview(alert)
         navigationController?.setNavigationBarHidden(false, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidAppear),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardDidDissapear),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    @objc func keyboardDidAppear(notification: NSNotification) {
+        
+        UIView.animate(withDuration: 3, animations: {
+            self.tableViewBottomContraint.constant = self.keyboardHeight
+            self.tableViewTopConstraint.constant = -self.keyboardHeight
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @objc func keyboardDidDissapear(notification: NSNotification) {
+        UIView.animate(withDuration: 3, animations: {
+            self.tableViewBottomContraint.constant = 0
+            self.tableViewTopConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        })
     }
     
     func handleViewModelUpdateWith(error: Error?) {
