@@ -36,7 +36,7 @@ class LogInViewController: UIViewController, Storyboarded {
     let validator = Validate()
     let alert: AlertView = AlertView.fromNib()
     
-    private let keyboardHeight: CGFloat = 200.0
+    //private let keyboardHeight: CGFloat = 200.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,7 @@ class LogInViewController: UIViewController, Storyboarded {
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardDidAppear),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -59,11 +60,23 @@ class LogInViewController: UIViewController, Storyboarded {
                                                object: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @objc func keyboardDidAppear(notification: NSNotification) {
+        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        else { return }
+
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
         
         UIView.animate(withDuration: 3, animations: {
-            self.tableViewBottomContraint.constant = self.keyboardHeight
-            self.tableViewTopConstraint.constant = -self.keyboardHeight
+            self.tableViewBottomContraint.constant = keyboardHeight
+            self.tableViewTopConstraint.constant = -keyboardHeight
             self.view.layoutIfNeeded()
         })
     }
