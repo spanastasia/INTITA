@@ -14,7 +14,7 @@ protocol LogInViewModelDelegate: AnyObject {
 }
 
 class LogInViewModel {
-    weak var delegate: LogInViewModelDelegate?
+    weak var delegate: (LogInViewModelDelegate & CoordinatorWithSpinnerProtocol)?
     var updateCallback: LogInViewModelCallback?
     
     func subscribe(updateCallback: LogInViewModelCallback?) {
@@ -22,9 +22,9 @@ class LogInViewModel {
     }
     
     func login(email: String, password: String) {
+        delegate?.startSpinner()
         Authorization.login(email: email, password: password, completion: { [weak self] error in
-            // имхо: в этом варианте не нравится что старт в одном файле, стоп в разных файлах и таких кейсов как error или success может быть много, которые нужно помнить где и когда остановить спинер
-            // второе: что делать в случае, когда крутится спинер на вью, а навигейшн бар доступен пользователю для нажатия Назад? итс ок?, а то первая реализация вызывала от рута на весь экран презентэйшн
+            self?.delegate?.stopSpinner()
             if let error = error {
                 self?.updateCallback?(error)
             } else {

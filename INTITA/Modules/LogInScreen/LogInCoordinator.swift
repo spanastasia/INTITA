@@ -8,7 +8,27 @@
 import Foundation
 import UIKit
 
-class LogInCoordinator: Coordinator {
+protocol CoordinatorWithSpinnerProtocol: Coordinator {
+    func startSpinner()
+    func stopSpinner()
+}
+
+extension CoordinatorWithSpinnerProtocol {
+    func stopSpinner () {
+        DispatchQueue.main.async { [weak self] in
+            guard let currentVC = self?.navigationController.topViewController else {return}
+            currentVC.stopSpinner()
+        }
+    }
+    func startSpinner () {
+        DispatchQueue.main.async { [weak self] in
+            guard let currentVC = self?.navigationController.topViewController else {return}
+            currentVC.startSpinner()
+        }
+    }
+}
+
+class LogInCoordinator: CoordinatorWithSpinnerProtocol {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
@@ -33,8 +53,6 @@ class LogInCoordinator: Coordinator {
 
 extension LogInCoordinator: LogInViewModelDelegate {
     func loginSuccess() {
-        guard let currentVC = navigationController.topViewController else {return}
-        currentVC.stopSpinner()
         let successCoordinator = WelcomeCoordinator(navigationController: navigationController)
         childCoordinators.append(successCoordinator)
         print("success")
