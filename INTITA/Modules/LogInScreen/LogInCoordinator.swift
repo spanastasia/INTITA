@@ -33,6 +33,8 @@ class LogInCoordinator: Coordinator {
 
 extension LogInCoordinator: LogInViewModelDelegate {
     func loginSuccess() {
+        guard let currentVC = navigationController.topViewController else {return}
+        currentVC.stopSpinner()
         let successCoordinator = WelcomeCoordinator(navigationController: navigationController)
         childCoordinators.append(successCoordinator)
         print("success")
