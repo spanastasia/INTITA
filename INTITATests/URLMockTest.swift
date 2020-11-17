@@ -10,19 +10,22 @@ import XCTest
 
 class URLMockTest: XCTestCase {
     
-    var sut = MockNetworking()
-    
     func testTrue() {
         
-        let isJsonTrue = sut.loadJsonData(file: "JSONTest")
-            XCTAssertNotNil(isJsonTrue)
-
+        let isJsonTrue = JSONLoader.loadJsonData(file: "JSONTest")
+        XCTAssertNotNil(isJsonTrue)
     }
     
     func testNil() {
         
-        let isJsonNil = sut.loadJsonData(file: "nil")
-        XCTAssertNil(isJsonNil, "your json is empty")
+        let isJsonNil = JSONLoader.loadJsonData(file: "nil")
+        XCTAssertNil(isJsonNil)
+    }
+    
+    func testWrongNameFile() {
+        
+        let isWrongName = JSONLoader.loadJsonData(file: "jsonTest")
+        XCTAssertNil(isWrongName)
     }
 
 }
