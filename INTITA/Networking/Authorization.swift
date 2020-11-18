@@ -18,7 +18,7 @@ class Authorization {
                 completion(error)
             case .success(let response):
                 UserDefaultsManager.addValue(response.token, by: AppConstans.tokenKey)
-                fetchUserInfo { completion($0) }
+                completion(nil)
             }
         }
     }
@@ -26,7 +26,13 @@ class Authorization {
     public static func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
         guard let request = ApiURL.logout.request else { return }
         RequestAPI.request(request: request) { (result: Result<LogoutResponse, Error>) in
-            completion(result)
+            switch result {
+            case .success(_):
+                UserData.reset()
+                fallthrough
+            default:
+                completion(result)
+            }
         }
     }
     
@@ -36,6 +42,7 @@ class Authorization {
             switch result {
             case .success(let user):
                 UserData.set(currentUser: user)
+                completion(nil)
             case .failure(let error):
                 completion(error)
             }

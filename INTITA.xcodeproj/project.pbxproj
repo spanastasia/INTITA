@@ -23,8 +23,8 @@
 		3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879848255E70FE0094D6D9 /* ProfileViewModel.swift */; };
 		3F87984E255E738F0094D6D9 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87984C255E738F0094D6D9 /* ProfileTableViewCell.swift */; };
 		3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F87984D255E738F0094D6D9 /* ProfileTableViewCell.xib */; };
-		3F879854255E73D10094D6D9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879852255E73D10094D6D9 /* ProfileHeader.swift */; };
-		3F879855255E73D10094D6D9 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879853255E73D10094D6D9 /* ProfileHeader.xib */; };
+		3F879854255E73D10094D6D9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879852255E73D10094D6D9 /* ProfileHeaderView.swift */; };
+		3F879855255E73D10094D6D9 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879853255E73D10094D6D9 /* ProfileHeaderView.xib */; };
 		3F87985A255E74060094D6D9 /* ProfileFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879858255E74060094D6D9 /* ProfileFooter.swift */; };
 		3F87985B255E74060094D6D9 /* ProfileFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879859255E74060094D6D9 /* ProfileFooter.xib */; };
 		3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */; };
@@ -95,8 +95,8 @@
 		3F879848255E70FE0094D6D9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F87984C255E738F0094D6D9 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		3F87984D255E738F0094D6D9 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
-		3F879852255E73D10094D6D9 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
-		3F879853255E73D10094D6D9 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
+		3F879852255E73D10094D6D9 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		3F879853255E73D10094D6D9 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		3F879858255E74060094D6D9 /* ProfileFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooter.swift; sourceTree = "<group>"; };
 		3F879859255E74060094D6D9 /* ProfileFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFooter.xib; sourceTree = "<group>"; };
 		3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+toRadians.swift"; sourceTree = "<group>"; };
@@ -125,7 +125,6 @@
 		64F78E74255C5874002C1565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64F78E7C255C5889002C1565 /* INTITATests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INTITATests.swift; sourceTree = "<group>"; };
 		64F78E9F255D4DC8002C1565 /* ValidateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTest.swift; sourceTree = "<group>"; };
-		846E63A6254FFD3F00C737C4 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		846E63B6255007C200C737C4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		848EE5052553FBF30042E3D8 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		84A08F592556B9AE00565689 /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
@@ -210,8 +209,8 @@
 		3F87985E255E74240094D6D9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3F879852255E73D10094D6D9 /* ProfileHeader.swift */,
-				3F879853255E73D10094D6D9 /* ProfileHeader.xib */,
+				3F879852255E73D10094D6D9 /* ProfileHeaderView.swift */,
+				3F879853255E73D10094D6D9 /* ProfileHeaderView.xib */,
 				3F87984C255E738F0094D6D9 /* ProfileTableViewCell.swift */,
 				3F87984D255E738F0094D6D9 /* ProfileTableViewCell.xib */,
 				3F879858255E74060094D6D9 /* ProfileFooter.swift */,
@@ -472,7 +471,7 @@
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooter.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
-				3F879855255E73D10094D6D9 /* ProfileHeader.xib in Resources */,
+				3F879855255E73D10094D6D9 /* ProfileHeaderView.xib in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
@@ -506,7 +505,7 @@
 				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
 				84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
-				3F879854255E73D10094D6D9 /* ProfileHeader.swift in Sources */,
+				3F879854255E73D10094D6D9 /* ProfileHeaderView.swift in Sources */,
 				3F87985A255E74060094D6D9 /* ProfileFooter.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
