@@ -10,14 +10,12 @@ import UIKit
 class ProfileViewController: UITableViewController, Storyboarded {
     private let rowNumber = 6
     private let alert: AlertView = .fromNib()
-    private var user: CurrentUser?
     
     weak var coordinator: ProfileCoordinator?
     var viewModel: ProfileViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View did load")
         startSpinner()
         DispatchQueue.main.async {
             self.viewModel?.fetchUserInfo()
@@ -100,8 +98,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
     }
     
     func fetchUserInfo() {
-        user = UserData.currentUser
-        print(user)
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         stopSpinner()
     }
     
