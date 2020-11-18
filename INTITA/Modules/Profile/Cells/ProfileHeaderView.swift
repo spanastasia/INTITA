@@ -36,13 +36,12 @@ class ProfileHeaderView: UITableViewCell {
         guard let user = UserData.currentUser else {
             return
         }
-        nameLabel.text = user.fullName
+        nameLabel.text = user.firstName + " " + user.secondName
         specializationLabel.text = user.preferSpecializations[0].specializationId.description
         guard let url = user.avatar else {
             return
         }
-        avatarView.image = try? UIImage(data: Data(contentsOf: url))
-        
+        avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
     }
     
     //MARK: - Actions
