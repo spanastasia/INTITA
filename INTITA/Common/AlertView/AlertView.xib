@@ -27,7 +27,7 @@
                     </view>
                     <blurEffect style="regular"/>
                 </visualEffectView>
-                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TY9-NT-CzO">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TY9-NT-CzO">
                     <rect key="frame" x="24" y="253.66666666666663" width="366" height="349"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" distribution="equalSpacing" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="nIo-Mf-h28">
@@ -65,7 +65,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                                 </textView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKW-La-iuo">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iKW-La-iuo">
                                     <rect key="frame" x="0.0" y="245.99999999999994" width="318" height="55"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="55" id="ufr-CT-4ff"/>
@@ -75,6 +75,9 @@
                                         <color key="titleColor" name="mainColor"/>
                                         <color key="titleShadowColor" name="shadow"/>
                                     </state>
+                                    <connections>
+                                        <action selector="hide" destination="iN0-l3-epB" eventType="touchUpInside" id="2pq-2x-7go"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
