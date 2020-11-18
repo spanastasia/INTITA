@@ -25,9 +25,11 @@ class ProfileHeaderView: UITableViewCell {
     //MARK: - awakeFromNib()
     override func awakeFromNib() {
         super.awakeFromNib()
+        print("ProfileHeaderView awake from nib")
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
         avatarView.addGestureRecognizer(tapGR)
         avatarView.isUserInteractionEnabled = true
+        avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
         
         setupContainer()
         drawGappedBorder()

@@ -9,30 +9,29 @@ import UIKit
 
 class ProfileViewController: UITableViewController, Storyboarded {
     private let rowNumber = 6
+    private let alert: AlertView = .fromNib()
+    private var user: CurrentUser?
     
     weak var coordinator: ProfileCoordinator?
     var viewModel: ProfileViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //start spinner
-        
-        viewModel?.delegate = self
-        
-        DispatchQueue.main.async { [self] in
-            viewModel?.fetchUserInfo()
+        print("View did load")
+        startSpinner()
+        DispatchQueue.main.async {
+            self.viewModel?.fetchUserInfo()
         }
+        view.addSubview(alert)
+        view.bringSubviewToFront(alert)
+        viewModel?.delegate = self
+        viewModel?.subscribe(updateCallback: handleError)
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ProfileHeaderView", bundle: nil), forCellReuseIdentifier: "ProfileHeaderView")
         tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
-        tableView.register(UINib(nibName: "ProfileFooter", bundle: nil), forCellReuseIdentifier: "ProfileFooter")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        view.bringSubviewToFront(tableView.visibleCells[0])
+        tableView.register(UINib(nibName: "ProfileFooterView", bundle: nil), forCellReuseIdentifier: "ProfileFooterView")
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,13 +56,20 @@ class ProfileViewController: UITableViewController, Storyboarded {
             cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderView") as! ProfileHeaderView
             (cell as! ProfileHeaderView).delegate = self
         case rowNumber - 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooter") as! ProfileFooter
-            (cell as! ProfileFooter).label.text = "exit".localized
+            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterView") as! ProfileFooterView
+            (cell as! ProfileFooterView).label.text = "exit".localized
+            (cell as! ProfileFooterView).delegate = self
         default:
             cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
             setUpCell(cell as! ProfileTableViewCell, row: row)
         }
         return cell
+    }
+    
+    func handleError(error: Error) {
+        DispatchQueue.main.async {
+            self.alert.customizeAndShow(message: error.localizedDescription)
+        }
     }
     
     func setUpCell(_ cell: ProfileTableViewCell, row: Int) {
@@ -87,9 +93,18 @@ class ProfileViewController: UITableViewController, Storyboarded {
 }
 
 extension ProfileViewController: ProfileViewModelDelegate {
-    func fetchUserInfo() {
-        //hide spinner
+    func logoutSuccess() {
+        DispatchQueue.main.async {
+            self.coordinator?.presentLoginScreen()
+        }
     }
+    
+    func fetchUserInfo() {
+        user = UserData.currentUser
+        print(user)
+        stopSpinner()
+    }
+    
 }
 
 extension ProfileViewController: ProfileHeaderViewDelegate {
@@ -100,5 +115,11 @@ extension ProfileViewController: ProfileHeaderViewDelegate {
     func avatarTapped() {
         print("avatar tapped")
         //go to system profile
+    }
+}
+
+extension ProfileViewController: ProfileFooterViewDelegate {
+    func logout() {
+        viewModel?.logout()
     }
 }
