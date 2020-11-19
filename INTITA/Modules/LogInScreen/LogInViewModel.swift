@@ -29,6 +29,7 @@ class LogInViewModel {
                 self?.updateCallback?(error)
             } else {
                 self?.delegate?.loginSuccess()
+                UserData.isFirstTimeUser = false
             }
         })
     }
