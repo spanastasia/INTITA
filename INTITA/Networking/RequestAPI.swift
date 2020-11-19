@@ -9,6 +9,7 @@ import Foundation
 class RequestAPI {
     
     public static func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
+        
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { data, response, error in
@@ -20,6 +21,7 @@ class RequestAPI {
                 completionHandler(.failure(ApiError.noData))
                 return
             }
+            
             do {
                 let response = try JSONDecoder().decode(T.self, from: data)
                 completionHandler(.success(response))
@@ -28,16 +30,5 @@ class RequestAPI {
             }
         }
         task.resume()
-    }
-    
-    public static func prepareData(email: String, password: String) -> Data? {
-        let json = [
-            "email" : email,
-            "password" : password
-        ]
-        guard let data = try? JSONSerialization.data(withJSONObject: json, options: [])
-        else { return nil }
-        
-        return data
     }
 }
