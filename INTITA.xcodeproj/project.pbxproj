@@ -44,6 +44,7 @@
 		64BD43E625604C7B00880C9A /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD43E525604C7B00880C9A /* JSONLoader.swift */; };
 		64BD43ED25604C9800880C9A /* token.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BD43EC25604C9800880C9A /* token.json */; };
 		64BD43F1256172DB00880C9A /* URLMockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD43F0256172DB00880C9A /* URLMockTest.swift */; };
+		64BD44092564544900880C9A /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44082564544900880C9A /* ResponseTest.swift */; };
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
@@ -124,6 +125,7 @@
 		64BD43E525604C7B00880C9A /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		64BD43EC25604C9800880C9A /* token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = token.json; sourceTree = "<group>"; };
 		64BD43F0256172DB00880C9A /* URLMockTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMockTest.swift; sourceTree = "<group>"; };
+		64BD44082564544900880C9A /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
 		64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				64F78E9F255D4DC8002C1565 /* ValidateTest.swift */,
 				64F78E74255C5874002C1565 /* Info.plist */,
 				64BD43F0256172DB00880C9A /* URLMockTest.swift */,
+				64BD44082564544900880C9A /* ResponseTest.swift */,
 			);
 			path = INTITATests;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BD44092564544900880C9A /* ResponseTest.swift in Sources */,
 				64BD43F1256172DB00880C9A /* URLMockTest.swift in Sources */,
 				64F78E7D255C5889002C1565 /* INTITATests.swift in Sources */,
 				64F78EA0255D4DC8002C1565 /* ValidateTest.swift in Sources */,

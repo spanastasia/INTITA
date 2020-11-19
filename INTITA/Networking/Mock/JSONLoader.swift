@@ -5,9 +5,16 @@
 //  Created by Viacheslav Markov on 14.11.2020.
 //
 
+struct Response {
+    var email: String?
+    var password: String?
+}
+
 import Foundation
 
 class JSONLoader {
+    
+    var data: Data?
     
     static func loadJsonData(file: String?) -> Data? {
         
