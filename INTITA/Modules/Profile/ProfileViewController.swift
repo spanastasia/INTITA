@@ -64,20 +64,21 @@ class ProfileViewController: UITableViewController, Storyboarded {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        var cell: UITableViewCell
         switch row {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderView") as! ProfileHeaderView
-            (cell as! ProfileHeaderView).delegate = self
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderView") as? ProfileHeaderView
+            cell?.delegate = self
+            return cell ?? UITableViewCell()
         case rowNumber - 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterView") as! ProfileFooterView
-            (cell as! ProfileFooterView).label.text = "exit".localized
-            (cell as! ProfileFooterView).delegate = self
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterView") as? ProfileFooterView
+            cell?.label.text = "exit".localized
+            cell?.delegate = self
+            return cell ?? UITableViewCell()
         default:
-            cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
-            setUpCell(cell as! ProfileTableViewCell, row: row)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell
+            setUpProfileBodyCell(cell, row: row)
+            return cell ?? UITableViewCell()
         }
-        return cell
     }
     
     func handleError(error: Error) {
@@ -87,22 +88,22 @@ class ProfileViewController: UITableViewController, Storyboarded {
         }
     }
     
-    func setUpCell(_ cell: ProfileTableViewCell, row: Int) {
+    func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
         if row == 1 {
-            cell.button.imageView?.image = UIImage(named: "mail")
-            cell.label.text = "messages".localized
+            cell?.button.imageView?.image = UIImage(named: "mail")
+            cell?.label.text = "messages".localized
         }
         if row == 2 {
-            cell.button.imageView?.image = UIImage(named: "trophy")
-            cell.label.text = "opportunities".localized
+            cell?.button.imageView?.image = UIImage(named: "trophy")
+            cell?.label.text = "opportunities".localized
         }
         if row == 3 {
-            cell.button.imageView?.image = UIImage(named: "edit")
-            cell.label.text = "my tasks".localized
+            cell?.button.imageView?.image = UIImage(named: "edit")
+            cell?.label.text = "my tasks".localized
         }
         if row == 4 {
-            cell.button.imageView?.image = UIImage(named: "settings")
-            cell.label.text = "settings".localized
+            cell?.button.imageView?.image = UIImage(named: "settings")
+            cell?.label.text = "settings".localized
         }
     }
 }
