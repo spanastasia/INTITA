@@ -1,5 +1,5 @@
 //
-//  ProfileHeader.swift
+//  ProfileHeaderView.swift
 //  INTITA
 //
 //  Created by Anastasiia Spiridonova on 13.11.2020.
@@ -7,7 +7,12 @@
 
 import UIKit
 
-class ProfileHeader: UITableViewCell {
+protocol ProfileHeaderViewDelegate: AnyObject {
+    func editImage()
+    func avatarTapped()
+}
+
+class ProfileHeaderView: UITableViewCell {
 
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var avatarWrapperView: UIView!
@@ -15,10 +20,15 @@ class ProfileHeader: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var specializationLabel: UILabel!
     
+    weak var delegate: ProfileHeaderViewDelegate?
     
     //MARK: - awakeFromNib()
     override func awakeFromNib() {
         super.awakeFromNib()
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+        avatarView.addGestureRecognizer(tapGR)
+        avatarView.isUserInteractionEnabled = true
+        avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
         
         setupContainer()
         drawGappedBorder()
@@ -26,11 +36,21 @@ class ProfileHeader: UITableViewCell {
         guard let user = UserData.currentUser else {
             return
         }
-        nameLabel.text = user.fullName
+        nameLabel.text = user.firstName + " " + user.secondName
+        specializationLabel.text = user.preferSpecializations[0].specializationId.description
+        guard let url = user.avatar else {
+            return
+        }
+        avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
     }
     
     //MARK: - Actions
     @IBAction func editBtnTapped() {
+        delegate?.editImage()
+    }
+    
+    @objc func avatarTapped() {
+        delegate?.avatarTapped()
     }
     
     //MARK: - Methods

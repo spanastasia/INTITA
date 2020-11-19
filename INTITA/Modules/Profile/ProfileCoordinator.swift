@@ -13,6 +13,12 @@ class ProfileCoordinator: Coordinator {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        
+        //append childCoordinators in needen order
+        //system profile ccordinator
+        //messages
+        //...
+        childCoordinators.append(LogInCoordinator(navigationController: navigationController))
     }
 
     func start() {
@@ -21,5 +27,9 @@ class ProfileCoordinator: Coordinator {
         vc.coordinator = self
         vc.viewModel = viewModel
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func presentLoginScreen() {
+        childCoordinators.last?.start()
     }
 }
