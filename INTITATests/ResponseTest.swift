@@ -17,6 +17,7 @@ class ResponseTest: XCTestCase {
         sut.httpType = .mock
         
         let isTrue = sut.shared
+//        print(isTrue)
         XCTAssertNotNil(isTrue)
 
     }

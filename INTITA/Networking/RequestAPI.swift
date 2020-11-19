@@ -28,12 +28,12 @@ class APIRequest {
             return RequestAPI()
         }
     }
-    
+   //-------------------------------------
 //    init(httpType: HTTPType) {
 //        self.httpType = httpType
 //        shared(httpType: httpType)
 //    }
-//
+//---------------------------------------
 //    func shared(httpType: HTTPType) -> AnyObject {
 //
 //        switch httpType {
