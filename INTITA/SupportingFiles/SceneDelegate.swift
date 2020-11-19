@@ -35,13 +35,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let loginCoordinator = LogInCoordinator(navigationController: navController)
             loginCoordinator.start()
             loginCoordinator.startSpinner()
-            Authorization.fetchUserInfo { (error) in
-                loginCoordinator.stopSpinner()
-                if error == nil { // успешный успех
-                let profileCoordinator = ProfileCoordinator(navigationController: navController)
-                profileCoordinator.start()
+            Authorization.fetchUserInfo(completion: { (error) in
+                DispatchQueue.main.async {
+                    loginCoordinator.stopSpinner()
+                    if error == nil { // успешный успех
+                        let profileCoordinator = ProfileCoordinator(navigationController: navController)
+                        profileCoordinator.start()
+                    }
                 }
-            }
+            })
         }
         
         // 4

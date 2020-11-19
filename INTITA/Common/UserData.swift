@@ -28,13 +28,14 @@ class UserData {
     }
     static var isFirstTimeUser: Bool {
         get {
-            if let state = UserDefaultsManager.getValue(by: AppConstans.isFirstTimeUser), let userState = Bool(state) {
-                return userState
+            if let state = UserDefaultsManager.getValue(by: AppConstans.isFirstTimeUser),
+               let intState = Int(state) {
+                return intState != 0
             }
             return true
         }
         set {
-            self.isFirstTimeUser = newValue
+            UserDefaultsManager.addValue(newValue ? 1 : 0, by: AppConstans.isFirstTimeUser)
         }
     }
     private(set) static var currentUser: CurrentUser?
