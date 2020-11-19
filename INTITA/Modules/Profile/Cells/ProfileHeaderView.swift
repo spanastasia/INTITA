@@ -28,7 +28,6 @@ class ProfileHeaderView: UITableViewCell {
         avatarView.addGestureRecognizer(tapGR)
         avatarView.isUserInteractionEnabled = true
         avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
-        avatarView.frame = avatarView.frame.insetBy(dx: -17, dy: -17)
         setupContainer()
         
         guard let user = UserData.currentUser else {
@@ -42,8 +41,17 @@ class ProfileHeaderView: UITableViewCell {
         }
         avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
         
+//        drawGappedBorder()
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
         drawGappedBorder()
     }
+//    override func layoutMarginsDidChange() {
+//        super.layoutMarginsDidChange()
+//        drawGappedBorder()
+//    }
     
     //MARK: - Actions
     @IBAction func editBtnTapped() {
@@ -66,14 +74,16 @@ class ProfileHeaderView: UITableViewCell {
     
     private func drawArc(from start: Int, to end: Int) {
         let shape = CAShapeLayer()
-        let radius = avatarView.frame.width / 2
+        let radius = avatarView.frame.width / 2 + 14
         shape.lineWidth = 1
         let path = UIBezierPath()
-        path.addArc(withCenter: CGPoint(x: radius, y: radius), radius: radius, startAngle: CGFloat(start).toRadians(), endAngle: CGFloat(end).toRadians(), clockwise: false)
+        let x = superview?.center.x
+        let y = (superview?.safeAreaLayoutGuide.layoutFrame.height)! * 0.2 - 4
+        path.addArc(withCenter: CGPoint(x: x!, y: y), radius: radius, startAngle: CGFloat(start).toRadians(), endAngle: CGFloat(end).toRadians(), clockwise: false)
         shape.path = path.cgPath
         shape.strokeColor = UIColor.white.cgColor
         shape.fillColor = UIColor.clear.cgColor
-        avatarView.layer.addSublayer(shape)
+        superview?.layer.addSublayer(shape)
     }
     
     private func setupContainer() {
