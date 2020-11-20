@@ -32,3 +32,8 @@
 "no data" = "Data not found.";
 "task error" = "Unable to contact server.";
 "get more info" = "For more information call";
+"messages" = "Messages";
+"opportunities" = "Opportunities";
+"my tasks" = "My tasks";
+"settings" = "Settings";
+"exit" = "Exit";

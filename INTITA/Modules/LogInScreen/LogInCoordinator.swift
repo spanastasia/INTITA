@@ -53,7 +53,7 @@ class LogInCoordinator: CoordinatorWithSpinnerProtocol {
 
 extension LogInCoordinator: LogInViewModelDelegate {
     func loginSuccess() {
-        let successCoordinator = WelcomeCoordinator(navigationController: navigationController)
+        let successCoordinator = ProfileCoordinator(navigationController: navigationController)
         childCoordinators.append(successCoordinator)
         print("success")
         DispatchQueue.main.async {

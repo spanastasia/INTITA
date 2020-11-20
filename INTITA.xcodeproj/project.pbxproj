@@ -23,10 +23,10 @@
 		3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879848255E70FE0094D6D9 /* ProfileViewModel.swift */; };
 		3F87984E255E738F0094D6D9 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87984C255E738F0094D6D9 /* ProfileTableViewCell.swift */; };
 		3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F87984D255E738F0094D6D9 /* ProfileTableViewCell.xib */; };
-		3F879854255E73D10094D6D9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879852255E73D10094D6D9 /* ProfileHeader.swift */; };
-		3F879855255E73D10094D6D9 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879853255E73D10094D6D9 /* ProfileHeader.xib */; };
-		3F87985A255E74060094D6D9 /* ProfileFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879858255E74060094D6D9 /* ProfileFooter.swift */; };
-		3F87985B255E74060094D6D9 /* ProfileFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879859255E74060094D6D9 /* ProfileFooter.xib */; };
+		3F879854255E73D10094D6D9 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879852255E73D10094D6D9 /* ProfileHeaderView.swift */; };
+		3F879855255E73D10094D6D9 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879853255E73D10094D6D9 /* ProfileHeaderView.xib */; };
+		3F87985A255E74060094D6D9 /* ProfileFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879858255E74060094D6D9 /* ProfileFooterView.swift */; };
+		3F87985B255E74060094D6D9 /* ProfileFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F879859255E74060094D6D9 /* ProfileFooterView.xib */; };
 		3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */; };
 		3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */; };
 		3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6FD35255084F200702D43 /* ApiURL.swift */; };
@@ -100,10 +100,10 @@
 		3F879848255E70FE0094D6D9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3F87984C255E738F0094D6D9 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		3F87984D255E738F0094D6D9 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
-		3F879852255E73D10094D6D9 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
-		3F879853255E73D10094D6D9 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
-		3F879858255E74060094D6D9 /* ProfileFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooter.swift; sourceTree = "<group>"; };
-		3F879859255E74060094D6D9 /* ProfileFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFooter.xib; sourceTree = "<group>"; };
+		3F879852255E73D10094D6D9 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		3F879853255E73D10094D6D9 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
+		3F879858255E74060094D6D9 /* ProfileFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooterView.swift; sourceTree = "<group>"; };
+		3F879859255E74060094D6D9 /* ProfileFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFooterView.xib; sourceTree = "<group>"; };
 		3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+toRadians.swift"; sourceTree = "<group>"; };
 		3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		3FB6FD35255084F200702D43 /* ApiURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		49F53EAD25531263008327A6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB02553126D008327A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB125531274008327A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
 		64B74F3D254C71B1004E6A4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		64B74F40254C71F2004E6A4E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		64BD43E525604C7B00880C9A /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
@@ -219,12 +219,12 @@
 		3F87985E255E74240094D6D9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3F879852255E73D10094D6D9 /* ProfileHeader.swift */,
-				3F879853255E73D10094D6D9 /* ProfileHeader.xib */,
+				3F879852255E73D10094D6D9 /* ProfileHeaderView.swift */,
+				3F879853255E73D10094D6D9 /* ProfileHeaderView.xib */,
 				3F87984C255E738F0094D6D9 /* ProfileTableViewCell.swift */,
 				3F87984D255E738F0094D6D9 /* ProfileTableViewCell.xib */,
-				3F879858255E74060094D6D9 /* ProfileFooter.swift */,
-				3F879859255E74060094D6D9 /* ProfileFooter.xib */,
+				3F879858255E74060094D6D9 /* ProfileFooterView.swift */,
+				3F879859255E74060094D6D9 /* ProfileFooterView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -493,9 +493,9 @@
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
-				3F87985B255E74060094D6D9 /* ProfileFooter.xib in Resources */,
+				3F87985B255E74060094D6D9 /* ProfileFooterView.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
-				3F879855255E73D10094D6D9 /* ProfileHeader.xib in Resources */,
+				3F879855255E73D10094D6D9 /* ProfileHeaderView.xib in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
@@ -530,8 +530,8 @@
 				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
 				84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
-				3F879854255E73D10094D6D9 /* ProfileHeader.swift in Sources */,
-				3F87985A255E74060094D6D9 /* ProfileFooter.swift in Sources */,
+				3F879854255E73D10094D6D9 /* ProfileHeaderView.swift in Sources */,
+				3F87985A255E74060094D6D9 /* ProfileFooterView.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
 				3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */,

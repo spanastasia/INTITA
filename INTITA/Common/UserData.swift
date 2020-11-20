@@ -16,4 +16,8 @@ class UserData {
     static func set(currentUser: CurrentUser) {
         UserData.currentUser = currentUser
     }
+    static func reset() {
+        UserData.currentUser = nil
+        UserDefaultsManager.addValue(nil, by: AppConstans.tokenKey)
+    }
 }

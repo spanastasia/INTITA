@@ -65,6 +65,7 @@ class LogInViewController: UIViewController, Storyboarded {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        stopSpinner()
     }
     
     @objc func keyboardDidAppear(notification: NSNotification) {
@@ -93,6 +94,7 @@ class LogInViewController: UIViewController, Storyboarded {
         if let error = error {
             print("ERRORORROOR \(error)")
             DispatchQueue.main.async {
+                self.stopSpinner()
                 self.alert.customizeAndShow(message: error.localizedDescription)
             }
         }
@@ -188,6 +190,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         } else {
+            startSpinner()
             viewModel?.login(email: email, password: password)
         }
     }

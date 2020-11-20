@@ -57,6 +57,7 @@ class RequestAPI: RequestAPIProtocol {
                 completionHandler(.failure(ApiError.noData))
                 return
             }
+            
             do {
                 let response = try JSONDecoder().decode(T.self, from: data)
                 completionHandler(.success(response))
@@ -65,16 +66,5 @@ class RequestAPI: RequestAPIProtocol {
             }
         }
         task.resume()
-    }
-    
-    public static func prepareData(email: String, password: String) -> Data? {
-        let json = [
-            "email" : email,
-            "password" : password
-        ]
-        guard let data = try? JSONSerialization.data(withJSONObject: json, options: [])
-        else { return nil }
-        
-        return data
     }
 }
