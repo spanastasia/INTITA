@@ -18,7 +18,6 @@ class ProfileCoordinator: Coordinator {
         //system profile ccordinator
         //messages
         //...
-        childCoordinators.append(LogInCoordinator(navigationController: navigationController))
     }
 
     func start() {
@@ -29,7 +28,7 @@ class ProfileCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func presentLoginScreen() {
-        childCoordinators.last?.start()
+    func showLoginScreen() {
+        navigationController.popViewController(animated: true)
     }
 }

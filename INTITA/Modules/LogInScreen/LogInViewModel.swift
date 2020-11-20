@@ -22,16 +22,22 @@ class LogInViewModel {
     }
     
     func login(email: String, password: String) {
-        delegate?.startSpinner()
         Authorization.login(email: email, password: password, completion: { [weak self] error in
-            self?.delegate?.stopSpinner()
             if let error = error {
                 self?.updateCallback?(error)
             } else {
-                self?.delegate?.loginSuccess()
-                UserData.isFirstTimeUser = false
+                self?.fetchUserInfo()
             }
         })
     }
     
+    func fetchUserInfo() {
+        Authorization.fetchUserInfo { [weak self] error in
+            guard let error = error else {
+                self?.delegate?.loginSuccess()
+                return
+            }
+            self?.updateCallback?(error)
+        }
+    }
 }
