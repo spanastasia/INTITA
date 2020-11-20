@@ -40,18 +40,12 @@ class ProfileHeaderView: UITableViewCell {
             return
         }
         avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
-        
-//        drawGappedBorder()
     }
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         drawGappedBorder()
     }
-//    override func layoutMarginsDidChange() {
-//        super.layoutMarginsDidChange()
-//        drawGappedBorder()
-//    }
     
     //MARK: - Actions
     @IBAction func editBtnTapped() {
@@ -74,7 +68,7 @@ class ProfileHeaderView: UITableViewCell {
     
     private func drawArc(from start: Int, to end: Int) {
         let shape = CAShapeLayer()
-        let radius = avatarView.frame.width / 2 + 14
+        let radius = avatarView.frame.width / 2 + 12
         shape.lineWidth = 1
         let path = UIBezierPath()
         let x = superview?.center.x

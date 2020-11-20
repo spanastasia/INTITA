@@ -14,37 +14,30 @@ class ProfileViewController: UITableViewController, Storyboarded {
     weak var coordinator: ProfileCoordinator?
     var viewModel: ProfileViewModel?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
+    //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorStatusBar(UIColor.primaryColor)
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        if #available(iOS 13, *) {
-            let statusBar = UIView(frame: (UIApplication.shared.windows[0].windowScene?.statusBarManager?.statusBarFrame)!)
-            statusBar.backgroundColor = UIColor.primaryColor
-            UIApplication.shared.windows[0].addSubview(statusBar)
-        } else {
-            let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-            if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
-                statusBar.backgroundColor = UIColor.primaryColor
-            }
-        }
-        
-        startSpinner()
-        DispatchQueue.main.async {
-            self.viewModel?.fetchUserInfo()
-        }
         view.addSubview(alert)
-        view.bringSubviewToFront(alert)
+        
         viewModel?.delegate = self
         viewModel?.subscribe(updateCallback: handleError)
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "ProfileHeaderView", bundle: nil), forCellReuseIdentifier: "ProfileHeaderView")
-        tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
-        tableView.register(UINib(nibName: "ProfileFooterView", bundle: nil), forCellReuseIdentifier: "ProfileFooterView")
+        registerCells()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        colorStatusBar(UIColor.systemBackground)
+    }
+    
+    //MARK: - TableView settings
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let viewHeigh = view.safeAreaLayoutGuide.layoutFrame.height
         switch indexPath.row {
@@ -56,8 +49,6 @@ class ProfileViewController: UITableViewController, Storyboarded {
             return (viewHeigh * 0.6 - 66) / 4
         }
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowNumber
@@ -81,6 +72,7 @@ class ProfileViewController: UITableViewController, Storyboarded {
         }
     }
     
+    //MARK: - Error handling
     func handleError(error: Error) {
         DispatchQueue.main.async {
             self.stopSpinner()
@@ -88,7 +80,8 @@ class ProfileViewController: UITableViewController, Storyboarded {
         }
     }
     
-    func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
+    //MARK: - Private methods
+    private func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
         if row == 1 {
             cell?.button.imageView?.image = UIImage(named: "mail")
             cell?.label.text = "messages".localized
@@ -106,20 +99,35 @@ class ProfileViewController: UITableViewController, Storyboarded {
             cell?.label.text = "settings".localized
         }
     }
-}
-
-extension ProfileViewController: ProfileViewModelDelegate {
-    func logoutSuccess() {
-        DispatchQueue.main.async {
-            self.coordinator?.presentLoginScreen()
+    
+    private func colorStatusBar(_ color: UIColor) {
+        if #available(iOS 13, *) {
+            let statusBar = UIView(frame: (UIApplication.shared.windows[0].windowScene?.statusBarManager?.statusBarFrame)!)
+            statusBar.backgroundColor = color
+            UIApplication.shared.windows[0].addSubview(statusBar)
+        } else {
+            let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+            if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
+                statusBar.backgroundColor = color
+            }
         }
     }
     
-    func fetchUserInfo() {
-        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
-        stopSpinner()
+    private func registerCells() {
+        tableView.register(UINib(nibName: "ProfileHeaderView", bundle: nil), forCellReuseIdentifier: "ProfileHeaderView")
+        tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
+        tableView.register(UINib(nibName: "ProfileFooterView", bundle: nil), forCellReuseIdentifier: "ProfileFooterView")
     }
-    
+}
+
+//MARK: - Extentions
+extension ProfileViewController: ProfileViewModelDelegate {
+    func logoutSuccess() {
+        DispatchQueue.main.async {
+            self.stopSpinner()
+            self.coordinator?.showLoginScreen()
+        }
+    }
 }
 
 extension ProfileViewController: ProfileHeaderViewDelegate {
