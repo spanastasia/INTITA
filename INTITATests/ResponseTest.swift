@@ -21,8 +21,5 @@ class ResponseTest: XCTestCase {
         XCTAssertNotNil(isTrue)
 
     }
-    
-    func testFalse() {
 
-    }
 }
