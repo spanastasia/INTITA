@@ -12,7 +12,7 @@ class URLMockTest: XCTestCase {
     
     func testTrue() {
         
-        let isJsonTrue = JSONLoader.loadJsonData(file: "JSONTest")
+        let isJsonTrue = JSONLoader.loadJsonData(file: "token")
         XCTAssertNotNil(isJsonTrue)
     }
     
@@ -24,7 +24,7 @@ class URLMockTest: XCTestCase {
     
     func testWrongNameFile() {
         
-        let isWrongName = JSONLoader.loadJsonData(file: "jsonTest")
+        let isWrongName = JSONLoader.loadJsonData(file: "Token")
         XCTAssertNil(isWrongName)
     }
 
