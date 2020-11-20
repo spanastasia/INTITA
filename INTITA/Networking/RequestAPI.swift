@@ -17,9 +17,9 @@ protocol RequestAPIProtocol {
 
 class APIRequest {
         
-    var httpType: HTTPType = .real
+    static var httpType: HTTPType = .real
     
-    var shared: RequestAPIProtocol {
+    static var shared: RequestAPIProtocol {
         
         switch httpType {
         case .mock:
@@ -28,21 +28,6 @@ class APIRequest {
             return RequestAPI()
         }
     }
-   //-------------------------------------
-//    init(httpType: HTTPType) {
-//        self.httpType = httpType
-//        shared(httpType: httpType)
-//    }
-//---------------------------------------
-//    func shared(httpType: HTTPType) -> AnyObject {
-//
-//        switch httpType {
-//        case .mock:
-//            return MockRequestAPI()
-//        case .real:
-//            return RequestAPI()
-//        }
-//    }
     
 }
 

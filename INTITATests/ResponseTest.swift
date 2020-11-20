@@ -9,14 +9,14 @@ import XCTest
 @testable import INTITA
 
 class ResponseTest: XCTestCase {
-
-    var sut = APIRequest()
+    
+    override class func setUp() {
+        APIRequest.httpType = .mock
+    }
 
     func testTrue() {
         
-        sut.httpType = .mock
-        
-        let isTrue = sut.shared
+        let isTrue = APIRequest.shared
 //        print(isTrue)
         XCTAssertNotNil(isTrue)
 
