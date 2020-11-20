@@ -53,6 +53,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     
     @IBAction func goToLogInBtn(_ sender: UIButton) {
         coordinator?.displayLogin()
+        UserData.isFirstTimeUser = false
     }
     func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
