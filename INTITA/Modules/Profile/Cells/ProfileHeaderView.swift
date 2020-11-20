@@ -8,8 +8,11 @@
 import UIKit
 
 protocol ProfileHeaderViewDelegate: AnyObject {
-    func editImage()
     func avatarTapped()
+}
+
+protocol ProfileHeaderViewDataSourse: AnyObject {
+    func editImage()
 }
 
 class ProfileHeaderView: UITableViewCell {
@@ -20,6 +23,7 @@ class ProfileHeaderView: UITableViewCell {
     @IBOutlet weak var specializationLabel: UILabel!
     
     weak var delegate: ProfileHeaderViewDelegate?
+    weak var dataSourse: ProfileHeaderViewDataSourse?
     
     //MARK: - awakeFromNib()
     override func awakeFromNib() {
@@ -49,7 +53,7 @@ class ProfileHeaderView: UITableViewCell {
     
     //MARK: - Actions
     @IBAction func editBtnTapped() {
-        delegate?.editImage()
+        dataSourse?.editImage()
     }
     
     @objc func avatarTapped() {

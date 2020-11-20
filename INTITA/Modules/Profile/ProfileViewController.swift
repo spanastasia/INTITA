@@ -58,7 +58,8 @@ class ProfileViewController: UITableViewController, Storyboarded {
         switch row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderView") as? ProfileHeaderView
-            cell?.delegate = self
+            cell?.dataSourse = self
+            cell?.delegate = coordinator
             return cell ?? UITableViewCell()
         case rowNumber - 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterView") as? ProfileFooterView
@@ -82,6 +83,7 @@ class ProfileViewController: UITableViewController, Storyboarded {
     
     //MARK: - Private methods
     private func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
+        cell?.row = row
         if row == 1 {
             cell?.button.imageView?.image = UIImage(named: "mail")
             cell?.label.text = "messages".localized
@@ -130,14 +132,9 @@ extension ProfileViewController: ProfileViewModelDelegate {
     }
 }
 
-extension ProfileViewController: ProfileHeaderViewDelegate {
+extension ProfileViewController: ProfileHeaderViewDataSourse {
     func editImage() {
         print("edit image")
-    }
-    
-    func avatarTapped() {
-        print("avatar tapped")
-        //go to system profile
     }
 }
 
