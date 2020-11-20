@@ -27,7 +27,13 @@ class Authorization {
     public static func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
         guard let request = ApiURL.logout.request else { return }
         APIRequest.shared.request(request: request) { (result: Result<LogoutResponse, Error>) in
-            completion(result)
+            switch result {
+            case .success(_):
+                UserData.reset()
+                fallthrough
+            default:
+                completion(result)
+            }
         }
     }
     
