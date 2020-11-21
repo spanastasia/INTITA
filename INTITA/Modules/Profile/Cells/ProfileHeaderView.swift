@@ -53,7 +53,7 @@ class ProfileHeaderView: UITableViewCell {
     
     //MARK: - Actions
     @IBAction func editBtnTapped() {
-        dataSourse?.editImage()
+        delegate?.avatarTapped()
     }
     
     @objc func avatarTapped() {
@@ -65,9 +65,9 @@ class ProfileHeaderView: UITableViewCell {
     
     //MARK: - Private methods
     private func drawGappedBorder() {
-        drawArc(from: 25, to: 312)
+        drawArc(from: 25, to: 316)
         drawArc(from: 283, to: 175)
-        drawArc(from: 170, to: 40)
+        drawArc(from: 166, to: 40)
     }
     
     private func drawArc(from start: Int, to end: Int) {
@@ -76,12 +76,12 @@ class ProfileHeaderView: UITableViewCell {
         shape.lineWidth = 1
         let path = UIBezierPath()
         let x = superview?.center.x
-        let y = (superview?.safeAreaLayoutGuide.layoutFrame.height)! * 0.2 - 4
+        let y = avatarView.center.y - 4
         path.addArc(withCenter: CGPoint(x: x!, y: y), radius: radius, startAngle: CGFloat(start).toRadians(), endAngle: CGFloat(end).toRadians(), clockwise: false)
         shape.path = path.cgPath
         shape.strokeColor = UIColor.white.cgColor
         shape.fillColor = UIColor.clear.cgColor
-        superview?.layer.addSublayer(shape)
+        self.layer.addSublayer(shape)
     }
     
     private func setupContainer() {

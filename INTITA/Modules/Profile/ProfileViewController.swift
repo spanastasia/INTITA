@@ -39,14 +39,13 @@ class ProfileViewController: UITableViewController, Storyboarded {
     
     //MARK: - TableView settings
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let viewHeigh = view.safeAreaLayoutGuide.layoutFrame.height
         switch indexPath.row {
         case 0:
-            return viewHeigh * 0.4
+            return 316
         case rowNumber - 1:
-            return 66
+            return 86
         default:
-            return (viewHeigh * 0.6 - 66) / 4
+            return 99
         }
     }
     
@@ -58,7 +57,6 @@ class ProfileViewController: UITableViewController, Storyboarded {
         switch row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderView") as? ProfileHeaderView
-            cell?.dataSourse = self
             cell?.delegate = coordinator
             return cell ?? UITableViewCell()
         case rowNumber - 1:
@@ -84,6 +82,7 @@ class ProfileViewController: UITableViewController, Storyboarded {
     //MARK: - Private methods
     private func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
         cell?.row = row
+        cell?.delegate = coordinator
         if row == 1 {
             cell?.button.imageView?.image = UIImage(named: "mail")
             cell?.label.text = "messages".localized
@@ -132,21 +131,6 @@ extension ProfileViewController: ProfileViewModelDelegate {
     }
 }
 
-extension ProfileViewController: ProfileHeaderViewDataSourse {
-    func editImage() {
-        print("edit image")
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.isEditing = true
-        UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.modalPresentationStyle = .fullScreen
-        present(imagePickerController, animated: true)
-        
-        colorStatusBar(UIColor.systemBackground)
-    }
-}
-
 extension ProfileViewController: (UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
@@ -167,4 +151,11 @@ extension ProfileViewController: (UIImagePickerControllerDelegate & UINavigation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         colorStatusBar(UIColor.primaryColor)
     }
+}
+
+extension ProfileViewController: ProfileCoordinatorAlertPresenter {
+    func showAlert() {
+        alert.customizeAndShow(header: "Oops...", message: "Coming soon", buttonTitle: "Got it")
+    }
+    
 }

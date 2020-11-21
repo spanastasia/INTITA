@@ -23,6 +23,7 @@ class ProfileTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         container.shadowed(shadowOffset: CGSize(width: 0, height: 2), shadowRadius: 10)
+        container.rounded(cornerRadius: 5)
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(containerAction))
         container.addGestureRecognizer(tapGR)
         container.isUserInteractionEnabled = true

@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol ProfileCoordinatorAlertPresenter: AnyObject {
+    func showAlert()
+}
+
 class ProfileCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    weak var alertPresenter: ProfileCoordinatorAlertPresenter?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,6 +31,7 @@ class ProfileCoordinator: Coordinator {
         let viewModel = ProfileViewModel()
         vc.coordinator = self
         vc.viewModel = viewModel
+        alertPresenter = vc
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -36,14 +42,20 @@ class ProfileCoordinator: Coordinator {
 
 extension ProfileCoordinator: ProfileHeaderViewDelegate {
     func avatarTapped() {
-        guard let systemProfileCoordinator = childCoordinators.first else { return }
+        guard let systemProfileCoordinator = childCoordinators.first else {
+            alertPresenter?.showAlert()
+            return
+        }
         systemProfileCoordinator.start()
     }
 }
 
 extension ProfileCoordinator: ProfileTableViewCellDelegate {
     func goToVC(number: Int) {
-        guard number < childCoordinators.count else { return }
+        guard number < childCoordinators.count else {
+            alertPresenter?.showAlert()
+            return
+        }
         childCoordinators[number].start()
     }
 }

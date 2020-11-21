@@ -17,18 +17,18 @@
         <tableViewCell contentMode="scaleToFill" restorationIdentifier="ProfileFooterView" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileFooterView" rowHeight="66" id="KGk-i7-Jjw" customClass="ProfileFooterView" customModule="INTITA" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="268-Cs-FP9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="2"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="dIh-6O-NZ4"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNE-kq-IzF">
-                        <rect key="frame" x="29" y="2" width="262" height="64"/>
+                        <rect key="frame" x="29" y="22" width="262" height="64"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpW-W7-Ioe">
                                 <rect key="frame" x="17" y="14" width="36" height="36"/>
@@ -67,7 +67,7 @@
                     <constraint firstAttribute="trailing" secondItem="268-Cs-FP9" secondAttribute="trailing" id="QW0-DE-Ww7"/>
                     <constraint firstItem="268-Cs-FP9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e72-RH-cnq"/>
                     <constraint firstAttribute="trailing" secondItem="TNE-kq-IzF" secondAttribute="trailing" constant="29" id="lDg-ad-Qef"/>
-                    <constraint firstItem="268-Cs-FP9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uaS-Bf-m4e"/>
+                    <constraint firstItem="268-Cs-FP9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="uaS-Bf-m4e"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
