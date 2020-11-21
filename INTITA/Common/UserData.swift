@@ -6,21 +6,21 @@
 //
 import Foundation
 
-enum UserState {
-    case fresh
-    case authorized
-    case loggedOut
-    
-    init () {
-        if UserData.isFirstTimeUser {
-            self = .fresh
-        } else if UserData.token == nil {
-            self = .loggedOut
-        } else {
-            self = .authorized
-        }
-    }
-}
+//enum UserState {
+//    case fresh
+//    case authorized
+//    case loggedOut
+//
+//    init () {
+//        if UserData.isFirstTimeUser {
+//            self = .fresh
+//        } else if UserData.token == nil {
+//            self = .loggedOut
+//        } else {
+//            self = .authorized
+//        }
+//    }
+//}
 
 class UserData {
     static var token: String? {
@@ -28,11 +28,7 @@ class UserData {
     }
     static var isFirstTimeUser: Bool {
         get {
-            if let state = UserDefaultsManager.getValue(by: AppConstans.isFirstTimeUser),
-               let intState = Int(state) {
-                return intState != 0
-            }
-            return true
+            return UserDefaultsManager.getValue(by: AppConstans.isFirstTimeUser) == nil
         }
         set {
             UserDefaultsManager.addValue(newValue ? 1 : 0, by: AppConstans.isFirstTimeUser)

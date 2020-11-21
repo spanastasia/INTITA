@@ -23,27 +23,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 3
         let navController = UINavigationController()
-        switch UserState() {
-        case .fresh:
+        if UserData.isFirstTimeUser {
             var welcomeCoordinator: WelcomeCoordinator!
             welcomeCoordinator = WelcomeCoordinator(navigationController: navController)
             welcomeCoordinator.start()
-        case .loggedOut:
+        } else {
             let loginCoordinator = LogInCoordinator(navigationController: navController)
             loginCoordinator.start()
-        case .authorized:
-            let loginCoordinator = LogInCoordinator(navigationController: navController)
-            loginCoordinator.start()
-            loginCoordinator.startSpinner()
-            Authorization.fetchUserInfo(completion: { (error) in
-                DispatchQueue.main.async {
-                    loginCoordinator.stopSpinner()
-                    if error == nil { // успешный успех
-                        let profileCoordinator = ProfileCoordinator(navigationController: navController)
-                        profileCoordinator.start()
-                    }
-                }
-            })
         }
         
         // 4

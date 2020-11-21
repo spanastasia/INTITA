@@ -37,12 +37,25 @@ class LogInCoordinator: CoordinatorWithSpinnerProtocol {
     }
 
     func start() {
-        let vc = LogInViewController.instantiate()
-        let viewModel = LogInViewModel()
-        vc.coordinator = self
-        viewModel.delegate = self
-        vc.viewModel = viewModel
-        navigationController.pushViewController(vc, animated: false)
+        if UserData.token == nil {
+            let vc = LogInViewController.instantiate()
+            let viewModel = LogInViewModel()
+            vc.coordinator = self
+            viewModel.delegate = self
+            vc.viewModel = viewModel
+            self.navigationController.pushViewController(vc, animated: false)
+        } else {
+            startSpinner()
+            Authorization.fetchUserInfo(completion: { (error) in
+                DispatchQueue.main.async {
+                    self.stopSpinner()
+                    if error == nil {
+                        let profileCoordinator = ProfileCoordinator(navigationController: self.navigationController)
+                        profileCoordinator.start()
+                    }
+                }
+            })
+        }
     }
     
     func forgotPasswordScreen() {
