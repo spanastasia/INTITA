@@ -37,6 +37,7 @@
 		3FF299F7254ADD830087AEC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F5254ADD830087AEC7 /* LaunchScreen.storyboard */; };
 		3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF29A11254C0BEC0087AEC7 /* String+localized.swift */; };
 		3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAC972254DAAFF00AED580 /* RequestAPI.swift */; };
+		49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */; };
 		49F53EAE25531263008327A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F53EAC25531263008327A6 /* Localizable.strings */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
@@ -116,6 +117,7 @@
 		3FF299F8254ADD830087AEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF29A11254C0BEC0087AEC7 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		3FFAC972254DAAFF00AED580 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
+		49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		49F53EAD25531263008327A6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB02553126D008327A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB125531274008327A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				3FF29A11254C0BEC0087AEC7 /* String+localized.swift */,
 				3F2B29CB255A7FE500DDE683 /* UIView+fromNib.swift */,
+				49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */,
 				BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */,
 				64B74F3D254C71B1004E6A4E /* Coordinator.swift */,
 				3F879865255FB3140094D6D9 /* CGFloat+toRadians.swift */,
@@ -520,6 +523,7 @@
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
+				49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */,
 				84BF645C255E8B4000E2E036 /* LogoTableViewCell.swift in Sources */,
 				3F2B29CC255A7FE500DDE683 /* UIView+fromNib.swift in Sources */,
 				64BD43E625604C7B00880C9A /* JSONLoader.swift in Sources */,
