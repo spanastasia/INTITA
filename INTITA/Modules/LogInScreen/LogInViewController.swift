@@ -40,6 +40,12 @@ class LogInViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserData.token != nil {
+            startSpinner()
+            viewModel?.fetchUserInfo()
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         registerCells()
