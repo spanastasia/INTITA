@@ -64,7 +64,7 @@ class ProfileViewController: UITableViewController, Storyboarded {
         case rowNumber - 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterView") as? ProfileFooterView
             cell?.label.text = "exit".localized
-            cell?.delegate = self
+            cell?.delegate = viewModel
             return cell ?? UITableViewCell()
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell
@@ -135,11 +135,5 @@ extension ProfileViewController: ProfileViewModelDelegate {
 extension ProfileViewController: ProfileHeaderViewDataSourse {
     func editImage() {
         print("edit image")
-    }
-}
-
-extension ProfileViewController: ProfileFooterViewDelegate {
-    func logout() {
-        viewModel?.logout()
     }
 }
