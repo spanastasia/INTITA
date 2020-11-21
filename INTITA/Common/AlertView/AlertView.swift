@@ -16,11 +16,24 @@ class AlertView: UIView {
     @IBOutlet weak var errorMessage: UITextView!
     @IBOutlet private weak var backButton: UIButton!
     
+    private var isSuperviewScrollable: Bool?
+    
     //MARK:- Methods
     func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
         if !setUped {
             setUp()
         }
+        
+        guard let superview = self.superview else { return }
+            
+        if let scrollableView = superview as? UIScrollView {
+            self.frame = CGRect(origin: scrollableView.contentOffset, size: scrollableView.visibleSize)
+            isSuperviewScrollable = scrollableView.isScrollEnabled
+            scrollableView.isScrollEnabled = false
+        } else {
+            self.frame = superview.frame
+        }
+        
         errorHeader.text = header
         backButton.setTitle(buttonTitle, for: .normal)
         
@@ -63,10 +76,6 @@ class AlertView: UIView {
     
     //MARK:- Private methods
     private func setUp() {
-        if let superview = self.superview {
-            self.frame = superview.frame
-        }
-        
         errorHeader.shadowed()
         
         backButton.backgroundColor = UIColor.white
@@ -87,6 +96,10 @@ class AlertView: UIView {
     
     @objc private func hide() {
         animator.startAnimation()
+        guard let isSuperviewScrollable = isSuperviewScrollable else { return }
+        if let scrollableView = superview as? UIScrollView {
+            scrollableView.isScrollEnabled = isSuperviewScrollable
+        }
     }
 }
 
