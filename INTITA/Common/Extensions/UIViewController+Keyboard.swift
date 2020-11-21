@@ -5,7 +5,7 @@
 //  Created by  Oleksii Kolomiiets on 21.11.2020.
 //
 
-import Foundation
+import UIKit
 
 extension UIViewController {
     func startMonitoringKeyboard() {
