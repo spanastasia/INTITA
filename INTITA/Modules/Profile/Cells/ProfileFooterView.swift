@@ -20,13 +20,12 @@ class ProfileFooterView: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        label.sizeToFit()
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+        label.addGestureRecognizer(gesture)
     }
     
+    @objc func labelTapped() {
+        delegate?.logout()
+    }
 }
