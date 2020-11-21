@@ -46,6 +46,14 @@
 		64BD43ED25604C9800880C9A /* token.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BD43EC25604C9800880C9A /* token.json */; };
 		64BD43F1256172DB00880C9A /* URLMockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD43F0256172DB00880C9A /* URLMockTest.swift */; };
 		64BD44092564544900880C9A /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44082564544900880C9A /* ResponseTest.swift */; };
+		64BD441B256968C400880C9A /* LogoForgotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */; };
+		64BD441C256968C400880C9A /* LogoForgotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */; };
+		64BD44222569694800880C9A /* PassRecoveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */; };
+		64BD44232569694800880C9A /* PassRecoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */; };
+		64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44282569696900880C9A /* ExplanationTableViewCell.swift */; };
+		64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44292569696900880C9A /* ExplanationTableViewCell.xib */; };
+		64BD4430256969AA00880C9A /* SendButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD442E256969AA00880C9A /* SendButtonTableViewCell.swift */; };
+		64BD4431256969AA00880C9A /* SendButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */; };
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
@@ -128,6 +136,14 @@
 		64BD43EC25604C9800880C9A /* token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = token.json; sourceTree = "<group>"; };
 		64BD43F0256172DB00880C9A /* URLMockTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMockTest.swift; sourceTree = "<group>"; };
 		64BD44082564544900880C9A /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
+		64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoForgotTableViewCell.swift; sourceTree = "<group>"; };
+		64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoForgotTableViewCell.xib; sourceTree = "<group>"; };
+		64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassRecoveryTableViewCell.swift; sourceTree = "<group>"; };
+		64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassRecoveryTableViewCell.xib; sourceTree = "<group>"; };
+		64BD44282569696900880C9A /* ExplanationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationTableViewCell.swift; sourceTree = "<group>"; };
+		64BD44292569696900880C9A /* ExplanationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExplanationTableViewCell.xib; sourceTree = "<group>"; };
+		64BD442E256969AA00880C9A /* SendButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonTableViewCell.swift; sourceTree = "<group>"; };
+		64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendButtonTableViewCell.xib; sourceTree = "<group>"; };
 		64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
@@ -318,12 +334,28 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		64BD441F256968CC00880C9A /* ForgotCells */ = {
+			isa = PBXGroup;
+			children = (
+				64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */,
+				64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */,
+				64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */,
+				64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */,
+				64BD44282569696900880C9A /* ExplanationTableViewCell.swift */,
+				64BD44292569696900880C9A /* ExplanationTableViewCell.xib */,
+				64BD442E256969AA00880C9A /* SendButtonTableViewCell.swift */,
+				64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */,
+			);
+			path = ForgotCells;
+			sourceTree = "<group>";
+		};
 		64F78E272551D9EB002C1565 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
 				64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */,
 				64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */,
 				64F78E292551DA01002C1565 /* ForgotPassword.storyboard */,
+				64BD441F256968CC00880C9A /* ForgotCells */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -485,6 +517,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */,
 				84BF645D255E8B4000E2E036 /* LogoTableViewCell.xib in Resources */,
 				3FF299F7254ADD830087AEC7 /* LaunchScreen.storyboard in Resources */,
 				BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */,
@@ -495,10 +528,13 @@
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
+				64BD441C256968C400880C9A /* LogoForgotTableViewCell.xib in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
+				64BD4431256969AA00880C9A /* SendButtonTableViewCell.xib in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterView.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
 				3F879855255E73D10094D6D9 /* ProfileHeaderView.xib in Resources */,
+				64BD44232569694800880C9A /* PassRecoveryTableViewCell.xib in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
@@ -535,6 +571,7 @@
 				84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
 				3F879854255E73D10094D6D9 /* ProfileHeaderView.swift in Sources */,
+				64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */,
 				3F87985A255E74060094D6D9 /* ProfileFooterView.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
@@ -544,13 +581,16 @@
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				3F879841255E70D30094D6D9 /* ProfileViewController.swift in Sources */,
 				3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */,
+				64BD4430256969AA00880C9A /* SendButtonTableViewCell.swift in Sources */,
 				BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
+				64BD441B256968C400880C9A /* LogoForgotTableViewCell.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
 				3F2B29D7255AB84100DDE683 /* CurrentUser.swift in Sources */,
+				64BD44222569694800880C9A /* PassRecoveryTableViewCell.swift in Sources */,
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
