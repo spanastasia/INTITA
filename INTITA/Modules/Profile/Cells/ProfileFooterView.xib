@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вихід" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYs-5w-8iW">
-                                <rect key="frame" x="70" y="0.0" width="192" height="64"/>
+                                <rect key="frame" x="70" y="20" width="56" height="24"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,11 +50,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xYs-5w-8iW" secondAttribute="trailing" id="8ep-nu-hVc"/>
-                            <constraint firstItem="xYs-5w-8iW" firstAttribute="top" secondItem="TNE-kq-IzF" secondAttribute="top" id="BhP-Ik-RGE"/>
-                            <constraint firstAttribute="bottom" secondItem="xYs-5w-8iW" secondAttribute="bottom" id="Osq-hE-OfY"/>
                             <constraint firstItem="xYs-5w-8iW" firstAttribute="leading" secondItem="bpW-W7-Ioe" secondAttribute="trailing" constant="17" id="V1s-jv-wXW"/>
                             <constraint firstItem="bpW-W7-Ioe" firstAttribute="centerY" secondItem="TNE-kq-IzF" secondAttribute="centerY" id="Vhl-4D-FgN"/>
+                            <constraint firstItem="xYs-5w-8iW" firstAttribute="centerY" secondItem="TNE-kq-IzF" secondAttribute="centerY" id="hKa-V7-wfg"/>
                             <constraint firstAttribute="height" constant="64" id="rIO-ZK-FxU"/>
                             <constraint firstItem="bpW-W7-Ioe" firstAttribute="leading" secondItem="TNE-kq-IzF" secondAttribute="leading" constant="17" id="t88-I0-5qi"/>
                         </constraints>
