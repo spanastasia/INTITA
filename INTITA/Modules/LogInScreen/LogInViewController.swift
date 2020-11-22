@@ -31,7 +31,7 @@ class LogInViewController: UIViewController, Storyboarded {
     @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     
-    weak var coordinator: LogInCoordinator?
+    var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
     let validator = Validate()
     let alert: AlertView = AlertView.fromNib()
