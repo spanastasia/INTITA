@@ -28,7 +28,7 @@
                             <constraint firstItem="Fpd-gi-ivE" firstAttribute="leading" secondItem="zKu-Pj-Xth" secondAttribute="leading" id="Kgg-Zw-tWZ"/>
                             <constraint firstItem="Fpd-gi-ivE" firstAttribute="top" secondItem="zKu-Pj-Xth" secondAttribute="top" id="QZX-9y-cRB"/>
                             <constraint firstItem="zKu-Pj-Xth" firstAttribute="trailing" secondItem="Fpd-gi-ivE" secondAttribute="trailing" id="Y8d-2q-IcK"/>
-                            <constraint firstItem="Fpd-gi-ivE" firstAttribute="bottom" secondItem="zKu-Pj-Xth" secondAttribute="bottom" id="tOa-qR-TPI"/>
+                            <constraint firstItem="zKu-Pj-Xth" firstAttribute="bottom" secondItem="Fpd-gi-ivE" secondAttribute="bottom" id="tOa-qR-TPI"/>
                         </constraints>
                     </view>
                     <connections>

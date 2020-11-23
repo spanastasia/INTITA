@@ -50,44 +50,22 @@ class LogInViewController: UIViewController, Storyboarded {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardDidAppear),
-                                               name: UIResponder.keyboardWillShowNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardDidDissapear),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
+        startMonitoringKeyboard()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        stopMonitoringKeyboard()
         stopSpinner()
     }
     
-    @objc func keyboardDidAppear(notification: NSNotification) {
-        guard let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        else { return }
-
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRectangle.height
+    override func animateKeyboardAppearance(height: CGFloat) {
+        tableView.beginUpdates()
+        tableViewBottomContraint.constant = height
+        view.layoutSubviews()
+        tableView.endUpdates()
         
-        UIView.animate(withDuration: 3, animations: {
-            self.tableViewBottomContraint.constant = keyboardHeight
-            self.tableViewTopConstraint.constant = -keyboardHeight
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    @objc func keyboardDidDissapear(notification: NSNotification) {
-        UIView.animate(withDuration: 3, animations: {
-            self.tableViewBottomContraint.constant = 0
-            self.tableViewTopConstraint.constant = 0
-            self.view.layoutIfNeeded()
-        })
+        tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
     }
     
     func handleViewModelUpdateWith(error: Error?) {
