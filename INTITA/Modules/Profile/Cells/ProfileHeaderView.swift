@@ -39,7 +39,7 @@ class ProfileHeaderView: UITableViewCell {
         }
         nameLabel.text = "\(user.firstName) \(user.secondName)"
         
-        specializationLabel.text = user.preferSpecializations.first?.specializationId.description
+        specializationLabel.text = user.preferSpecializations.first?.specialization.title
         guard let url = user.avatar else {
             return
         }
