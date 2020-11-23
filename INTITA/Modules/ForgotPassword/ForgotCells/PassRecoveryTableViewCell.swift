@@ -14,7 +14,17 @@ class PassRecoveryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setupPassRecoveryLabel()
+
+    }
+    
+    func setupPassRecoveryLabel() {
+        
         passRecoveryLabel.text = "passRecovery".localized
+        passRecoveryLabel.font = UIFont(name: "MyriadPro-Regular", size: 28.0)
+        passRecoveryLabel.textAlignment = .center
+//        passRecoveryLabel.textColor = UIColor(named: "AccentColor")
+        passRecoveryLabel.shadowed()
     }
     
 }

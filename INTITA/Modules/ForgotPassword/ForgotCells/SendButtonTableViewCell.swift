@@ -7,17 +7,32 @@
 
 import UIKit
 
-class SendButtonTableViewCell: UITableViewCell {
+protocol SendButtonTableViewCellDelegate: AnyObject {
+    func didPressSendButton(_ sender: SendButtonTableViewCell)
+}
 
+class SendButtonTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var sendButton: UIButton!
+    
+    weak var delegat: SendButtonTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setupSendButton()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupSendButton() {
+        
+        sendButton.setTitle("send".localized, for: .normal)
+        sendButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 24.0)
+        sendButton.rounded()
+        sendButton.shadowed()
+    }
+    
+    @IBAction func tappedSendButton(_ sender: UIButton) {
+        delegat?.didPressSendButton(self)
     }
     
 }

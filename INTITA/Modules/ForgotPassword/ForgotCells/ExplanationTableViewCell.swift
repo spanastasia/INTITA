@@ -17,8 +17,12 @@ class ExplanationTableViewCell: UITableViewCell {
         setupExplanationLabel()
     }
     
-    setupExplanationLabel() {
+    func setupExplanationLabel() {
         
+        explanationLabel.text = "textRecovery".localized
+        explanationLabel.numberOfLines = 5
+        explanationLabel.font = UIFont(name: "MyriadPro-Light", size: 16.0)
+        explanationLabel.textAlignment = .justified
     }
     
 }

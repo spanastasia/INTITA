@@ -13,68 +13,128 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     var validateEmail = Validate()
     
-//    @IBOutlet weak var logoImageView: UIImageView!
-//
-//    @IBOutlet weak var blueLineView: UIView!
-//
-//    @IBOutlet weak var recoveryLabel: UILabel!
-//    @IBOutlet weak var explanationTextLabel: UILabel!
-//
-//    @IBOutlet weak var emailTextField: UITextField!
-//
-//    @IBOutlet weak var invalidTextLabel: UILabel!
-//    @IBOutlet weak var sendButton: UIButton!
-
+    let spasing: CGFloat = 40
+    
+    @IBOutlet weak var forgotTableView: UITableView!
+    
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.recoveryLabel.text = "passRecovery".localized
-//        self.explanationTextLabel.text = "textRecovery".localized
-//
-//        setupInvalidTextLabel()
-//        setupEmailTextField()
-//        setupSendButton()
+        print(view.frame.width, view.frame.height)
         
+        forgotTableView.delegate = self
+        forgotTableView.dataSource = self
+        
+        registerCells()
     }
     
-//    func setupInvalidTextLabel() {
-//
-//        let title = ""
-//        invalidTextLabel.text = title
-//        invalidTextLabel.textColor = .red
-//
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(keyboardDidAppear),
+//                                               name: UIResponder.keyboardWillShowNotification,
+//                                               object: nil)
+//        NotificationCenter.default.addObserver(self,
+//                                               selector: #selector(keyboardDidDissapear),
+//                                               name: UIResponder.keyboardWillHideNotification,
+//                                               object: nil)
+    }
     
-//    func setupEmailTextField() {
-//
-//        emailTextField.layer.cornerRadius = 4
-//        emailTextField.borderStyle = .line
-//        emailTextField.keyboardAppearance = .dark
-//        emailTextField.backgroundColor = .white
-//        emailTextField.keyboardType = .emailAddress
-//        emailTextField.placeholder = "Enter your Email"
-//        emailTextField.clearButtonMode = .whileEditing
-//
-//    }
+    func registerCells() {
+        let logoCell = UINib(nibName: "LogoForgotTableViewCell", bundle: nil)
+        forgotTableView.register(logoCell, forCellReuseIdentifier: "LogoForgotTableViewCell")
+        
+        let passCell = UINib(nibName: "PassRecoveryTableViewCell", bundle: nil)
+        forgotTableView.register(passCell, forCellReuseIdentifier: "PassRecoveryTableViewCell")
+        
+        let textCell = UINib(nibName: "ExplanationTableViewCell", bundle: nil)
+        forgotTableView.register(textCell, forCellReuseIdentifier: "ExplanationTableViewCell")
+        
+        let linksCell = UINib(nibName: "TextTableViewCell", bundle: nil)
+        forgotTableView.register(linksCell, forCellReuseIdentifier: "reuseForText")
+        
+        let registerButtonCell = UINib(nibName: "SendButtonTableViewCell", bundle: nil)
+        forgotTableView.register(registerButtonCell, forCellReuseIdentifier: "SendButtonTableViewCell")
+    }
     
-//    func setupSendButton() {
-//
-//        let titleLocalized = "send".localized
-//        sendButton.layer.cornerRadius = 8
-//        sendButton.setTitle(titleLocalized, for: .normal)
-//
-//    }
+}
+
+    extension ForgotPasswordViewController: UITableViewDelegate {
+        
+    }
+
+extension ForgotPasswordViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 9
+    }
     
-//    @IBAction func pressedSendButton(_ sender: UIButton) {
-//        
-//        guard let textEmail = self.emailTextField.text else { return }
-//        
-//        if !validateEmail.validateEmail(email: textEmail) {
-//            invalidTextLabel.isHidden = false
-//            invalidTextLabel.text = "You entered wrong Email"
-//        } else {
-//            invalidTextLabel.text = "Your Email sent"
-//        }
-//    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        switch indexPath.row {
+        case 1:
+            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "LogoForgotTableViewCell") as? LogoForgotTableViewCell else { return UITableViewCell() }
+            return logoCell
+        case 3:
+            guard let passRecoveryCell = tableView.dequeueReusableCell(withIdentifier: "PassRecoveryTableViewCell") as? PassRecoveryTableViewCell else { return UITableViewCell() }
+            return passRecoveryCell
+        case 5:
+            guard let explanationCell = tableView.dequeueReusableCell(withIdentifier: "ExplanationTableViewCell") as? ExplanationTableViewCell else { return UITableViewCell() }
+            return explanationCell
+        case 6:
+            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            emailCell.textField.placeholder = "inputEmail".localized
+            emailCell.textField.textContentType = .emailAddress
+            return emailCell
+        case 8:
+            guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell else { return UITableViewCell() }
+            buttonCell.delegat = self
+            return buttonCell
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.row {
+        case 0:
+            return spasing / 2
+        case 1:
+            return 93
+        case 3:
+            return 60
+        case 5:
+            return 114
+        case 6:
+            return 125
+        case 8:
+            return 55
+        default:
+            return spasing
+        }
+    }
+}
+
+extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
+    
+    func didPressSendButton(_ sender: SendButtonTableViewCell) {
+        
+        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? TextTableViewCell else { return }
+        
+        guard let email = emailCell.textField.text else { return }
+        
+        if !validateEmail.validateEmail(email: email) {
+            emailCell.errorLabel.isHidden = false
+            emailCell.errorImage.isHidden = false
+            emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
+            emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+        } else {
+//            startSpinner()
+//            viewModel?.login(email: email, password: password)
+        }
+    }
     
 }
