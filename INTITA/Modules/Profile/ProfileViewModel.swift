@@ -22,7 +22,7 @@ class ProfileViewModel {
     }
 }
 
-extension ProfileViewModel: ProfileFooterViewDelegate {
+extension ProfileViewModel: ProfileFooterViewCellDelegate {
     func logout() {
         Authorization.logout { result in
             switch result {

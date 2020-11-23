@@ -1,5 +1,5 @@
 //
-//  ProfileFooterView.swift
+//  ProfileFooterViewCell.swift
 //  INTITA
 //
 //  Created by Anastasiia Spiridonova on 13.11.2020.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ProfileFooterViewDelegate: AnyObject {
+protocol ProfileFooterViewCellDelegate: AnyObject {
     func logout()
 }
 
-class ProfileFooterView: UITableViewCell {
-    weak var delegate: ProfileFooterViewDelegate?
+class ProfileFooterViewCell: UITableViewCell {
+    weak var delegate: ProfileFooterViewCellDelegate?
     
     @IBOutlet weak var label: UILabel!
     @IBAction func exitBtnTapped(_ sender: UIButton) {

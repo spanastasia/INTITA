@@ -1,5 +1,5 @@
 //
-//  ProfileHeaderView.swift
+//  ProfileHeaderViewCell.swift
 //  INTITA
 //
 //  Created by Anastasiia Spiridonova on 13.11.2020.
@@ -11,11 +11,7 @@ protocol ProfileHeaderViewDelegate: AnyObject {
     func avatarTapped()
 }
 
-protocol ProfileHeaderViewDataSourse: AnyObject {
-    func editImage()
-}
-
-class ProfileHeaderView: UITableViewCell {
+class ProfileHeaderViewCell: UITableViewCell {
 
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var avatarView: UIImageView!
@@ -23,7 +19,6 @@ class ProfileHeaderView: UITableViewCell {
     @IBOutlet weak var specializationLabel: UILabel!
     
     weak var delegate: ProfileHeaderViewDelegate?
-    weak var dataSourse: ProfileHeaderViewDataSourse?
     
     //MARK: - awakeFromNib()
     override func awakeFromNib() {

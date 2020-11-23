@@ -56,11 +56,11 @@ class ProfileViewController: UITableViewController, Storyboarded {
         let row = indexPath.row
         switch row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderView") as? ProfileHeaderView
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderViewCell") as? ProfileHeaderViewCell
             cell?.delegate = coordinator
             return cell ?? UITableViewCell()
         case rowNumber - 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterView") as? ProfileFooterView
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterViewCell") as? ProfileFooterViewCell
             cell?.label.text = "exit".localized
             cell?.delegate = viewModel
             return cell ?? UITableViewCell()
@@ -115,9 +115,9 @@ class ProfileViewController: UITableViewController, Storyboarded {
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: "ProfileHeaderView", bundle: nil), forCellReuseIdentifier: "ProfileHeaderView")
+        tableView.register(UINib(nibName: "ProfileHeaderViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeaderViewCell")
         tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
-        tableView.register(UINib(nibName: "ProfileFooterView", bundle: nil), forCellReuseIdentifier: "ProfileFooterView")
+        tableView.register(UINib(nibName: "ProfileFooterViewCell", bundle: nil), forCellReuseIdentifier: "ProfileFooterViewCell")
     }
 }
 
