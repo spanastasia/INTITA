@@ -58,14 +58,35 @@ struct CurrentUser: Codable {
 
 // MARK:- PreferSpecialization
 struct PreferSpecialization: Codable {
-    let userId, specializationId: Int
-    let createdAt, updatedAt: String
+    let specializationId: Int
+    let specialization: Specialization
 
     enum CodingKeys: String, CodingKey {
-        case userId = "id_user"
         case specializationId = "id_specialization"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
+        case specialization
+    }
+}
+
+struct Specialization: Codable {
+    let id: Int
+    private let titleUa, titleEn, titleRu: String
+    
+    public var title: String? {
+        switch Locale.current.languageCode {
+        case "en":
+            return titleEn
+        case "ru":
+            return titleRu
+        default:
+            return titleUa
+        }
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case titleUa = "title_ua"
+        case titleEn = "title_en"
+        case titleRu = "title_ru"
     }
 }
 

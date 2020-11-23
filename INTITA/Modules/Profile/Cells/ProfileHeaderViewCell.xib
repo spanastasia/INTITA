@@ -14,7 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ProfileHeaderView" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileHeaderView" rowHeight="324" id="KGk-i7-Jjw" customClass="ProfileHeaderView" customModule="INTITA" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ProfileHeaderViewCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" indentationWidth="10" reuseIdentifier="ProfileHeaderViewCell" rowHeight="324" id="KGk-i7-Jjw" customClass="ProfileHeaderViewCell" customModule="INTITA" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="474" height="324"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="amO-lp-LyI">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="amO-lp-LyI">
                                 <rect key="frame" x="192" y="113" width="90" height="90"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -54,7 +54,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-CR-JUF">
-                                <rect key="frame" x="257" y="84" width="25" height="25"/>
+                                <rect key="frame" x="257" y="88" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="IPY-fu-kkj"/>
                                     <constraint firstAttribute="width" constant="25" id="VG1-js-80N"/>
@@ -74,7 +74,7 @@
                             <constraint firstItem="Qse-Hb-MYw" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="DiM-9R-kMB"/>
                             <constraint firstItem="Ua9-CR-JUF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lJd-YN-elw" secondAttribute="bottom" constant="8" id="GUr-pC-fZH"/>
                             <constraint firstAttribute="trailing" secondItem="ij8-dx-qrF" secondAttribute="trailing" constant="58" id="NRi-sW-6Ah"/>
-                            <constraint firstItem="amO-lp-LyI" firstAttribute="top" secondItem="Ua9-CR-JUF" secondAttribute="bottom" constant="4" id="SXU-8F-EEn"/>
+                            <constraint firstItem="amO-lp-LyI" firstAttribute="top" secondItem="Ua9-CR-JUF" secondAttribute="bottom" id="SXU-8F-EEn"/>
                             <constraint firstAttribute="bottom" secondItem="ij8-dx-qrF" secondAttribute="bottom" constant="20" id="VfP-3J-YjS"/>
                             <constraint firstItem="ij8-dx-qrF" firstAttribute="leading" secondItem="ugS-Oe-Uut" secondAttribute="leading" constant="58" id="g4C-yK-Mr4"/>
                             <constraint firstItem="Qse-Hb-MYw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="amO-lp-LyI" secondAttribute="bottom" constant="8" id="ibH-qa-pIo"/>

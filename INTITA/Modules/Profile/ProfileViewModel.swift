@@ -20,7 +20,9 @@ class ProfileViewModel {
     func subscribe(updateCallback: ProfileViewModelCallback?) {
         self.updateCallback = updateCallback
     }
-    
+}
+
+extension ProfileViewModel: ProfileFooterViewCellDelegate {
     func logout() {
         Authorization.logout { result in
             switch result {

@@ -39,14 +39,13 @@ class ProfileViewController: UITableViewController, Storyboarded {
     
     //MARK: - TableView settings
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let viewHeigh = view.safeAreaLayoutGuide.layoutFrame.height
         switch indexPath.row {
         case 0:
-            return viewHeigh * 0.4
+            return 316
         case rowNumber - 1:
-            return 66
+            return 86
         default:
-            return (viewHeigh * 0.6 - 66) / 4
+            return 99
         }
     }
     
@@ -57,13 +56,13 @@ class ProfileViewController: UITableViewController, Storyboarded {
         let row = indexPath.row
         switch row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderView") as? ProfileHeaderView
-            cell?.delegate = self
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderViewCell") as? ProfileHeaderViewCell
+            cell?.delegate = coordinator
             return cell ?? UITableViewCell()
         case rowNumber - 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterView") as? ProfileFooterView
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterViewCell") as? ProfileFooterViewCell
             cell?.label.text = "exit".localized
-            cell?.delegate = self
+            cell?.delegate = viewModel
             return cell ?? UITableViewCell()
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell
@@ -82,6 +81,8 @@ class ProfileViewController: UITableViewController, Storyboarded {
     
     //MARK: - Private methods
     private func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
+        cell?.row = row
+        cell?.delegate = coordinator
         if row == 1 {
             cell?.button.imageView?.image = UIImage(named: "mail")
             cell?.label.text = "messages".localized
@@ -114,9 +115,9 @@ class ProfileViewController: UITableViewController, Storyboarded {
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: "ProfileHeaderView", bundle: nil), forCellReuseIdentifier: "ProfileHeaderView")
+        tableView.register(UINib(nibName: "ProfileHeaderViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeaderViewCell")
         tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
-        tableView.register(UINib(nibName: "ProfileFooterView", bundle: nil), forCellReuseIdentifier: "ProfileFooterView")
+        tableView.register(UINib(nibName: "ProfileFooterViewCell", bundle: nil), forCellReuseIdentifier: "ProfileFooterViewCell")
     }
 }
 
@@ -130,19 +131,31 @@ extension ProfileViewController: ProfileViewModelDelegate {
     }
 }
 
-extension ProfileViewController: ProfileHeaderViewDelegate {
-    func editImage() {
-        print("edit image")
+extension ProfileViewController: (UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+
+        let imageName = UUID().uuidString
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+
+        if let jpegData = image.jpegData(compressionQuality: 0.8) {
+            try? jpegData.write(to: imagePath)
+        }
+        dismiss(animated: true)
     }
-    
-    func avatarTapped() {
-        print("avatar tapped")
-        //go to system profile
+
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        colorStatusBar(UIColor.primaryColor)
     }
 }
 
-extension ProfileViewController: ProfileFooterViewDelegate {
-    func logout() {
-        viewModel?.logout()
+extension ProfileViewController: ProfileCoordinatorAlertPresenter {
+    func showAlert() {
+        alert.customizeAndShow(header: "Oops...", message: "Coming soon", buttonTitle: "Got it")
     }
+    
 }
