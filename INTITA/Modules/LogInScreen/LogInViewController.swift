@@ -136,8 +136,12 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
             return emailCell
         case 2:
             guard let passwordCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            passwordCell.delegate = self
             passwordCell.textField.placeholder = "inputPassword".localized
+            passwordCell.eyeButton.isHidden = false
+            
             passwordCell.textField.textContentType = .password
+            
             passwordCell.textField.isSecureTextEntry = true
             return passwordCell
         case 3:
@@ -159,6 +163,9 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
         guard let emailCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? TextTableViewCell else { return }
         guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
         
+        emailCell.textField.resignFirstResponder()
+        passwordCell.textField.resignFirstResponder()
+        
         guard let password = passwordCell.textField.text, let email = emailCell.textField.text else {
             return
         }
@@ -171,6 +178,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
         } else if !validator.validatePassword(password: password) {
             passwordCell.errorLabel.isHidden = false
             passwordCell.errorImage.isHidden = false
+            passwordCell.eyeButtonTrailingContraint.constant += 36
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         } else {
@@ -187,5 +195,18 @@ extension LogInViewController: LinksTableViewCellDelegate {
     
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {
         coordinator?.forgotPasswordScreen()
+    }
+}
+
+extension LogInViewController: TextTableViewCellDelegate {
+    func didPressEyeButton(_ sender: TextTableViewCell) {
+        guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
+        if passwordCell.eyeButton.image(for: .normal) == UIImage(systemName: "eye") {
+            passwordCell.textField.isSecureTextEntry = true
+            passwordCell.eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        } else {
+            passwordCell.textField.isSecureTextEntry = false
+            passwordCell.eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
     }
 }
