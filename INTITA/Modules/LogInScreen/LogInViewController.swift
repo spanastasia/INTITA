@@ -36,8 +36,6 @@ class LogInViewController: UIViewController, Storyboarded {
     let validator = Validate()
     let alert: AlertView = AlertView.fromNib()
     
-    //private let keyboardHeight: CGFloat = 200.0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +74,6 @@ class LogInViewController: UIViewController, Storyboarded {
     
     func handleViewModelUpdateWith(error: Error?) {
         if let error = error {
-            print("ERRORORROOR \(error)")
             DispatchQueue.main.async {
                 self.stopSpinner()
                 self.alert.customizeAndShow(message: error.localizedDescription)
@@ -131,18 +128,14 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
             return logoCell
         case 1:
             guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-            emailCell.textField.placeholder = "inputEmail".localized
-            emailCell.textField.textContentType = .emailAddress
+            let cellModel = TextTableViewCellModel(type: .email, placeholderText: "inputEmail".localized)
+            emailCell.configure(with: cellModel)
             return emailCell
         case 2:
-            guard let passwordCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-            passwordCell.delegate = self
-            passwordCell.textField.placeholder = "inputPassword".localized
-            passwordCell.eyeButton.isHidden = false
+            guard let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             
-            passwordCell.textField.textContentType = .password
-            
-            passwordCell.textField.isSecureTextEntry = true
+            let cellModel = TextTableViewCellModel(type: .password, placeholderText: "inputPassword".localized)
+            passwordCell.configure(with: cellModel)
             return passwordCell
         case 3:
             guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
@@ -178,7 +171,6 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
         } else if !validator.validatePassword(password: password) {
             passwordCell.errorLabel.isHidden = false
             passwordCell.errorImage.isHidden = false
-            passwordCell.eyeButtonTrailingContraint.constant += 36
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         } else {
@@ -195,18 +187,5 @@ extension LogInViewController: LinksTableViewCellDelegate {
     
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {
         coordinator?.forgotPasswordScreen()
-    }
-}
-
-extension LogInViewController: TextTableViewCellDelegate {
-    func didPressEyeButton(_ sender: TextTableViewCell) {
-        guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
-        if passwordCell.eyeButton.image(for: .normal) == UIImage(systemName: "eye") {
-            passwordCell.textField.isSecureTextEntry = true
-            passwordCell.eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        } else {
-            passwordCell.textField.isSecureTextEntry = false
-            passwordCell.eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
-        }
     }
 }

@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol TextTableViewCellDelegate: AnyObject {
-    func didPressEyeButton(_ sender: TextTableViewCell)
-}
-
 class TextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var eyeButtonTrailingContraint: NSLayoutConstraint!
@@ -18,18 +14,26 @@ class TextTableViewCell: UITableViewCell {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var errorImage: UIImageView!
-    
-    weak var delegate: TextTableViewCellDelegate?
-    
+    var model: TextTableViewCellModel?
+
     @IBAction func eyeButtonPressed(_ sender: UIButton) {
-        delegate?.didPressEyeButton(self)
+        if eyeButton.image(for: .normal) == UIImage(systemName: "eye") {
+            textField.isSecureTextEntry = true
+            eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        } else {
+            textField.isSecureTextEntry = false
+            eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
     }
+    
     @IBAction func didBeginEditing(_ sender: UITextField) {
         setupUI()
     }
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
+        
         setupUI()
         textField.addTarget(self, action: #selector(textFieldDidChange),
                                   for: .editingChanged)
@@ -40,10 +44,29 @@ class TextTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
+        textField.delegate = self
         errorImage.isHidden = true
         errorLabel.isHidden = true
         eyeButtonTrailingContraint.constant = 32
         textField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
         textField.rounded(cornerRadius: 10.0)
+    }
+    
+    func configure(with model: TextTableViewCellModel) {
+        self.model = model
+        textField.placeholder = model.placeholderText
+        textField.textContentType = model.type.textContentType
+        textField.isSecureTextEntry = model.type.isSecureTextEntry
+    }
+}
+
+extension TextTableViewCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let model = model, model.type == .password else { return }
+        eyeButton.isHidden = false
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let model = model, model.type == .password else { return }
+        eyeButton.isHidden = true
     }
 }
