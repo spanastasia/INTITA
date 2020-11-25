@@ -64,10 +64,8 @@ class LogInViewController: UIViewController, Storyboarded {
     }
     
     override func animateKeyboardAppearance(height: CGFloat) {
-        tableView.beginUpdates()
         tableViewBottomContraint.constant = height
         view.layoutSubviews()
-        tableView.endUpdates()
         
         tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
     }
