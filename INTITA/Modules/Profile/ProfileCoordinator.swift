@@ -7,17 +7,23 @@
 
 import UIKit
 
+protocol ProfileCoordinatorAlertPresenter: AnyObject {
+    func showAlert()
+}
+
 class ProfileCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    weak var alertPresenter: ProfileCoordinatorAlertPresenter?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         
-        //append childCoordinators in needen order
-        //system profile ccordinator
-        //messages
-        //...
+        //childCoordinators.append(SystemProfileCoordinator())
+        //childCoordinators.append(MessagesCoordinator())
+        //childCoordinators.append(OpportunitiesCoordinator())
+        //childCoordinators.append(TasksCoordinator())
+        //childCoordinators.append(SettingsCoordinator())
     }
 
     func start() {
@@ -25,10 +31,31 @@ class ProfileCoordinator: Coordinator {
         let viewModel = ProfileViewModel()
         vc.coordinator = self
         vc.viewModel = viewModel
+        alertPresenter = vc
         navigationController.pushViewController(vc, animated: false)
     }
     
     func showLoginScreen() {
         navigationController.popViewController(animated: true)
+    }
+}
+
+extension ProfileCoordinator: ProfileHeaderViewDelegate {
+    func avatarTapped() {
+        guard let systemProfileCoordinator = childCoordinators.first else {
+            alertPresenter?.showAlert()
+            return
+        }
+        systemProfileCoordinator.start()
+    }
+}
+
+extension ProfileCoordinator: ProfileTableViewCellDelegate {
+    func goToVC(number: Int) {
+        guard number < childCoordinators.count else {
+            alertPresenter?.showAlert()
+            return
+        }
+        childCoordinators[number].start()
     }
 }
