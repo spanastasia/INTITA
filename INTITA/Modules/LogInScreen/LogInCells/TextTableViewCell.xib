@@ -25,7 +25,7 @@
                         </connections>
                     </textField>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C17-y3-Nmd">
-                        <rect key="frame" x="317" y="25" width="52" height="51.5"/>
+                        <rect key="frame" x="317" y="26" width="52" height="51"/>
                         <color key="tintColor" red="1" green="0.36862435329999999" blue="0.51020655709999996" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="C17-y3-Nmd" secondAttribute="height" multiplier="1:1" id="Qdx-0S-eDv"/>
@@ -38,7 +38,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxJ-o9-brx">
-                        <rect key="frame" x="317" y="24.5" width="52" height="52.5"/>
+                        <rect key="frame" x="317" y="25.5" width="52" height="52"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="XxJ-o9-brx" secondAttribute="height" multiplier="1:1" id="zzF-zz-iPB"/>
                         </constraints>
@@ -52,14 +52,14 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="C17-y3-Nmd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="DbS-jI-FoG"/>
+                    <constraint firstItem="C17-y3-Nmd" firstAttribute="centerY" secondItem="PHC-3C-b15" secondAttribute="centerY" id="DbS-jI-FoG"/>
                     <constraint firstItem="PHC-3C-b15" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="ENf-eK-8N7"/>
                     <constraint firstItem="6hf-iG-osq" firstAttribute="top" secondItem="PHC-3C-b15" secondAttribute="bottom" constant="4" id="LuQ-W9-sic"/>
                     <constraint firstItem="C17-y3-Nmd" firstAttribute="height" secondItem="PHC-3C-b15" secondAttribute="height" multiplier="0.6" id="QLm-0Y-800"/>
                     <constraint firstItem="XxJ-o9-brx" firstAttribute="height" secondItem="C17-y3-Nmd" secondAttribute="height" id="X7m-WJ-6P6"/>
                     <constraint firstItem="6hf-iG-osq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="XkX-zZ-hqX"/>
                     <constraint firstAttribute="trailing" secondItem="XxJ-o9-brx" secondAttribute="trailing" constant="32" id="blc-yD-hLa"/>
-                    <constraint firstItem="XxJ-o9-brx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="g9M-DM-bqf"/>
+                    <constraint firstItem="XxJ-o9-brx" firstAttribute="centerY" secondItem="PHC-3C-b15" secondAttribute="centerY" id="g9M-DM-bqf"/>
                     <constraint firstItem="PHC-3C-b15" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hCf-Ir-K0x"/>
                     <constraint firstAttribute="trailing" secondItem="C17-y3-Nmd" secondAttribute="trailing" constant="32" id="nP0-dI-OHd"/>
                     <constraint firstItem="PHC-3C-b15" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pYl-O5-Vgw"/>

@@ -47,6 +47,7 @@ class TextTableViewCell: UITableViewCell {
         textField.delegate = self
         errorImage.isHidden = true
         errorLabel.isHidden = true
+        eyeButton.alpha = 0.5
         eyeButtonTrailingContraint.constant = 32
         textField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
         textField.rounded(cornerRadius: 10.0)
