@@ -7,9 +7,39 @@
 
 import Foundation
 
-class Authorization {
+protocol AuthorizationProtocol {
+    func login(email: String, password: String, completion: @escaping (Error?) -> Void)
+    func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void)
+    func fetchUserInfo(completion: @escaping (Error?) -> Void)
+}
+
+class AuthorizationMock: AuthorizationProtocol {
+    //var error: Error?
     
-    public static func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
+    var didCall_Login: (() -> ())?
+    var didCall_logout: (() -> ())?
+    var didCall_fetchUserInfo: (() -> ())?
+    func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        //completion(error)
+        didCall_Login?()
+    }
+    
+    func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
+        didCall_logout?()
+    }
+    
+    func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+        didCall_fetchUserInfo?()
+    }
+    
+    
+}
+
+class Authorization: AuthorizationProtocol {
+    private init(){}
+    static let shared = Authorization()
+    
+    public func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
     
         guard let request = ApiURL.login(email: email, password: password).request
         else { return }
@@ -24,7 +54,7 @@ class Authorization {
         }
     }
     
-    public static func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
+    public func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
         guard let request = ApiURL.logout.request else { return }
         APIRequest.shared.request(request: request) { (result: Result<LogoutResponse, Error>) in
             switch result {
@@ -37,7 +67,7 @@ class Authorization {
         }
     }
     
-    public static func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+    public func fetchUserInfo(completion: @escaping (Error?) -> Void) {
         guard let request = ApiURL.currentUser.request else { return }
         APIRequest.shared.request(request: request) { (result: Result<CurrentUser, Error>) in
             switch result {
