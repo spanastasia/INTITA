@@ -47,11 +47,13 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @IBAction func goToLogInBtn(_ sender: UIButton) {
         coordinator?.displayLogin()
+        UserData.isFirstTimeUser = false
     }
     func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
