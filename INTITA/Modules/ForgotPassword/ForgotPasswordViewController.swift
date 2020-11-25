@@ -14,6 +14,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     var validateEmail = Validate()
     
     let spasing: CGFloat = 40
+    var heightTableView: CGFloat = 540
     
     @IBOutlet weak var forgotTableView: UITableView!
     
@@ -32,28 +33,36 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        
         startMonitoringKeyboard()
         
-        if forgotTableView.accessibilityRespondsToUserInteraction {
-            
-//            forgotTableView.beginUpdates()
-            tableViewBottomConstraint.constant = 250
-            tableViewTopConstraint.constant = -250
-            view.layoutIfNeeded()
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
         stopMonitoringKeyboard()
-        
-//        forgotTableView.endUpdates()
-//        view.addSubview(self)
-//        tableViewBottomConstraint. = 200
-//        tableViewTopConstraint.constant = 200
+
 //        stopSpinner()
+    }
+    
+    override func animateKeyboardAppearance(height: CGFloat) {
+        
+        let heightView = UIScreen.main.bounds.height
+        let differentHeight = heightView - heightTableView
+        
+        var resultHeightConstreint: CGFloat
+        
+        if (heightTableView - differentHeight) > height {
+            resultHeightConstreint = -height - (spasing / 2)
+        } else {
+            resultHeightConstreint = differentHeight - heightTableView
+        }
+
+        forgotTableView.beginUpdates()
+        tableViewTopConstraint.constant = resultHeightConstreint
+        view.layoutSubviews()
+        forgotTableView.endUpdates()
+        
     }
     
     func registerCells() {
@@ -137,6 +146,8 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
     func didPressSendButton(_ sender: SendButtonTableViewCell) {
         
         guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 6, section: 0)) as? EmailTableViewCell else { return }
+        
+        emailCell.textField.resignFirstResponder()
 
         guard let email = emailCell.textField.text else { return }
         
