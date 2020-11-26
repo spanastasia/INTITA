@@ -12,8 +12,11 @@ extension UIView {
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = borderColor
     }
-    func rounded(cornerRadius: CGFloat = 10) {
+    func rounded(cornerRadius: CGFloat = 10, roundOnlyBottomCorners: Bool = false) {
         self.layer.cornerRadius = cornerRadius
+        if roundOnlyBottomCorners {
+            self.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        }
     }
     func shadowed(
         shadowColor: CGColor = UIColor.black.cgColor,

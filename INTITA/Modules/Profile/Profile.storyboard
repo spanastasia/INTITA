@@ -3,30 +3,74 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Profile View Controller-->
-        <scene sceneID="FKq-hQ-Gz2">
+        <scene sceneID="f6i-aT-cIb">
             <objects>
-                <tableViewController restorationIdentifier="ProfileViewController" storyboardIdentifier="ProfileViewController" id="2zj-QL-MH1" customClass="ProfileViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TNb-Nf-MZ9">
+                <viewController storyboardIdentifier="ProfileViewController" id="zrl-RN-Mbp" customClass="ProfileViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rQk-ji-JVP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="2zj-QL-MH1" id="8qC-J3-BxD"/>
-                            <outlet property="delegate" destination="2zj-QL-MH1" id="y4y-4p-VAF"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SwS-e8-m4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDt-01-LFA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="316"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="316" id="eut-oz-H0R"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UiQ-Fh-0Pg">
+                                <rect key="frame" x="0.0" y="360" width="414" height="536"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Sk-rk-Jzs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="502"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8Sk-rk-Jzs" firstAttribute="top" secondItem="UiQ-Fh-0Pg" secondAttribute="top" id="Ep3-Ni-f6K"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Sk-rk-Jzs" secondAttribute="trailing" id="JJH-Ym-4vv"/>
+                                    <constraint firstItem="8Sk-rk-Jzs" firstAttribute="leading" secondItem="UiQ-Fh-0Pg" secondAttribute="leading" id="xmq-PT-fHg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TJz-4L-rkG"/>
+                        <color key="backgroundColor" name="mainColor"/>
+                        <color key="tintColor" name="mainColor"/>
+                        <constraints>
+                            <constraint firstItem="TJz-4L-rkG" firstAttribute="trailing" secondItem="CDt-01-LFA" secondAttribute="trailing" id="2t8-EC-YIe"/>
+                            <constraint firstAttribute="bottom" secondItem="UiQ-Fh-0Pg" secondAttribute="bottom" id="5GT-r2-2td"/>
+                            <constraint firstItem="UiQ-Fh-0Pg" firstAttribute="top" secondItem="CDt-01-LFA" secondAttribute="bottom" id="FPT-J9-Tey"/>
+                            <constraint firstItem="TJz-4L-rkG" firstAttribute="trailing" secondItem="UiQ-Fh-0Pg" secondAttribute="trailing" id="f9j-G8-xIo"/>
+                            <constraint firstItem="CDt-01-LFA" firstAttribute="leading" secondItem="TJz-4L-rkG" secondAttribute="leading" id="hYl-dc-jXN"/>
+                            <constraint firstItem="UiQ-Fh-0Pg" firstAttribute="leading" secondItem="TJz-4L-rkG" secondAttribute="leading" id="jaV-Mh-Vdv"/>
+                            <constraint firstItem="8Sk-rk-Jzs" firstAttribute="bottom" secondItem="TJz-4L-rkG" secondAttribute="bottom" id="x8P-9L-fSY"/>
+                            <constraint firstItem="CDt-01-LFA" firstAttribute="top" secondItem="TJz-4L-rkG" secondAttribute="top" id="y7y-gF-HPX"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="headerView" destination="CDt-01-LFA" id="gSu-hI-RIc"/>
+                        <outlet property="tableView" destination="8Sk-rk-Jzs" id="FgA-pt-u98"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMc-U3-q87" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-505" y="60"/>
+            <point key="canvasLocation" x="-1259.4202898550725" y="-20.089285714285712"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="mainColor">
+            <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

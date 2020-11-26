@@ -36,8 +36,6 @@ class LogInViewController: UIViewController, Storyboarded {
     let validator = Validate()
     let alert: AlertView = AlertView.fromNib()
     
-    //private let keyboardHeight: CGFloat = 200.0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,17 +64,14 @@ class LogInViewController: UIViewController, Storyboarded {
     }
     
     override func animateKeyboardAppearance(height: CGFloat) {
-        tableView.beginUpdates()
         tableViewBottomContraint.constant = height
         view.layoutSubviews()
-        tableView.endUpdates()
         
         tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
     }
     
     func handleViewModelUpdateWith(error: Error?) {
         if let error = error {
-            print("ERRORORROOR \(error)")
             DispatchQueue.main.async {
                 self.stopSpinner()
                 self.alert.customizeAndShow(message: error.localizedDescription)
@@ -131,14 +126,14 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
             return logoCell
         case 1:
             guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-            emailCell.textField.placeholder = "inputEmail".localized
-            emailCell.textField.textContentType = .emailAddress
+            let cellModel = TextTableViewCellModel(type: .email, placeholderText: "inputEmail".localized)
+            emailCell.configure(with: cellModel)
             return emailCell
         case 2:
-            guard let passwordCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-            passwordCell.textField.placeholder = "inputPassword".localized
-            passwordCell.textField.textContentType = .password
-            passwordCell.textField.isSecureTextEntry = true
+            guard let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            
+            let cellModel = TextTableViewCellModel(type: .password, placeholderText: "inputPassword".localized)
+            passwordCell.configure(with: cellModel)
             return passwordCell
         case 3:
             guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
@@ -158,6 +153,9 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
         guard let emailCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? TextTableViewCell else { return }
         guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
+        
+        emailCell.textField.resignFirstResponder()
+        passwordCell.textField.resignFirstResponder()
         
         guard let password = passwordCell.textField.text, let email = emailCell.textField.text else {
             return
