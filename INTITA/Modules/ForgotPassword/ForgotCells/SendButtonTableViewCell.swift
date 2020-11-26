@@ -15,7 +15,7 @@ class SendButtonTableViewCell: UITableViewCell {
     
     @IBOutlet weak var sendButton: UIButton!
     
-    weak var delegat: SendButtonTableViewCellDelegate?
+    weak var delegate: SendButtonTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,13 +26,13 @@ class SendButtonTableViewCell: UITableViewCell {
     func setupSendButton() {
         
         sendButton.setTitle("send".localized, for: .normal)
-        sendButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 24.0)
+        sendButton.titleLabel?.font = UIFont.primaryFontRegular
         sendButton.rounded()
         sendButton.shadowed()
     }
     
     @IBAction func tappedSendButton(_ sender: UIButton) {
-        delegat?.didPressSendButton(self)
+        delegate?.didPressSendButton(self)
     }
     
 }

@@ -13,7 +13,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     var validateEmail = Validate()
     
-    let spasing: CGFloat = 40
+    let spacingBetweenCells: CGFloat = 40
     var heightTableView: CGFloat = 540
     
     @IBOutlet weak var forgotTableView: UITableView!
@@ -28,6 +28,8 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         forgotTableView.dataSource = self
         
         registerCells()
+        
+        navigationController?.navigationBar.barTintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +44,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         
         stopMonitoringKeyboard()
 
-//        stopSpinner()
     }
     
     override func animateKeyboardAppearance(height: CGFloat) {
@@ -53,7 +54,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         var resultHeightConstreint: CGFloat
         
         if (heightTableView - differentHeight) > height {
-            resultHeightConstreint = -height - (spasing / 2)
+            resultHeightConstreint = -height - (spacingBetweenCells / 2)
         } else {
             resultHeightConstreint = differentHeight - heightTableView
         }
@@ -113,7 +114,7 @@ extension ForgotPasswordViewController: UITableViewDataSource {
             return emailCell
         case 8:
             guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell else { return UITableViewCell() }
-            buttonCell.delegat = self
+            buttonCell.delegate = self
             return buttonCell
         default:
             return UITableViewCell()
@@ -124,19 +125,19 @@ extension ForgotPasswordViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            return spasing / 2
+            return spacingBetweenCells / 2
         case 1:
-            return 93
+            return view.frame.width * 0.244
         case 3:
-            return 60
+            return view.frame.width * 0.16
         case 5:
-            return 114
+            return view.frame.width * 0.304
         case 6:
-            return 75
+            return view.frame.width * 0.2
         case 8:
-            return 55
+            return view.frame.width * 0.147
         default:
-            return spasing
+            return spacingBetweenCells
         }
     }
 }

@@ -21,9 +21,9 @@ class PassRecoveryTableViewCell: UITableViewCell {
     func setupPassRecoveryLabel() {
         
         passRecoveryLabel.text = "passRecovery".localized
-        passRecoveryLabel.font = UIFont(name: "MyriadPro-Regular", size: 28.0)
+        passRecoveryLabel.font = UIFont.primaryFontRegular
         passRecoveryLabel.textAlignment = .center
-//        passRecoveryLabel.textColor = UIColor(named: "AccentColor")
+        passRecoveryLabel.textColor = UIColor.primaryColor
         passRecoveryLabel.shadowed()
     }
     
