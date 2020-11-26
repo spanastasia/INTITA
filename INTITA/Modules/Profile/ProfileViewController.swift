@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
-    lazy var headerViewContent: ProfileHeaderViewCell = .fromNib()
+    lazy var headerContentView: ProfileHeaderViewCell = .fromNib()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
@@ -33,13 +33,13 @@ class ProfileViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         tableView.delegate = self
         registerCells()
-        headerViewContent.delegate = coordinator
+        headerContentView.delegate = coordinator
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         headerView.frame.size.width = view.safeAreaLayoutGuide.layoutFrame.width
-        headerViewContent.frame = headerView.bounds
-        headerView.addSubview(headerViewContent)
+        headerContentView.frame = headerView.bounds
+        headerView.addSubview(headerContentView)
     }
     
     //MARK: - Error handling
