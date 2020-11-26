@@ -13,8 +13,9 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     var validateEmail = Validate()
     
-    let spacingBetweenCells: CGFloat = 40
-    var heightTableView: CGFloat = 540
+//    let spacingBetweenCells: CGFloat = 40
+//    var heightTableView: CGFloat = 540
+    let widthOfView = UIScreen.main.bounds.width
     
     @IBOutlet weak var forgotTableView: UITableView!
     
@@ -48,22 +49,14 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     override func animateKeyboardAppearance(height: CGFloat) {
         
-        let heightView = UIScreen.main.bounds.height
-        let differentHeight = heightView - heightTableView
+        print(view.frame.height, view.frame.width)
         
-        var resultHeightConstreint: CGFloat
-        
-        if (heightTableView - differentHeight) > height {
-            resultHeightConstreint = -height - (spacingBetweenCells / 2)
-        } else {
-            resultHeightConstreint = differentHeight - heightTableView
-        }
-
         forgotTableView.beginUpdates()
-        tableViewTopConstraint.constant = resultHeightConstreint
+        tableViewTopConstraint.constant = -250
         view.layoutSubviews()
         forgotTableView.endUpdates()
         
+        forgotTableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
     }
     
     func registerCells() {
@@ -92,53 +85,59 @@ extension ForgotPasswordViewController: UITableViewDelegate {
 extension ForgotPasswordViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        switch indexPath.row {
-        case 1:
-            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "LogoForgotTableViewCell") as? LogoForgotTableViewCell else { return UITableViewCell() }
-            return logoCell
-        case 3:
-            guard let passRecoveryCell = tableView.dequeueReusableCell(withIdentifier: "PassRecoveryTableViewCell") as? PassRecoveryTableViewCell else { return UITableViewCell() }
-            return passRecoveryCell
-        case 5:
-            guard let explanationCell = tableView.dequeueReusableCell(withIdentifier: "ExplanationTableViewCell") as? ExplanationTableViewCell else { return UITableViewCell() }
-            return explanationCell
-        case 6:
-            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "EmailTableViewCell") as? EmailTableViewCell else { return UITableViewCell() }
-            emailCell.textField.placeholder = "inputEmail".localized
-            emailCell.textField.textContentType = .emailAddress
-            return emailCell
-        case 8:
-            guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell else { return UITableViewCell() }
-            buttonCell.delegate = self
-            return buttonCell
-        default:
-            return UITableViewCell()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var cell: UITableViewCell?
         
         switch indexPath.row {
         case 0:
-            return spacingBetweenCells / 2
+            let logoCell = tableView.dequeueReusableCell(withIdentifier: "LogoForgotTableViewCell") as? LogoForgotTableViewCell
+            cell = logoCell
         case 1:
-            return view.frame.width * 0.244
+            let passRecoveryCell = tableView.dequeueReusableCell(withIdentifier: "PassRecoveryTableViewCell") as? PassRecoveryTableViewCell
+            cell = passRecoveryCell
+        case 2:
+            let explanationCell = tableView.dequeueReusableCell(withIdentifier: "ExplanationTableViewCell") as? ExplanationTableViewCell
+            cell = explanationCell
         case 3:
-            return view.frame.width * 0.16
-        case 5:
-            return view.frame.width * 0.304
-        case 6:
-            return view.frame.width * 0.2
-        case 8:
-            return view.frame.width * 0.147
+            let emailCell = tableView.dequeueReusableCell(withIdentifier: "EmailTableViewCell") as? EmailTableViewCell
+            emailCell?.textField.placeholder = "inputEmail".localized
+            emailCell?.textField.textContentType = .emailAddress
+            cell = emailCell
+        case 4:
+            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell
+            buttonCell?.delegate = self
+            cell = buttonCell
         default:
-            return spacingBetweenCells
+            return UITableViewCell()
         }
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        var heightCell: CGFloat?
+        
+        switch indexPath.row {
+        case 0:
+            heightCell = widthOfView * 0.39
+        case 1:
+            heightCell = widthOfView * 0.253
+        case 2:
+            heightCell = widthOfView * 0.3
+        case 3:
+            heightCell = widthOfView * 0.264
+        case 4:
+            heightCell = widthOfView * 0.147
+        default:
+            heightCell = 0
+        }
+        
+        return heightCell ?? 0
     }
 }
 
@@ -146,7 +145,7 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
     
     func didPressSendButton(_ sender: SendButtonTableViewCell) {
         
-        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 6, section: 0)) as? EmailTableViewCell else { return }
+        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? EmailTableViewCell else { return }
         
         emailCell.textField.resignFirstResponder()
 
