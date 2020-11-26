@@ -16,8 +16,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     let widthOfView = UIScreen.main.bounds.width
     
     @IBOutlet weak var forgotTableView: UITableView!
-    
-    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -48,7 +47,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     override func animateKeyboardAppearance(height: CGFloat) {
         
         forgotTableView.beginUpdates()
-        tableViewTopConstraint.constant = -250
+        tableViewBottomConstraint.constant = height
         view.layoutSubviews()
         forgotTableView.endUpdates()
         
