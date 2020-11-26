@@ -80,8 +80,7 @@ class ProfileHeaderViewCell: UITableViewCell {
     }
     
     private func setupContainer() {
-        container.rounded(cornerRadius: 5)
-        container.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        container.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         container.shadowed()
     }
 }

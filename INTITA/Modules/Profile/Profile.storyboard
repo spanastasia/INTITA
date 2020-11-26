@@ -3,30 +3,62 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Profile View Controller-->
-        <scene sceneID="FKq-hQ-Gz2">
+        <scene sceneID="f6i-aT-cIb">
             <objects>
-                <tableViewController restorationIdentifier="ProfileViewController" storyboardIdentifier="ProfileViewController" id="2zj-QL-MH1" customClass="ProfileViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TNb-Nf-MZ9">
+                <viewController storyboardIdentifier="ProfileViewController" id="zrl-RN-Mbp" customClass="ProfileViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rQk-ji-JVP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="2zj-QL-MH1" id="8qC-J3-BxD"/>
-                            <outlet property="delegate" destination="2zj-QL-MH1" id="y4y-4p-VAF"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SwS-e8-m4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDt-01-LFA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="316"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="316" id="eut-oz-H0R"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Yv-fJ-8Cf">
+                                <rect key="frame" x="0.0" y="360" width="414" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TJz-4L-rkG"/>
+                        <color key="backgroundColor" name="mainColor"/>
+                        <color key="tintColor" name="mainColor"/>
+                        <constraints>
+                            <constraint firstItem="TJz-4L-rkG" firstAttribute="trailing" secondItem="CDt-01-LFA" secondAttribute="trailing" id="2t8-EC-YIe"/>
+                            <constraint firstItem="TJz-4L-rkG" firstAttribute="trailing" secondItem="0Yv-fJ-8Cf" secondAttribute="trailing" id="B8H-aO-QUS"/>
+                            <constraint firstItem="0Yv-fJ-8Cf" firstAttribute="leading" secondItem="TJz-4L-rkG" secondAttribute="leading" id="gN2-Xc-LCU"/>
+                            <constraint firstItem="CDt-01-LFA" firstAttribute="leading" secondItem="TJz-4L-rkG" secondAttribute="leading" id="hYl-dc-jXN"/>
+                            <constraint firstAttribute="bottom" secondItem="0Yv-fJ-8Cf" secondAttribute="bottom" id="sZ5-mf-uzT"/>
+                            <constraint firstItem="CDt-01-LFA" firstAttribute="top" secondItem="TJz-4L-rkG" secondAttribute="top" id="y7y-gF-HPX"/>
+                            <constraint firstItem="0Yv-fJ-8Cf" firstAttribute="top" secondItem="CDt-01-LFA" secondAttribute="bottom" id="ygL-ZR-0dd"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="headerView" destination="CDt-01-LFA" id="gSu-hI-RIc"/>
+                        <outlet property="tableView" destination="0Yv-fJ-8Cf" id="hbn-rF-Pam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMc-U3-q87" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-505" y="60"/>
+            <point key="canvasLocation" x="-1259" y="-20"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="mainColor">
+            <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
