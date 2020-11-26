@@ -12,9 +12,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     weak var coordinator: ForgotPasswordCoordinator?
     
     var validateEmail = Validate()
-    
-//    let spacingBetweenCells: CGFloat = 40
-//    var heightTableView: CGFloat = 540
+
     let widthOfView = UIScreen.main.bounds.width
     
     @IBOutlet weak var forgotTableView: UITableView!
@@ -48,8 +46,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     }
     
     override func animateKeyboardAppearance(height: CGFloat) {
-        
-        print(view.frame.height, view.frame.width)
         
         forgotTableView.beginUpdates()
         tableViewTopConstraint.constant = -250
