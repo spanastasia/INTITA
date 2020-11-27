@@ -25,8 +25,7 @@
                 <constraints>
                     <constraint firstItem="7aQ-Sw-r9u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="29" id="4Ro-o5-DMd"/>
                     <constraint firstItem="7aQ-Sw-r9u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="b4G-b3-DaK"/>
-                    <constraint firstItem="7aQ-Sw-r9u" firstAttribute="width" secondItem="7aQ-Sw-r9u" secondAttribute="height" multiplier="317:93" priority="999" id="dNF-Pc-wTV"/>
-                    <constraint firstAttribute="bottom" secondItem="7aQ-Sw-r9u" secondAttribute="bottom" constant="39" id="p1q-yh-JOV"/>
+                    <constraint firstItem="7aQ-Sw-r9u" firstAttribute="width" secondItem="7aQ-Sw-r9u" secondAttribute="height" multiplier="317:93" id="dNF-Pc-wTV"/>
                     <constraint firstAttribute="trailing" secondItem="7aQ-Sw-r9u" secondAttribute="trailing" constant="29" id="tdu-sc-C3L"/>
                 </constraints>
             </tableViewCellContentView>

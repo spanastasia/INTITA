@@ -14,7 +14,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     var validateEmail = Validate()
     
     let heightOfView = UIScreen.main.bounds.height
-    let widthOfView = UIScreen.main.bounds.width
     
     @IBOutlet weak var forgotTableView: UITableView!
 
@@ -122,15 +121,15 @@ extension ForgotPasswordViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            heightCell = 0.395 * widthOfView
+            heightCell = 0.182 * heightOfView
         case 1:
-            heightCell = widthOfView <= 375 ? 95 : heightOfView * 0.117
+            heightCell = heightOfView * 0.117
         case 2:
-            heightCell = widthOfView <= 375 ? 114 : heightOfView * 0.14
+            heightCell = heightOfView * 0.14
         case 3:
-            heightCell = widthOfView <= 375 ? 99 : heightOfView * 0.122
+            heightCell = heightOfView * 0.122
         case 4:
-            heightCell = widthOfView <= 375 ? 55 : heightOfView * 0.068
+            heightCell = heightOfView * 0.08
         default:
             heightCell = 0
         }
