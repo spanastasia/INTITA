@@ -14,22 +14,26 @@ protocol AuthorizationProtocol {
 }
 
 class AuthorizationMock: AuthorizationProtocol {
-    //var error: Error?
+    var error: Error?
+    var receivedEmail: String?
+    var receivedPassword: String?
     
-    var didCall_Login: (() -> ())?
-    var didCall_logout: (() -> ())?
-    var didCall_fetchUserInfo: (() -> ())?
+//    var didCall_Login: ((String, String) -> ())?
+//    var didCall_logout: (() -> ())?
+//    var didCall_fetchUserInfo: (() -> ())?
     func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
-        //completion(error)
-        didCall_Login?()
+        completion(error)
+//        didCall_Login?(email, password)
+        receivedEmail = email
+        receivedPassword = password
     }
     
     func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
-        didCall_logout?()
+        //didCall_logout?()
     }
     
     func fetchUserInfo(completion: @escaping (Error?) -> Void) {
-        didCall_fetchUserInfo?()
+        //didCall_fetchUserInfo?()
     }
     
     
