@@ -12,7 +12,8 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     weak var coordinator: ForgotPasswordCoordinator?
     
     var validateEmail = Validate()
-
+    
+    let heightOfView = UIScreen.main.bounds.height
     let widthOfView = UIScreen.main.bounds.width
     
     @IBOutlet weak var forgotTableView: UITableView!
@@ -55,6 +56,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     }
     
     func registerCells() {
+        
         let logoCell = UINib(nibName: "LogoForgotTableViewCell", bundle: nil)
         forgotTableView.register(logoCell, forCellReuseIdentifier: "LogoForgotTableViewCell")
         
@@ -115,24 +117,25 @@ extension ForgotPasswordViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        var heightCell: CGFloat?
+        var heightCell: CGFloat
+
         
         switch indexPath.row {
         case 0:
-            heightCell = widthOfView * 0.39
+            heightCell = 0.395 * widthOfView
         case 1:
-            heightCell = widthOfView * 0.253
+            heightCell = widthOfView <= 375 ? 95 : heightOfView * 0.117
         case 2:
-            heightCell = widthOfView * 0.3
+            heightCell = widthOfView <= 375 ? 114 : heightOfView * 0.14
         case 3:
-            heightCell = widthOfView * 0.264
+            heightCell = widthOfView <= 375 ? 99 : heightOfView * 0.122
         case 4:
-            heightCell = widthOfView * 0.147
+            heightCell = widthOfView <= 375 ? 55 : heightOfView * 0.068
         default:
             heightCell = 0
         }
         
-        return heightCell ?? 0
+        return heightCell
     }
 }
 
