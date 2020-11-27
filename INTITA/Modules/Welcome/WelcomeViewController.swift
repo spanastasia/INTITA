@@ -104,12 +104,27 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     func setupPageControll() {
         pageControl.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
         pageControl.currentPageIndicatorTintColor = UIColor.primaryColor
-        pageControl.bordered()
         pageControl.layer.borderColor = UIColor.white.cgColor
+//        pageControl.subviews.first?.subviews.first?.layoutMargins = UIEdgeInsets.zero
+//        pageControl.subviews.first?.subviews.first?.translatesAutoresizingMaskIntoConstraints = false
         pageControl.subviews.first?.subviews.first?.subviews.forEach({ circle in
-            circle.bordered()
+//            circle.translatesAutoresizingMaskIntoConstraints = false
+//            circle.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//            circle.directionalLayoutMargins = .zero
+//            circle.insetsLayoutMarginsFromSafeArea = false
+//            circle.layoutMargins = .zero
+//            circle.layer.anchorPoint = .zero
+            circle.layer.backgroundColor = UIColor.green.cgColor
+//            circle.autoresizesSubviews = false
+            //            circle.layer.allowsEdgeAntialiasing = false
+            //            circle.layer.contentsCenter = .infinite
+            
+           print(circle.alignmentRectInsets)
+            
+            circle.bordered(borderWidth: 0.5, borderColor: UIColor.red.cgColor)
             circle.layer.cornerRadius = circle.bounds.height / 2
-            circle.layer.borderColor = UIColor.primaryColor.cgColor
+            print(circle.frame)
+//            circle.layer.contentsRect = CGRect(x: 0.0, y: 0.0, width: 5.0, height: 5.0)
         })
     }
         
