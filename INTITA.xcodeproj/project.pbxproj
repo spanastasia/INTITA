@@ -153,6 +153,7 @@
 		84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksTableViewCell.swift; sourceTree = "<group>"; };
 		84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinksTableViewCell.xib; sourceTree = "<group>"; };
 		BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModelTests.swift; sourceTree = "<group>"; };
+		BA5A20AA257178750008FB0C /* loginResponse_test.testovich@gmail.com.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "loginResponse_test.testovich@gmail.com.json"; sourceTree = "<group>"; };
 		BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+BorderRadius+CornerRadius.swift"; sourceTree = "<group>"; };
 		BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -317,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				64BD43EC25604C9800880C9A /* token.json */,
+				BA5A20AA257178750008FB0C /* loginResponse_test.testovich@gmail.com.json */,
 				64BD43E525604C7B00880C9A /* JSONLoader.swift */,
 			);
 			path = Mock;

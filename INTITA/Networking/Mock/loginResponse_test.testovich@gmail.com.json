@@ -1,0 +1,242 @@
+{
+    "id": 2175,
+    "firstName": "Тест",
+    "full_name": "",
+    "middleName": null,
+    "secondName": "Тестович",
+    "nickname": "test_testovich",
+    "birthday": "2020-01-01",
+    "email": "test.testovich@gmail.com",
+    "corporate_mail": null,
+    "facebook": null,
+    "googleplus": null,
+    "linkedin": null,
+    "twitter": null,
+    "phone": null,
+    "address": null,
+    "education": null,
+    "educform": 3,
+    "interests": null,
+    "aboutUs": null,
+    "aboutMy": null,
+    "avatar": "https:\/\/intita.com\/\/images\/defaultAva\/noname.svg",
+    "role": 0,
+    "reg_time": "2019-10-02 06:12:49",
+    "skype": null,
+    "country": 1,
+    "city": 1,
+    "prev_job": null,
+    "current_job": null,
+    "education_shift": 1,
+    "title": "Тест Тестович test.testovich@gmail.com",
+    "shortTitle": "Тест Тестович",
+    "userStatus": null,
+    "prefer_specializations": [
+      {
+        "id_user": 2175,
+        "id_specialization": 1,
+        "created_at": "2020-11-07T19:11:52.000000Z",
+        "updated_at": "2020-11-07T19:11:52.000000Z",
+        "specialization": {
+          "id": 1,
+          "title_ua": "Програмування",
+          "title_ru": "Программирование",
+          "title_en": "Programming",
+          "created_at": null,
+          "updated_at": null,
+          "title": "Програмування"
+        }
+      }
+    ],
+    "offline_sub_groups": [
+      {
+        "id": 127,
+        "name": "yellow",
+        "group": 53,
+        "data": "https:\/\/docs.google.com\/spreadsheets\/d\/19k33VwW-Qww30Bp9hlJybGNMDDiyUpSj2X9IH67lUKQ\/edit#gid=300424676",
+        "id_user_created": 500,
+        "id_trainer": 353,
+        "chat_room_id": 4149,
+        "journal": "https:\/\/docs.google.com\/spreadsheets\/d\/1dINGWb_M56zY-q0sEEYlqN325CZhPgkQifVfoKi-gXc\/edit#gid=0",
+        "id_user_curator": 46,
+        "created_at": null,
+        "updated_at": "2020-11-14T11:27:51.000000Z",
+        "subgroupName": "B19",
+        "pivot": {
+          "id_user": 2175,
+          "id_subgroup": 127
+        },
+        "groupModel": {
+          "id": 53,
+          "name": "B19",
+          "start_date": "2019-10-28",
+          "specialization": 1,
+          "city": 1,
+          "id_user_created": 500,
+          "chat_author_id": 46,
+          "chat_room_id": 4073,
+          "id_organization": 1,
+          "created_at": null,
+          "updated_at": null
+        }
+      },
+      {
+        "id": 129,
+        "name": "E39",
+        "group": 53,
+        "data": null,
+        "id_user_created": 1277,
+        "id_trainer": 1277,
+        "chat_room_id": 4210,
+        "journal": null,
+        "id_user_curator": 46,
+        "created_at": null,
+        "updated_at": "2020-11-14T11:27:51.000000Z",
+        "subgroupName": "B19",
+        "pivot": {
+          "id_user": 2175,
+          "id_subgroup": 129
+        },
+        "groupModel": {
+          "id": 53,
+          "name": "B19",
+          "start_date": "2019-10-28",
+          "specialization": 1,
+          "city": 1,
+          "id_user_created": 500,
+          "chat_author_id": 46,
+          "chat_room_id": 4073,
+          "id_organization": 1,
+          "created_at": null,
+          "updated_at": null
+        }
+      },
+      {
+        "id": 135,
+        "name": "Winter 2020",
+        "group": 57,
+        "data": null,
+        "id_user_created": 1277,
+        "id_trainer": 1277,
+        "chat_room_id": 4292,
+        "journal": null,
+        "id_user_curator": 1277,
+        "created_at": null,
+        "updated_at": "2020-11-16T08:56:05.000000Z",
+        "subgroupName": "English Marathon",
+        "pivot": {
+          "id_user": 2175,
+          "id_subgroup": 135
+        },
+        "groupModel": {
+          "id": 57,
+          "name": "English Marathon",
+          "start_date": "2019-12-18",
+          "specialization": 7,
+          "city": 1,
+          "id_user_created": 1277,
+          "chat_author_id": 1277,
+          "chat_room_id": 4293,
+          "id_organization": 1,
+          "created_at": null,
+          "updated_at": null
+        }
+      },
+      {
+        "id": 150,
+        "name": "Spring_20",
+        "group": 63,
+        "data": "",
+        "id_user_created": 1277,
+        "id_trainer": 1277,
+        "chat_room_id": 4379,
+        "journal": "",
+        "id_user_curator": 0,
+        "created_at": null,
+        "updated_at": null,
+        "subgroupName": "English for beginners",
+        "pivot": {
+          "id_user": 2175,
+          "id_subgroup": 150
+        },
+        "groupModel": {
+          "id": 63,
+          "name": "English for beginners",
+          "start_date": "2020-04-27",
+          "specialization": 7,
+          "city": 1,
+          "id_user_created": 1277,
+          "chat_author_id": 1277,
+          "chat_room_id": 4380,
+          "id_organization": 1,
+          "created_at": null,
+          "updated_at": null
+        }
+      },
+      {
+        "id": 152,
+        "name": "Summer2020",
+        "group": 64,
+        "data": "",
+        "id_user_created": 1277,
+        "id_trainer": 1277,
+        "chat_room_id": 4438,
+        "journal": "",
+        "id_user_curator": 0,
+        "created_at": null,
+        "updated_at": null,
+        "subgroupName": "Level Up Your English",
+        "pivot": {
+          "id_user": 2175,
+          "id_subgroup": 152
+        },
+        "groupModel": {
+          "id": 64,
+          "name": "Level Up Your English",
+          "start_date": "2020-06-16",
+          "specialization": 7,
+          "city": 1,
+          "id_user_created": 1277,
+          "chat_author_id": 1277,
+          "chat_room_id": 4439,
+          "id_organization": 1,
+          "created_at": null,
+          "updated_at": null
+        }
+      }
+    ],
+    "trainers": [
+      {
+        "trainer": 353,
+        "student": 2175,
+        "start_time": "2020-06-18 17:59:20",
+        "end_time": null,
+        "id_organization": 1,
+        "id": 3919,
+        "created_at": null,
+        "updated_at": null
+      }
+    ],
+    "organizations": [
+      {
+        "id": 1,
+        "name": "Vinnytsia IT Academy",
+        "email": null,
+        "phone": null,
+        "url": null,
+        "coefficient_offline": 0.7,
+        "coefficient_online": 0.7,
+        "coefficient_module_in_course": 0.75,
+        "facebook": null,
+        "linkedin": null,
+        "twitter": null,
+        "logo": "BDRC9rGiqoImZQ6i54CswizYh4rPvd.png",
+        "created_at": null,
+        "updated_at": "2020-10-16T07:48:50.000000Z",
+        "roles": [
+          "student"
+        ]
+      }
+    ]
+  }
+}

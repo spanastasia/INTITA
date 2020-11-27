@@ -9,8 +9,15 @@ import XCTest
 @testable import INTITA
 
 class LogInViewModelTests: XCTestCase {
+    enum TestError: Error {
+        case error
+    }
+    
     var authorizationMock: AuthorizationMock!
     var sut: LogInViewModel!
+    let expectedEmail = "test.testovich@gmail.com"
+    let expectedPassword = "somepassword"
+    //TODO:        sut.delegate = self
     
     override func setUp() {
         super.setUp()
@@ -30,61 +37,49 @@ class LogInViewModelTests: XCTestCase {
     func test_subscribe() {
         // GIVEN:
         let expectation = self.expectation(description: "updateCallback was not set properly")
-        let myCallback: LogInViewModelCallback = { error in
+        let errorCallback: LogInViewModelCallback = { error in
             if error == nil {
                 expectation.fulfill()
             }
         }
-        //        sut.delegate = self
-        //        sut.subscribe { error in
-        //            testError = error
-        //
-        //            exp.fulfill()
-        //        }
-        
         // WHEN:
-        sut.subscribe(updateCallback: myCallback)
+        sut.subscribe(updateCallback: errorCallback)
         sut.updateCallback?(nil)
-        
+        // THEN:
         waitForExpectations(timeout: 1, handler: nil)
-        //        // THEN:
-        //        waitForExpectations(timeout: 3.0) { error in
-        //            XCTAssertNil(error)
-        //            XCTAssertNil(testError)
-        //        }
     }
     
-        func test_login() {
-            let expectation = self.expectation(description: "Authorization Login Failed on login")
-            // GIVEN:
-            let expectedEmail = "some-email"
-            let expectedPassword = "some-password"
-
-//            authorizationMock.didCall_Login = { email, password in
-//                if email == expectedEmail && password == expectedPassword {
-//                    expectation.fulfill()
-//                }
-//            }
-            // WHEN:
-            sut.login(email: expectedEmail, password: expectedPassword)
-            
-            if authorizationMock.receivedEmail == expectedEmail && authorizationMock.receivedPassword == expectedPassword {
+    func test_success_login() {
+        // GIVEN:
+        let expectation = self.expectation(description: "Authorization login success")
+        // WHEN:
+        sut.login(email: expectedEmail, password: expectedPassword)
+        if authorizationMock.receivedEmail == expectedEmail && authorizationMock.receivedPassword == expectedPassword {
+            expectation.fulfill()
+        }
+        // THEN:
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func test_failure_login() {
+        // GIVEN:
+        let expectation = self.expectation(description: "Authorization login failure")
+        authorizationMock.error = TestError.error
+        let errorCallback: LogInViewModelCallback = { error in
+            if let error = error,
+               case TestError.error = error {
                 expectation.fulfill()
             }
-
-            let anotherExpectation = self.expectation(description: "...")
-            if authorizationMock.error == nil {
-                //            authorizationMock.login(email: expectedEmail, password: expectedPassword, completion: <#T##(Error?) -> Void#>)
-                //
-//                authorizationMock.fetchUserInfo(completion: (nil->())?)
-                anotherExpectation.fulfill()
-            }
-            waitForExpectations(timeout: 1, handler: nil)
         }
+        // WHEN:
+        sut.subscribe(updateCallback: errorCallback)
+        sut.login(email: expectedEmail, password: expectedPassword)
+        // THEN:
+        waitForExpectations(timeout: 1, handler: nil)
+    }
     
-  
 }
-
+//TODO: Finish implimentation below
 //extension LoginViewModelTests: LogInViewModelDelegate {
 //    func loginSuccess() {
 //        testExp?.fulfill()
