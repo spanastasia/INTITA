@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum NameCells: Int {
+    case logoImageCell = 0
+    case passwordRecoveryCell
+    case explanationLabelCell
+    case emailTextFieldCell
+    case sendButtonCell
+}
+
 class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     weak var coordinator: ForgotPasswordCoordinator?
@@ -14,6 +22,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     var validateEmail = Validate()
     
     let heightOfView = UIScreen.main.bounds.height
+    let koefWidth = UIScreen.main.bounds.width / 375
     
     @IBOutlet weak var forgotTableView: UITableView!
 
@@ -62,14 +71,14 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         let passCell = UINib(nibName: "PassRecoveryTableViewCell", bundle: nil)
         forgotTableView.register(passCell, forCellReuseIdentifier: "PassRecoveryTableViewCell")
         
-        let textCell = UINib(nibName: "ExplanationTableViewCell", bundle: nil)
-        forgotTableView.register(textCell, forCellReuseIdentifier: "ExplanationTableViewCell")
+        let explanationCell = UINib(nibName: "ExplanationTableViewCell", bundle: nil)
+        forgotTableView.register(explanationCell, forCellReuseIdentifier: "ExplanationTableViewCell")
         
         let emailCell = UINib(nibName: "EmailTableViewCell", bundle: nil)
         forgotTableView.register(emailCell, forCellReuseIdentifier: "EmailTableViewCell")
         
-        let registerButtonCell = UINib(nibName: "SendButtonTableViewCell", bundle: nil)
-        forgotTableView.register(registerButtonCell, forCellReuseIdentifier: "SendButtonTableViewCell")
+        let sendButtonCell = UINib(nibName: "SendButtonTableViewCell", bundle: nil)
+        forgotTableView.register(sendButtonCell, forCellReuseIdentifier: "SendButtonTableViewCell")
     }
     
 }
@@ -104,9 +113,9 @@ extension ForgotPasswordViewController: UITableViewDataSource {
             emailCell?.textField.textContentType = .emailAddress
             cell = emailCell
         case 4:
-            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell
-            buttonCell?.delegate = self
-            cell = buttonCell
+            let sendButtonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell
+            sendButtonCell?.delegate = self
+            cell = sendButtonCell
         default:
             return UITableViewCell()
         }
@@ -117,19 +126,16 @@ extension ForgotPasswordViewController: UITableViewDataSource {
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         var heightCell: CGFloat
-
         
-        switch indexPath.row {
-        case 0:
-            heightCell = 0.182 * heightOfView
-        case 1:
-            heightCell = heightOfView * 0.117
-        case 2:
-            heightCell = heightOfView * 0.14
-        case 3:
-            heightCell = heightOfView * 0.122
-        case 4:
-            heightCell = heightOfView * 0.08
+        switch NameCells.init(rawValue: indexPath.item) {
+        case .logoImageCell:
+            heightCell = 148 * koefWidth
+        case .passwordRecoveryCell:
+            heightCell = 95 * koefWidth
+        case .explanationLabelCell:
+            heightCell = 114
+        case .sendButtonCell, .emailTextFieldCell:
+            heightCell = 77
         default:
             heightCell = 0
         }
