@@ -56,6 +56,7 @@
 		64BD4431256969AA00880C9A /* SendButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */; };
 		64BD444C256BF68200880C9A /* EmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD444A256BF68200880C9A /* EmailTableViewCell.swift */; };
 		64BD444D256BF68200880C9A /* EmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD444B256BF68200880C9A /* EmailTableViewCell.xib */; };
+		64BD44952572523900880C9A /* UITextField+indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44942572523900880C9A /* UITextField+indent.swift */; };
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
@@ -149,6 +150,7 @@
 		64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendButtonTableViewCell.xib; sourceTree = "<group>"; };
 		64BD444A256BF68200880C9A /* EmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTableViewCell.swift; sourceTree = "<group>"; };
 		64BD444B256BF68200880C9A /* EmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailTableViewCell.xib; sourceTree = "<group>"; };
+		64BD44942572523900880C9A /* UITextField+indent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+indent.swift"; sourceTree = "<group>"; };
 		64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				64B74F40254C71F2004E6A4E /* Storyboarded.swift */,
 				BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */,
 				BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */,
+				64BD44942572523900880C9A /* UITextField+indent.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -540,10 +543,10 @@
 				64BD441C256968C400880C9A /* LogoForgotTableViewCell.xib in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				64BD4431256969AA00880C9A /* SendButtonTableViewCell.xib in Resources */,
-				3F87985B255E74060094D6D9 /* ProfileFooterView.xib in Resources */,
+				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
-				3F879855255E73D10094D6D9 /* ProfileHeaderView.xib in Resources */,
+				3F879855255E73D10094D6D9 /* ProfileHeaderViewCell.xib in Resources */,
 				64BD44232569694800880C9A /* PassRecoveryTableViewCell.xib in Resources */,
 				3F879855255E73D10094D6D9 /* ProfileHeaderViewCell.xib in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
@@ -582,9 +585,10 @@
 				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
 				84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
-				3F879854255E73D10094D6D9 /* ProfileHeaderView.swift in Sources */,
+				3F879854255E73D10094D6D9 /* ProfileHeaderViewCell.swift in Sources */,
 				64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */,
-				3F87985A255E74060094D6D9 /* ProfileFooterView.swift in Sources */,
+				64BD44952572523900880C9A /* UITextField+indent.swift in Sources */,
+				3F87985A255E74060094D6D9 /* ProfileFooterViewCell.swift in Sources */,
 				3F879854255E73D10094D6D9 /* ProfileHeaderViewCell.swift in Sources */,
 				3F87985A255E74060094D6D9 /* ProfileFooterViewCell.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,

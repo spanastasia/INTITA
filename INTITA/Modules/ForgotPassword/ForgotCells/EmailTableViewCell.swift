@@ -31,6 +31,7 @@ class EmailTableViewCell: UITableViewCell {
         wrongLabel.isHidden = true
         textField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
         textField.rounded()
+        textField.indent(size: 10)
     }
   
 }
