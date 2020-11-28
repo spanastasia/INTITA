@@ -19,7 +19,7 @@ class ForgotPasswordCoordinator: Coordinator {
     func start() {
         let vc = ForgotPasswordViewController.instantiate()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: true)
     }
     
 }
