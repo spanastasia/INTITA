@@ -16,6 +16,11 @@ protocol ProfileViewModelDelegate: AnyObject {
 class ProfileViewModel {
     weak var delegate: ProfileViewModelDelegate?
     private var updateCallback: ProfileViewModelCallback?
+    var authorizationService: AuthorizationProtocol
+    
+    init(authorizationService: AuthorizationProtocol = Authorization.shared) {
+        self.authorizationService = authorizationService
+    }
     
     func subscribe(updateCallback: ProfileViewModelCallback?) {
         self.updateCallback = updateCallback
@@ -24,7 +29,7 @@ class ProfileViewModel {
 
 extension ProfileViewModel: ProfileFooterViewCellDelegate {
     func logout() {
-        Authorization.logout { result in
+        authorizationService.logout { result in
             switch result {
             case .success(_):
                 self.delegate?.logoutSuccess()

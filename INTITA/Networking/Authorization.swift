@@ -7,9 +7,44 @@
 
 import Foundation
 
-class Authorization {
+protocol AuthorizationProtocol {
+    func login(email: String, password: String, completion: @escaping (Error?) -> Void)
+    func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void)
+    func fetchUserInfo(completion: @escaping (Error?) -> Void)
+}
+
+class AuthorizationMock: AuthorizationProtocol {
+    var error: Error?
+    var receivedEmail: String?
+    var receivedPassword: String?
     
-    public static func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
+    func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        completion(error)
+        receivedEmail = email
+        receivedPassword = password
+        //TODO: Finish implimentation below
+        guard let file = ApiURL.login(email: email, password: password).mockFileName,
+                      let data = JSONLoader.loadJsonData(file: file),
+                      let object = try? JSONDecoder().decode(LoginResponse.self, from: data)
+                else { return }
+    }
+    
+    func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
+        ///
+    }
+    
+    func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+        ///
+    }
+    
+    
+}
+
+class Authorization: AuthorizationProtocol {
+    private init(){}
+    static let shared = Authorization()
+    
+    public func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
     
         guard let request = ApiURL.login(email: email, password: password).request
         else { return }
@@ -24,7 +59,7 @@ class Authorization {
         }
     }
     
-    public static func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
+    public func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
         guard let request = ApiURL.logout.request else { return }
         APIRequest.shared.request(request: request) { (result: Result<LogoutResponse, Error>) in
             switch result {
@@ -37,7 +72,7 @@ class Authorization {
         }
     }
     
-    public static func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+    public func fetchUserInfo(completion: @escaping (Error?) -> Void) {
         guard let request = ApiURL.currentUser.request else { return }
         APIRequest.shared.request(request: request) { (result: Result<CurrentUser, Error>) in
             switch result {
