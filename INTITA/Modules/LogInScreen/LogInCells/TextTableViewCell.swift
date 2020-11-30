@@ -44,6 +44,8 @@ class TextTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
+        textField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: textField.frame.height))
+        textField.rightViewMode = .always
         textField.delegate = self
         errorImage.isHidden = true
         errorLabel.isHidden = true
