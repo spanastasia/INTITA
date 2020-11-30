@@ -49,7 +49,7 @@ class LogInViewController: UIViewController, Storyboarded {
         registerCells()
         
         view.addSubview(alert)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
     override func viewDidAppear(_ animated: Bool) {
