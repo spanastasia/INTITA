@@ -14,7 +14,9 @@ protocol ProfileHeaderViewDelegate: AnyObject {
 class ProfileHeaderViewCell: UITableViewCell {
 
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var logoView: UIImageView!
     @IBOutlet weak var avatarView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var specializationLabel: UILabel!
     

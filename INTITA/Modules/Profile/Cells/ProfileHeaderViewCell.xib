@@ -97,6 +97,8 @@
             <connections>
                 <outlet property="avatarView" destination="amO-lp-LyI" id="ure-dt-Vo9"/>
                 <outlet property="container" destination="ugS-Oe-Uut" id="rWA-qu-2Ra"/>
+                <outlet property="editButton" destination="Ua9-CR-JUF" id="hKp-Q6-hkl"/>
+                <outlet property="logoView" destination="lJd-YN-elw" id="FHo-nl-qwo"/>
                 <outlet property="nameLabel" destination="Qse-Hb-MYw" id="9Ph-K4-79c"/>
                 <outlet property="specializationLabel" destination="ij8-dx-qrF" id="Vzf-bj-54j"/>
             </connections>
