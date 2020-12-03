@@ -14,9 +14,8 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var line: UIView!
-    @IBOutlet weak var arrowImg: UIImageView!
     @IBOutlet weak var skipBtn: UIButton!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var stackViewPageControl: UIPageControlStackView!
     
     private var scrollView = UIScrollView(frame: .zero)
     private var stackView = UIStackView(frame: .zero)
@@ -39,11 +38,12 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         setupStartBtn()
         setupSkipBtn()
         logo.rounded()
-
-        setupPageControll()
+        
         setupScrollView()
         setupStackView(scrollView: scrollView)
         views = createAndAddViews(to: stackView)
+        
+        stackViewPageControl.numberOfPages = texts.count
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +67,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
             scrollView.topAnchor.constraint(equalTo: self.line.bottomAnchor, constant: 32),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            scrollView.bottomAnchor.constraint(equalTo: self.pageControl.topAnchor, constant: -24)
+            scrollView.bottomAnchor.constraint(equalTo: self.stackViewPageControl.topAnchor, constant: -24)
         ])
     }
     
@@ -101,23 +101,11 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         return views
     }
     
-    func setupPageControll() {
-        pageControl.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
-        pageControl.currentPageIndicatorTintColor = UIColor.primaryColor
-        pageControl.bordered()
-        pageControl.layer.borderColor = UIColor.white.cgColor
-        pageControl.subviews.first?.subviews.first?.subviews.forEach({ circle in
-            circle.bordered()
-            circle.layer.cornerRadius = circle.bounds.height / 2
-            circle.layer.borderColor = UIColor.primaryColor.cgColor
-        })
-    }
-        
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.bounds.width
         let pageFraction = scrollView.contentOffset.x/pageWidth
         
-        pageControl.currentPage = Int((round(pageFraction)))
+        stackViewPageControl.transition(next: Int((round(pageFraction))))
         
         for (index, view) in views.enumerated() {
             guard let view = view as? PromoTextView else { return }
@@ -135,12 +123,16 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         startBtn.rounded()
     }
     func setupSkipBtn() {
-        skipBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        skipBtn.setTitle("skip".localized, for: .normal)
-        skipBtn.titleLabel?.font = UIFont.primaryFontLight
-        skipBtn.titleLabel?.textAlignment = .left
-        
-        arrowImg.image = UIImage(named:"skipArrow")
+        let skipStackView = UIStackView(frame: .zero)
+        let imgView = UIImageView(frame: CGRect(x: 150, y: 0, width: 10, height: 24))
+        imgView.image = UIImage(named:"skipArrow")!
+        let skipLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 28))
+        skipLabel.text = "skip".localized
+        skipLabel.font = UIFont.primaryFontLight
+        skipLabel.textAlignment = .right
+        skipStackView.addSubview(skipLabel)
+        skipStackView.addSubview(imgView)
+        skipBtn.addSubview(skipStackView)
     }
     
     func setupMottoLabel() {
@@ -150,7 +142,6 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
         mottoLabel.font = UIFont.primaryFontRegular
         mottoLabel.shadowed()
     }
-    
 }
 
 
