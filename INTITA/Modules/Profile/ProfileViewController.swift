@@ -124,7 +124,7 @@ class ProfileViewController: UIViewController, Storyboarded {
             if animator.fractionComplete >= 0.5 {
                 completeAnimation()
                 headerState.toggle()
-            } else if animator.fractionComplete > 0 {
+            } else {
                 reverseAnimation()
             }
             animator.addCompletion { [weak self]_ in
