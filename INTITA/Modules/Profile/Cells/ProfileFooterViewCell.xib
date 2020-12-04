@@ -31,7 +31,7 @@
                         <rect key="frame" x="29" y="22" width="262" height="64"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpW-W7-Ioe">
-                                <rect key="frame" x="17" y="14" width="36" height="36"/>
+                                <rect key="frame" x="17" y="16" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="TiF-XE-cic"/>
                                     <constraint firstAttribute="height" constant="36" id="sGT-Ca-NTU"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вихід" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYs-5w-8iW">
-                                <rect key="frame" x="70" y="20" width="56" height="24"/>
+                                <rect key="frame" x="70" y="22" width="56" height="24"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,16 +50,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bpW-W7-Ioe" firstAttribute="top" secondItem="TNE-kq-IzF" secondAttribute="top" constant="16" id="1hY-MQ-eA5"/>
+                            <constraint firstItem="xYs-5w-8iW" firstAttribute="centerY" secondItem="bpW-W7-Ioe" secondAttribute="centerY" id="CKI-lg-TiK"/>
                             <constraint firstItem="xYs-5w-8iW" firstAttribute="leading" secondItem="bpW-W7-Ioe" secondAttribute="trailing" constant="17" id="V1s-jv-wXW"/>
-                            <constraint firstItem="bpW-W7-Ioe" firstAttribute="centerY" secondItem="TNE-kq-IzF" secondAttribute="centerY" id="Vhl-4D-FgN"/>
-                            <constraint firstItem="xYs-5w-8iW" firstAttribute="centerY" secondItem="TNE-kq-IzF" secondAttribute="centerY" id="hKa-V7-wfg"/>
                             <constraint firstAttribute="height" constant="64" id="rIO-ZK-FxU"/>
                             <constraint firstItem="bpW-W7-Ioe" firstAttribute="leading" secondItem="TNE-kq-IzF" secondAttribute="leading" constant="17" id="t88-I0-5qi"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="TNE-kq-IzF" secondAttribute="bottom" id="Fxk-II-fPY"/>
+                    <constraint firstAttribute="bottom" secondItem="TNE-kq-IzF" secondAttribute="bottom" constant="20" id="Fxk-II-fPY"/>
                     <constraint firstItem="TNE-kq-IzF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="29" id="LiA-lJ-bom"/>
                     <constraint firstItem="TNE-kq-IzF" firstAttribute="top" secondItem="268-Cs-FP9" secondAttribute="bottom" id="PS2-Xr-a8P"/>
                     <constraint firstAttribute="trailing" secondItem="268-Cs-FP9" secondAttribute="trailing" id="QW0-DE-Ww7"/>

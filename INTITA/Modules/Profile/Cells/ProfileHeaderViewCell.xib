@@ -31,14 +31,20 @@
                                     <constraint firstAttribute="height" constant="30" id="qYQ-2a-TMA"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qse-Hb-MYw">
-                                <rect key="frame" x="58" y="236.5" width="358" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qse-Hb-MYw">
+                                <rect key="frame" x="58" y="242" width="358" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NcS-yN-4i1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ij8-dx-qrF">
-                                <rect key="frame" x="58" y="279.5" width="358" height="16.5"/>
+                                <rect key="frame" x="58" y="280" width="358" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="QmU-qV-a7I"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -48,8 +54,10 @@
                                 <rect key="frame" x="192" y="113" width="90" height="90"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="3XE-Dw-R0F"/>
-                                    <constraint firstAttribute="width" constant="90" id="e84-MX-D9z"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="3XE-Dw-R0F"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="KpW-Qt-5mk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="QNf-Mh-acF"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="90" id="e84-MX-D9z"/>
                                     <constraint firstAttribute="width" secondItem="amO-lp-LyI" secondAttribute="height" multiplier="1:1" id="zgu-Do-wUh"/>
                                 </constraints>
                             </imageView>
@@ -71,13 +79,13 @@
                             <constraint firstItem="lJd-YN-elw" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="94m-0Y-rwy"/>
                             <constraint firstItem="ij8-dx-qrF" firstAttribute="top" secondItem="Qse-Hb-MYw" secondAttribute="bottom" constant="8" id="AcG-xt-Py9"/>
                             <constraint firstItem="amO-lp-LyI" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="Bes-gJ-OmI"/>
-                            <constraint firstItem="Qse-Hb-MYw" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="DiM-9R-kMB"/>
-                            <constraint firstItem="Ua9-CR-JUF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lJd-YN-elw" secondAttribute="bottom" constant="8" id="GUr-pC-fZH"/>
+                            <constraint firstItem="Ua9-CR-JUF" firstAttribute="top" relation="lessThanOrEqual" secondItem="ugS-Oe-Uut" secondAttribute="top" constant="88" id="GUr-pC-fZH"/>
+                            <constraint firstItem="Qse-Hb-MYw" firstAttribute="top" relation="lessThanOrEqual" secondItem="amO-lp-LyI" secondAttribute="bottom" constant="40" id="JBG-90-cOu"/>
                             <constraint firstAttribute="trailing" secondItem="ij8-dx-qrF" secondAttribute="trailing" constant="58" id="NRi-sW-6Ah"/>
                             <constraint firstItem="amO-lp-LyI" firstAttribute="top" secondItem="Ua9-CR-JUF" secondAttribute="bottom" id="SXU-8F-EEn"/>
                             <constraint firstAttribute="bottom" secondItem="ij8-dx-qrF" secondAttribute="bottom" constant="20" id="VfP-3J-YjS"/>
                             <constraint firstItem="ij8-dx-qrF" firstAttribute="leading" secondItem="ugS-Oe-Uut" secondAttribute="leading" constant="58" id="g4C-yK-Mr4"/>
-                            <constraint firstItem="Qse-Hb-MYw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="amO-lp-LyI" secondAttribute="bottom" constant="8" id="ibH-qa-pIo"/>
+                            <constraint firstItem="Qse-Hb-MYw" firstAttribute="top" relation="lessThanOrEqual" secondItem="ugS-Oe-Uut" secondAttribute="top" constant="242" id="ibH-qa-pIo"/>
                             <constraint firstItem="Ua9-CR-JUF" firstAttribute="trailing" secondItem="amO-lp-LyI" secondAttribute="trailing" id="j7m-m3-Ctd"/>
                             <constraint firstItem="Qse-Hb-MYw" firstAttribute="leading" secondItem="ugS-Oe-Uut" secondAttribute="leading" constant="58" id="kQ3-hl-vwh"/>
                             <constraint firstItem="amO-lp-LyI" firstAttribute="centerY" secondItem="ugS-Oe-Uut" secondAttribute="centerY" id="udf-a0-2vW"/>
@@ -92,6 +100,7 @@
                     <constraint firstAttribute="trailing" secondItem="ugS-Oe-Uut" secondAttribute="trailing" id="eA5-za-1R5"/>
                     <constraint firstItem="ugS-Oe-Uut" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fMe-jA-v2n"/>
                     <constraint firstItem="ugS-Oe-Uut" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nAY-qA-FOP"/>
+                    <constraint firstItem="amO-lp-LyI" firstAttribute="height" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.33" id="tKc-uz-WDg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

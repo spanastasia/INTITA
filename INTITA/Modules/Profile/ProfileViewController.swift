@@ -22,17 +22,19 @@ enum HeaderState {
 }
 
 class ProfileViewController: UIViewController, Storyboarded {
+    @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    
     private let rowNumber = 5
     private let alert: AlertView = .fromNib()
     private var initialHeaderHeight: CGFloat = 0
     private var headerState = HeaderState.normal
     private var currentTableViewContentYOffset: CGFloat = 0
+    
     weak var coordinator: ProfileCoordinator?
     var viewModel: ProfileViewModel?
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var tableViewWrapper: UIView!
     lazy var headerContentView: ProfileHeaderViewCell = .fromNib()
     lazy var animator = UIViewPropertyAnimator()
     lazy var gestureRecognizer = UIPanGestureRecognizer()
@@ -62,11 +64,16 @@ class ProfileViewController: UIViewController, Storyboarded {
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         headerView.frame.size.width = view.safeAreaLayoutGuide.layoutFrame.width
-        headerContentView.frame = headerView.bounds
         headerView.addSubview(headerContentView)
+        headerContentView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: headerContentView, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: headerContentView, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: headerContentView, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: headerContentView, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
     }
     
     
@@ -84,62 +91,59 @@ class ProfileViewController: UIViewController, Storyboarded {
         tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
         tableView.register(UINib(nibName: "ProfileFooterViewCell", bundle: nil), forCellReuseIdentifier: "ProfileFooterViewCell")
     }
+    
     @objc func handleGesture(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
             currentTableViewContentYOffset = tableView.contentOffset.y
             initializeAnimator()
-            animator.startAnimation()
-            animator.pauseAnimation()
         case .changed:
             switch headerState {
             case .normal:
-                animator.fractionComplete = -gesture.translation(in: view).y / 100
+                if animator.fractionComplete > 0 {
+                    animator.fractionComplete = -gesture.translation(in: view).y / 100
+                } else if gesture.translation(in: view).y < 0 {
+                    animator.startAnimation()
+                    animator.pauseAnimation()
+                    animator.fractionComplete = -gesture.translation(in: view).y / 100
+                }
             case .decreased:
-                if tableView.contentOffset.y <= 100 {
+                if tableView.contentOffset.y <= 100, animator.fractionComplete > 0 {
+                    animator.fractionComplete = gesture.translation(in: view).y / 100
+                } else if gesture.translation(in: view).y > 0 {
+                    animator.startAnimation()
+                    animator.pauseAnimation()
                     animator.fractionComplete = gesture.translation(in: view).y / 100
                 }
             }
-            if -gesture.translation(in: view).y + currentTableViewContentYOffset > 0, -gesture.translation(in: view).y + currentTableViewContentYOffset < tableView.contentSize.height - tableView.bounds.size.height {
-                tableView.contentOffset.y = -gesture.translation(in: view).y + currentTableViewContentYOffset
+            if currentTableViewContentYOffset - gesture.translation(in: view).y > 0, currentTableViewContentYOffset - gesture.translation(in: view).y < tableView.frame.height - tableView.contentSize.height {
+                tableView.contentOffset.y = currentTableViewContentYOffset - gesture.translation(in: view).y
             }
-            
+            view.layoutIfNeeded()
         case .ended:
             if animator.fractionComplete >= 0.5 {
-                animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-                switch headerState {
-                case .normal:
-                    if tableView.contentOffset.y < 100 + currentTableViewContentYOffset {
-                        if tableView.contentOffset.y + 100 + currentTableViewContentYOffset < tableView.contentSize.height - tableView.bounds.size.height {
-                            tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - currentTableViewContentYOffset + 100), animated: true)
-                        } else {
-                            tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
-                        }
-                    }
-                case .decreased:
-                    tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-                }
+                completeAnimation()
                 headerState.toggle()
-            } else {
-                animator.isReversed = true
-                animator.startAnimation()
-                if headerState == .normal {
-                    tableView.setContentOffset(CGPoint(x: 0, y: currentTableViewContentYOffset), animated: true)
-                } else {
-                    tableView.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
-                }
+            } else if animator.fractionComplete > 0 {
+                reverseAnimation()
             }
-            animator.addCompletion { [unowned self]_ in
+            animator.addCompletion { [weak self]_ in
+                guard let self = self else { return }
                 var opacity: Float = 0
-                switch headerState {
+                var height: CGFloat
+                switch self.headerState {
                 case .decreased:
                     opacity = 0
+                    height = 158
                 case .normal:
                     opacity = 1
+                    height = 316
                 }
-                headerContentView.layer.sublayers?[3].opacity = opacity
-                headerContentView.layer.sublayers?[4].opacity = opacity
-                headerContentView.layer.sublayers?[5].opacity = opacity
+                self.headerContentView.layer.sublayers?[3].opacity = opacity
+                self.headerContentView.layer.sublayers?[4].opacity = opacity
+                self.headerContentView.layer.sublayers?[5].opacity = opacity
+                self.headerViewHeightConstraint.constant = height
+                self.view.layoutIfNeeded()
             }
         default:
             break
@@ -147,54 +151,62 @@ class ProfileViewController: UIViewController, Storyboarded {
     }
     
     private func initializeAnimator() {
-        animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear) { [unowned self] in
-            switch headerState {
+        animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear) { [weak self] in
+            guard let self = self else { return }
+            switch self.headerState {
             case .normal:
-                headerView.transform = CGAffineTransform.identity
-                    .scaledBy(x: 1, y: 0.5)
-                    .translatedBy(x: 0, y: -headerView.frame.height * 0.5)
-                headerContentView.avatarView.transform = CGAffineTransform.identity
-                    .scaledBy(x: 0.5, y: 1)
-                    .translatedBy(x: 0, y: -headerContentView.logoView.frame.height - 16)
-                headerContentView.nameLabel.transform = CGAffineTransform.identity
-                    .scaledBy(x: 1, y: 2)
-                    .translatedBy(x: 0, y: -headerContentView.logoView.frame.height)
-                headerContentView.specializationLabel.transform = CGAffineTransform.identity
-                    .scaledBy(x: 1, y: 2)
-                    .translatedBy(x: 0, y: -headerContentView.logoView.frame.height + 8)
-                headerContentView.editButton.transform = CGAffineTransform.identity
+                self.headerContentView.avatarView.transform = CGAffineTransform.identity
+                    .translatedBy(x: 0, y: -self.headerContentView.logoView.frame.height)
+                self.headerContentView.editButton.transform = CGAffineTransform.identity
                     .translatedBy(x: 70, y: 0)
                     .scaledBy(x: 0.001, y: 0.001)
                 
-                headerContentView.layer.sublayers?[3].opacity = 0
-                headerContentView.layer.sublayers?[4].opacity = 0
-                headerContentView.layer.sublayers?[5].opacity = 0
-                
-                headerContentView.logoView.transform = CGAffineTransform.identity
+                self.headerContentView.layer.sublayers?[3].opacity = 0
+                self.headerContentView.layer.sublayers?[4].opacity = 0
+                self.headerContentView.layer.sublayers?[5].opacity = 0
+
+                self.headerContentView.logoView.transform = CGAffineTransform.identity
                 .scaledBy(x: 0.001, y: 0.001)
-                headerContentView.logoView.layer.opacity = 0
-                headerContentView.editButton.layer.opacity = 0
+                self.headerContentView.logoView.layer.opacity = 0
+                self.headerContentView.editButton.layer.opacity = 0
                 
-                tableView.transform = CGAffineTransform.identity
-                    .translatedBy(x: 0, y: -headerView.frame.height)
-                tableView.frame.size.height += headerContentView.frame.height / 2
+                self.headerViewHeightConstraint.constant = 158
+                
             case .decreased:
                 let transform = CGAffineTransform.identity.inverted()
-                headerView.transform = transform
-                headerContentView.avatarView.transform = transform
-                headerContentView.nameLabel.transform = transform
-                headerContentView.specializationLabel.transform = transform
-                headerContentView.logoView.transform = transform
-                headerContentView.editButton.transform = transform
+                self.headerContentView.avatarView.transform = transform
+                self.headerContentView.logoView.transform = transform
+                self.headerContentView.editButton.transform = transform
                 
-                headerContentView.logoView.layer.opacity = 1
-                headerContentView.editButton.layer.opacity = 1
+                self.headerContentView.logoView.layer.opacity = 1
+                self.headerContentView.editButton.layer.opacity = 1
                 
-                tableView.transform = CGAffineTransform.identity.inverted()
-                tableView.frame.size.height -= headerContentView.frame.height / 2
-                
+                self.headerViewHeightConstraint.constant = 316
             }
-            view.layoutSubviews()
+            self.view.layoutSubviews()
+        }
+    }
+    private func completeAnimation() {
+        animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+        switch headerState {
+        case .normal:
+            if tableView.contentOffset.y < 100 + currentTableViewContentYOffset {
+                if tableView.contentOffset.y + 100 + currentTableViewContentYOffset < tableView.contentSize.height - tableView.bounds.size.height {
+                    tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - currentTableViewContentYOffset + 100), animated: true)
+                } else {
+                    tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
+                }
+            }
+        case .decreased:
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+    }
+    
+    private func reverseAnimation() {
+        animator.isReversed = true
+        animator.startAnimation()
+        if headerState == .normal {
+            tableView.setContentOffset(CGPoint(x: 0, y: currentTableViewContentYOffset), animated: true)
         }
     }
 }
@@ -248,14 +260,10 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case rowNumber - 1:
-            return 86
+            return 106
         default:
             return 99
         }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
     }
 }
 

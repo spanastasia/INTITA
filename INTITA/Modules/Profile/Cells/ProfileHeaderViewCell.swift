@@ -28,7 +28,6 @@ class ProfileHeaderViewCell: UITableViewCell {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
         avatarView.addGestureRecognizer(tapGR)
         avatarView.isUserInteractionEnabled = true
-        avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
         setupContainer()
         
         guard let user = UserData.currentUser else {
