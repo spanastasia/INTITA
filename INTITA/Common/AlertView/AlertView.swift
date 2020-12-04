@@ -16,38 +16,7 @@ class AlertView: UIView {
     @IBOutlet weak var errorMessage: UITextView!
     @IBOutlet private weak var backButton: UIButton!
     
-    //MARK:- Methods
-    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
-            errorHeader.shadowed()
-            
-            backButton.backgroundColor = UIColor.white
-            backButton.bordered()
-            backButton.rounded()
-            backButton.shadowed(shadowColor: UIColor.primaryColor.cgColor)
-            backButton.titleLabel?.shadowed()
-            
-            alertView.shadowed(shadowOffset: CGSize(width: 4, height: 4), shadowRadius: 16, shadowOpacity: 0.4)
-            
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(hide))
-            gesture.delegate = self
-            blurView.addGestureRecognizer(gesture)
-            self.alpha = 0
-        
-        errorHeader.text = header
-        backButton.setTitle(buttonTitle, for: .normal)
-        
-        let string = NSMutableAttributedString()
-        string.append(NSAttributedString(string: message + "\n\n"))
-        string.append(contacts)
-        errorMessage.attributedText = string
-        errorMessage.font = UIFont.primaryFontLight.withSize(16)
-        errorMessage.textAlignment = .center
-        errorMessage.textColor = .black
-        animator.startAnimation()
-    }
-    
     //MARK:- Private properties
-    
     private var animator: UIViewPropertyAnimator {
         let alpha: CGFloat = self.alpha == 0 ? 1 : 0
         let animator = UIViewPropertyAnimator(duration: 0.2, curve: .easeIn) {
@@ -61,7 +30,7 @@ class AlertView: UIView {
         let text = "get more info".localized
         var phoneNumberAttributes: [NSAttributedString.Key: Any] = [
             .link: URL(string: "tel://" + AppConstans.phoneNumber1.replacingOccurrences(of: " ", with: ""))!,
-            ]
+        ]
         let phoneNumber1 = NSAttributedString(string: AppConstans.phoneNumber1, attributes: phoneNumberAttributes)
         phoneNumberAttributes = [ .link: URL(string: "tel://" + AppConstans.phoneNumber2.replacingOccurrences(of: " ", with: ""))! ]
         let phoneNumber2 = NSAttributedString(string: AppConstans.phoneNumber2, attributes: phoneNumberAttributes)
@@ -72,24 +41,54 @@ class AlertView: UIView {
         return string
     }
     
-    //MARK:- Private methods
     
+    //MARK:- Private methods
     @objc private func hide() {
         animator.startAnimation()
         removeFromSuperview()
     }
-}
-
-extension AlertView: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        var point = touch.location(in: backButton)
-        if backButton.frame(forAlignmentRect: self.frame).contains(point) {
-            return true
-        }
-        point = touch.location(in: self)
-        if alertView.frame.contains(point) {
-            return false
-        }
-        return true
+    //MARK:- Methods
+    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
+        errorHeader.shadowed()
+        
+        backButton.backgroundColor = UIColor.white
+        backButton.bordered()
+        backButton.rounded()
+        backButton.shadowed(shadowColor: UIColor.primaryColor.cgColor)
+        backButton.titleLabel?.shadowed()
+        
+        alertView.shadowed(shadowOffset: CGSize(width: 4, height: 4), shadowRadius: 16, shadowOpacity: 0.4)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hide))
+        gesture.delegate = self
+        blurView.addGestureRecognizer(gesture)
+        self.alpha = 0
+        
+        errorHeader.text = header
+        backButton.setTitle(buttonTitle, for: .normal)
+        
+        let string = NSMutableAttributedString()
+        string.append(NSAttributedString(string: message + "\n\n"))
+        string.append(contacts)
+        errorMessage.attributedText = string
+        errorMessage.font = UIFont.primaryFontLight.withSize(16)
+        errorMessage.textAlignment = .center
+        errorMessage.textColor = .black
+        animator.startAnimation()
     }
 }
+    
+    extension AlertView: UIGestureRecognizerDelegate {
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+            var point = touch.location(in: backButton)
+            if backButton.frame(forAlignmentRect: self.frame).contains(point) {
+                return true
+            }
+            point = touch.location(in: self)
+            if alertView.frame.contains(point) {
+                return false
+            }
+            return true
+        }
+    }
+
