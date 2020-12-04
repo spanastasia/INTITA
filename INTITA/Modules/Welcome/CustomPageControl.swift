@@ -20,7 +20,7 @@ class UIPageControlStackView: UIStackView {
     }
     
     private var mySubviews: [MyView] {
-        return subviews as! [MyView]
+        return (subviews as? [MyView]) ?? []
     }
     
     func transition(next: Int) {

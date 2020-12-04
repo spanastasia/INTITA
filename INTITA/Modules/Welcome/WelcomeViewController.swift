@@ -125,7 +125,8 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
     func setupSkipBtn() {
         let skipStackView = UIStackView(frame: .zero)
         let imgView = UIImageView(frame: CGRect(x: 150, y: 0, width: 10, height: 24))
-        imgView.image = UIImage(named:"skipArrow")!
+        guard let image = UIImage(named:"skipArrow") else {return}
+        imgView.image = image
         let skipLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 28))
         skipLabel.text = "skip".localized
         skipLabel.font = UIFont.primaryFontLight
