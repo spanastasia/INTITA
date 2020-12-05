@@ -1,0 +1,149 @@
+{
+    "id": 532,
+    "firstName": "Oleksii",
+    "full_name": "",
+    "middleName": null,
+    "secondName": "Kolomiiets",
+    "nickname": "alexkol",
+    "birthday": "1988-07-24",
+    "email": "alexkolomiits@gmail.com",
+    "corporate_mail": null,
+    "facebook": null,
+    "googleplus": null,
+    "linkedin": null,
+    "twitter": null,
+    "phone": "+38(063)1776987",
+    "address": "Келецька 126а, 63",
+    "education": "ВНТУ",
+    "educform": 3,
+    "interests": "книги, фільми",
+    "aboutUs": null,
+    "aboutMy": null,
+    "avatar": "https:\/\/intita.com\/storage\/images\/avatars\/RG51Ngyipm5etCWC1P18na02jW80HN.png",
+    "role": 0,
+    "reg_time": "2016-11-08 10:38:42",
+    "skype": "kol77",
+    "country": 1,
+    "city": 1,
+    "prev_job": null,
+    "current_job": null,
+    "education_shift": 2,
+    "title": "Oleksii Kolomiiets alexkolomiits@gmail.com",
+    "shortTitle": "Oleksii Kolomiiets",
+    "userStatus": null,
+    "prefer_specializations": [
+        {
+            "id_user": 532,
+            "id_specialization": 1,
+            "created_at": "2020-11-21T09:14:19.000000Z",
+            "updated_at": "2020-11-21T09:14:19.000000Z",
+            "specialization": {
+                "id": 1,
+                "title_ua": "Програмування",
+                "title_ru": "Программирование",
+                "title_en": "Programming",
+                "created_at": null,
+                "updated_at": null,
+                "title": "Програмування"
+            }
+        }
+    ],
+    "offline_sub_groups": [
+        {
+            "id": 5,
+            "name": "Green",
+            "group": 2,
+            "data": "https:\/\/docs.google.com\/spreadsheets\/d\/1a3NPi7KNHSjN1iU-bq6W-3C5Pr2h1faW7dpHSsEdecM\/edit#gid=1543633216",
+            "id_user_created": 46,
+            "id_trainer": 500,
+            "chat_room_id": 487,
+            "journal": "https:\/\/docs.google.com\/spreadsheets\/d\/1bn0NRelNZk_lmX1Z0uYyVS4QrXVdCR0_yVD5iqTLYbY\/edit?usp=drive_web",
+            "id_user_curator": 0,
+            "created_at": null,
+            "updated_at": null,
+            "subgroupName": "B16",
+            "pivot": {
+                "id_user": 532,
+                "id_subgroup": 5
+            },
+            "groupModel": {
+                "id": 2,
+                "name": "B16",
+                "start_date": "2016-11-04",
+                "specialization": 1,
+                "city": 1,
+                "id_user_created": 46,
+                "chat_author_id": 46,
+                "chat_room_id": 480,
+                "id_organization": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        },
+        {
+            "id": 46,
+            "name": "E1",
+            "group": 2,
+            "data": "",
+            "id_user_created": 46,
+            "id_trainer": 1192,
+            "chat_room_id": 2434,
+            "journal": "",
+            "id_user_curator": 0,
+            "created_at": null,
+            "updated_at": null,
+            "subgroupName": "B16",
+            "pivot": {
+                "id_user": 532,
+                "id_subgroup": 46
+            },
+            "groupModel": {
+                "id": 2,
+                "name": "B16",
+                "start_date": "2016-11-04",
+                "specialization": 1,
+                "city": 1,
+                "id_user_created": 46,
+                "chat_author_id": 46,
+                "chat_room_id": 480,
+                "id_organization": 1,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "trainers": [
+        {
+            "trainer": 1192,
+            "student": 532,
+            "start_time": "2018-02-23 17:22:42",
+            "end_time": null,
+            "id_organization": 1,
+            "id": 1499,
+            "created_at": null,
+            "updated_at": null
+        }
+    ],
+    "organizations": [
+        {
+            "id": 1,
+            "name": "Vinnytsia IT Academy",
+            "email": null,
+            "phone": null,
+            "url": null,
+            "coefficient_offline": 0.7,
+            "coefficient_online": 0.7,
+            "coefficient_module_in_course": 0.75,
+            "facebook": null,
+            "linkedin": null,
+            "twitter": null,
+            "logo": "BDRC9rGiqoImZQ6i54CswizYh4rPvd.png",
+            "created_at": null,
+            "updated_at": "2020-10-16T07:48:50.000000Z",
+            "roles": [
+                "teacher_consultant",
+                "student"
+            ]
+        }
+    ]
+}

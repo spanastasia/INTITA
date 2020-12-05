@@ -38,6 +38,8 @@
 		3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF29A11254C0BEC0087AEC7 /* String+localized.swift */; };
 		3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAC972254DAAFF00AED580 /* RequestAPI.swift */; };
 		49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */; };
+		49C097FB257813BF000A8935 /* CurrentUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C097FA257813BF000A8935 /* CurrentUserTests.swift */; };
+		49C098052578CE42000A8935 /* currentUser.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5A20AA257178750008FB0C /* currentUser.json */; };
 		49F53EAE25531263008327A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F53EAC25531263008327A6 /* Localizable.strings */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
@@ -133,6 +135,7 @@
 		3FF29A11254C0BEC0087AEC7 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		3FFAC972254DAAFF00AED580 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		49C097FA257813BF000A8935 /* CurrentUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserTests.swift; sourceTree = "<group>"; };
 		49F53EAD25531263008327A6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB02553126D008327A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB125531274008327A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -177,8 +180,7 @@
 		84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksTableViewCell.swift; sourceTree = "<group>"; };
 		84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinksTableViewCell.xib; sourceTree = "<group>"; };
 		BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModelTests.swift; sourceTree = "<group>"; };
-		BA5A20AA257178750008FB0C /* loginResponse_test.testovich@gmail.com.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "loginResponse_test.testovich@gmail.com.json"; sourceTree = "<group>"; };
-		BA5A20D0257567E30008FB0C /* CustomPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
+		BA5A20AA257178750008FB0C /* currentUser.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currentUser.json; sourceTree = "<group>"; };
 		BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+BorderRadius+CornerRadius.swift"; sourceTree = "<group>"; };
 		BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
@@ -348,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				64BD43EC25604C9800880C9A /* token.json */,
-				BA5A20AA257178750008FB0C /* loginResponse_test.testovich@gmail.com.json */,
+				BA5A20AA257178750008FB0C /* currentUser.json */,
 				64BD43E525604C7B00880C9A /* JSONLoader.swift */,
 			);
 			path = Mock;
@@ -387,6 +389,7 @@
 			children = (
 				64F78E7C255C5889002C1565 /* INTITATests.swift */,
 				64F78E9F255D4DC8002C1565 /* ValidateTest.swift */,
+				49C097FA257813BF000A8935 /* CurrentUserTests.swift */,
 				64F78E74255C5874002C1565 /* Info.plist */,
 				64BD43F0256172DB00880C9A /* URLMockTest.swift */,
 				64BD44082564544900880C9A /* ResponseTest.swift */,
@@ -548,6 +551,7 @@
 				84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */,
 				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
+				49C098052578CE42000A8935 /* currentUser.json in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
@@ -643,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C097FB257813BF000A8935 /* CurrentUserTests.swift in Sources */,
 				BA5A2093256D99820008FB0C /* LogInViewModelTests.swift in Sources */,
 				64BD44092564544900880C9A /* ResponseTest.swift in Sources */,
 				64BD43F1256172DB00880C9A /* URLMockTest.swift in Sources */,
