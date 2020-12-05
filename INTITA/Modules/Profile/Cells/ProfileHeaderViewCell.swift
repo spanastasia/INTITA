@@ -14,7 +14,9 @@ protocol ProfileHeaderViewDelegate: AnyObject {
 class ProfileHeaderViewCell: UITableViewCell {
 
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var logoView: UIImageView!
     @IBOutlet weak var avatarView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var specializationLabel: UILabel!
     
@@ -26,7 +28,6 @@ class ProfileHeaderViewCell: UITableViewCell {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
         avatarView.addGestureRecognizer(tapGR)
         avatarView.isUserInteractionEnabled = true
-        avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
         setupContainer()
         
         guard let user = UserData.currentUser else {

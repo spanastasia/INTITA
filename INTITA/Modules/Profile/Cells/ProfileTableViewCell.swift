@@ -27,6 +27,7 @@ class ProfileTableViewCell: UITableViewCell {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(containerAction))
         container.addGestureRecognizer(tapGR)
         container.isUserInteractionEnabled = true
+        button.isUserInteractionEnabled = false
     }
 
     @objc func containerAction() {
