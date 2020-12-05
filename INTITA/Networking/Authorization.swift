@@ -13,20 +13,35 @@ protocol AuthorizationProtocol {
     func fetchUserInfo(completion: @escaping (Error?) -> Void)
 }
 
-class AuthorizationMock: AuthorizationProtocol {
-    var error: Error?
-    var receivedEmail: String?
-    var receivedPassword: String?
+class AuthorizationFailing: AuthorizationProtocol {
+    
+    enum TestError: Error {
+        case test
+    }
     
     func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
-        completion(error)
-        receivedEmail = email
-        receivedPassword = password
-        //TODO: Finish implimentation below
+        completion(TestError.test)
+    }
+    
+    func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
+        completion(.failure(TestError.test))
+    }
+    
+    func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+        completion(TestError.test)
+    }
+}
+
+class AuthorizationMock: AuthorizationProtocol {
+    
+    func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
         guard let file = ApiURL.login(email: email, password: password).mockFileName,
-                      let data = JSONLoader.loadJsonData(file: file),
-                      let object = try? JSONDecoder().decode(LoginResponse.self, from: data)
-                else { return }
+              let data = JSONLoader.loadJsonData(file: file),
+              let response = try? JSONDecoder().decode(LoginResponse.self, from: data)
+        else { return }
+        
+        UserDefaultsManager.addValue(response.token, by: AppConstans.tokenKey)
+        completion(nil)
     }
     
     func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
@@ -34,7 +49,15 @@ class AuthorizationMock: AuthorizationProtocol {
     }
     
     func fetchUserInfo(completion: @escaping (Error?) -> Void) {
-        ///
+        guard let file = ApiURL.currentUser.mockFileName,
+              let data = JSONLoader.loadJsonData(file: file),
+              let response = try? JSONDecoder().decode(CurrentUser.self, from: data)
+        else {
+            return
+        }
+        
+        UserData.set(currentUser: response)
+        completion(nil)
     }
     
     
