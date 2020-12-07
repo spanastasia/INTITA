@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegate {
+class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegate, AlertAcceptable {
     var coordinator: WelcomeCoordinator?
     
     @IBOutlet weak var mottoLabel: UILabel!
