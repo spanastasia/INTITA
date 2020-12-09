@@ -25,7 +25,7 @@ enum CredentialsError {
     }
 }
 
-class LogInViewController: UIViewController, Storyboarded {
+class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
@@ -74,7 +74,7 @@ class LogInViewController: UIViewController, Storyboarded {
         if let error = error {
             DispatchQueue.main.async {
                 self.stopSpinner()
-                self.alert.customizeAndShow(message: error.localizedDescription)
+                self.showAlert(message: error.localizedDescription)
             }
         }
     }

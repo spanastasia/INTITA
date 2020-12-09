@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, Storyboarded {
+class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     private let rowNumber = 5
     private let alert: AlertView = .fromNib()
     
@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController, Storyboarded {
     func handleError(error: Error) {
         DispatchQueue.main.async {
             self.stopSpinner()
-            self.alert.customizeAndShow(message: error.localizedDescription)
+            self.showAlert(message: error.localizedDescription)
         }
     }
     
@@ -125,7 +125,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
 
 extension ProfileViewController: ProfileCoordinatorAlertPresenter {
     func showAlert() {
-        alert.customizeAndShow(header: "Oops...", message: "Coming soon", buttonTitle: "Got it")
+        showAlert(message: "comming_soon".localized)
     }
     
 }
