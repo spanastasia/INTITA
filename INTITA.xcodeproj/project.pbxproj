@@ -77,12 +77,14 @@
 		84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */; };
 		84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */; };
 		BA5A2093256D99820008FB0C /* LogInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */; };
+		BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A20D0257567E30008FB0C /* CustomPageControl.swift */; };
 		BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */; };
 		BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */; };
 		BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */; };
 		BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */; };
+		BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */; };
 		BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */; };
-		BAAB2BCA255DC67300D6D528 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */; };
+		BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -177,8 +179,9 @@
 		BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
 		BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.ttf"; sourceTree = "<group>"; };
+		BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertView.swift"; sourceTree = "<group>"; };
 		BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
-		BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -299,6 +302,8 @@
 				BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */,
 				BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */,
 				64BD44942572523900880C9A /* UITextField+indent.swift */,
+				BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */,
+				BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
 				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
 				BAF940CD2550754300AE50CE /* PromoTextView.swift */,
+				BA5A20D0257567E30008FB0C /* CustomPageControl.swift */,
 				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
 			);
 			path = Welcome;
@@ -430,7 +436,6 @@
 				BA8D88642552D917005A44C2 /* Fonts */,
 				3FF29A14254C0BFF0087AEC7 /* Extensions */,
 				3F2E770D255474D300853140 /* AlertView */,
-				BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -600,6 +605,7 @@
 				3F87985A255E74060094D6D9 /* ProfileFooterViewCell.swift in Sources */,
 				3F879854255E73D10094D6D9 /* ProfileHeaderViewCell.swift in Sources */,
 				3F87985A255E74060094D6D9 /* ProfileFooterViewCell.swift in Sources */,
+				BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
 				3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */,
@@ -623,7 +629,7 @@
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
-				BAAB2BCA255DC67300D6D528 /* ActivityIndicatorView.swift in Sources */,
+				BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3F2E770B255474C600853140 /* AlertView.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
@@ -632,6 +638,7 @@
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
+				BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
