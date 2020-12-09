@@ -16,11 +16,8 @@ protocol LogInViewModelDelegate: AnyObject {
 class LogInViewModel {
     weak var delegate: LogInViewModelDelegate?
     var updateCallback: LogInViewModelCallback?
-    var authorizationService: AuthorizationProtocol
     
-    init(authorizationService: AuthorizationProtocol = Authorization.shared) {
-        self.authorizationService = authorizationService
-    }
+    var authorizationService: AuthorizationProtocol = Authorization()
     
     func subscribe(updateCallback: LogInViewModelCallback?) {
         self.updateCallback = updateCallback
@@ -29,20 +26,20 @@ class LogInViewModel {
     func login(email: String, password: String) {
         authorizationService.login(email: email, password: password, completion: { [weak self] error in
             if let error = error {
-                self?.updateCallback?(error)
+                self?.updateCallback?(error) // 1 [.login: .failing]
             } else {
-                self?.fetchUserInfo()
-            }
-        })
+                self?.fetchUserInfo()        //  ||
+            }                                // \  /
+        })                                   //  \/
     }
     
     func fetchUserInfo() {
         authorizationService.fetchUserInfo { [weak self] error in
-            guard let error = error else {
-                self?.delegate?.loginSuccess()
-                return
+            if let error = error  {
+                self?.updateCallback?(error)  // 2 [.login: .mock], [.user, .failing]
+            } else {
+                self?.delegate?.loginSuccess()// 3 .mock
             }
-            self?.updateCallback?(error)
         }
     }
 }

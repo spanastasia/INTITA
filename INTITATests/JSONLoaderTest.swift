@@ -1,5 +1,5 @@
 //
-//  URLMockTest.swift
+//  JSONLoaderTests.swift
 //  INTITATests
 //
 //  Created by Viacheslav Markov on 15.11.2020.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import INTITA
 
-class URLMockTest: XCTestCase {
+class JSONLoaderTests: XCTestCase {
     
     func testTrue() {
         
