@@ -149,8 +149,6 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
     func didPressSendButton(_ sender: SendButtonTableViewCell) {
         
         guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? EmailTableViewCell else { return }
-        
-        emailCell.textField.resignFirstResponder()
 
         guard let email = emailCell.textField.text else { return }
         
@@ -159,6 +157,7 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
             emailCell.wrongLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         } else {
+            emailCell.textField.resignFirstResponder()
             startSpinner()
         }
     }
