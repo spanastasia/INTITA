@@ -21,8 +21,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     var validateEmail = Validate()
     
-    private let alert: AlertView = .fromNib()
-    
     let heightOfView = UIScreen.main.bounds.height
     let koefWidth = UIScreen.main.bounds.width / 375
     
@@ -37,8 +35,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         forgotTableView.dataSource = self
         
         registerCells()
-        
-        view.addSubview(alert)
         
         navigationController?.navigationBar.barTintColor = UIColor.white
     }
@@ -84,14 +80,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         let sendButtonCell = UINib(nibName: "SendButtonTableViewCell", bundle: nil)
         forgotTableView.register(sendButtonCell, forCellReuseIdentifier: "SendButtonTableViewCell")
     }
-//
-//    //MARK: - Error handling
-//    func handleError(error: Error) {
-//        DispatchQueue.main.async {
-////            self.stopSpinner()
-//            self.alert.customizeAndShow(message: error.localizedDescription)
-//        }
-//    }
     
 }
 
@@ -156,7 +144,7 @@ extension ForgotPasswordViewController: UITableViewDataSource {
     }
 }
 
-extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
+extension ForgotPasswordViewController: SendButtonTableViewCellDelegate, AlertAcceptable {
     
     func didPressSendButton(_ sender: SendButtonTableViewCell) {
         
@@ -165,12 +153,15 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
         guard let email = emailCell.textField.text else { return }
         
         if !validateEmail.validateEmail(email: email) {
+            
             emailCell.wrongLabel.isHidden = false
             emailCell.wrongLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+            
         } else {
+            
             emailCell.textField.resignFirstResponder()
-            alert.customizeAndShow(header: "Oops...", message: "Coming soon", buttonTitle: "Got it")
+            showAlert(header: "passRecovery".localized)
 //            startSpinner()
         }
     }
