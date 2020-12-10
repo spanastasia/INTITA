@@ -21,6 +21,8 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
     var validateEmail = Validate()
     
+    private let alert: AlertView = .fromNib()
+    
     let heightOfView = UIScreen.main.bounds.height
     let koefWidth = UIScreen.main.bounds.width / 375
     
@@ -35,6 +37,8 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         forgotTableView.dataSource = self
         
         registerCells()
+        
+        view.addSubview(alert)
         
         navigationController?.navigationBar.barTintColor = UIColor.white
     }
@@ -80,6 +84,14 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         let sendButtonCell = UINib(nibName: "SendButtonTableViewCell", bundle: nil)
         forgotTableView.register(sendButtonCell, forCellReuseIdentifier: "SendButtonTableViewCell")
     }
+//
+//    //MARK: - Error handling
+//    func handleError(error: Error) {
+//        DispatchQueue.main.async {
+////            self.stopSpinner()
+//            self.alert.customizeAndShow(message: error.localizedDescription)
+//        }
+//    }
     
 }
 
@@ -158,7 +170,8 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         } else {
             emailCell.textField.resignFirstResponder()
-            startSpinner()
+            alert.customizeAndShow(header: "Oops...", message: "Coming soon", buttonTitle: "Got it")
+//            startSpinner()
         }
     }
     
