@@ -14,6 +14,7 @@ protocol AlertAcceptable {
 extension AlertAcceptable where Self: UIViewController {
     func showAlert(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
         let alert: AlertView = .fromNib()
+        alert.frame = self.view.bounds
         view.addSubview(alert)
         alert.customizeAndShow(header: header, message: message, buttonTitle: buttonTitle)
     }
