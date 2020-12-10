@@ -7,19 +7,22 @@
 
 import UIKit
 
-class ProfileViewController: UITableViewController, Storyboarded {
-    private let rowNumber = 6
+class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
+    private let rowNumber = 5
     private let alert: AlertView = .fromNib()
     
     weak var coordinator: ProfileCoordinator?
     var viewModel: ProfileViewModel?
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    lazy var headerContentView: ProfileHeaderViewCell = .fromNib()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
-    //MARK: - View life cycle
+    //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorStatusBar(UIColor.primaryColor)
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         view.addSubview(alert)
@@ -30,90 +33,24 @@ class ProfileViewController: UITableViewController, Storyboarded {
         tableView.dataSource = self
         tableView.delegate = self
         registerCells()
+        headerContentView.delegate = coordinator
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        colorStatusBar(UIColor.systemBackground)
-    }
-    
-    //MARK: - TableView settings
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 316
-        case rowNumber - 1:
-            return 86
-        default:
-            return 99
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rowNumber
-    }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
-        switch row {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHeaderViewCell") as? ProfileHeaderViewCell
-            cell?.delegate = coordinator
-            return cell ?? UITableViewCell()
-        case rowNumber - 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterViewCell") as? ProfileFooterViewCell
-            cell?.label.text = "exit".localized
-            cell?.delegate = viewModel
-            return cell ?? UITableViewCell()
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell
-            setUpProfileBodyCell(cell, row: row)
-            return cell ?? UITableViewCell()
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        headerView.frame.size.width = view.safeAreaLayoutGuide.layoutFrame.width
+        headerContentView.frame = headerView.bounds
+        headerView.addSubview(headerContentView)
     }
     
     //MARK: - Error handling
     func handleError(error: Error) {
         DispatchQueue.main.async {
             self.stopSpinner()
-            self.alert.customizeAndShow(message: error.localizedDescription)
+            self.showAlert(message: error.localizedDescription)
         }
     }
     
     //MARK: - Private methods
-    private func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
-        cell?.row = row
-        cell?.delegate = coordinator
-        if row == 1 {
-            cell?.button.imageView?.image = UIImage(named: "mail")
-            cell?.label.text = "messages".localized
-        }
-        if row == 2 {
-            cell?.button.imageView?.image = UIImage(named: "trophy")
-            cell?.label.text = "opportunities".localized
-        }
-        if row == 3 {
-            cell?.button.imageView?.image = UIImage(named: "edit")
-            cell?.label.text = "my tasks".localized
-        }
-        if row == 4 {
-            cell?.button.imageView?.image = UIImage(named: "settings")
-            cell?.label.text = "settings".localized
-        }
-    }
-    
-    private func colorStatusBar(_ color: UIColor) {
-        if #available(iOS 13, *) {
-            let statusBar = UIView(frame: (UIApplication.shared.windows[0].windowScene?.statusBarManager?.statusBarFrame)!)
-            statusBar.backgroundColor = color
-            UIApplication.shared.windows[0].addSubview(statusBar)
-        } else {
-            let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-            if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
-                statusBar.backgroundColor = color
-            }
-        }
-    }
-    
     private func registerCells() {
         tableView.register(UINib(nibName: "ProfileHeaderViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeaderViewCell")
         tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
@@ -122,6 +59,61 @@ class ProfileViewController: UITableViewController, Storyboarded {
 }
 
 //MARK: - Extentions
+extension ProfileViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rowNumber
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        var currentCell: UITableViewCell?
+        switch row {
+        case rowNumber - 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterViewCell") as? ProfileFooterViewCell
+            cell?.label.text = "exit".localized
+            cell?.delegate = viewModel
+            currentCell = cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell
+            setUpProfileBodyCell(cell, row: row)
+            currentCell = cell
+        }
+        return currentCell ?? UITableViewCell()
+    }
+    
+    private func setUpProfileBodyCell(_ cell: ProfileTableViewCell?, row: Int) {
+        cell?.row = row
+        cell?.delegate = coordinator
+        if row == 0 {
+            cell?.button.imageView?.image = UIImage(named: "mail")
+            cell?.label.text = "messages".localized
+        }
+        if row == 1 {
+            cell?.button.imageView?.image = UIImage(named: "trophy")
+            cell?.label.text = "opportunities".localized
+        }
+        if row == 2 {
+            cell?.button.imageView?.image = UIImage(named: "edit")
+            cell?.label.text = "my tasks".localized
+        }
+        if row == 3 {
+            cell?.button.imageView?.image = UIImage(named: "settings")
+            cell?.label.text = "settings".localized
+        }
+    }
+    
+}
+
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case rowNumber - 1:
+            return 86
+        default:
+            return 99
+        }
+    }
+}
+
 extension ProfileViewController: ProfileViewModelDelegate {
     func logoutSuccess() {
         DispatchQueue.main.async {
@@ -131,31 +123,9 @@ extension ProfileViewController: ProfileViewModelDelegate {
     }
 }
 
-extension ProfileViewController: (UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else { return }
-
-        let imageName = UUID().uuidString
-        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
-
-        if let jpegData = image.jpegData(compressionQuality: 0.8) {
-            try? jpegData.write(to: imagePath)
-        }
-        dismiss(animated: true)
-    }
-
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        colorStatusBar(UIColor.primaryColor)
-    }
-}
-
 extension ProfileViewController: ProfileCoordinatorAlertPresenter {
     func showAlert() {
-        alert.customizeAndShow(header: "Oops...", message: "Coming soon", buttonTitle: "Got it")
+        showAlert(message: "comming_soon".localized)
     }
     
 }

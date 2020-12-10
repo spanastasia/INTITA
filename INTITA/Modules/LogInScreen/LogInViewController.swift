@@ -25,7 +25,7 @@ enum CredentialsError {
     }
 }
 
-class LogInViewController: UIViewController, Storyboarded {
+class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
@@ -34,7 +34,6 @@ class LogInViewController: UIViewController, Storyboarded {
     var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
     let validator = Validate()
-    let alert: AlertView = AlertView.fromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +47,7 @@ class LogInViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         registerCells()
         
-        view.addSubview(alert)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -74,16 +72,9 @@ class LogInViewController: UIViewController, Storyboarded {
         if let error = error {
             DispatchQueue.main.async {
                 self.stopSpinner()
-                self.alert.customizeAndShow(message: error.localizedDescription)
+                self.showAlert(message: error.localizedDescription)
             }
         }
-    }
-    
-    private func showSafari(_ url: String) {
-        guard let url = URL(string: url) else { return }
-        
-        let safariViewController = SFSafariViewController(url: url)
-        present(safariViewController, animated: true, completion: nil)
     }
     
     func registerCells() {
@@ -180,7 +171,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
 
 extension LogInViewController: LinksTableViewCellDelegate {
     func linksTableViewCellDidPressRegister(_ sender: LinksTableViewCell) {
-        showSafari("https://intita.com/register")
+        showAlert()
     }
     
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {

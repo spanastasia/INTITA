@@ -16,10 +16,8 @@ class ResponseTest: XCTestCase {
 
     func testTrue() {
         
-        let isTrue = APIRequest.shared
-//        print(isTrue)
-        XCTAssertNotNil(isTrue)
-
+        let apiRequestMock = APIRequest.shared
+        XCTAssertTrue(apiRequestMock is MockRequestAPI)
     }
 
 }
