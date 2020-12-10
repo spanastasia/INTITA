@@ -34,7 +34,6 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
     let validator = Validate()
-    let alert: AlertView = AlertView.fromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +47,6 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableView.dataSource = self
         registerCells()
         
-        view.addSubview(alert)
         navigationController?.setNavigationBarHidden(true, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
@@ -77,13 +75,6 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
                 self.showAlert(message: error.localizedDescription)
             }
         }
-    }
-    
-    private func showSafari(_ url: String) {
-        guard let url = URL(string: url) else { return }
-        
-        let safariViewController = SFSafariViewController(url: url)
-        present(safariViewController, animated: true, completion: nil)
     }
     
     func registerCells() {
@@ -180,7 +171,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
 
 extension LogInViewController: LinksTableViewCellDelegate {
     func linksTableViewCellDidPressRegister(_ sender: LinksTableViewCell) {
-        showSafari("https://intita.com/register")
+        showAlert()
     }
     
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {
