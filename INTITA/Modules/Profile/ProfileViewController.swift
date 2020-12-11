@@ -21,13 +21,12 @@ enum HeaderState {
     }
 }
 
-class ProfileViewController: UIViewController, Storyboarded {
+class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     
     private let rowNumber = 5
-    private let alert: AlertView = .fromNib()
     private var initialHeaderHeight: CGFloat = 0
     private var headerState = HeaderState.normal
     private var currentTableViewContentYOffset: CGFloat = 0
@@ -45,8 +44,6 @@ class ProfileViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        view.addSubview(alert)
         
         viewModel?.delegate = self
         viewModel?.subscribe(updateCallback: handleError)
@@ -282,7 +279,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
 
 extension ProfileViewController: ProfileCoordinatorAlertPresenter {
     func showAlert() {
-        showAlert(message: "comming_soon".localized)
+        showAlert(header: "Oops!", message: "comming_soon".localized)
     }
     
 }
