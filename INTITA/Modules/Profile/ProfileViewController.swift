@@ -63,17 +63,15 @@ class ProfileViewController: UIViewController, Storyboarded {
         gestureRecognizer.addTarget(self, action: #selector(handleGesture))
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
+        
+        headerView.addSubview(headerContentView)
+        headerContentView.translatesAutoresizingMaskIntoConstraints = false
+        headerContentView.shadowed(shadowOffset: CGSize(width: 0, height: 7))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        headerView.frame.size.width = view.safeAreaLayoutGuide.layoutFrame.width
-        headerView.addSubview(headerContentView)
-        headerContentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: headerContentView, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: headerContentView, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: headerContentView, attribute: .trailing, relatedBy: .equal, toItem: headerView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: headerContentView, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        headerContentView.frame.size.width = view.frame.width
     }
     
     
@@ -102,21 +100,21 @@ class ProfileViewController: UIViewController, Storyboarded {
             case .normal:
                 if animator.fractionComplete > 0 {
                     animator.fractionComplete = -gesture.translation(in: view).y / 100
-                } else if gesture.translation(in: view).y < 0 {
+                } else if gesture.translation(in: view).y < 0, tableView.frame.height <= tableView.contentSize.height + 16 {
                     animator.startAnimation()
                     animator.pauseAnimation()
                     animator.fractionComplete = -gesture.translation(in: view).y / 100
                 }
             case .decreased:
                 if tableView.contentOffset.y <= 100, animator.fractionComplete > 0 {
-                    animator.fractionComplete = gesture.translation(in: view).y / 100
-                } else if gesture.translation(in: view).y > 0 {
+                    animator.fractionComplete = (gesture.translation(in: view).y - currentTableViewContentYOffset) / 100
+                } else if gesture.translation(in: view).y > 0, tableView.contentOffset.y < 32 {
                     animator.startAnimation()
                     animator.pauseAnimation()
-                    animator.fractionComplete = gesture.translation(in: view).y / 100
+                    animator.fractionComplete = (gesture.translation(in: view).y - currentTableViewContentYOffset) / 100
                 }
             }
-            if currentTableViewContentYOffset - gesture.translation(in: view).y > 0, currentTableViewContentYOffset - gesture.translation(in: view).y < tableView.frame.height - tableView.contentSize.height {
+            if currentTableViewContentYOffset - gesture.translation(in: view).y > 0, currentTableViewContentYOffset - gesture.translation(in: view).y < tableView.contentSize.height - tableView.frame.height, headerState == HeaderState.decreased {
                 tableView.contentOffset.y = currentTableViewContentYOffset - gesture.translation(in: view).y
             }
             view.layoutIfNeeded()
@@ -129,19 +127,13 @@ class ProfileViewController: UIViewController, Storyboarded {
             }
             animator.addCompletion { [weak self]_ in
                 guard let self = self else { return }
-                var opacity: Float = 0
                 var height: CGFloat
                 switch self.headerState {
                 case .decreased:
-                    opacity = 0
                     height = 158
                 case .normal:
-                    opacity = 1
                     height = 316
                 }
-                self.headerContentView.layer.sublayers?[3].opacity = opacity
-                self.headerContentView.layer.sublayers?[4].opacity = opacity
-                self.headerContentView.layer.sublayers?[5].opacity = opacity
                 self.headerViewHeightConstraint.constant = height
                 self.view.layoutIfNeeded()
             }
@@ -155,18 +147,26 @@ class ProfileViewController: UIViewController, Storyboarded {
             guard let self = self else { return }
             switch self.headerState {
             case .normal:
+                self.headerContentView.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: 0.5)
+                    .translatedBy(x: 0, y: -self.headerContentView.frame.height / 2)
+                self.headerContentView.avatarWrapper.transform = CGAffineTransform.identity
+                    .translatedBy(x: 0, y: -self.headerContentView.logoView.frame.height)
+                    .scaledBy(x: 0.5, y: 1)
                 self.headerContentView.avatarView.transform = CGAffineTransform.identity
                     .translatedBy(x: 0, y: -self.headerContentView.logoView.frame.height)
+                    .scaledBy(x: 0.5, y: 1)
                 self.headerContentView.editButton.transform = CGAffineTransform.identity
                     .translatedBy(x: 70, y: 0)
                     .scaledBy(x: 0.001, y: 0.001)
-                
-                self.headerContentView.layer.sublayers?[3].opacity = 0
-                self.headerContentView.layer.sublayers?[4].opacity = 0
-                self.headerContentView.layer.sublayers?[5].opacity = 0
-
                 self.headerContentView.logoView.transform = CGAffineTransform.identity
-                .scaledBy(x: 0.001, y: 0.001)
+                    .scaledBy(x: 0.001, y: 0.001)
+                self.headerContentView.nameLabel.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: 2)
+                    .translatedBy(x: 0, y: -16)
+                self.headerContentView.specializationLabel.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: 2)
+                    .translatedBy(x: 0, y: -8)
                 self.headerContentView.logoView.layer.opacity = 0
                 self.headerContentView.editButton.layer.opacity = 0
                 
@@ -174,9 +174,13 @@ class ProfileViewController: UIViewController, Storyboarded {
                 
             case .decreased:
                 let transform = CGAffineTransform.identity.inverted()
+                self.headerContentView.transform = transform
                 self.headerContentView.avatarView.transform = transform
+                self.headerContentView.avatarWrapper.transform = transform
                 self.headerContentView.logoView.transform = transform
                 self.headerContentView.editButton.transform = transform
+                self.headerContentView.nameLabel.transform = transform
+                self.headerContentView.specializationLabel.transform = transform
                 
                 self.headerContentView.logoView.layer.opacity = 1
                 self.headerContentView.editButton.layer.opacity = 1
