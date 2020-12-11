@@ -46,6 +46,17 @@
 		64BD43ED25604C9800880C9A /* token.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BD43EC25604C9800880C9A /* token.json */; };
 		64BD43F1256172DB00880C9A /* URLMockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD43F0256172DB00880C9A /* URLMockTest.swift */; };
 		64BD44092564544900880C9A /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44082564544900880C9A /* ResponseTest.swift */; };
+		64BD441B256968C400880C9A /* LogoForgotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */; };
+		64BD441C256968C400880C9A /* LogoForgotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */; };
+		64BD44222569694800880C9A /* PassRecoveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */; };
+		64BD44232569694800880C9A /* PassRecoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */; };
+		64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44282569696900880C9A /* ExplanationTableViewCell.swift */; };
+		64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44292569696900880C9A /* ExplanationTableViewCell.xib */; };
+		64BD4430256969AA00880C9A /* SendButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD442E256969AA00880C9A /* SendButtonTableViewCell.swift */; };
+		64BD4431256969AA00880C9A /* SendButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */; };
+		64BD444C256BF68200880C9A /* EmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD444A256BF68200880C9A /* EmailTableViewCell.swift */; };
+		64BD444D256BF68200880C9A /* EmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD444B256BF68200880C9A /* EmailTableViewCell.xib */; };
+		64BD44952572523900880C9A /* UITextField+indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44942572523900880C9A /* UITextField+indent.swift */; };
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
@@ -66,12 +77,15 @@
 		84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6467255E8F6500E2E036 /* RegisterButtonTableViewCell.xib */; };
 		84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */; };
 		84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */; };
+		BA5A2093256D99820008FB0C /* LogInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */; };
+		BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A20D0257567E30008FB0C /* CustomPageControl.swift */; };
 		BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */; };
 		BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */; };
 		BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */; };
 		BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */; };
+		BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */; };
 		BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */; };
-		BAAB2BCA255DC67300D6D528 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */; };
+		BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +143,17 @@
 		64BD43EC25604C9800880C9A /* token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = token.json; sourceTree = "<group>"; };
 		64BD43F0256172DB00880C9A /* URLMockTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLMockTest.swift; sourceTree = "<group>"; };
 		64BD44082564544900880C9A /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
+		64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoForgotTableViewCell.swift; sourceTree = "<group>"; };
+		64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoForgotTableViewCell.xib; sourceTree = "<group>"; };
+		64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassRecoveryTableViewCell.swift; sourceTree = "<group>"; };
+		64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassRecoveryTableViewCell.xib; sourceTree = "<group>"; };
+		64BD44282569696900880C9A /* ExplanationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationTableViewCell.swift; sourceTree = "<group>"; };
+		64BD44292569696900880C9A /* ExplanationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExplanationTableViewCell.xib; sourceTree = "<group>"; };
+		64BD442E256969AA00880C9A /* SendButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonTableViewCell.swift; sourceTree = "<group>"; };
+		64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendButtonTableViewCell.xib; sourceTree = "<group>"; };
+		64BD444A256BF68200880C9A /* EmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTableViewCell.swift; sourceTree = "<group>"; };
+		64BD444B256BF68200880C9A /* EmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailTableViewCell.xib; sourceTree = "<group>"; };
+		64BD44942572523900880C9A /* UITextField+indent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+indent.swift"; sourceTree = "<group>"; };
 		64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
@@ -151,12 +176,16 @@
 		84BF6467255E8F6500E2E036 /* RegisterButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterButtonTableViewCell.xib; sourceTree = "<group>"; };
 		84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksTableViewCell.swift; sourceTree = "<group>"; };
 		84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinksTableViewCell.xib; sourceTree = "<group>"; };
+		BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModelTests.swift; sourceTree = "<group>"; };
+		BA5A20AA257178750008FB0C /* loginResponse_test.testovich@gmail.com.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "loginResponse_test.testovich@gmail.com.json"; sourceTree = "<group>"; };
+		BA5A20D0257567E30008FB0C /* CustomPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+BorderRadius+CornerRadius.swift"; sourceTree = "<group>"; };
 		BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.ttf"; sourceTree = "<group>"; };
 		BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.ttf"; sourceTree = "<group>"; };
+		BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertView.swift"; sourceTree = "<group>"; };
 		BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
-		BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +305,9 @@
 				64B74F40254C71F2004E6A4E /* Storyboarded.swift */,
 				BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */,
 				BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */,
+				64BD44942572523900880C9A /* UITextField+indent.swift */,
+				BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */,
+				BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,6 +338,7 @@
 				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
 				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
 				BAF940CD2550754300AE50CE /* PromoTextView.swift */,
+				BA5A20D0257567E30008FB0C /* CustomPageControl.swift */,
 				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
 			);
 			path = Welcome;
@@ -315,9 +348,27 @@
 			isa = PBXGroup;
 			children = (
 				64BD43EC25604C9800880C9A /* token.json */,
+				BA5A20AA257178750008FB0C /* loginResponse_test.testovich@gmail.com.json */,
 				64BD43E525604C7B00880C9A /* JSONLoader.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		64BD441F256968CC00880C9A /* ForgotCells */ = {
+			isa = PBXGroup;
+			children = (
+				64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */,
+				64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */,
+				64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */,
+				64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */,
+				64BD44282569696900880C9A /* ExplanationTableViewCell.swift */,
+				64BD44292569696900880C9A /* ExplanationTableViewCell.xib */,
+				64BD444A256BF68200880C9A /* EmailTableViewCell.swift */,
+				64BD444B256BF68200880C9A /* EmailTableViewCell.xib */,
+				64BD442E256969AA00880C9A /* SendButtonTableViewCell.swift */,
+				64BD442F256969AA00880C9A /* SendButtonTableViewCell.xib */,
+			);
+			path = ForgotCells;
 			sourceTree = "<group>";
 		};
 		64F78E272551D9EB002C1565 /* ForgotPassword */ = {
@@ -326,6 +377,7 @@
 				64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */,
 				64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */,
 				64F78E292551DA01002C1565 /* ForgotPassword.storyboard */,
+				64BD441F256968CC00880C9A /* ForgotCells */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -338,6 +390,7 @@
 				64F78E74255C5874002C1565 /* Info.plist */,
 				64BD43F0256172DB00880C9A /* URLMockTest.swift */,
 				64BD44082564544900880C9A /* ResponseTest.swift */,
+				BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */,
 			);
 			path = INTITATests;
 			sourceTree = "<group>";
@@ -381,7 +434,6 @@
 				BA8D88642552D917005A44C2 /* Fonts */,
 				3FF29A14254C0BFF0087AEC7 /* Extensions */,
 				3F2E770D255474D300853140 /* AlertView */,
-				BAAB2BC9255DC67300D6D528 /* ActivityIndicatorView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -488,6 +540,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */,
 				84BF645D255E8B4000E2E036 /* LogoTableViewCell.xib in Resources */,
 				3FF299F7254ADD830087AEC7 /* LaunchScreen.storyboard in Resources */,
 				BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */,
@@ -498,11 +551,17 @@
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
+				64BD441C256968C400880C9A /* LogoForgotTableViewCell.xib in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
+				64BD4431256969AA00880C9A /* SendButtonTableViewCell.xib in Resources */,
+				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
 				3F879855255E73D10094D6D9 /* ProfileHeaderViewCell.xib in Resources */,
+				64BD44232569694800880C9A /* PassRecoveryTableViewCell.xib in Resources */,
+				3F879855255E73D10094D6D9 /* ProfileHeaderViewCell.xib in Resources */,
 				3FF299F2254ADD800087AEC7 /* Welcome.storyboard in Resources */,
+				64BD444D256BF68200880C9A /* EmailTableViewCell.xib in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
 				3F2E7708255474A100853140 /* AlertView.xib in Resources */,
@@ -538,7 +597,12 @@
 				84A08F5E2556B9AE00565689 /* LogInCoordinator.swift in Sources */,
 				3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */,
 				3F879854255E73D10094D6D9 /* ProfileHeaderViewCell.swift in Sources */,
+				64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */,
+				64BD44952572523900880C9A /* UITextField+indent.swift in Sources */,
 				3F87985A255E74060094D6D9 /* ProfileFooterViewCell.swift in Sources */,
+				3F879854255E73D10094D6D9 /* ProfileHeaderViewCell.swift in Sources */,
+				3F87985A255E74060094D6D9 /* ProfileFooterViewCell.swift in Sources */,
+				BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
 				3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */,
@@ -547,18 +611,22 @@
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				3F879841255E70D30094D6D9 /* ProfileViewController.swift in Sources */,
 				3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */,
+				64BD4430256969AA00880C9A /* SendButtonTableViewCell.swift in Sources */,
 				84067391256D517000A25431 /* TextTableViewCellModel.swift in Sources */,
 				BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
+				64BD441B256968C400880C9A /* LogoForgotTableViewCell.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
+				64BD444C256BF68200880C9A /* EmailTableViewCell.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
 				3F2B29D7255AB84100DDE683 /* CurrentUser.swift in Sources */,
+				64BD44222569694800880C9A /* PassRecoveryTableViewCell.swift in Sources */,
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
-				BAAB2BCA255DC67300D6D528 /* ActivityIndicatorView.swift in Sources */,
+				BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3F2E770B255474C600853140 /* AlertView.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
@@ -567,6 +635,7 @@
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
+				BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +643,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5A2093256D99820008FB0C /* LogInViewModelTests.swift in Sources */,
 				64BD44092564544900880C9A /* ResponseTest.swift in Sources */,
 				64BD43F1256172DB00880C9A /* URLMockTest.swift in Sources */,
 				64F78E7D255C5889002C1565 /* INTITATests.swift in Sources */,

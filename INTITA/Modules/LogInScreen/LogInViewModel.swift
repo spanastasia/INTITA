@@ -14,15 +14,20 @@ protocol LogInViewModelDelegate: AnyObject {
 }
 
 class LogInViewModel {
-    weak var delegate: (LogInViewModelDelegate & CoordinatorWithSpinnerProtocol)?
+    weak var delegate: LogInViewModelDelegate?
     var updateCallback: LogInViewModelCallback?
+    var authorizationService: AuthorizationProtocol
+    
+    init(authorizationService: AuthorizationProtocol = Authorization.shared) {
+        self.authorizationService = authorizationService
+    }
     
     func subscribe(updateCallback: LogInViewModelCallback?) {
         self.updateCallback = updateCallback
     }
     
     func login(email: String, password: String) {
-        Authorization.login(email: email, password: password, completion: { [weak self] error in
+        authorizationService.login(email: email, password: password, completion: { [weak self] error in
             if let error = error {
                 self?.updateCallback?(error)
             } else {
@@ -32,7 +37,7 @@ class LogInViewModel {
     }
     
     func fetchUserInfo() {
-        Authorization.fetchUserInfo { [weak self] error in
+        authorizationService.fetchUserInfo { [weak self] error in
             guard let error = error else {
                 self?.delegate?.loginSuccess()
                 return
