@@ -47,11 +47,6 @@ class ProfileHeaderViewCell: UITableViewCell {
         editButton.rounded(cornerRadius: editButton.frame.width / 2)
     }
     
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-//        drawGappedBorder()
-    }
-    
     //MARK: - Actions
     @IBAction func editBtnTapped() {
         delegate?.avatarTapped()
@@ -62,29 +57,6 @@ class ProfileHeaderViewCell: UITableViewCell {
     }
     
     //MARK: - Methods
-    
-    
-    //MARK: - Private methods
-//    private func drawGappedBorder() {
-//        drawArc(from: 25, to: 316)
-//        drawArc(from: 283, to: 175)
-//        drawArc(from: 166, to: 40)
-//    }
-    
-//    private func drawArc(from start: Int, to end: Int) {
-//        let shape = CAShapeLayer()
-//        let radius = avatarView.frame.width / 2 + 12
-//        shape.lineWidth = 1
-//        let path = UIBezierPath()
-//        let x = superview?.center.x
-//        let y = avatarView.center.y - 4
-//        path.addArc(withCenter: CGPoint(x: x!, y: y), radius: radius, startAngle: CGFloat(start).toRadians(), endAngle: CGFloat(end).toRadians(), clockwise: false)
-//        shape.path = path.cgPath
-//        shape.strokeColor = UIColor.white.cgColor
-//        shape.fillColor = UIColor.clear.cgColor
-//        self.layer.addSublayer(shape)
-//    }
-//
     private func setupContainer() {
         container.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         container.shadowed()
