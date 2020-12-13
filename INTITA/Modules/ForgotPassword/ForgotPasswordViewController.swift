@@ -36,7 +36,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         
         registerCells()
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = UIColor.white
     }
     
@@ -165,7 +164,6 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate, AlertAc
             
         } else {
             
-            emailCell.textField.resignFirstResponder()
             showAlert(header: "passRecovery".localized)
 //            startSpinner()
         }
