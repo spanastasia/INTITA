@@ -124,10 +124,6 @@ extension ForgotPasswordViewController: UITableViewDataSource {
         return cell ?? UITableViewCell()
     }
     
-//    func tableViewalin
-    
-//    tableView
-    
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         
