@@ -162,7 +162,6 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate, AlertAc
             
             emailCell.textField.resignFirstResponder()
             showAlert(header: "passRecovery".localized)
-//            startSpinner()
         }
     }
     
