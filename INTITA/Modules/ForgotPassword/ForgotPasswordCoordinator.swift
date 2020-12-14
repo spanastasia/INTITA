@@ -5,7 +5,6 @@
 //  Created by Viacheslav Markov on 03.11.2020.
 //
 
-import Foundation
 import UIKit
 
 class ForgotPasswordCoordinator: Coordinator {
