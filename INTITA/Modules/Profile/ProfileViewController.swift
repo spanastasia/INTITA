@@ -7,16 +7,36 @@
 
 import UIKit
 
+enum HeaderState {
+    case normal
+    case decreased
+    
+    mutating func toggle() {
+        switch self {
+        case .normal:
+            self = .decreased
+        case .decreased:
+            self = .normal
+        }
+    }
+}
+
 class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
+    @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    
     private let rowNumber = 5
-    private let alert: AlertView = .fromNib()
+    private var initialHeaderHeight: CGFloat = 0
+    private var headerState = HeaderState.normal
+    private var currentTableViewContentYOffset: CGFloat = 0
     
     weak var coordinator: ProfileCoordinator?
     var viewModel: ProfileViewModel?
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerView: UIView!
     lazy var headerContentView: ProfileHeaderViewCell = .fromNib()
+    lazy var animator = UIViewPropertyAnimator()
+    lazy var gestureRecognizer = UIPanGestureRecognizer()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
@@ -25,22 +45,32 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
         
-        view.addSubview(alert)
-        
         viewModel?.delegate = self
         viewModel?.subscribe(updateCallback: handleError)
         
         tableView.dataSource = self
         tableView.delegate = self
         registerCells()
+        
         headerContentView.delegate = coordinator
+        
+        initialHeaderHeight = headerContentView.frame.height
+
+        animator.isInterruptible = true
+        gestureRecognizer.addTarget(self, action: #selector(handleGesture))
+        gestureRecognizer.delegate = self
+        view.addGestureRecognizer(gestureRecognizer)
+        
+        headerView.addSubview(headerContentView)
+        headerContentView.translatesAutoresizingMaskIntoConstraints = false
+        headerContentView.shadowed(shadowOffset: CGSize(width: 0, height: 7))
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        headerView.frame.size.width = view.safeAreaLayoutGuide.layoutFrame.width
-        headerContentView.frame = headerView.bounds
-        headerView.addSubview(headerContentView)
+        headerContentView.frame.size.width = view.frame.width
     }
+    
     
     //MARK: - Error handling
     func handleError(error: Error) {
@@ -55,6 +85,130 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableView.register(UINib(nibName: "ProfileHeaderViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeaderViewCell")
         tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
         tableView.register(UINib(nibName: "ProfileFooterViewCell", bundle: nil), forCellReuseIdentifier: "ProfileFooterViewCell")
+    }
+    
+    @objc func handleGesture(gesture: UIPanGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            currentTableViewContentYOffset = tableView.contentOffset.y
+            initializeAnimator()
+        case .changed:
+            switch headerState {
+            case .normal:
+                if animator.fractionComplete > 0 {
+                    animator.fractionComplete = -gesture.translation(in: view).y / 100
+                } else if gesture.translation(in: view).y < 0, tableView.frame.height <= tableView.contentSize.height + 16 {
+                    animator.startAnimation()
+                    animator.pauseAnimation()
+                    animator.fractionComplete = -gesture.translation(in: view).y / 100
+                }
+            case .decreased:
+                if tableView.contentOffset.y <= 100, animator.fractionComplete > 0 {
+                    animator.fractionComplete = (gesture.translation(in: view).y - currentTableViewContentYOffset) / 100
+                } else if gesture.translation(in: view).y > 0, tableView.contentOffset.y < 32 {
+                    animator.startAnimation()
+                    animator.pauseAnimation()
+                    animator.fractionComplete = (gesture.translation(in: view).y - currentTableViewContentYOffset) / 100
+                }
+            }
+            if currentTableViewContentYOffset - gesture.translation(in: view).y > 0, currentTableViewContentYOffset - gesture.translation(in: view).y < tableView.contentSize.height - tableView.frame.height, headerState == HeaderState.decreased {
+                tableView.contentOffset.y = currentTableViewContentYOffset - gesture.translation(in: view).y
+            }
+            view.layoutIfNeeded()
+        case .ended:
+            if animator.fractionComplete >= 0.5 {
+                completeAnimation()
+                headerState.toggle()
+            } else {
+                reverseAnimation()
+            }
+            animator.addCompletion { [weak self]_ in
+                guard let self = self else { return }
+                var height: CGFloat
+                switch self.headerState {
+                case .decreased:
+                    height = 158
+                case .normal:
+                    height = 316
+                }
+                self.headerViewHeightConstraint.constant = height
+                self.view.layoutIfNeeded()
+            }
+        default:
+            break
+        }
+    }
+    
+    private func initializeAnimator() {
+        animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear) { [weak self] in
+            guard let self = self else { return }
+            switch self.headerState {
+            case .normal:
+                self.headerContentView.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: 0.5)
+                    .translatedBy(x: 0, y: -self.headerContentView.frame.height / 2)
+                self.headerContentView.avatarWrapper.transform = CGAffineTransform.identity
+                    .translatedBy(x: 0, y: -self.headerContentView.logoView.frame.height)
+                    .scaledBy(x: 0.5, y: 1)
+                self.headerContentView.avatarView.transform = CGAffineTransform.identity
+                    .translatedBy(x: 0, y: -self.headerContentView.logoView.frame.height)
+                    .scaledBy(x: 0.5, y: 1)
+                self.headerContentView.editButton.transform = CGAffineTransform.identity
+                    .translatedBy(x: 70, y: 0)
+                    .scaledBy(x: 0.001, y: 0.001)
+                self.headerContentView.logoView.transform = CGAffineTransform.identity
+                    .scaledBy(x: 0.001, y: 0.001)
+                self.headerContentView.nameLabel.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: 2)
+                    .translatedBy(x: 0, y: -16)
+                self.headerContentView.specializationLabel.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: 2)
+                    .translatedBy(x: 0, y: -8)
+                self.headerContentView.logoView.layer.opacity = 0
+                self.headerContentView.editButton.layer.opacity = 0
+                
+                self.headerViewHeightConstraint.constant = 158
+                
+            case .decreased:
+                let transform = CGAffineTransform.identity.inverted()
+                self.headerContentView.transform = transform
+                self.headerContentView.avatarView.transform = transform
+                self.headerContentView.avatarWrapper.transform = transform
+                self.headerContentView.logoView.transform = transform
+                self.headerContentView.editButton.transform = transform
+                self.headerContentView.nameLabel.transform = transform
+                self.headerContentView.specializationLabel.transform = transform
+                
+                self.headerContentView.logoView.layer.opacity = 1
+                self.headerContentView.editButton.layer.opacity = 1
+                
+                self.headerViewHeightConstraint.constant = 316
+            }
+            self.view.layoutSubviews()
+        }
+    }
+    private func completeAnimation() {
+        animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+        switch headerState {
+        case .normal:
+            if tableView.contentOffset.y < 100 + currentTableViewContentYOffset {
+                if tableView.contentOffset.y + 100 + currentTableViewContentYOffset < tableView.contentSize.height - tableView.bounds.size.height {
+                    tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - currentTableViewContentYOffset + 100), animated: true)
+                } else {
+                    tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
+                }
+            }
+        case .decreased:
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
+    }
+    
+    private func reverseAnimation() {
+        animator.isReversed = true
+        animator.startAnimation()
+        if headerState == .normal {
+            tableView.setContentOffset(CGPoint(x: 0, y: currentTableViewContentYOffset), animated: true)
+        }
     }
 }
 
@@ -107,7 +261,7 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case rowNumber - 1:
-            return 86
+            return 106
         default:
             return 99
         }
@@ -125,7 +279,13 @@ extension ProfileViewController: ProfileViewModelDelegate {
 
 extension ProfileViewController: ProfileCoordinatorAlertPresenter {
     func showAlert() {
-        showAlert(message: "comming_soon".localized)
+        showAlert(header: "Oops!", message: "comming_soon".localized)
     }
     
+}
+
+extension ProfileViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+            return true
+        }
 }
