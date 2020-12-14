@@ -117,14 +117,14 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
             return logoCell
         case 1:
             guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-            let cellModel = TextTableViewCellModel(type: .email, placeholderText: "inputEmail".localized)
-            emailCell.configure(with: cellModel)
+            let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
+            emailCell.configure(with: cellConfig)
             return emailCell
         case 2:
             guard let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             
-            let cellModel = TextTableViewCellModel(type: .password, placeholderText: "inputPassword".localized)
-            passwordCell.configure(with: cellModel)
+            let cellConfig = TextTableViewCellConfiguration(type: .password, placeholderText: "inputPassword".localized)
+            passwordCell.configure(with: cellConfig)
             return passwordCell
         case 3:
             guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }

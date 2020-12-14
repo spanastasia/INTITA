@@ -30,7 +30,7 @@ enum TextTableViewCellType {
     }
 }
 
-struct TextTableViewCellModel {
+struct TextTableViewCellConfiguration {
     let type: TextTableViewCellType
     let placeholderText: String
 }
