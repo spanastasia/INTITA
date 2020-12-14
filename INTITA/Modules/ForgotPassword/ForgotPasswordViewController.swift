@@ -106,8 +106,8 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
             cell = explanationCell
         case 3:
             guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-            let cellModel = TextTableViewCellModel(type: .email, placeholderText: "inputEmail".localized)
-            emailCell.configure(with: cellModel)
+            let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
+            emailCell.configure(with: cellConfig)
             
             cell = emailCell
         case 4:

@@ -14,7 +14,7 @@ class TextTableViewCell: UITableViewCell {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var errorImage: UIImageView!
-    var model: TextTableViewCellModel?
+    var configuration: TextTableViewCellConfiguration?
 
     @IBAction func eyeButtonPressed(_ sender: UIButton) {
         if eyeButton.image(for: .normal) == UIImage(systemName: "eye") {
@@ -55,21 +55,21 @@ class TextTableViewCell: UITableViewCell {
         textField.rounded(cornerRadius: 10.0)
     }
     
-    func configure(with model: TextTableViewCellModel) {
-        self.model = model
-        textField.placeholder = model.placeholderText
-        textField.textContentType = model.type.textContentType
-        textField.isSecureTextEntry = model.type.isSecureTextEntry
+    func configure(with configuration: TextTableViewCellConfiguration) {
+        self.configuration = configuration
+        textField.placeholder = configuration.placeholderText
+        textField.textContentType = configuration.type.textContentType
+        textField.isSecureTextEntry = configuration.type.isSecureTextEntry
     }
 }
 
 extension TextTableViewCell: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let model = model, model.type == .password else { return }
+        guard let configuration = configuration, configuration.type == .password else { return }
         eyeButton.isHidden = false
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let model = model, model.type == .password else { return }
+        guard let configuration = configuration, configuration.type == .password else { return }
         eyeButton.isHidden = true
     }
 }
