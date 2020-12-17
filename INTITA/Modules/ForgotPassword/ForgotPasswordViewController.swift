@@ -9,7 +9,6 @@ import UIKit
 
 enum NameCells: Int {
     case logoImageCell = 0
-    case passwordRecoveryCell
     case explanationLabelCell
     case emailTextFieldCell
     case sendButtonCell
@@ -61,17 +60,14 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         view.layoutSubviews()
         forgotTableView.endUpdates()
         
-        forgotTableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
+        forgotTableView.scrollToRow(at: IndexPath(row: 3, section: 0), at: .bottom, animated: true)
     }
     
     func registerCells() {
         
-        let logoCell = UINib(nibName: "LogoForgotTableViewCell", bundle: nil)
-        forgotTableView.register(logoCell, forCellReuseIdentifier: "LogoForgotTableViewCell")
-        
-        let passCell = UINib(nibName: "PassRecoveryTableViewCell", bundle: nil)
-        forgotTableView.register(passCell, forCellReuseIdentifier: "PassRecoveryTableViewCell")
-        
+        let logoCell = UINib(nibName: "LogoTableViewCell", bundle: nil)
+        forgotTableView.register(logoCell, forCellReuseIdentifier: "reuseForLogo")
+             
         let explanationCell = UINib(nibName: "ExplanationTableViewCell", bundle: nil)
         forgotTableView.register(explanationCell, forCellReuseIdentifier: "ExplanationTableViewCell")
         
@@ -87,7 +83,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
 extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,21 +92,20 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
         
         switch indexPath.row {
         case 0:
-            let logoCell = tableView.dequeueReusableCell(withIdentifier: "LogoForgotTableViewCell") as? LogoForgotTableViewCell
+            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
+            logoCell.logoImageView.rounded()
+            logoCell.authLabel.text = "passRecovery".localized
             cell = logoCell
         case 1:
-            let passRecoveryCell = tableView.dequeueReusableCell(withIdentifier: "PassRecoveryTableViewCell") as? PassRecoveryTableViewCell
-            cell = passRecoveryCell
-        case 2:
             let explanationCell = tableView.dequeueReusableCell(withIdentifier: "ExplanationTableViewCell") as? ExplanationTableViewCell
             cell = explanationCell
-        case 3:
+        case 2:
             guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
             emailCell.configure(with: cellConfig)
             
             cell = emailCell
-        case 4:
+        case 3:
             let sendButtonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell
             sendButtonCell?.delegate = self
             cell = sendButtonCell
@@ -127,15 +122,13 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
         
         switch NameCells.init(rawValue: indexPath.item) {
         case .logoImageCell:
-            heightCell = 148 * koefWidth
-        case .passwordRecoveryCell:
-            heightCell = 95 * koefWidth
+            heightCell = 243 * koefWidth
         case .explanationLabelCell:
             heightCell = 114
         case .sendButtonCell:
             heightCell = 77
         case .emailTextFieldCell:
-            heightCell = 93
+            heightCell = 77
         default:
             heightCell = 0
         }

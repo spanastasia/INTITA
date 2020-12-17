@@ -111,32 +111,36 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        var cell: UITableViewCell?
+        
         switch indexPath.row {
         case 0:
             guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
-            return logoCell
+            logoCell.authLabel.text = "auth".localized
+            cell = logoCell
         case 1:
             guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
             emailCell.configure(with: cellConfig)
-            return emailCell
+            cell = emailCell
         case 2:
             guard let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             
             let cellConfig = TextTableViewCellConfiguration(type: .password, placeholderText: "inputPassword".localized)
             passwordCell.configure(with: cellConfig)
-            return passwordCell
+            cell = passwordCell
         case 3:
             guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
             linksCell.delegate = self
-            return linksCell
+            cell = linksCell
         case 4:
             guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell else { return UITableViewCell() }
             buttonCell.delegate = self
-            return buttonCell
+            cell = buttonCell
         default:
             return UITableViewCell()
         }
+        return cell ?? UITableViewCell()
     }
 }
 

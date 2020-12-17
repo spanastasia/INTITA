@@ -9,12 +9,9 @@ import UIKit
 
 class LogoForgotTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var logoImageView: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        logoImageView.rounded()
+
     }
     
 }
