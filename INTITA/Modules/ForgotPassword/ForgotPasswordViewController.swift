@@ -128,7 +128,7 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
         case .sendButtonCell:
             heightCell = 77
         case .emailTextFieldCell:
-            heightCell = 77
+            heightCell = 93
         default:
             heightCell = 0
         }

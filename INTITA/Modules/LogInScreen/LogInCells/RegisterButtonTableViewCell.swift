@@ -21,7 +21,7 @@ class RegisterButtonTableViewCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        logInButton.setTitle("logIn".localized, for: .normal)
+        
         logInButton.rounded(cornerRadius: 15.0)
     }
 }
