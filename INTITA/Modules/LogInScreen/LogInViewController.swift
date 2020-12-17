@@ -195,10 +195,14 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             
         } else if email == "" {
+            emailCell.errorLabel.isHidden = false
+            emailCell.errorImage.isHidden = false
             emailCell.errorLabel.text = CredentialsError.emailIsEmpty.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             
         } else if password == "" {
+            emailCell.errorLabel.isHidden = false
+            emailCell.errorImage.isHidden = false
             emailCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             
