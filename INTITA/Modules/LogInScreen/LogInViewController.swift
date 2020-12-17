@@ -10,8 +10,9 @@ import SafariServices
 
 enum LoginCells: Int {
     case logoImageCell = 0
+    case emptyCellOne
     case emailTextFieldCell
-    case emptyCell
+    case emptyCellTwo
     case passwordTextFieldCell
     case linksButtonCell
     case loginButtonCell
@@ -39,8 +40,6 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
-    
-    let koefWidth = UIScreen.main.bounds.width / 375
     
     var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
@@ -77,7 +76,7 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableViewBottomContraint.constant = height
         view.layoutSubviews()
         
-        tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
+        tableView.scrollToRow(at: IndexPath(row: 5, section: 0), at: .bottom, animated: true)
     }
     
     func handleViewModelUpdateWith(error: Error?) {
@@ -104,7 +103,7 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
 extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -114,8 +113,10 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch nameCell {
         case .logoImageCell:
-            heightCell = 243 * koefWidth
-        case .emailTextFieldCell, .loginButtonCell:
+            heightCell = 243
+        case .emptyCellOne:
+            heightCell = 52
+        case .loginButtonCell, .emailTextFieldCell:
             heightCell = 78
         case .passwordTextFieldCell:
             heightCell =  57
@@ -173,8 +174,8 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
     
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
         
-        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? TextTableViewCell else { return }
-        guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? TextTableViewCell else { return }
+        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
+        guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? TextTableViewCell else { return }
         
         emailCell.textField.resignFirstResponder()
         passwordCell.textField.resignFirstResponder()
@@ -193,10 +194,12 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             
-        } else if (password == "") && (email == "") {
-            emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
+        } else if email == "" {
+            emailCell.errorLabel.text = CredentialsError.emailIsEmpty.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-            passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
+            
+        } else if password == "" {
+            emailCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             
         } else {
@@ -204,11 +207,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
             viewModel?.login(email: email, password: password)
         }
     }
-    
-//    func showBorder(_ tableView: UITableViewCell) where self == TextTableViewCell {
-//        tableView.errorLabel.text = CredentialsError.wrongPassword.getString()
-//        tableView.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-//    }
+
 }
 
 extension LogInViewController: LinksTableViewCellDelegate {

@@ -35,7 +35,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hf-iG-osq">
-                        <rect key="frame" x="16" y="60" width="343" height="16"/>
+                        <rect key="frame" x="28" y="60" width="319" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="1" green="0.36862435329999999" blue="0.51020655709999996" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                     <constraint firstItem="C17-y3-Nmd" firstAttribute="centerY" secondItem="PHC-3C-b15" secondAttribute="centerY" id="DbS-jI-FoG"/>
                     <constraint firstItem="6hf-iG-osq" firstAttribute="top" secondItem="PHC-3C-b15" secondAttribute="bottom" constant="4" id="LuQ-W9-sic"/>
                     <constraint firstItem="XxJ-o9-brx" firstAttribute="height" secondItem="C17-y3-Nmd" secondAttribute="height" id="X7m-WJ-6P6"/>
-                    <constraint firstItem="6hf-iG-osq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="XkX-zZ-hqX"/>
+                    <constraint firstItem="6hf-iG-osq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="XkX-zZ-hqX"/>
                     <constraint firstAttribute="trailing" secondItem="XxJ-o9-brx" secondAttribute="trailing" constant="32" id="blc-yD-hLa"/>
                     <constraint firstItem="XxJ-o9-brx" firstAttribute="centerY" secondItem="PHC-3C-b15" secondAttribute="centerY" id="g9M-DM-bqf"/>
                     <constraint firstItem="PHC-3C-b15" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="hCf-Ir-K0x"/>
