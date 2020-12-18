@@ -83,6 +83,9 @@
 		BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F03F25599D1600DE2FB5 /* MyriadPro-Regular.ttf */; };
 		BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */; };
 		BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */; };
+		BAA63008258B8F8F0042F290 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA63007258B8F8F0042F290 /* CoreData.framework */; };
+		BAA63041258CCF4D0042F290 /* INTITA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAA6303F258CCF4D0042F290 /* INTITA.xcdatamodeld */; };
+		BAA6304A258CE1190042F290 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA63049258CE1190042F290 /* CoreDataService.swift */; };
 		BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
@@ -181,6 +184,9 @@
 		BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.ttf"; sourceTree = "<group>"; };
 		BA7B066F257A732E001CAC8E /* UIViewController+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertView.swift"; sourceTree = "<group>"; };
 		BA8D88562552C54D005A44C2 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
+		BAA63007258B8F8F0042F290 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BAA63040258CCF4D0042F290 /* INTITA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = INTITA.xcdatamodel; sourceTree = "<group>"; };
+		BAA63049258CE1190042F290 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA63008258B8F8F0042F290 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +271,7 @@
 				3FF299E9254ADD800087AEC7 /* INTITA */,
 				64F78E71255C5874002C1565 /* INTITATests */,
 				3FF299E8254ADD800087AEC7 /* Products */,
+				BAA63006258B8F8F0042F290 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,6 +287,7 @@
 		3FF299E9254ADD800087AEC7 /* INTITA */ = {
 			isa = PBXGroup;
 			children = (
+				BAA63048258CE0E80042F290 /* CoreData */,
 				3F54E91D254E8F3500426261 /* Models */,
 				3FFAC975254DAB0700AED580 /* Networking */,
 				BA8D88512552C37F005A44C2 /* Modules */,
@@ -452,6 +461,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		BAA63006258B8F8F0042F290 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAA63007258B8F8F0042F290 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAA63048258CE0E80042F290 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BAA6303F258CCF4D0042F290 /* INTITA.xcdatamodeld */,
+				BAA63049258CE1190042F290 /* CoreDataService.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -603,6 +629,7 @@
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				3F879841255E70D30094D6D9 /* ProfileViewController.swift in Sources */,
+				BAA6304A258CE1190042F290 /* CoreDataService.swift in Sources */,
 				3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */,
 				64BD4430256969AA00880C9A /* SendButtonTableViewCell.swift in Sources */,
 				84067391256D517000A25431 /* TextTableViewCellModel.swift in Sources */,
@@ -624,6 +651,7 @@
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
 				BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */,
 				84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */,
+				BAA63041258CCF4D0042F290 /* INTITA.xcdatamodeld in Sources */,
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
@@ -910,6 +938,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BAA6303F258CCF4D0042F290 /* INTITA.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BAA63040258CCF4D0042F290 /* INTITA.xcdatamodel */,
+			);
+			currentVersion = BAA63040258CCF4D0042F290 /* INTITA.xcdatamodel */;
+			path = INTITA.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3FF299DF254ADD800087AEC7 /* Project object */;
 }
