@@ -38,6 +38,11 @@ class ProfileCoordinator: Coordinator {
     func showLoginScreen() {
         navigationController.popViewController(animated: true)
     }
+    
+    func settingScreen() {
+        let settingScreen = SettingsCoordinator(navigationController: navigationController)
+        settingScreen.start()
+    }
 }
 
 extension ProfileCoordinator: ProfileHeaderViewDelegate {
@@ -53,9 +58,11 @@ extension ProfileCoordinator: ProfileHeaderViewDelegate {
 extension ProfileCoordinator: ProfileTableViewCellDelegate {
     func goToVC(number: Int) {
         guard number < childCoordinators.count else {
+            
             alertPresenter?.showAlert()
             return
         }
+        
         childCoordinators[number].start()
     }
 }

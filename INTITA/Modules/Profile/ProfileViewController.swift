@@ -279,7 +279,8 @@ extension ProfileViewController: ProfileViewModelDelegate {
 
 extension ProfileViewController: ProfileCoordinatorAlertPresenter {
     func showAlert() {
-        showAlert(header: "Oops!", message: "comming_soon".localized)
+//        coordinator?.settingScreen()
+//        showAlert(header: "Oops!", message: "comming_soon".localized)
     }
     
 }
