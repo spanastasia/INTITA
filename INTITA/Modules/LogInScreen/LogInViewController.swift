@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 enum LoginCells: Int {
     case logoImageCell = 0
