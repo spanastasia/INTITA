@@ -76,7 +76,7 @@ final class Authorization: AuthorizationProtocol {
 
 fileprivate class AuthorizationReal: AuthorizationProtocol {
     private init(){}
-    static let shared = Authorization()
+    static let shared = AuthorizationReal()
     
     public func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
     
