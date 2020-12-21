@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias ProfileViewModelCallback = (Error) -> Void
+typealias ProfileViewModelCallback = (Error?) -> Void
 
 protocol ProfileViewModelDelegate: AnyObject {
     func logoutSuccess()
@@ -24,6 +24,16 @@ class ProfileViewModel {
     
     func subscribe(updateCallback: ProfileViewModelCallback?) {
         self.updateCallback = updateCallback
+    }
+    
+    func fetchUser() {
+        if let updateCallback = updateCallback {
+            Authorization.shared.fetchUserInfo { error in
+                DispatchQueue.main.async {
+                    updateCallback(error)
+                }
+            }
+        }
     }
 }
 
