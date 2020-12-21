@@ -32,6 +32,8 @@ protocol AuthorizationProtocol {
 }
 
 final class Authorization: AuthorizationProtocol {
+    
+    static let shared: AuthorizationProtocol = Authorization()
    
     enum Method: CaseIterable {
         case login

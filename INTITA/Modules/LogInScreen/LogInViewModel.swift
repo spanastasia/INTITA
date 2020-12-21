@@ -15,9 +15,8 @@ protocol LogInViewModelDelegate: AnyObject {
 
 class LogInViewModel {
     weak var delegate: LogInViewModelDelegate?
-    var updateCallback: LogInViewModelCallback?
-    
-    var authorizationService: AuthorizationProtocol = Authorization()
+    var updateCallback: LogInViewModelCallback?    
+    var authorizationService: AuthorizationProtocol = Authorization.shared
     
     func subscribe(updateCallback: LogInViewModelCallback?) {
         self.updateCallback = updateCallback

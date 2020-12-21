@@ -18,7 +18,7 @@ class ProfileViewModel {
     private var updateCallback: ProfileViewModelCallback?
     var authorizationService: AuthorizationProtocol
     
-    init(authorizationService: AuthorizationProtocol = Authorization()) {
+    init(authorizationService: AuthorizationProtocol = Authorization.shared) {
         self.authorizationService = authorizationService
     }
     
