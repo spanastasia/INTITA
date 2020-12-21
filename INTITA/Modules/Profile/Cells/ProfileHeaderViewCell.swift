@@ -14,9 +14,12 @@ protocol ProfileHeaderViewDelegate: AnyObject {
 class ProfileHeaderViewCell: UITableViewCell {
 
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var logoView: UIImageView!
     @IBOutlet weak var avatarView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var specializationLabel: UILabel!
+    @IBOutlet weak var avatarWrapper: UIView!
     
     weak var delegate: ProfileHeaderViewDelegate?
     
@@ -26,7 +29,6 @@ class ProfileHeaderViewCell: UITableViewCell {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
         avatarView.addGestureRecognizer(tapGR)
         avatarView.isUserInteractionEnabled = true
-        avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
         setupContainer()
         
         guard let user = UserData.currentUser else {
@@ -39,11 +41,10 @@ class ProfileHeaderViewCell: UITableViewCell {
             return
         }
         avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        drawGappedBorder()
+        avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
+        avatarWrapper.rounded(cornerRadius: avatarWrapper.frame.width  / 2)
+        avatarWrapper.bordered(borderWidth: 1, borderColor: UIColor.white.cgColor)
+        editButton.rounded(cornerRadius: editButton.frame.width / 2)
     }
     
     //MARK: - Actions
@@ -56,29 +57,6 @@ class ProfileHeaderViewCell: UITableViewCell {
     }
     
     //MARK: - Methods
-    
-    
-    //MARK: - Private methods
-    private func drawGappedBorder() {
-        drawArc(from: 25, to: 316)
-        drawArc(from: 283, to: 175)
-        drawArc(from: 166, to: 40)
-    }
-    
-    private func drawArc(from start: Int, to end: Int) {
-        let shape = CAShapeLayer()
-        let radius = avatarView.frame.width / 2 + 12
-        shape.lineWidth = 1
-        let path = UIBezierPath()
-        let x = superview?.center.x
-        let y = avatarView.center.y - 4
-        path.addArc(withCenter: CGPoint(x: x!, y: y), radius: radius, startAngle: CGFloat(start).toRadians(), endAngle: CGFloat(end).toRadians(), clockwise: false)
-        shape.path = path.cgPath
-        shape.strokeColor = UIColor.white.cgColor
-        shape.fillColor = UIColor.clear.cgColor
-        self.layer.addSublayer(shape)
-    }
-    
     private func setupContainer() {
         container.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         container.shadowed()

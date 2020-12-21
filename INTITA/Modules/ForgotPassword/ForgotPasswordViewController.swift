@@ -36,6 +36,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         
         registerCells()
         
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = UIColor.white
     }
     
@@ -74,8 +75,8 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         let explanationCell = UINib(nibName: "ExplanationTableViewCell", bundle: nil)
         forgotTableView.register(explanationCell, forCellReuseIdentifier: "ExplanationTableViewCell")
         
-        let emailCell = UINib(nibName: "EmailTableViewCell", bundle: nil)
-        forgotTableView.register(emailCell, forCellReuseIdentifier: "EmailTableViewCell")
+        let textCell = UINib(nibName: "TextTableViewCell", bundle: nil)
+        forgotTableView.register(textCell, forCellReuseIdentifier: "reuseForText")
         
         let sendButtonCell = UINib(nibName: "SendButtonTableViewCell", bundle: nil)
         forgotTableView.register(sendButtonCell, forCellReuseIdentifier: "SendButtonTableViewCell")
@@ -83,11 +84,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     
 }
 
-extension ForgotPasswordViewController: UITableViewDelegate {
-        
-    }
-
-extension ForgotPasswordViewController: UITableViewDataSource {
+extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -108,9 +105,10 @@ extension ForgotPasswordViewController: UITableViewDataSource {
             let explanationCell = tableView.dequeueReusableCell(withIdentifier: "ExplanationTableViewCell") as? ExplanationTableViewCell
             cell = explanationCell
         case 3:
-            let emailCell = tableView.dequeueReusableCell(withIdentifier: "EmailTableViewCell") as? EmailTableViewCell
-            emailCell?.textField.placeholder = "inputEmail".localized
-            emailCell?.textField.textContentType = .emailAddress
+            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
+            emailCell.configure(with: cellConfig)
+            
             cell = emailCell
         case 4:
             let sendButtonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell
@@ -134,8 +132,10 @@ extension ForgotPasswordViewController: UITableViewDataSource {
             heightCell = 95 * koefWidth
         case .explanationLabelCell:
             heightCell = 114
-        case .sendButtonCell, .emailTextFieldCell:
+        case .sendButtonCell:
             heightCell = 77
+        case .emailTextFieldCell:
+            heightCell = 93
         default:
             heightCell = 0
         }
@@ -144,22 +144,24 @@ extension ForgotPasswordViewController: UITableViewDataSource {
     }
 }
 
-extension ForgotPasswordViewController: SendButtonTableViewCellDelegate {
+extension ForgotPasswordViewController: SendButtonTableViewCellDelegate, AlertAcceptable {
     
     func didPressSendButton(_ sender: SendButtonTableViewCell) {
         
-        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? EmailTableViewCell else { return }
+        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? TextTableViewCell else { return }
         
-        emailCell.textField.resignFirstResponder()
-
         guard let email = emailCell.textField.text else { return }
         
         if !validateEmail.validateEmail(email: email) {
-            emailCell.wrongLabel.isHidden = false
-            emailCell.wrongLabel.text = CredentialsError.wrongEmail.getString()
+            
+            emailCell.errorLabel.isHidden = false
+            emailCell.errorImage.isHidden = false
+            emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+            
         } else {
-            startSpinner()
+            
+            showAlert(header: "passRecovery".localized)
         }
     }
     

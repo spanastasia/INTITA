@@ -48,7 +48,7 @@ class AlertView: UIView {
         removeFromSuperview()
     }
     //MARK:- Methods
-    func customizeAndShow(header: String = "error occured".localized, message: String, buttonTitle: String = "back".localized) {
+    func customizeAndShow(header: String, message: String, buttonTitle: String) {
         errorHeader.shadowed()
         
         backButton.backgroundColor = UIColor.white

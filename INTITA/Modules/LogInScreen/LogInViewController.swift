@@ -25,7 +25,7 @@ enum CredentialsError {
     }
 }
 
-class LogInViewController: UIViewController, Storyboarded {
+class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottomContraint: NSLayoutConstraint!
@@ -34,7 +34,6 @@ class LogInViewController: UIViewController, Storyboarded {
     var coordinator: LogInCoordinator?
     var viewModel: LogInViewModel?
     let validator = Validate()
-    let alert: AlertView = AlertView.fromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +42,6 @@ class LogInViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         registerCells()
         
-        view.addSubview(alert)
         navigationController?.setNavigationBarHidden(true, animated: true)
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
@@ -79,16 +77,9 @@ class LogInViewController: UIViewController, Storyboarded {
         if let error = error {
             DispatchQueue.main.async {
                 self.stopSpinner()
-                self.alert.customizeAndShow(message: error.localizedDescription)
+                self.showAlert(message: error.localizedDescription)
             }
         }
-    }
-    
-    private func showSafari(_ url: String) {
-        guard let url = URL(string: url) else { return }
-        
-        let safariViewController = SFSafariViewController(url: url)
-        present(safariViewController, animated: true, completion: nil)
     }
     
     func registerCells() {
@@ -131,14 +122,14 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
             return logoCell
         case 1:
             guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
-            let cellModel = TextTableViewCellModel(type: .email, placeholderText: "inputEmail".localized)
-            emailCell.configure(with: cellModel)
+            let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
+            emailCell.configure(with: cellConfig)
             return emailCell
         case 2:
             guard let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
             
-            let cellModel = TextTableViewCellModel(type: .password, placeholderText: "inputPassword".localized)
-            passwordCell.configure(with: cellModel)
+            let cellConfig = TextTableViewCellConfiguration(type: .password, placeholderText: "inputPassword".localized)
+            passwordCell.configure(with: cellConfig)
             return passwordCell
         case 3:
             guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
@@ -185,7 +176,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
 
 extension LogInViewController: LinksTableViewCellDelegate {
     func linksTableViewCellDidPressRegister(_ sender: LinksTableViewCell) {
-        showSafari("https://intita.com/register")
+        showAlert()
     }
     
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {
