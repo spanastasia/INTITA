@@ -134,32 +134,32 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch nameCell {
         case .logoImageCell:
-            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
-            logoCell.authLabel.text = "auth".localized
+            let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell
+            logoCell?.authLabel.text = "auth".localized
             cell = logoCell
             
         case .emailTextFieldCell:
-            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
             let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
-            emailCell.configure(with: cellConfig)
+            emailCell?.configure(with: cellConfig)
             cell = emailCell
             
         case .passwordTextFieldCell:
-            guard let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
             
             let cellConfig = TextTableViewCellConfiguration(type: .password, placeholderText: "inputPassword".localized)
-            passwordCell.configure(with: cellConfig)
+            passwordCell?.configure(with: cellConfig)
             cell = passwordCell
             
         case .linksButtonCell:
-            guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
-            linksCell.delegate = self
+            let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell
+            linksCell?.delegate = self
             cell = linksCell
             
         case .loginButtonCell:
-            guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell else { return UITableViewCell() }
-            buttonCell.delegate = self
-            buttonCell.logInButton.setTitle("logIn".localized, for: .normal)
+            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell
+            buttonCell?.delegate = self
+            buttonCell?.logInButton.setTitle("logIn".localized, for: .normal)
             cell = buttonCell
             
         default:

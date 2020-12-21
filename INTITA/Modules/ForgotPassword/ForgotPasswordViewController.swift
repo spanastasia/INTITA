@@ -93,9 +93,9 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
         
         switch nameCell {
         case .logoImageCell:
-            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
-            logoCell.logoImageView.rounded()
-            logoCell.authLabel.text = "passRecovery".localized
+            let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell
+            logoCell?.logoImageView.rounded()
+            logoCell?.authLabel.text = "passRecovery".localized
             cell = logoCell
             
         case .explanationLabelCell:
@@ -103,16 +103,16 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
             cell = explanationCell
             
         case .emailTextFieldCell:
-            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
             let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
-            emailCell.configure(with: cellConfig)
+            emailCell?.configure(with: cellConfig)
             
             cell = emailCell
             
         case .sendButtonCell:
-            guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell else { return UITableViewCell() }
-            buttonCell.delegate = self
-            buttonCell.logInButton.setTitle("send".localized, for: .normal)
+            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell
+            buttonCell?.delegate = self
+            buttonCell?.logInButton.setTitle("send".localized, for: .normal)
             cell = buttonCell
             
         default:
