@@ -34,9 +34,10 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     weak var coordinator: ProfileCoordinator?
     var viewModel: ProfileViewModel?
     
-    lazy var headerContentView: ProfileHeaderViewCell = .fromNib()
-    lazy var animator = UIViewPropertyAnimator()
-    lazy var gestureRecognizer = UIPanGestureRecognizer()
+    private lazy var headerContentView: ProfileHeaderViewCell = .fromNib()
+    private lazy var animator = UIViewPropertyAnimator()
+    private lazy var gestureRecognizer = UIPanGestureRecognizer()
+    private lazy var refreshControl = UIRefreshControl()
     
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     
@@ -46,7 +47,7 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         viewModel?.delegate = self
-        viewModel?.subscribe(updateCallback: handleError)
+        viewModel?.subscribe(updateCallback: updateCallback)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -64,6 +65,8 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
         headerView.addSubview(headerContentView)
         headerContentView.translatesAutoresizingMaskIntoConstraints = false
         headerContentView.shadowed(shadowOffset: CGSize(width: 0, height: 7))
+        
+        tableView.addSubview(refreshControl)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,11 +76,14 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     
     
     //MARK: - Error handling
-    func handleError(error: Error) {
-        DispatchQueue.main.async {
-            self.stopSpinner()
+    func updateCallback(error: Error?) {
+        stopSpinner()
+        refreshControl.endRefreshing()
+        if let error = error {
             self.showAlert(message: error.localizedDescription)
+            return
         }
+        headerContentView.update()
     }
     
     //MARK: - Private methods
@@ -101,6 +107,9 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
                     animator.startAnimation()
                     animator.pauseAnimation()
                     animator.fractionComplete = -gesture.translation(in: view).y / 100
+                } else if gesture.translation(in: view).y > 0, !animator.isRunning {
+                    tableView.contentOffset.y = gesture.translation(in: view).y > 100 ? -100 : -gesture.translation(in: view).y
+                    currentTableViewContentYOffset = -36
                 }
             case .decreased:
                 if tableView.contentOffset.y <= 100, animator.fractionComplete > 0 {
@@ -116,6 +125,11 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
             }
             view.layoutIfNeeded()
         case .ended:
+            if gesture.translation(in: view).y > 50, headerState == HeaderState.normal {
+                refreshControl.beginRefreshing()
+                tableView.refreshControl?.beginRefreshing()
+                viewModel?.fetchUser()
+            }
             if animator.fractionComplete >= 0.5 {
                 completeAnimation()
                 headerState.toggle()

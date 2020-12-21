@@ -31,16 +31,8 @@ class ProfileHeaderViewCell: UITableViewCell {
         avatarView.isUserInteractionEnabled = true
         setupContainer()
         
-        guard let user = UserData.currentUser else {
-            return
-        }
-        nameLabel.text = "\(user.firstName) \(user.secondName)"
+        update()
         
-        specializationLabel.text = user.preferSpecializations.first?.specialization.title
-        guard let url = user.avatar else {
-            return
-        }
-        avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
         avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
         avatarWrapper.rounded(cornerRadius: avatarWrapper.frame.width  / 2)
         avatarWrapper.bordered(borderWidth: 1, borderColor: UIColor.white.cgColor)
@@ -57,6 +49,19 @@ class ProfileHeaderViewCell: UITableViewCell {
     }
     
     //MARK: - Methods
+    func update() {
+        guard let user = UserData.currentUser else {
+            return
+        }
+        nameLabel.text = "\(user.firstName) \(user.secondName)"
+        
+        specializationLabel.text = user.preferSpecializations.first?.specialization.title
+        guard let url = user.avatar else {
+            return
+        }
+        avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
+    }
+    
     private func setupContainer() {
         container.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         container.shadowed()
