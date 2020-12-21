@@ -150,19 +150,13 @@ extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, Ale
         
         guard let email = emailCell.textField.text else { return }
         
-        if (!validateEmail.validateEmail(email: email)) && (email != "") {
+        if !validateEmail.validateEmail(email: email) {
             
             emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
             emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
          
-        } else if email == "" {
-            emailCell.errorLabel.isHidden = false
-            emailCell.errorImage.isHidden = false
-            emailCell.errorLabel.text = CredentialsError.emailIsEmpty.getString()
-            emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-            
         } else {
             
             showAlert(header: "passRecovery".localized)

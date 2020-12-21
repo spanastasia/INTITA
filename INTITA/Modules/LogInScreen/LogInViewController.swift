@@ -183,28 +183,16 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
         
         guard let password = passwordCell.textField.text, let email = emailCell.textField.text else { return }
         
-        if (!validator.validateEmail(email: email)) && (email != "") {
+        if !validator.validateEmail(email: email) {
             emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
             emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             
-        } else if (!validator.validatePassword(password: password))  && (password != "") {
+        } else if !validator.validatePassword(password: password) {
             passwordCell.errorLabel.isHidden = false
             passwordCell.errorImage.isHidden = false
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
-            passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-            
-        } else if email == "" {
-            emailCell.errorLabel.isHidden = false
-            emailCell.errorImage.isHidden = false
-            emailCell.errorLabel.text = CredentialsError.emailIsEmpty.getString()
-            emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-            
-        } else if password == "" {
-            emailCell.errorLabel.isHidden = false
-            emailCell.errorImage.isHidden = false
-            emailCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             
         } else {
