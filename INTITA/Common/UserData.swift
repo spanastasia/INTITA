@@ -6,8 +6,7 @@
 //
 import Foundation
 
-class UserData {
-    private init() {}
+enum UserData {
     static var token: String? {
         return UserDefaultsManager.getValue(by: AppConstans.tokenKey)
     }
@@ -23,7 +22,8 @@ class UserData {
     
     static func set(currentUser: CurrentUser) {
         UserData.currentUser = currentUser
-        CoreDataService.saveDataToDB(appUser: UserData.currentUser!)
+        guard let user = UserData.currentUser else {return}
+        CoreDataService.saveDataToDB(appUser: user)
     }
     static func reset() {
         UserData.currentUser = nil

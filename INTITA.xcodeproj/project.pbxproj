@@ -86,6 +86,9 @@
 		BAA63008258B8F8F0042F290 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA63007258B8F8F0042F290 /* CoreData.framework */; };
 		BAA63041258CCF4D0042F290 /* INTITA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAA6303F258CCF4D0042F290 /* INTITA.xcdatamodeld */; };
 		BAA6304A258CE1190042F290 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA63049258CE1190042F290 /* CoreDataService.swift */; };
+		BAA6305B258D27FD0042F290 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA63059258D27FD0042F290 /* User+CoreDataClass.swift */; };
+		BAA6305C258D27FD0042F290 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA6305A258D27FD0042F290 /* User+CoreDataProperties.swift */; };
+		BAA63064258D41870042F290 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA63063258D41870042F290 /* CoreDataStack.swift */; };
 		BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
@@ -187,6 +190,9 @@
 		BAA63007258B8F8F0042F290 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BAA63040258CCF4D0042F290 /* INTITA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = INTITA.xcdatamodel; sourceTree = "<group>"; };
 		BAA63049258CE1190042F290 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		BAA63059258D27FD0042F290 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BAA6305A258D27FD0042F290 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAA63063258D41870042F290 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,8 +478,11 @@
 		BAA63048258CE0E80042F290 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				BAA63059258D27FD0042F290 /* User+CoreDataClass.swift */,
+				BAA6305A258D27FD0042F290 /* User+CoreDataProperties.swift */,
 				BAA6303F258CCF4D0042F290 /* INTITA.xcdatamodeld */,
 				BAA63049258CE1190042F290 /* CoreDataService.swift */,
+				BAA63063258D41870042F290 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -607,6 +616,7 @@
 				49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */,
 				84BF645C255E8B4000E2E036 /* LogoTableViewCell.swift in Sources */,
 				3F2B29CC255A7FE500DDE683 /* UIView+fromNib.swift in Sources */,
+				BAA6305B258D27FD0042F290 /* User+CoreDataClass.swift in Sources */,
 				64BD43E625604C7B00880C9A /* JSONLoader.swift in Sources */,
 				3F87984E255E738F0094D6D9 /* ProfileTableViewCell.swift in Sources */,
 				3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */,
@@ -629,6 +639,7 @@
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				3F879841255E70D30094D6D9 /* ProfileViewController.swift in Sources */,
+				BAA6305C258D27FD0042F290 /* User+CoreDataProperties.swift in Sources */,
 				BAA6304A258CE1190042F290 /* CoreDataService.swift in Sources */,
 				3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */,
 				64BD4430256969AA00880C9A /* SendButtonTableViewCell.swift in Sources */,
@@ -656,6 +667,7 @@
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
 				BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */,
+				BAA63064258D41870042F290 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
