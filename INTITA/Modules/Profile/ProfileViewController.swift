@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         viewModel?.delegate = self
-        viewModel?.subscribe(updateCallback: handleError)
+        viewModel?.subscribe(updateCallback: updateCallback)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -76,11 +76,14 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     
     
     //MARK: - Error handling
-    func handleError(error: Error) {
-        DispatchQueue.main.async {
-            self.stopSpinner()
+    func updateCallback(error: Error?) {
+        stopSpinner()
+        refreshControl.endRefreshing()
+        if let error = error {
             self.showAlert(message: error.localizedDescription)
+            return
         }
+        headerContentView.update()
     }
     
     //MARK: - Private methods
@@ -125,9 +128,7 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
             if gesture.translation(in: view).y > 50, headerState == HeaderState.normal {
                 refreshControl.beginRefreshing()
                 tableView.refreshControl?.beginRefreshing()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.refreshControl.endRefreshing()
-                }
+                viewModel?.fetchUser()
             }
             if animator.fractionComplete >= 0.5 {
                 completeAnimation()
