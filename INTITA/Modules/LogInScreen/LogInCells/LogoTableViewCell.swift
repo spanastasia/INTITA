@@ -15,6 +15,6 @@ class LogoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.logoImageView.rounded()
+        logoImageView.rounded()
     }
 }
