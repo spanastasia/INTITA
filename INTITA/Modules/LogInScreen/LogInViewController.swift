@@ -6,7 +6,16 @@
 //
 
 import UIKit
-import SafariServices
+
+enum LoginCells: Int {
+    case logoImageCell = 0
+    case emptyCellOne
+    case emailTextFieldCell
+    case emptyCellTwo
+    case passwordTextFieldCell
+    case linksButtonCell
+    case loginButtonCell
+}
 
 enum CredentialsError {
     case wrongPassword
@@ -47,7 +56,8 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableView.dataSource = self
         registerCells()
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.barTintColor = UIColor.white
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -65,7 +75,7 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableViewBottomContraint.constant = height
         view.layoutSubviews()
         
-        tableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
+        tableView.scrollToRow(at: IndexPath(row: 5, section: 0), at: .bottom, animated: true)
     }
     
     func handleViewModelUpdateWith(error: Error?) {
@@ -90,83 +100,107 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
 }
 
 extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 7
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return view.frame.height / 3
-        case 1, 2:
-            return view.frame.height / 9
-        case 3:
-            return 25
-        case 4:
-            return 100
+        
+        let nameCell = LoginCells(rawValue: indexPath.row)
+        var heightCell: CGFloat
+        
+        switch nameCell {
+        case .logoImageCell:
+            heightCell = 243
+        case .emptyCellOne:
+            heightCell = 52
+        case .loginButtonCell, .emailTextFieldCell:
+            heightCell = 78
+        case .passwordTextFieldCell:
+            heightCell =  57
+        case .linksButtonCell:
+            heightCell = 40
         default:
-            return 125.0
+            heightCell = 20.0
         }
+        return heightCell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
-        case 0:
-            guard let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell else { return UITableViewCell() }
-            return logoCell
-        case 1:
-            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+        let nameCell = LoginCells(rawValue: indexPath.row)
+        var cell: UITableViewCell?
+        
+        switch nameCell {
+        case .logoImageCell:
+            let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell
+            logoCell?.authLabel.text = "auth".localized
+            cell = logoCell
+            
+        case .emailTextFieldCell:
+            let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
             let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
-            emailCell.configure(with: cellConfig)
-            return emailCell
-        case 2:
-            guard let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            emailCell?.configure(with: cellConfig)
+            cell = emailCell
+            
+        case .passwordTextFieldCell:
+            let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
             
             let cellConfig = TextTableViewCellConfiguration(type: .password, placeholderText: "inputPassword".localized)
-            passwordCell.configure(with: cellConfig)
-            return passwordCell
-        case 3:
-            guard let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell else { return UITableViewCell() }
-            linksCell.delegate = self
-            return linksCell
-        case 4:
-            guard let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell else { return UITableViewCell() }
-            buttonCell.delegate = self
-            return buttonCell
+            passwordCell?.configure(with: cellConfig)
+            cell = passwordCell
+            
+        case .linksButtonCell:
+            let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell
+            linksCell?.delegate = self
+            cell = linksCell
+            
+        case .loginButtonCell:
+            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell
+            buttonCell?.delegate = self
+            buttonCell?.logInButton.setTitle("logIn".localized, for: .normal)
+            cell = buttonCell
+            
         default:
             return UITableViewCell()
         }
+        return cell ?? UITableViewCell()
     }
 }
 
 extension LogInViewController: RegisterButtonTableViewCellDelegate {
+    
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
-        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? TextTableViewCell else { return }
-        guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
+        
+        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 2,
+                                                                 section: 0)) as? TextTableViewCell,
+              let passwordCell = tableView.cellForRow(at: IndexPath(row: 4,
+                                                                    section: 0)) as? TextTableViewCell else { return }
         
         emailCell.textField.resignFirstResponder()
         passwordCell.textField.resignFirstResponder()
         
-        guard let password = passwordCell.textField.text, let email = emailCell.textField.text else {
-            return
-        }
+        guard let password = passwordCell.textField.text, let email = emailCell.textField.text else { return }
         
         if !validator.validateEmail(email: email) {
             emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
             emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+            
         } else if !validator.validatePassword(password: password) {
             passwordCell.errorLabel.isHidden = false
             passwordCell.errorImage.isHidden = false
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+            
         } else {
             startSpinner()
             viewModel?.login(email: email, password: password)
         }
     }
+
 }
 
 extension LogInViewController: LinksTableViewCellDelegate {

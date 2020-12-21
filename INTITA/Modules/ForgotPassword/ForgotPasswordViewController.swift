@@ -7,11 +7,11 @@
 
 import UIKit
 
-enum NameCells: Int {
+enum ForgotCells: Int {
     case logoImageCell = 0
-    case passwordRecoveryCell
     case explanationLabelCell
     case emailTextFieldCell
+    case emptyCell
     case sendButtonCell
 }
 
@@ -20,9 +20,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
     weak var coordinator: ForgotPasswordCoordinator?
     
     var validateEmail = Validate()
-    
-    let heightOfView = UIScreen.main.bounds.height
-    let koefWidth = UIScreen.main.bounds.width / 375
     
     @IBOutlet weak var forgotTableView: UITableView!
 
@@ -61,25 +58,24 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         view.layoutSubviews()
         forgotTableView.endUpdates()
         
-        forgotTableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
+        forgotTableView.scrollToRow(at: IndexPath(row: 3, section: 0), at: .bottom, animated: true)
     }
     
     func registerCells() {
         
-        let logoCell = UINib(nibName: "LogoForgotTableViewCell", bundle: nil)
-        forgotTableView.register(logoCell, forCellReuseIdentifier: "LogoForgotTableViewCell")
-        
-        let passCell = UINib(nibName: "PassRecoveryTableViewCell", bundle: nil)
-        forgotTableView.register(passCell, forCellReuseIdentifier: "PassRecoveryTableViewCell")
-        
+        let logoCell = UINib(nibName: "LogoTableViewCell", bundle: nil)
+        forgotTableView.register(logoCell, forCellReuseIdentifier: "reuseForLogo")
+             
         let explanationCell = UINib(nibName: "ExplanationTableViewCell", bundle: nil)
         forgotTableView.register(explanationCell, forCellReuseIdentifier: "ExplanationTableViewCell")
         
         let textCell = UINib(nibName: "TextTableViewCell", bundle: nil)
         forgotTableView.register(textCell, forCellReuseIdentifier: "reuseForText")
         
-        let sendButtonCell = UINib(nibName: "SendButtonTableViewCell", bundle: nil)
-        forgotTableView.register(sendButtonCell, forCellReuseIdentifier: "SendButtonTableViewCell")
+        
+        let registerButtonCell = UINib(nibName: "RegisterButtonTableViewCell", bundle: nil)
+        forgotTableView.register(registerButtonCell, forCellReuseIdentifier: "reuseForButton")
+
     }
     
 }
@@ -92,28 +88,33 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
+        let nameCell = ForgotCells(rawValue: indexPath.row)
         var cell: UITableViewCell?
         
-        switch indexPath.row {
-        case 0:
-            let logoCell = tableView.dequeueReusableCell(withIdentifier: "LogoForgotTableViewCell") as? LogoForgotTableViewCell
+        switch nameCell {
+        case .logoImageCell:
+            let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell
+            logoCell?.logoImageView.rounded()
+            logoCell?.authLabel.text = "passRecovery".localized
             cell = logoCell
-        case 1:
-            let passRecoveryCell = tableView.dequeueReusableCell(withIdentifier: "PassRecoveryTableViewCell") as? PassRecoveryTableViewCell
-            cell = passRecoveryCell
-        case 2:
+            
+        case .explanationLabelCell:
             let explanationCell = tableView.dequeueReusableCell(withIdentifier: "ExplanationTableViewCell") as? ExplanationTableViewCell
             cell = explanationCell
-        case 3:
-            guard let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell else { return UITableViewCell() }
+            
+        case .emailTextFieldCell:
+            let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
             let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
-            emailCell.configure(with: cellConfig)
+            emailCell?.configure(with: cellConfig)
             
             cell = emailCell
-        case 4:
-            let sendButtonCell = tableView.dequeueReusableCell(withIdentifier: "SendButtonTableViewCell") as? SendButtonTableViewCell
-            sendButtonCell?.delegate = self
-            cell = sendButtonCell
+            
+        case .sendButtonCell:
+            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell
+            buttonCell?.delegate = self
+            buttonCell?.logInButton.setTitle("send".localized, for: .normal)
+            cell = buttonCell
+            
         default:
             return UITableViewCell()
         }
@@ -123,32 +124,29 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        let nameCell = ForgotCells(rawValue: indexPath.row)
         var heightCell: CGFloat
         
-        switch NameCells.init(rawValue: indexPath.item) {
+        switch nameCell {
         case .logoImageCell:
-            heightCell = 148 * koefWidth
-        case .passwordRecoveryCell:
-            heightCell = 95 * koefWidth
+            heightCell = 243
         case .explanationLabelCell:
-            heightCell = 114
-        case .sendButtonCell:
+            heightCell = 150
+        case .emailTextFieldCell, .sendButtonCell:
             heightCell = 77
-        case .emailTextFieldCell:
-            heightCell = 93
         default:
-            heightCell = 0
+            heightCell = 20
         }
         
         return heightCell
     }
 }
 
-extension ForgotPasswordViewController: SendButtonTableViewCellDelegate, AlertAcceptable {
+extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, AlertAcceptable {
     
-    func didPressSendButton(_ sender: SendButtonTableViewCell) {
+    func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
         
-        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? TextTableViewCell else { return }
+        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
         
         guard let email = emailCell.textField.text else { return }
         
@@ -158,7 +156,7 @@ extension ForgotPasswordViewController: SendButtonTableViewCellDelegate, AlertAc
             emailCell.errorImage.isHidden = false
             emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-            
+         
         } else {
             
             showAlert(header: "passRecovery".localized)

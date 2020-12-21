@@ -35,6 +35,7 @@ class TextTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setupUI()
+        textField.indent(size: 10)
         textField.addTarget(self, action: #selector(textFieldDidChange),
                                   for: .editingChanged)
     }
