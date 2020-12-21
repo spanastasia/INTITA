@@ -173,8 +173,10 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
     
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
         
-        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
-        guard let passwordCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? TextTableViewCell else { return }
+        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 2,
+                                                                 section: 0)) as? TextTableViewCell,
+              let passwordCell = tableView.cellForRow(at: IndexPath(row: 4,
+                                                                    section: 0)) as? TextTableViewCell else { return }
         
         emailCell.textField.resignFirstResponder()
         passwordCell.textField.resignFirstResponder()
