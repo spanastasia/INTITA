@@ -38,6 +38,7 @@
 		3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF29A11254C0BEC0087AEC7 /* String+localized.swift */; };
 		3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAC972254DAAFF00AED580 /* RequestAPI.swift */; };
 		49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */; };
+		4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972F34C2590A6D900616295 /* CustomPageControl.swift */; };
 		49C098052578CE42000A8935 /* currentUser.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5A20AA257178750008FB0C /* currentUser.json */; };
 		49F53EAE25531263008327A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F53EAC25531263008327A6 /* Localizable.strings */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
@@ -77,7 +78,7 @@
 		84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */; };
 		84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */; };
 		BA5A2093256D99820008FB0C /* LogInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */; };
-		BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A20D0257567E30008FB0C /* CustomPageControl.swift */; };
+		BA5A20D1257567E40008FB0C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */; };
 		BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F03B255971A400DE2FB5 /* UIColor+Additions.swift */; };
 		BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA78F04025599D2600DE2FB5 /* MyriadPro-Light.ttf */; };
@@ -132,6 +133,7 @@
 		3FF29A11254C0BEC0087AEC7 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		3FFAC972254DAAFF00AED580 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		4972F34C2590A6D900616295 /* CustomPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		49F53EAD25531263008327A6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB02553126D008327A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB125531274008327A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -339,10 +341,10 @@
 		64B74F47254DC369004E6A4E /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				4972F34C2590A6D900616295 /* CustomPageControl.swift */,
 				64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */,
 				3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */,
 				BAF940CD2550754300AE50CE /* PromoTextView.swift */,
-				BA5A20D0257567E30008FB0C /* CustomPageControl.swift */,
 				3FF299F0254ADD800087AEC7 /* Welcome.storyboard */,
 			);
 			path = Welcome;
@@ -620,6 +622,7 @@
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
 				64BD441B256968C400880C9A /* LogoForgotTableViewCell.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
+				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
 				64BD444C256BF68200880C9A /* EmailTableViewCell.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
@@ -638,7 +641,7 @@
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
-				BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */,
+				BA5A20D1257567E40008FB0C /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
