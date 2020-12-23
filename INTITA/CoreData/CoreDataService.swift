@@ -20,11 +20,7 @@ class CoreDataService {
                 return user.id == appUser.id
             }).first
         }
-        if let userDB = currentUser {
-            return userDB
-        }else{
-            return nil
-        }
+        return currentUser
     }
     
     static func saveDataToDB(appUser: CurrentUser) {
