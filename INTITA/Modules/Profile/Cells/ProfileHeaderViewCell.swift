@@ -30,9 +30,8 @@ class ProfileHeaderViewCell: UITableViewCell {
         avatarView.addGestureRecognizer(tapGR)
         avatarView.isUserInteractionEnabled = true
         setupContainer()
-        
         update()
-        
+
         avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
         avatarWrapper.rounded(cornerRadius: avatarWrapper.frame.width  / 2)
         avatarWrapper.bordered(borderWidth: 1, borderColor: UIColor.white.cgColor)
@@ -53,15 +52,15 @@ class ProfileHeaderViewCell: UITableViewCell {
         guard let user = UserData.currentUser else {
             return
         }
-        nameLabel.text = "\(user.firstName) \(user.secondName)"
-        
-        specializationLabel.text = user.preferSpecializations.first?.specialization.title
-        guard let url = user.avatar else {
+        guard let userDB = CoreDataService.retrieveDataFromDB(appUser: user) else {return}
+        nameLabel.text = "\(userDB.firstName) \(userDB.secondName)"
+
+        specializationLabel.text = userDB.preferSpecialization
+        guard let url = userDB.avatar else {
             return
         }
         avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
     }
-    
     private func setupContainer() {
         container.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         container.shadowed()
