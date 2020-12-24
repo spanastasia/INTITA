@@ -23,6 +23,7 @@ enum HeaderState {
 
 class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     
@@ -146,6 +147,7 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
                     height = 316
                 }
                 self.headerViewHeightConstraint.constant = height
+                self.tableViewBottomConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }
         default:
@@ -197,6 +199,8 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
                 self.headerContentView.editButton.layer.opacity = 1
                 
                 self.headerViewHeightConstraint.constant = 316
+                
+                self.tableViewBottomConstraint.constant = 158
             }
             self.view.layoutSubviews()
         }
