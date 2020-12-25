@@ -41,13 +41,13 @@
 		4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972F34C2590A6D900616295 /* CustomPageControl.swift */; };
 		49C098052578CE42000A8935 /* currentUser.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5A20AA257178750008FB0C /* currentUser.json */; };
 		49F53EAE25531263008327A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F53EAC25531263008327A6 /* Localizable.strings */; };
-		646615532596680300173A13 /* HeaderSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */; };
-		646615582596681200173A13 /* InfoSettingProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
-		6466156C2596685E00173A13 /* InfoSettingProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsCoordinator.swift */; };
 		646615962596745200173A13 /* SettingsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615952596745200173A13 /* SettingsProfileViewController.swift */; };
+		6466159D25967C1E00173A13 /* InfoSettingProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */; };
+		646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */; };
+		646615A725967C6100173A13 /* InfoSettingProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
 		64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F40254C71F2004E6A4E /* Storyboarded.swift */; };
@@ -600,7 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6466156C2596685E00173A13 /* InfoSettingProfileTableViewCell.xib in Resources */,
+				646615A725967C6100173A13 /* InfoSettingProfileTableViewCell.xib in Resources */,
 				646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */,
 				646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */,
 				64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */,
@@ -641,8 +641,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				646615582596681200173A13 /* InfoSettingProfileTableViewCell.swift in Sources */,
-				646615532596680300173A13 /* HeaderSettingsTableViewCell.swift in Sources */,
+				646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */,
+				6466159D25967C1E00173A13 /* InfoSettingProfileTableViewCell.swift in Sources */,
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
