@@ -47,6 +47,7 @@
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		6466156C2596685E00173A13 /* InfoSettingProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsCoordinator.swift */; };
+		646615962596745200173A13 /* SettingsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615952596745200173A13 /* SettingsProfileViewController.swift */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
 		64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F40254C71F2004E6A4E /* Storyboarded.swift */; };
@@ -147,6 +148,7 @@
 		641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderSettingsTableViewCell.swift; path = ../../../../../../../HeaderSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HeaderSettingsTableViewCell.xib; path = ../../../../../../../HeaderSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsCoordinator.swift; path = ../../../../../../SettingsCoordinator.swift; sourceTree = "<group>"; };
+		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsProfileViewController.swift; path = ../../../../../../SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
 		64B74F3D254C71B1004E6A4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		64B74F40254C71F2004E6A4E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			children = (
 				641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */,
 				646615872596738300173A13 /* SettingsCoordinator.swift */,
+				646615952596745200173A13 /* SettingsProfileViewController.swift */,
 				641B8702258D20DC005FAA24 /* Cells */,
 			);
 			path = ProfileSettings;
@@ -679,6 +682,7 @@
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
+				646615962596745200173A13 /* SettingsProfileViewController.swift in Sources */,
 				3F2B29D7255AB84100DDE683 /* CurrentUser.swift in Sources */,
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
