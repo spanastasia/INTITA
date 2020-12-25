@@ -9,10 +9,12 @@ import UIKit
 
 class LogoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var authLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        authLabel.text = "auth".localized
+
+        logoImageView.rounded()
     }
 }
