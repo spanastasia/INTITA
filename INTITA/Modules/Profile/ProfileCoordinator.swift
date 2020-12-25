@@ -23,7 +23,7 @@ class ProfileCoordinator: Coordinator {
         //childCoordinators.append(MessagesCoordinator())
         //childCoordinators.append(OpportunitiesCoordinator())
         //childCoordinators.append(TasksCoordinator())
-        //childCoordinators.append(SettingsCoordinator())
+        childCoordinators.append(SettingsProfileCoordinator(navigationController: navigationController))
     }
 
     func start() {
@@ -39,8 +39,9 @@ class ProfileCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     
-    func settingScreen() {
-        let settingScreen = SettingsCoordinator(navigationController: navigationController)
+    func settingsProfileScreen() {
+        
+        let settingScreen = SettingsProfileCoordinator(navigationController: navigationController)
         settingScreen.start()
     }
 }
@@ -58,11 +59,9 @@ extension ProfileCoordinator: ProfileHeaderViewDelegate {
 extension ProfileCoordinator: ProfileTableViewCellDelegate {
     func goToVC(number: Int) {
         guard number < childCoordinators.count else {
-            
-            alertPresenter?.showAlert()
+                alertPresenter?.showAlert()
             return
         }
-        
-        childCoordinators[number].start()
+            childCoordinators[number].start()        
     }
 }
