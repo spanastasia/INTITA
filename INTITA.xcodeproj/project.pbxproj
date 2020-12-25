@@ -54,10 +54,6 @@
 		64BD43E625604C7B00880C9A /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD43E525604C7B00880C9A /* JSONLoader.swift */; };
 		64BD43ED25604C9800880C9A /* token.json in Resources */ = {isa = PBXBuildFile; fileRef = 64BD43EC25604C9800880C9A /* token.json */; };
 		64BD43F1256172DB00880C9A /* JSONLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD43F0256172DB00880C9A /* JSONLoaderTest.swift */; };
-		64BD441B256968C400880C9A /* LogoForgotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */; };
-		64BD441C256968C400880C9A /* LogoForgotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */; };
-		64BD44222569694800880C9A /* PassRecoveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */; };
-		64BD44232569694800880C9A /* PassRecoveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */; };
 		64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44282569696900880C9A /* ExplanationTableViewCell.swift */; };
 		64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44292569696900880C9A /* ExplanationTableViewCell.xib */; };
 		64BD44952572523900880C9A /* UITextField+indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44942572523900880C9A /* UITextField+indent.swift */; };
@@ -159,10 +155,7 @@
 		64BD43E525604C7B00880C9A /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		64BD43EC25604C9800880C9A /* token.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = token.json; sourceTree = "<group>"; };
 		64BD43F0256172DB00880C9A /* JSONLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoaderTest.swift; sourceTree = "<group>"; };
-		64BD4419256968C400880C9A /* LogoForgotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoForgotTableViewCell.swift; sourceTree = "<group>"; };
 		64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoForgotTableViewCell.xib; sourceTree = "<group>"; };
-		64BD44202569694800880C9A /* PassRecoveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassRecoveryTableViewCell.swift; sourceTree = "<group>"; };
-		64BD44212569694800880C9A /* PassRecoveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassRecoveryTableViewCell.xib; sourceTree = "<group>"; };
 		64BD44282569696900880C9A /* ExplanationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationTableViewCell.swift; sourceTree = "<group>"; };
 		64BD44292569696900880C9A /* ExplanationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExplanationTableViewCell.xib; sourceTree = "<group>"; };
 		64BD44942572523900880C9A /* UITextField+indent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+indent.swift"; sourceTree = "<group>"; };
@@ -286,6 +279,7 @@
 				64F78E71255C5874002C1565 /* INTITATests */,
 				3FF299E8254ADD800087AEC7 /* Products */,
 				BAA63006258B8F8F0042F290 /* Frameworks */,
+				6473C8B62596465900CE2F10 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -379,6 +373,14 @@
 				641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		6473C8B62596465900CE2F10 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				64BD441A256968C400880C9A /* LogoForgotTableViewCell.xib */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		64B74F47254DC369004E6A4E /* Welcome */ = {
@@ -614,7 +616,6 @@
 				641CDF98258E0A61002537A2 /* HeaderSettingsTableViewCell.xib in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
-				64BD441C256968C400880C9A /* LogoForgotTableViewCell.xib in Resources */,
 				641B8710258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
@@ -674,14 +675,12 @@
 				BAA6305C258D27FD0042F290 /* User+CoreDataProperties.swift in Sources */,
 				BAA6304A258CE1190042F290 /* CoreDataService.swift in Sources */,
 				3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */,
-				64BD4430256969AA00880C9A /* SendButtonTableViewCell.swift in Sources */,
 				641B870F258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift in Sources */,
 				84067391256D517000A25431 /* TextTableViewCellModel.swift in Sources */,
 				BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
 				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
-				64BD444C256BF68200880C9A /* EmailTableViewCell.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
@@ -700,7 +699,7 @@
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
-				BA5A20D1257567E40008FB0C /* CustomPageControl.swift in Sources */,
+				BA5A20D1257567E40008FB0C /* (null) in Sources */,
 				BAA63064258D41870042F290 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
