@@ -46,12 +46,7 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UserData.token != nil {
-            startSpinner()
-            viewModel?.fetchUserInfo()
-        }
-        
+    
         tableView.delegate = self
         tableView.dataSource = self
         registerCells()
@@ -60,6 +55,16 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         navigationController?.navigationBar.barTintColor = UIColor.white
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if UserData.token != nil {
+            startSpinner()
+            viewModel?.fetchUserInfo()
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         startMonitoringKeyboard()

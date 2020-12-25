@@ -94,10 +94,11 @@ enum ApiURL {
     
     var mockFileName: String? {
         switch self {
-        case let .login(email: email, password: password):
-            let result = "loginResponse_\(email)"
-            return result
-        default:
+        case .login:
+            return "token"
+        case .currentUser:
+            return "currentUser"
+        case .logout:
             return nil
         }
     }
