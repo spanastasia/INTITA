@@ -48,6 +48,7 @@
                         <outlet property="headerView" destination="CDt-01-LFA" id="gSu-hI-RIc"/>
                         <outlet property="headerViewHeightConstraint" destination="eut-oz-H0R" id="GaI-Pm-XRU"/>
                         <outlet property="tableView" destination="8Sk-rk-Jzs" id="FgA-pt-u98"/>
+                        <outlet property="tableViewBottomConstraint" destination="hNm-3t-BMQ" id="hdb-J4-Mwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMc-U3-q87" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

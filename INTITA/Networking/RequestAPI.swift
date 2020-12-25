@@ -6,44 +6,15 @@
 //
 import Foundation
 
-enum HTTPType {
-    case real
-    case mock
-}
-
 protocol RequestAPIProtocol {
     func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void)
 }
 
-class APIRequest {
-        
-    static var httpType: HTTPType = .real
+class APIRequest: RequestAPIProtocol {
     
-    static var shared: RequestAPIProtocol {
-        
-        switch httpType {
-        case .mock:
-            return MockRequestAPI()
-        case .real:
-            return RequestAPI()
-        }
-    }
+    static var shared: RequestAPIProtocol = APIRequest()
     
-}
-
-class MockRequestAPI: RequestAPIProtocol {
-    
-    public func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
-
-        guard let data = JSONLoader.loadJsonData(file: "token") else { return }
-                
-            let response = try? JSONDecoder().decode(T.self, from: data)
-
-        }
-       
-    }
-
-class RequestAPI: RequestAPIProtocol {
+    private init() { }
     
     public func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let session = URLSession.shared
