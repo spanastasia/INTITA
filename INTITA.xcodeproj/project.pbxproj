@@ -144,9 +144,9 @@
 		49F53EB125531274008327A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsProfile.storyboard; sourceTree = "<group>"; };
 		641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingProfileTableViewCell.swift; sourceTree = "<group>"; };
-		641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoSettingProfileTableViewCell.xib; path = ../../../../../../../InfoSettingProfileTableViewCell.xib; sourceTree = "<group>"; };
+		641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoSettingProfileTableViewCell.xib; sourceTree = "<group>"; };
 		641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSettingsTableViewCell.swift; sourceTree = "<group>"; };
-		641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HeaderSettingsTableViewCell.xib; path = ../../../../../../../HeaderSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCoordinator.swift; sourceTree = "<group>"; };
 		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
