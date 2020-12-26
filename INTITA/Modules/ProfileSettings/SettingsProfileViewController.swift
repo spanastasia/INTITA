@@ -37,6 +37,15 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
 
     }
     
+    override func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
+        
+        guard parent == nil else {
+            return
+        }
+        print("Did press Back button")
+    }
+    
     func setupCell() {
         
         tableView.register(HeaderSettingsTableViewCell.nib(),

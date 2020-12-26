@@ -23,7 +23,7 @@ class ProfileCoordinator: Coordinator {
         //childCoordinators.append(MessagesCoordinator())
         //childCoordinators.append(OpportunitiesCoordinator())
         //childCoordinators.append(TasksCoordinator())
-        childCoordinators.append(SettingsProfileCoordinator(navigationController: navigationController))
+//        childCoordinators.append(SettingsProfileCoordinator(navigationController: navigationController))
     }
 
     func start() {
@@ -39,10 +39,22 @@ class ProfileCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     
-    func settingsProfileScreen() {
+    func displaySettingsProfileScreen() {
         
-        let settingScreen = SettingsProfileCoordinator(navigationController: navigationController)
-        settingScreen.start()
+        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController)
+        
+        
+        settingScreenCoordinator.start()
+    }
+    
+    func removeCoordinator(_ coordinator: Coordinator) {
+        let index = childCoordinators.firstIndex { (child) -> Bool in
+            child === coordinator
+        }
+        
+        guard let childIndex = index else { return }
+        
+        childCoordinators.remove(at: childIndex)
     }
 }
 
@@ -58,10 +70,20 @@ extension ProfileCoordinator: ProfileHeaderViewDelegate {
 
 extension ProfileCoordinator: ProfileTableViewCellDelegate {
     func goToVC(number: Int) {
-        guard number < childCoordinators.count else {
-                alertPresenter?.showAlert()
-            return
+        switch number {
+        case 0:
+            //MessagesCoordinator
+            alertPresenter?.showAlert()
+        case 1:
+            // Opportunities
+            alertPresenter?.showAlert()
+        case 2:
+            // My tasks
+            alertPresenter?.showAlert()
+        case 3:
+            displaySettingsProfileScreen()
+        default:
+            alertPresenter?.showAlert()
         }
-            childCoordinators[number].start()        
     }
 }

@@ -13,7 +13,7 @@ protocol HeaderSettingsTableViewCellDelegate: AnyObject {
 
 class HeaderSettingsTableViewCell: UITableViewCell {
     
-    var delegate: HeaderSettingsTableViewCellDelegate!
+    weak var delegate: HeaderSettingsTableViewCellDelegate!
     static let identifire = "HeaderSettingsTableViewCell"
 
     @IBOutlet weak var mainView: UIView!
