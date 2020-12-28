@@ -158,28 +158,47 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     private func initializeAnimator() {
         animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear) { [weak self] in
             guard let self = self else { return }
+            
+            let widthHeaderContentView = self.headerContentView.frame.width
+            let heightHeaderContentView = self.headerContentView.frame.height
+            
             switch self.headerState {
             case .normal:
                 self.headerContentView.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 0.5)
                     .translatedBy(x: 0, y: -self.headerContentView.frame.height / 2)
+                
                 self.headerContentView.avatarWrapper.transform = CGAffineTransform.identity
-                    .translatedBy(x: 0, y: -self.headerContentView.logoView.frame.height)
-                    .scaledBy(x: 0.5, y: 1)
+                    .translatedBy(x: -0.3 * widthHeaderContentView,
+                                  y: -0.05 * heightHeaderContentView)
+                    .scaledBy(x: 0.7, y: 1.4)
+                
                 self.headerContentView.avatarView.transform = CGAffineTransform.identity
-                    .translatedBy(x: 0, y: -self.headerContentView.logoView.frame.height)
-                    .scaledBy(x: 0.5, y: 1)
+                    .translatedBy(x: -0.3 * widthHeaderContentView,
+                                  y: -0.05 * heightHeaderContentView)
+                    .scaledBy(x: 0.7, y: 1.4)
+                
                 self.headerContentView.editButton.transform = CGAffineTransform.identity
                     .translatedBy(x: 70, y: 0)
                     .scaledBy(x: 0.001, y: 0.001)
+                
                 self.headerContentView.logoView.transform = CGAffineTransform.identity
                     .scaledBy(x: 0.001, y: 0.001)
+                
                 self.headerContentView.nameLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)
-                    .translatedBy(x: 0, y: -16)
+                    .translatedBy(x: 0.35 * widthHeaderContentView,
+                                  y: -0.1 * heightHeaderContentView)
+                
+                self.headerContentView.surnameLabel.transform = CGAffineTransform.identity
+                    .scaledBy(x: 1, y: 2)
+                    .translatedBy(x: 0 * widthHeaderContentView,
+                                  y: -0.25 * heightHeaderContentView)
+                
                 self.headerContentView.specializationLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)
                     .translatedBy(x: 0, y: -8)
+                
                 self.headerContentView.logoView.layer.opacity = 0
                 self.headerContentView.editButton.layer.opacity = 0
                 
@@ -193,6 +212,7 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
                 self.headerContentView.logoView.transform = transform
                 self.headerContentView.editButton.transform = transform
                 self.headerContentView.nameLabel.transform = transform
+                self.headerContentView.surnameLabel.transform = transform
                 self.headerContentView.specializationLabel.transform = transform
                 
                 self.headerContentView.logoView.layer.opacity = 1

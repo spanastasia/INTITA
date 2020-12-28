@@ -18,6 +18,7 @@ class ProfileHeaderViewCell: UITableViewCell {
     @IBOutlet weak var avatarView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var surnameLabel: UILabel!
     @IBOutlet weak var specializationLabel: UILabel!
     @IBOutlet weak var avatarWrapper: UIView!
     
@@ -53,7 +54,8 @@ class ProfileHeaderViewCell: UITableViewCell {
             return
         }
         guard let userDB = CoreDataService.retrieveDataFromDB(appUser: user) else {return}
-        nameLabel.text = "\(userDB.firstName) \(userDB.secondName)"
+        nameLabel.text = "\(userDB.firstName)"
+        surnameLabel.text = "\(userDB.secondName)"
 
         specializationLabel.text = userDB.preferSpecialization
         guard let url = userDB.avatar else {
