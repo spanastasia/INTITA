@@ -23,7 +23,7 @@ class ProfileCoordinator: Coordinator {
         //childCoordinators.append(MessagesCoordinator())
         //childCoordinators.append(OpportunitiesCoordinator())
         //childCoordinators.append(TasksCoordinator())
-        //childCoordinators.append(SettingsCoordinator())
+//        childCoordinators.append(SettingsProfileCoordinator(navigationController: navigationController))
     }
 
     func start() {
@@ -37,6 +37,11 @@ class ProfileCoordinator: Coordinator {
     
     func showLoginScreen() {
         navigationController.popViewController(animated: true)
+    }
+    
+    func displaySettingsProfileScreen() {
+        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController)
+        settingScreenCoordinator.start()
     }
 }
 
@@ -52,10 +57,20 @@ extension ProfileCoordinator: ProfileHeaderViewDelegate {
 
 extension ProfileCoordinator: ProfileTableViewCellDelegate {
     func goToVC(number: Int) {
-        guard number < childCoordinators.count else {
+        switch number {
+        case 0:
+            //MessagesCoordinator
             alertPresenter?.showAlert()
-            return
+        case 1:
+            // Opportunities
+            alertPresenter?.showAlert()
+        case 2:
+            // My tasks
+            alertPresenter?.showAlert()
+        case 3:
+            displaySettingsProfileScreen()
+        default:
+            alertPresenter?.showAlert()
         }
-        childCoordinators[number].start()
     }
 }

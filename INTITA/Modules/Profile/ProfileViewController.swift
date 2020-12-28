@@ -75,6 +75,10 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
         headerContentView.frame.size.width = view.frame.width
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     //MARK: - Error handling
     func updateCallback(error: Error?) {
