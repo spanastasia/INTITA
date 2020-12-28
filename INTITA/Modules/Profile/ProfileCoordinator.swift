@@ -40,21 +40,8 @@ class ProfileCoordinator: Coordinator {
     }
     
     func displaySettingsProfileScreen() {
-        
         let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController)
-        
-        
         settingScreenCoordinator.start()
-    }
-    
-    func removeCoordinator(_ coordinator: Coordinator) {
-        let index = childCoordinators.firstIndex { (child) -> Bool in
-            child === coordinator
-        }
-        
-        guard let childIndex = index else { return }
-        
-        childCoordinators.remove(at: childIndex)
     }
 }
 
