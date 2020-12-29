@@ -12,7 +12,7 @@ protocol LinksTableViewCellDelegate: AnyObject {
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell)
 }
 
-class LinksTableViewCell: UITableViewCell {
+class LinksTableViewCell: UITableViewCell, NibCapable {
     
     weak var delegate: LinksTableViewCellDelegate?
 

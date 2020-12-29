@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExplanationTableViewCell: UITableViewCell {
+class ExplanationTableViewCell: UITableViewCell, NibCapable {
     
     @IBOutlet weak var explanationLabel: UILabel!
     

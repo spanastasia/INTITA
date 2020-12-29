@@ -7,12 +7,10 @@
 
 import UIKit
 
-class InfoSettingProfileTableViewCell: UITableViewCell {
+class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
 
     @IBOutlet weak var aboutSelfLabel: UILabel!
     @IBOutlet weak var infoTextField: UITextField!
-    
-    static let identifire = "InfoSettingProfileTableViewCell"
     
     var isProfileEditing = false {
         didSet {
@@ -28,10 +26,6 @@ class InfoSettingProfileTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         setupTextField()
-    }
-    
-    static func nib() -> UINib {
-        return UINib(nibName: identifire, bundle: nil)
     }
         
     private func setupTextField() {
