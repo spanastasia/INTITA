@@ -81,7 +81,7 @@ class WelcomeViewController: UIViewController, Storyboarded, UIScrollViewDelegat
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16)
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0)
         ])
     }
     

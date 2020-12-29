@@ -55,7 +55,7 @@ class PromoTextView: UIView {
         NSLayoutConstraint.activate([
             textLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             textCenterXAnchor,
-            textLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1)
+            textLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1, constant: -24)
         ])
     }
     
