@@ -93,9 +93,8 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     
     //MARK: - Private methods
     private func registerCells() {
-        tableView.register(UINib(nibName: "ProfileHeaderViewCell", bundle: nil), forCellReuseIdentifier: "ProfileHeaderViewCell")
-        tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
-        tableView.register(UINib(nibName: "ProfileFooterViewCell", bundle: nil), forCellReuseIdentifier: "ProfileFooterViewCell")
+        tableView.register(ProfileTableViewCell.nib(), forCellReuseIdentifier: ProfileTableViewCell.identifire)
+        tableView.register(ProfileFooterViewCell.nib(), forCellReuseIdentifier: ProfileFooterViewCell.identifire)
     }
     
     @objc func handleGesture(gesture: UIPanGestureRecognizer) {
@@ -244,12 +243,12 @@ extension ProfileViewController: UITableViewDataSource {
         var currentCell: UITableViewCell?
         switch row {
         case rowNumber - 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileFooterViewCell") as? ProfileFooterViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileFooterViewCell.identifire) as? ProfileFooterViewCell
             cell?.label.text = "exit".localized
             cell?.delegate = viewModel
             currentCell = cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as? ProfileTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifire, for: indexPath) as? ProfileTableViewCell
             setUpProfileBodyCell(cell, row: row)
             currentCell = cell
         }

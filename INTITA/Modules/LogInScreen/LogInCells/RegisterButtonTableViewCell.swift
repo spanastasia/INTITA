@@ -11,7 +11,7 @@ protocol RegisterButtonTableViewCellDelegate: AnyObject {
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell)
 }
 
-class RegisterButtonTableViewCell: UITableViewCell {
+class RegisterButtonTableViewCell: UITableViewCell, NibCapable {
     
     @IBOutlet weak var logInButton: UIButton!
     weak var delegate: RegisterButtonTableViewCellDelegate?

@@ -11,10 +11,9 @@ protocol HeaderSettingsTableViewCellDelegate: AnyObject {
     func editTaped(_ sender: HeaderSettingsTableViewCell)
 }
 
-class HeaderSettingsTableViewCell: UITableViewCell {
+class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     
     weak var delegate: HeaderSettingsTableViewCellDelegate!
-    static let identifire = "HeaderSettingsTableViewCell"
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet var avatarView: UIImageView!
@@ -33,10 +32,6 @@ class HeaderSettingsTableViewCell: UITableViewCell {
         
         delegate.editTaped(self)
                 
-    }
-    
-    static func nib() -> UINib {
-        return UINib(nibName: identifire, bundle: nil)
     }
     
     private func setupCell() {

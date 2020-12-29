@@ -11,7 +11,7 @@ protocol ProfileTableViewCellDelegate: AnyObject {
     func goToVC(number: Int)
 }
 
-class ProfileTableViewCell: UITableViewCell {
+class ProfileTableViewCell: UITableViewCell, NibCapable {
 
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var button: UIButton!

@@ -93,14 +93,10 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     }
     
     func registerCells() {
-        let logoCell = UINib(nibName: "LogoTableViewCell", bundle: nil)
-        let textCell = UINib(nibName: "TextTableViewCell", bundle: nil)
-        let registerButtonCell = UINib(nibName: "RegisterButtonTableViewCell", bundle: nil)
-        let linksCell = UINib(nibName: "LinksTableViewCell", bundle: nil)
-        tableView.register(logoCell, forCellReuseIdentifier: "reuseForLogo")
-        tableView.register(textCell, forCellReuseIdentifier: "reuseForText")
-        tableView.register(registerButtonCell, forCellReuseIdentifier: "reuseForButton")
-        tableView.register(linksCell, forCellReuseIdentifier: "reuseForLinks")
+        tableView.register(LogoTableViewCell.nib(), forCellReuseIdentifier: LogoTableViewCell.identifire)
+        tableView.register(TextTableViewCell.nib(), forCellReuseIdentifier: TextTableViewCell.identifire)
+        tableView.register(RegisterButtonTableViewCell.nib(), forCellReuseIdentifier: RegisterButtonTableViewCell.identifire)
+        tableView.register(LinksTableViewCell.nib(), forCellReuseIdentifier: LinksTableViewCell.identifire)
     }
 }
 
@@ -139,30 +135,30 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch nameCell {
         case .logoImageCell:
-            let logoCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLogo") as? LogoTableViewCell
+            let logoCell = tableView.dequeueReusableCell(withIdentifier: LogoTableViewCell.identifire) as? LogoTableViewCell
             logoCell?.authLabel.text = "auth".localized
             cell = logoCell
             
         case .emailTextFieldCell:
-            let emailCell = tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
+            let emailCell = tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.identifire) as? TextTableViewCell
             let cellConfig = TextTableViewCellConfiguration(type: .email, placeholderText: "inputEmail".localized)
             emailCell?.configure(with: cellConfig)
             cell = emailCell
             
         case .passwordTextFieldCell:
-            let passwordCell =  tableView.dequeueReusableCell(withIdentifier: "reuseForText") as? TextTableViewCell
+            let passwordCell =  tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.identifire) as? TextTableViewCell
             
             let cellConfig = TextTableViewCellConfiguration(type: .password, placeholderText: "inputPassword".localized)
             passwordCell?.configure(with: cellConfig)
             cell = passwordCell
             
         case .linksButtonCell:
-            let linksCell = tableView.dequeueReusableCell(withIdentifier: "reuseForLinks") as? LinksTableViewCell
+            let linksCell = tableView.dequeueReusableCell(withIdentifier: LinksTableViewCell.identifire) as? LinksTableViewCell
             linksCell?.delegate = self
             cell = linksCell
             
         case .loginButtonCell:
-            let buttonCell = tableView.dequeueReusableCell(withIdentifier: "reuseForButton") as? RegisterButtonTableViewCell
+            let buttonCell = tableView.dequeueReusableCell(withIdentifier: RegisterButtonTableViewCell.identifire) as? RegisterButtonTableViewCell
             buttonCell?.delegate = self
             buttonCell?.logInButton.setTitle("logIn".localized, for: .normal)
             cell = buttonCell

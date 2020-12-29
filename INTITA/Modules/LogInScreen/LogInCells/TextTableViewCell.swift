@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextTableViewCell: UITableViewCell {
+class TextTableViewCell: UITableViewCell, NibCapable {
 
     @IBOutlet weak var eyeButtonTrailingContraint: NSLayoutConstraint!
     @IBOutlet weak var eyeButton: UIButton!

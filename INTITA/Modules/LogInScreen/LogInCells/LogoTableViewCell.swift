@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogoTableViewCell: UITableViewCell {
+class LogoTableViewCell: UITableViewCell, NibCapable {
 
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var authLabel: UILabel!

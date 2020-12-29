@@ -11,7 +11,7 @@ protocol ProfileFooterViewCellDelegate: AnyObject {
     func logout()
 }
 
-class ProfileFooterViewCell: UITableViewCell {
+class ProfileFooterViewCell: UITableViewCell, NibCapable {
     weak var delegate: ProfileFooterViewCellDelegate?
     
     @IBOutlet weak var label: UILabel!
