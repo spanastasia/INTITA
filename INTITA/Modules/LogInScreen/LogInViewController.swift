@@ -184,21 +184,24 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
         
         guard let password = passwordCell.textField.text, let email = emailCell.textField.text else { return }
         
+        if validator.validatePassword(password: password), validator.validateEmail(email: email) {
+            startSpinner()
+            viewModel?.login(email: email, password: password)
+            return
+        }
+        
         if !validator.validateEmail(email: email) {
             emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
             emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-            
-        } else if !validator.validatePassword(password: password) {
+        }
+        
+        if !validator.validatePassword(password: password) {
             passwordCell.errorLabel.isHidden = false
             passwordCell.errorImage.isHidden = false
             passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-            
-        } else {
-            startSpinner()
-            viewModel?.login(email: email, password: password)
         }
     }
 
