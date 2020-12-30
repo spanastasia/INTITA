@@ -51,7 +51,6 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableView.dataSource = self
         registerCells()
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.barTintColor = UIColor.white
         viewModel?.subscribe(updateCallback: handleViewModelUpdateWith)
     }
@@ -59,6 +58,7 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.setNavigationBarHidden(true, animated: true)
         if UserData.token != nil {
             startSpinner()
             viewModel?.fetchUserInfo()

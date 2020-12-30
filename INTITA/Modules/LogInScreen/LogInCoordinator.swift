@@ -22,7 +22,7 @@ class LogInCoordinator: Coordinator {
         vc.coordinator = self
         viewModel.delegate = self
         vc.viewModel = viewModel
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func forgotPasswordScreen() {
