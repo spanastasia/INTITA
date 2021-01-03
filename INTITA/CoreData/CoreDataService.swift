@@ -16,9 +16,7 @@ class CoreDataService {
         var currentUser: User?
         let request = User.fetchRequest()
         if let data = try? CoreDataStack.shared.managedContext.fetch(request) as? [User] {
-            currentUser = data.filter ({ (user) in
-                return user.id == appUser.id
-            }).first
+            currentUser = data.filter { $0.id == appUser.id }.first
         }
         return currentUser
     }
@@ -29,7 +27,7 @@ class CoreDataService {
         let userDB: User
         if let alreadyExistUser = retrieveDataFromDB(appUser: appUser) {
             userDB = alreadyExistUser
-        }else{
+        } else {
             userDB = User(context: managedContext)
             userDB.id = Int32(appUser.id)
         }
