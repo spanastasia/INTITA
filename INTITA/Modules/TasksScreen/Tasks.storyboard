@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1Tt-cv-wkU">
-                                <rect key="frame" x="24" y="60" width="318" height="30"/>
+                                <rect key="frame" x="24" y="60" width="366" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="kVO-1a-Tsr">
                                         <rect key="frame" x="0.0" y="0.0" width="24" height="30"/>
@@ -27,23 +27,26 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqf-QR-4QM">
-                                        <rect key="frame" x="32" y="0.0" width="125" height="30"/>
+                                        <rect key="frame" x="32" y="0.0" width="144" height="30"/>
                                         <state key="normal" title="Приоритеты"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezt-6b-fMH">
-                                        <rect key="frame" x="165" y="0.0" width="42.5" height="30"/>
+                                        <rect key="frame" x="184" y="0.0" width="48.5" height="30"/>
                                         <state key="normal" title="Тип"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9J-We-JcR">
-                                        <rect key="frame" x="215.5" y="0.0" width="102.5" height="30"/>
+                                        <rect key="frame" x="240.5" y="0.0" width="125.5" height="30"/>
                                         <state key="normal" title="Группы"/>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pKX-hh-k7k">
-                                <rect key="frame" x="24" y="114" width="366" height="675"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pKX-hh-k7k">
+                                <rect key="frame" x="24" y="114" width="366" height="48"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zjt-2O-Qzy">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="3hp-ed-3aB"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zjt-2O-Qzy">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -51,7 +54,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reuseForTask" id="oh1-fl-cLE" customClass="TaskHeaderCell" customModule="INTITA" customModuleProvider="target">
-                                        <rect key="frame" x="-0.5" y="0.0" width="367" height="37"/>
+                                        <rect key="frame" x="0.0" y="5.5" width="367" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uxi-Ft-YBT">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="37"/>
@@ -73,9 +76,8 @@
                             <constraint firstItem="laF-lW-0hn" firstAttribute="trailing" secondItem="pKX-hh-k7k" secondAttribute="trailing" constant="24" id="Fk1-oT-PDb"/>
                             <constraint firstItem="pKX-hh-k7k" firstAttribute="top" secondItem="1Tt-cv-wkU" secondAttribute="bottom" constant="24" id="W2J-8H-cqt"/>
                             <constraint firstItem="pKX-hh-k7k" firstAttribute="leading" secondItem="laF-lW-0hn" secondAttribute="leading" constant="24" id="a7I-jK-fKb"/>
-                            <constraint firstItem="laF-lW-0hn" firstAttribute="bottom" secondItem="pKX-hh-k7k" secondAttribute="bottom" constant="24" id="azg-Az-Fi8"/>
                             <constraint firstItem="1Tt-cv-wkU" firstAttribute="leading" secondItem="laF-lW-0hn" secondAttribute="leading" constant="24" id="vL3-dH-tNe"/>
-                            <constraint firstItem="laF-lW-0hn" firstAttribute="trailing" secondItem="1Tt-cv-wkU" secondAttribute="trailing" constant="72" id="xfp-dH-5GO"/>
+                            <constraint firstItem="laF-lW-0hn" firstAttribute="trailing" secondItem="1Tt-cv-wkU" secondAttribute="trailing" constant="24" id="xfp-dH-5GO"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

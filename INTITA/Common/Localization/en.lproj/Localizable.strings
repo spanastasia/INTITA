@@ -40,3 +40,14 @@
 "got_it" = "Got it";
 "comming_soon" = "Comming soon...";
 "edit" = "edit";
+"my_tasks" = "My tasks";
+"medium_priority" = "Medium";
+"high_priority" = "High";
+"urgent_priority" = "Urgent";
+"waiting_task" = "Waiting for a task";
+"in_work" = "In work";
+"paused" = "Paused";
+"completed" = "Completed";
+"priorities" = "Priorities";
+"type" = "Type";
+"groups" = "Groups";

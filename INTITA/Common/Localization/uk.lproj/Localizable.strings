@@ -40,3 +40,14 @@
 "got_it" = "Зрозуміло";
 "comming_soon" = "Очікується...";
 "edit" = "редагувати";
+"my_tasks" = "Мої завдання";
+"medium_priority" = "Середній";
+"high_priority" = "Високий";
+"urgent_priority" = "Терміновий";
+"waiting_task" = "Очікує на завдання";
+"in_work" = "В роботі";
+"paused" = "Призупинено";
+"completed" = "Завершено";
+"priorities" = "Пріоритети";
+"type" = "Тип";
+"groups" = "Групи";

@@ -17,8 +17,4 @@ class TaskHeaderCell: UICollectionViewCell {
         // Initialization code
     }
     
-    override func didMoveToWindow() {
-        print(">>>\(titleOfTasks.text)")
-    }
-    
 }
