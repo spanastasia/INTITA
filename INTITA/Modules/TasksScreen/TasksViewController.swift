@@ -25,7 +25,8 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
         //TODO:  set title for controller
         let headerCell = UINib(nibName: "TaskHeaderCell", bundle: nil)
         tasksHeadersCollectionView.register(headerCell, forCellWithReuseIdentifier: "HeaderReuseIdentifier")
-                let taskCell = UINib(nibName: "TaskCell", bundle: nil)
+        tasksHeadersCollectionView.isPagingEnabled = true
+        let taskCell = UINib(nibName: "TaskCell", bundle: nil)
         taskTableView.register(taskCell, forCellReuseIdentifier: "reuseForTask")
         tasksHeadersCollectionView.bordered()
         tasksHeadersCollectionView.rounded()
@@ -59,24 +60,21 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
    private var currentPage = 0
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard !isScrolling else {
-            return
-        }
         let pageWidth = scrollView.bounds.width
         let pageFraction = scrollView.contentOffset.x/pageWidth
         
         let newPageNumber = Int((round(pageFraction)))
-        currentPage = newPageNumber
-        print(">>> \(Date()) \(newPageNumber)")
-        tasksHeadersCollectionView.scrollToItem(
-            at: IndexPath(row: newPageNumber, section: 0),
-            at: .centeredHorizontally,
-            animated: true)
-        isScrolling = true
+        if newPageNumber != currentPage {
+            currentPage = newPageNumber
+            print(">>> \(Date()) \(newPageNumber)")
+        }
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        isScrolling = false
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         taskTableView.reloadData()
     }
 }
