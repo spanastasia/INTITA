@@ -82,7 +82,7 @@ extension TasksModel {
                             author: "",
                             assignee: "",
                             watcher: "",
-                            priority: .medium,
+                            priority: .high,
                             state: .inWork,
                             createdDate: Date()))
         
@@ -107,7 +107,16 @@ extension TasksModel {
                             priority: .medium,
                             state: .waitingForTask,
                             createdDate: Date()))
-              
+        model.tasks.append(Task(
+                            id: 5,
+                            title: "Do, do and do...",
+                            description: "",
+                            author: "",
+                            assignee: "",
+                            watcher: "",
+                            priority: .urgent,
+                            state: .waitingForTask,
+                            createdDate: Date()))
         return model
     }
 }

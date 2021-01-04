@@ -25,7 +25,6 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
         //TODO:  set title for controller
         let headerCell = UINib(nibName: "TaskHeaderCell", bundle: nil)
         tasksHeadersCollectionView.register(headerCell, forCellWithReuseIdentifier: "HeaderReuseIdentifier")
-        tasksHeadersCollectionView.isPagingEnabled = true
         let taskCell = UINib(nibName: "TaskCell", bundle: nil)
         taskTableView.register(taskCell, forCellReuseIdentifier: "reuseForTask")
         tasksHeadersCollectionView.bordered()
@@ -33,8 +32,11 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
         taskTableView.bordered()
         taskTableView.rounded()
         priorities.titleLabel?.font = UIFont.primaryFontLight
+        priorities.setTitle("priorities".localized, for: .normal)
         types.titleLabel?.font = UIFont.primaryFontLight
+        types.setTitle("type".localized, for: .normal)
         groups.titleLabel?.font = UIFont.primaryFontLight
+        groups.setTitle("groups".localized, for: .normal)
     }
     @objc func backButtonPressed(){
         coordinator?.showProfileScreen()
@@ -56,7 +58,6 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
         let widthCell = collectionView.frame.width
         return CGSize(width: widthCell, height: collectionView.frame.height)
     }
-    var isScrolling = false
    private var currentPage = 0
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -66,12 +67,7 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
         let newPageNumber = Int((round(pageFraction)))
         if newPageNumber != currentPage {
             currentPage = newPageNumber
-            print(">>> \(Date()) \(newPageNumber)")
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -91,14 +87,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
         let tasks = viewModel.getTasks(for: state)
         guard tasks.count > indexPath.row else { return UITableViewCell() }
         
-        
-        
         cell.configure(with: tasks[indexPath.row])
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
 }

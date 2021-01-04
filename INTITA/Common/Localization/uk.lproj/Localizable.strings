@@ -44,10 +44,10 @@
 "medium_priority" = "Середній";
 "high_priority" = "Високий";
 "urgent_priority" = "Терміновий";
-"waiting_task" = "Очікує на завдання";
-"in_work" = "В роботі";
-"paused" = "Призупинено";
-"completed" = "Завершено";
+"waiting_task" = "ОЧІКУЄ НА ЗАВДАННЯ";
+"in_work" = "В РОБОТІ";
+"paused" = "ПРИЗУПИНЕНО";
+"completed" = "ЗАВЕРШЕНО";
 "priorities" = "Пріоритети";
 "type" = "Тип";
 "groups" = "Групи";

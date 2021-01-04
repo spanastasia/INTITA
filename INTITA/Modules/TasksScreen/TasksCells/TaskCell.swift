@@ -23,7 +23,13 @@ class TaskCell: UITableViewCell {
         dateOfCreation.text = formatter.string(from: task.createdDate)
         
         taskPriority.text = task.priority.description
-        taskPriority.textColor = .orange
+        switch task.priority {
+        case .medium:
+            taskPriority.textColor = .orange
+        case .high:
+            taskPriority.textColor = .red // intita.com #da4d44
+        case .urgent:
+            taskPriority.textColor = .purple // intita.com #780823
+        }
     }
-
 }

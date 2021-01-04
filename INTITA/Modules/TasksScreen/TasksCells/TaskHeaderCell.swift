@@ -13,6 +13,7 @@ class TaskHeaderCell: UICollectionViewCell {
     @IBOutlet weak var countOfTasks: UILabel!
     
     override func awakeFromNib() {
+        titleOfTasks.font = UIFont(name: "MyriadPro-Regular", size: 24.0)
         countOfTasks.rounded(cornerRadius: countOfTasks.frame.height/2, roundOnlyBottomCorners: false)
     }
     func configure (title: String, count: Int){
