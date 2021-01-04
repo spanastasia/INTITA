@@ -77,7 +77,7 @@ extension TasksModel {
         
         model.tasks.append(Task(
                             id: 2,
-                            title: "Do smth",
+                            title: "Do another",
                             description: "",
                             author: "",
                             assignee: "",
@@ -88,7 +88,7 @@ extension TasksModel {
         
         model.tasks.append(Task(
                             id: 3,
-                            title: "Do smth",
+                            title: "Do smth else",
                             description: "",
                             author: "",
                             assignee: "",
@@ -99,7 +99,7 @@ extension TasksModel {
         
         model.tasks.append(Task(
                             id: 4,
-                            title: "Do smth",
+                            title: "Just do...",
                             description: "",
                             author: "",
                             assignee: "",
@@ -107,9 +107,7 @@ extension TasksModel {
                             priority: .medium,
                             state: .waitingForTask,
                             createdDate: Date()))
-        
-        
-        
+              
         return model
     }
 }

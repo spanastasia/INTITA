@@ -85,7 +85,7 @@
 		BA4FF3A1259686130063218C /* TaskHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA4FF39F259686130063218C /* TaskHeaderCell.xib */; };
 		BA4FF3B9259A01160063218C /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4FF3B8259A01160063218C /* TaskModel.swift */; };
 		BA4FF3CA25A0D6D50063218C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4FF3C825A0D6D40063218C /* TaskCell.swift */; };
-		BA4FF3CB25A0D6D50063218C /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA4FF3C925A0D6D40063218C /* TaskCell.xib */; };
+		BA4FF3DD25A20C700063218C /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA4FF3DB25A20C700063218C /* TaskCell.xib */; };
 		BA5A2093256D99820008FB0C /* LogInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */; };
 		BA5A20D1257567E40008FB0C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */; };
@@ -198,7 +198,7 @@
 		BA4FF39F259686130063218C /* TaskHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskHeaderCell.xib; sourceTree = "<group>"; };
 		BA4FF3B8259A01160063218C /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		BA4FF3C825A0D6D40063218C /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		BA4FF3C925A0D6D40063218C /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		BA4FF3DB25A20C700063218C /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModelTests.swift; sourceTree = "<group>"; };
 		BA5A20AA257178750008FB0C /* currentUser.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currentUser.json; sourceTree = "<group>"; };
 		BA78F0382559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shadow+BorderRadius+CornerRadius.swift"; sourceTree = "<group>"; };
@@ -501,8 +501,8 @@
 			children = (
 				BA4FF39E259686130063218C /* TaskHeaderCell.swift */,
 				BA4FF3C825A0D6D40063218C /* TaskCell.swift */,
-				BA4FF3C925A0D6D40063218C /* TaskCell.xib */,
 				BA4FF39F259686130063218C /* TaskHeaderCell.xib */,
+				BA4FF3DB25A20C700063218C /* TaskCell.xib */,
 			);
 			path = TasksCells;
 			sourceTree = "<group>";
@@ -657,12 +657,12 @@
 				3F87983C255E70A60094D6D9 /* Profile.storyboard in Resources */,
 				84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */,
 				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
-				BA4FF3CB25A0D6D50063218C /* TaskCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
 				49C098052578CE42000A8935 /* currentUser.json in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
+				BA4FF3DD25A20C700063218C /* TaskCell.xib in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,

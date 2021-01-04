@@ -12,54 +12,51 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
     var viewModel: TasksViewModel!
     weak var coordinator: TasksCoordinator?
     @IBOutlet weak var tasksHeadersCollectionView: UICollectionView!
+    @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet weak var priorities: UIButton!
+    @IBOutlet weak var types: UIButton!
+    @IBOutlet weak var groups: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
-        let backBarButtonItem = UIBarButtonItem(title: "⟨", style: .plain, target: self, action: #selector(backButtonPressed))
-        self.navigationItem.leftBarButtonItem = backBarButtonItem
-        //        self.navigationController?.navigationBar.backItem?.title = " "
-        //        self.navigationController?.navigationBar.backItem?.backBarButtonItem = backBarButtonItem
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButtonPressed))
+                self.navigationController?.navigationBar.backItem?.backBarButtonItem = backBarButtonItem
+        //TODO:  set title for controller
         let headerCell = UINib(nibName: "TaskHeaderCell", bundle: nil)
         tasksHeadersCollectionView.register(headerCell, forCellWithReuseIdentifier: "HeaderReuseIdentifier")
-        //for tableview
-        //        let taskCell = UINib(nibName: "TaskCell", bundle: nil)
-        //        taskTableView.register(taskCell, forCellWithReuseIdentifier: "reuseForTask")
-        
+                let taskCell = UINib(nibName: "TaskCell", bundle: nil)
+        taskTableView.register(taskCell, forCellReuseIdentifier: "reuseForTask")
+        tasksHeadersCollectionView.bordered()
+        tasksHeadersCollectionView.rounded()
+        taskTableView.bordered()
+        taskTableView.rounded()
+        priorities.titleLabel?.font = UIFont.primaryFontLight
+        types.titleLabel?.font = UIFont.primaryFontLight
+        groups.titleLabel?.font = UIFont.primaryFontLight
     }
     @objc func backButtonPressed(){
         coordinator?.showProfileScreen()
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfStates
     }
-    //for tableview
-    //        guard let state = State(rawValue: section) else { return 0 }
-    //        return viewModel.getCountOfTasks(in: state)
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let state = State(rawValue: indexPath.row),
               let sectionHeader = collectionView.dequeueReusableCell(withReuseIdentifier: "HeaderReuseIdentifier", for: indexPath) as? TaskHeaderCell else { return UICollectionViewCell() }
         
-        sectionHeader.titleOfTasks.text = viewModel.getTitle(for: state)
+        sectionHeader.configure(title: viewModel.getTitle(for: state), count: viewModel.getCountOfTasks(in: state))
         return sectionHeader
     }
-    //    for tableview
-    //    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseForTask", for: indexPath) as? TaskCell else { return UICollectionViewCell() }
-    //    guard let state = State(rawValue: indexPath.section) else { return UICollectionViewCell() }
-    //
-    //    cell.configure(with: viewModel.getTasks(for: state)[indexPath.row])
-    //    return cell
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthCell = collectionView.frame.width
         return CGSize(width: widthCell, height: collectionView.frame.height)
     }
     var isScrolling = false
+   private var currentPage = 0
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard !isScrolling else {
@@ -69,6 +66,7 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
         let pageFraction = scrollView.contentOffset.x/pageWidth
         
         let newPageNumber = Int((round(pageFraction)))
+        currentPage = newPageNumber
         print(">>> \(Date()) \(newPageNumber)")
         tasksHeadersCollectionView.scrollToItem(
             at: IndexPath(row: newPageNumber, section: 0),
@@ -79,5 +77,30 @@ class TasksViewController: UIViewController, Storyboarded, AlertAcceptable, UICo
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         isScrolling = false
+        taskTableView.reloadData()
     }
+}
+
+extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let state = State(rawValue: currentPage) else {return 0}
+        return viewModel.getCountOfTasks(in: state)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = taskTableView.dequeueReusableCell(withIdentifier: "reuseForTask", for: indexPath) as? TaskCell,
+              let state = State(rawValue: currentPage) else { return UITableViewCell() }
+        let tasks = viewModel.getTasks(for: state)
+        guard tasks.count > indexPath.row else { return UITableViewCell() }
+        
+        
+        
+        cell.configure(with: tasks[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
 }
