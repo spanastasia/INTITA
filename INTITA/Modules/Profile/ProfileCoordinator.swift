@@ -18,12 +18,6 @@ class ProfileCoordinator: Coordinator {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        
-        //childCoordinators.append(SystemProfileCoordinator())
-        //childCoordinators.append(MessagesCoordinator())
-        //childCoordinators.append(OpportunitiesCoordinator())
-        //childCoordinators.append(TasksCoordinator())
-//        childCoordinators.append(SettingsProfileCoordinator(navigationController: navigationController))
     }
 
     func start() {
@@ -38,7 +32,12 @@ class ProfileCoordinator: Coordinator {
     func showLoginScreen() {
         navigationController.popViewController(animated: true)
     }
-    
+    //2
+    func displayTasksProfileScreen() {
+        let tasksScreenCoordinator = TasksCoordinator(navigationController: navigationController)
+        tasksScreenCoordinator.start()
+    }
+    //3
     func displaySettingsProfileScreen() {
         let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController)
         settingScreenCoordinator.start()
@@ -65,8 +64,7 @@ extension ProfileCoordinator: ProfileTableViewCellDelegate {
             // Opportunities
             alertPresenter?.showAlert()
         case 2:
-            // My tasks
-            alertPresenter?.showAlert()
+            displayTasksProfileScreen()
         case 3:
             displaySettingsProfileScreen()
         default:

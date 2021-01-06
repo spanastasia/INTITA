@@ -49,10 +49,10 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     func setupCell() {
         
         tableView.register(HeaderSettingsTableViewCell.nib(),
-                           forCellReuseIdentifier: HeaderSettingsTableViewCell.identifire)
+                           forCellReuseIdentifier: HeaderSettingsTableViewCell.identifier)
 
         tableView.register(InfoSettingProfileTableViewCell.nib(),
-                           forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifire)
+                           forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
     }
 
 }
