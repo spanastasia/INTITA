@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TaskHeaderCell: UICollectionViewCell {
+class TaskHeaderCell: UICollectionViewCell, NibCapable {
     
     @IBOutlet weak var titleOfTasks: UILabel!
     @IBOutlet weak var countOfTasks: UILabel!

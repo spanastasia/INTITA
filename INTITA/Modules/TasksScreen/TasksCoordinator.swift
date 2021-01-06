@@ -7,14 +7,9 @@
 
 import UIKit
 
-//protocol ProfileCoordinatorAlertPresenter: AnyObject {
-//    func showAlert()
-//}
-//
 class TasksCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-//    weak var alertPresenter: ProfileCoordinatorAlertPresenter?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,8 +20,7 @@ class TasksCoordinator: Coordinator {
         let viewModel = TasksViewModel()
         vc.coordinator = self
         vc.viewModel = viewModel
-//        alertPresenter = vc
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: true)
     }
 
     func showProfileScreen() {
@@ -34,13 +28,3 @@ class TasksCoordinator: Coordinator {
         navigationController.setNavigationBarHidden(true, animated: true)
     }
 }
-//
-//extension ProfileCoordinator: ProfileTableViewCellDelegate {
-//    func goToVC(number: Int) {
-//        guard number < childCoordinators.count else {
-//            alertPresenter?.showAlert()
-//            return
-//        }
-//        childCoordinators[number].start()
-//    }
-//}

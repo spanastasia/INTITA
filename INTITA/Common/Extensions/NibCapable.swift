@@ -8,16 +8,16 @@
 import UIKit
 
 protocol NibCapable: AnyObject {
-    static var identifire: String { get }
+    static var identifier: String { get }
     static func nib() -> UINib
 }
 
 extension NibCapable {
-    static var identifire: String {
+    static var identifier: String {
         return String(describing: self)
     }
     
     static func nib() -> UINib {
-        return UINib(nibName: identifire, bundle: nil)
+        return UINib(nibName: identifier, bundle: nil)
     }
 }

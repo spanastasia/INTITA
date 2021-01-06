@@ -120,3 +120,42 @@ extension TasksModel {
         return model
     }
 }
+
+//TODO: here should be model according this example
+//{
+//   "task":{
+//      "id":1791,
+//      "name":"...some text...",
+//      "body":"...some text...",
+//      "startTask":"2020-06-26 07:20:54",
+//      "endTask":null,
+//      "deadline":null,
+//      "id_state":3,
+//      "created_by":386,     //this is user id
+//      "created_date":"2020-06-26 07:20:54",
+//      "cancelled_by":null,
+//      "cancelled_date":null,
+//      "change_date":null,
+//      "priority":2,
+//      "id_parent":null,
+//      "type":1,
+//      "expected_time":null,
+//      "changed_by":null,
+//      "created_at":null,
+//      "updated_at":null,
+//      "typeName":"\u0417\u0430\u0432\u0434\u0430\u043d\u043d\u044f",
+//      "task_state_history":[],
+//      "children_tasks":[],
+//      "attached_files":[],
+//      "task_creator":{},   // here is a link for id at "created_by"
+//      "task_assignee":{},
+//      "task_watchers":[],
+//      "task_collaborators":[],
+//      "task_subgroup_collaborators":[],
+//      "type_model":{}
+//   },
+//   "userTaskState":{},
+//   "attachedFiles":[],
+//   "roles":{}
+//}
+
