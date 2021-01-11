@@ -184,11 +184,10 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
                 
                 self.headerContentView.logoView.transform = CGAffineTransform.identity
                     .scaledBy(x: 0.001, y: 0.001)
-                
+                let xShift = self.headerContentView.surnameLabel.frame.minX - self.headerContentView.nameLabel.frame.minX
                 self.headerContentView.nameLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)
-                    .translatedBy(x: 0.35 * widthHeaderContentView,
-                                  y: -0.1 * heightHeaderContentView)
+                    .translatedBy(x: xShift, y: -0.1 * heightHeaderContentView)
                 
                 self.headerContentView.surnameLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)

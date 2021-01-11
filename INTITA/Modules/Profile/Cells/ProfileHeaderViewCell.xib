@@ -31,11 +31,11 @@
                                     <constraint firstAttribute="height" constant="30" id="qYQ-2a-TMA"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-Yq-f6n">
-                                <rect key="frame" x="58" y="242" width="358" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-Yq-f6n">
+                                <rect key="frame" x="132.5" y="242" width="209" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qse-Hb-MYw">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qse-Hb-MYw">
+                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="NcS-yN-4i1"/>
                                         </constraints>
@@ -43,8 +43,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Surname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7du-MQ-zLd">
-                                        <rect key="frame" x="183" y="0.0" width="175" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Surname" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7du-MQ-zLd">
+                                        <rect key="frame" x="87.5" y="0.0" width="121.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="4Jf-HY-EPj"/>
                                         </constraints>
@@ -108,12 +108,13 @@
                             <constraint firstItem="2Sp-0J-kPW" firstAttribute="centerX" secondItem="amO-lp-LyI" secondAttribute="centerX" id="JaV-L3-3cR"/>
                             <constraint firstItem="2Sp-0J-kPW" firstAttribute="centerY" secondItem="amO-lp-LyI" secondAttribute="centerY" id="Jgm-Y2-BnY"/>
                             <constraint firstAttribute="trailing" secondItem="ij8-dx-qrF" secondAttribute="trailing" constant="58" id="NRi-sW-6Ah"/>
-                            <constraint firstAttribute="trailing" secondItem="5Ol-Yq-f6n" secondAttribute="trailing" constant="58" id="OjJ-a9-2jb"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Ol-Yq-f6n" secondAttribute="trailing" constant="24" id="OjJ-a9-2jb"/>
+                            <constraint firstItem="5Ol-Yq-f6n" firstAttribute="centerX" secondItem="ugS-Oe-Uut" secondAttribute="centerX" id="Otc-b1-SIt"/>
                             <constraint firstItem="amO-lp-LyI" firstAttribute="top" secondItem="Ua9-CR-JUF" secondAttribute="bottom" id="SXU-8F-EEn"/>
                             <constraint firstAttribute="bottom" secondItem="ij8-dx-qrF" secondAttribute="bottom" constant="20" id="VfP-3J-YjS"/>
                             <constraint firstItem="ij8-dx-qrF" firstAttribute="leading" secondItem="ugS-Oe-Uut" secondAttribute="leading" constant="58" id="g4C-yK-Mr4"/>
                             <constraint firstItem="Ua9-CR-JUF" firstAttribute="trailing" secondItem="amO-lp-LyI" secondAttribute="trailing" id="j7m-m3-Ctd"/>
-                            <constraint firstItem="5Ol-Yq-f6n" firstAttribute="leading" secondItem="ugS-Oe-Uut" secondAttribute="leading" constant="58" id="tx0-cQ-jIG"/>
+                            <constraint firstItem="5Ol-Yq-f6n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ugS-Oe-Uut" secondAttribute="leading" constant="24" id="tx0-cQ-jIG"/>
                             <constraint firstItem="amO-lp-LyI" firstAttribute="centerY" secondItem="ugS-Oe-Uut" secondAttribute="centerY" id="udf-a0-2vW"/>
                             <constraint firstItem="2Sp-0J-kPW" firstAttribute="height" secondItem="amO-lp-LyI" secondAttribute="height" constant="32" id="xIG-Lj-deZ"/>
                             <constraint firstItem="lJd-YN-elw" firstAttribute="top" secondItem="ugS-Oe-Uut" secondAttribute="top" constant="20" id="xpk-E7-7Li"/>
