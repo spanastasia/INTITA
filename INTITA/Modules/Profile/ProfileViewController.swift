@@ -187,11 +187,12 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
                 let xShift = self.headerContentView.surnameLabel.frame.minX - self.headerContentView.nameLabel.frame.minX
                 self.headerContentView.nameLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)
-                    .translatedBy(x: xShift, y: -0.1 * heightHeaderContentView)
-                
+                    .translatedBy(x: -0.1 * widthHeaderContentView + xShift, y: -0.1 * heightHeaderContentView)
+//                self.headerContentView.surnameLabel.center = CGPoint(x: 150, y: -80)
+//                self.headerContentView.nameLabel.center = CGPoint(x: 150, y: -150)
                 self.headerContentView.surnameLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)
-                    .translatedBy(x: 0 * widthHeaderContentView,
+                    .translatedBy(x: -0.1 * widthHeaderContentView,
                                   y: -0.25 * heightHeaderContentView)
                 
                 self.headerContentView.specializationLabel.transform = CGAffineTransform.identity

@@ -50,21 +50,36 @@ class ProfileHeaderViewCell: UITableViewCell {
     
     //MARK: - Methods
     func update() {
-        guard let user = UserData.currentUser else {
-            return
-        }
-        guard let userDB = CoreDataService.retrieveDataFromDB(appUser: user) else {return}
+        guard let user = UserData.currentUser else { return }
+        guard let userDB = CoreDataService.retrieveDataFromDB(appUser: user) else { return }
+        
         nameLabel.text = "\(userDB.firstName)"
         surnameLabel.text = "\(userDB.secondName)"
+        
+        let countCharacters = (nameLabel.text?.count ?? 0) + (surnameLabel.text?.count ?? 0)
+        if countCharacters >= 20 {
+            
+            setupFontSize(countCharacters)
+        }
 
         specializationLabel.text = userDB.preferSpecialization
-        guard let url = userDB.avatar else {
-            return
-        }
+        
+        guard let url = userDB.avatar else { return }
+        
         avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
     }
+    
     private func setupContainer() {
         container.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         container.shadowed()
+    }
+    
+    func setupFontSize(_ numberOfLetter: Int) {
+        
+        let scaleFactor: CGFloat = 20 / CGFloat(numberOfLetter)
+        let newSize: CGFloat = 30 * scaleFactor
+        
+        nameLabel.font = UIFont.systemFont(ofSize: newSize)
+        surnameLabel.font = UIFont.systemFont(ofSize: newSize)
     }
 }
