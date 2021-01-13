@@ -32,17 +32,15 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         
         setupCell()
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.barTintColor = UIColor.primaryColor
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//        navigationController?.navigationBar.barTintColor = UIColor.primaryColor
 
     }
     
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
-        guard parent == nil else {
-            return
-        }
+        guard parent == nil else { return }
         print("Did press Back button")
     }
     

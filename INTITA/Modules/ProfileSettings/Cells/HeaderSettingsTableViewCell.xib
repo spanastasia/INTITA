@@ -69,6 +69,14 @@
                                     <action selector="editButtonTapped:" destination="qpw-P1-R1X" eventType="touchUpInside" id="U7e-ht-kPh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jo9-vc-nHw">
+                                <rect key="frame" x="8" y="8" width="44.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="back" image="chevron.backward" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="mainColor"/>
                         <constraints>
@@ -78,6 +86,8 @@
                             <constraint firstAttribute="bottom" secondItem="ZFB-qA-jDg" secondAttribute="bottom" constant="31" id="X0O-wb-euF"/>
                             <constraint firstItem="KYg-vH-o0I" firstAttribute="top" secondItem="xd5-AK-fV5" secondAttribute="top" constant="35" id="Y1J-wP-gkb"/>
                             <constraint firstAttribute="bottom" secondItem="uuC-MB-f5g" secondAttribute="bottom" constant="31" id="YaG-ie-nBn"/>
+                            <constraint firstItem="Jo9-vc-nHw" firstAttribute="leading" secondItem="xd5-AK-fV5" secondAttribute="leading" constant="8" id="c3b-uL-YGV"/>
+                            <constraint firstItem="Jo9-vc-nHw" firstAttribute="top" secondItem="xd5-AK-fV5" secondAttribute="top" constant="8" id="ruS-hU-mx3"/>
                             <constraint firstAttribute="bottom" secondItem="hIR-Sc-RFl" secondAttribute="bottom" constant="40" id="utW-rs-Rhd"/>
                             <constraint firstAttribute="trailing" secondItem="hIR-Sc-RFl" secondAttribute="trailing" constant="24" id="wc1-6F-bdA"/>
                             <constraint firstItem="uuC-MB-f5g" firstAttribute="leading" secondItem="xd5-AK-fV5" secondAttribute="leading" constant="35" id="xz6-kr-s4H"/>
@@ -104,6 +114,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="defaultAvatar" width="530" height="530"/>
         <image name="editBtn" width="25" height="25"/>
         <namedColor name="mainColor">
