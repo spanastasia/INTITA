@@ -76,6 +76,9 @@
                                 <state key="normal" title="back" image="chevron.backward" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="backBattonTaped:" destination="qpw-P1-R1X" eventType="touchUpInside" id="bza-R3-ZUs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="mainColor"/>

@@ -23,4 +23,20 @@ class SettingsProfileCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func showProfileScreen() {
+            navigationController.popViewController(animated: true)
+//            navigationController.setNavigationBarHidden(true, animated: true)
+//        let vc = ProfileViewController.instantiate()
+//        vc.coordinator = self
+//        navigationController.pushViewController(vc, animated: true)
+    }
+    
 }
+
+//extension SettingsProfileCoordinator: HeaderSettingsTableViewCellDelegate {
+//    func showProfileScreen() {
+//            navigationController.popViewController(animated: true)
+//            navigationController.setNavigationBarHidden(true, animated: true)
+//    }
+//
+//}

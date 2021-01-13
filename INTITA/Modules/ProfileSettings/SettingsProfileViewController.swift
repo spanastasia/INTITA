@@ -9,8 +9,11 @@ import UIKit
 
 class SettingsProfileViewController: UIViewController, Storyboarded {
     
-    var coordinator: SettingsProfileCoordinator?
+    weak var coordinator: SettingsProfileCoordinator?
+    
     private var isProfileEditing = false
+    private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
+    lazy var backButton = UIButton()
 
     let arr = [
                 "firstName", "full_name", "secondName",
@@ -22,8 +25,9 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                 "current_job", "userStatus"
             ]
 
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,9 +36,15 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         
         setupCell()
         
-//        navigationController?.setNavigationBarHidden(false, animated: true)
-//        navigationController?.navigationBar.barTintColor = UIColor.primaryColor
-
+//        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside) 
+//        headerContentView.backBattonTaped(backBarButtonItem)
+//        headerContentView.backBattonTaped(backButton)
+        headerContentView.delegate = self
+        headerView.addSubview(headerContentView)
+//        headerView.addSubview(backButton)
+//        headerContentView.backBattonTaped(backButton)
+        
+        
     }
     
     override func didMove(toParent parent: UIViewController?) {
@@ -44,10 +54,14 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         print("Did press Back button")
     }
     
+//    @objc func backButtonPressed(){
+//        coordinator?.showProfileScreen()
+//    }
+    
     func setupCell() {
         
-        tableView.register(HeaderSettingsTableViewCell.nib(),
-                           forCellReuseIdentifier: HeaderSettingsTableViewCell.identifier)
+//        tableView.register(HeaderSettingsTableViewCell.nib(),
+//                           forCellReuseIdentifier: HeaderSettingsTableViewCell.identifier)
 
         tableView.register(InfoSettingProfileTableViewCell.nib(),
                            forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
@@ -71,51 +85,44 @@ extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        var height: CGFloat = 0
-        
-        if indexPath.row == 0 {
-            height = 188
-        } else {
-            height = 45
-        }
-        
-        return height
+        return 45
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderSettingsTableViewCell", for: indexPath) as! HeaderSettingsTableViewCell
-            
-            headerCell.delegate = self
-            return headerCell
-        } else {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoSettingProfileTableViewCell", for: indexPath) as! InfoSettingProfileTableViewCell
-            cell.aboutSelfLabel.text = arr[indexPath.row] + " : "
-            cell.isProfileEditing = isProfileEditing
-            if indexPath.row.isMultiple(of: 2) {
-                cell.backgroundColor = .systemGray6
-            }
-            
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoSettingProfileTableViewCell", for: indexPath) as! InfoSettingProfileTableViewCell
+        cell.aboutSelfLabel.text = arr[indexPath.row] + " : "
+        cell.isProfileEditing = isProfileEditing
+        if indexPath.row.isMultiple(of: 2) {
+            cell.backgroundColor = .systemGray6
         }
+        
+        return cell
         
     }
     
 }
 
 extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
-
-    func editTaped(_ sender: HeaderSettingsTableViewCell) {
-        
-        isProfileEditing.toggle()
-        
-        if sender.editButton.titleLabel?.text == "edit".localized {
-            sender.editButton.setTitle("save".localized, for: .normal)
-        } else {
-            sender.editButton.setTitle("edit".localized, for: .normal)
+    func goToProfileScreen(_ sender: HeaderSettingsTableViewCell) {
+        if sender.isOpaque {
+            print("gfgfgfgf")
+            coordinator?.showProfileScreen()
         }
-        tableView.reloadData()
+//        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+//        sender.backBattonTaped(sender)
     }
+    
+//
+//    func editTaped(_ sender: HeaderSettingsTableViewCell) {
+//
+//        isProfileEditing.toggle()
+//
+//        if sender.editButton.titleLabel?.text == "edit".localized {
+//            sender.editButton.setTitle("save".localized, for: .normal)
+//        } else {
+//            sender.editButton.setTitle("edit".localized, for: .normal)
+//        }
+//        tableView.reloadData()
+//    }
 }
