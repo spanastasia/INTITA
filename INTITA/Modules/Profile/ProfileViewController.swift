@@ -190,9 +190,9 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
                 let xShift = self.headerContentView.surnameLabel.frame.minX - self.headerContentView.nameLabel.frame.minX
                 self.headerContentView.nameLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)
-                    .translatedBy(x: -0.1 * widthHeaderContentView + xShift, y: -0.1 * heightHeaderContentView)
-//                self.headerContentView.surnameLabel.center = CGPoint(x: 150, y: -80)
-//                self.headerContentView.nameLabel.center = CGPoint(x: 150, y: -150)
+                    .translatedBy(x: -0.1 * widthHeaderContentView + xShift,
+                                  y: -0.1 * heightHeaderContentView)
+
                 self.headerContentView.surnameLabel.transform = CGAffineTransform.identity
                     .scaledBy(x: 1, y: 2)
                     .translatedBy(x: -0.1 * widthHeaderContentView,

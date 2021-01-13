@@ -57,6 +57,7 @@ class ProfileHeaderViewCell: UITableViewCell {
         surnameLabel.text = "\(userDB.secondName)"
         
         let countCharacters = (nameLabel.text?.count ?? 0) + (surnameLabel.text?.count ?? 0)
+        
         if countCharacters >= 20 {
             
             setupFontSize(countCharacters)
