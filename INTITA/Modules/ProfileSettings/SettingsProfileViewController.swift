@@ -35,15 +35,9 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         
         setupCell()
-        
-//        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside) 
-//        headerContentView.backBattonTaped(backBarButtonItem)
-//        headerContentView.backBattonTaped(backButton)
+
         headerContentView.delegate = self
-        headerView.addSubview(headerContentView)
-//        headerView.addSubview(backButton)
-//        headerContentView.backBattonTaped(backButton)
-        
+        headerView.addSubview(headerContentView)        
         
     }
     
@@ -54,14 +48,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         print("Did press Back button")
     }
     
-//    @objc func backButtonPressed(){
-//        coordinator?.showProfileScreen()
-//    }
-    
     func setupCell() {
-        
-//        tableView.register(HeaderSettingsTableViewCell.nib(),
-//                           forCellReuseIdentifier: HeaderSettingsTableViewCell.identifier)
 
         tableView.register(InfoSettingProfileTableViewCell.nib(),
                            forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
@@ -106,11 +93,10 @@ extension SettingsProfileViewController: UITableViewDataSource {
 extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
     func goToProfileScreen(_ sender: HeaderSettingsTableViewCell) {
         if sender.isOpaque {
-            print("gfgfgfgf")
+//            print("goToProfileScreen")
             coordinator?.showProfileScreen()
         }
-//        backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
-//        sender.backBattonTaped(sender)
+
     }
     
 //

@@ -36,7 +36,7 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     }
     
     @IBAction func backBattonTaped(_ sender: Any) {
-        print("hfhfhfhfhfhfh")
+//        print("backBattonTaped")
         delegate.goToProfileScreen(self)
     }
     
