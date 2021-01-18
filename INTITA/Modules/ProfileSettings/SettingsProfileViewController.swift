@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsProfileViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: SettingsProfileCoordinator?
+    var coordinator: SettingsProfileCoordinator?
     
     private var isProfileEditing = false
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
@@ -78,10 +78,14 @@ extension SettingsProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "InfoSettingProfileTableViewCell", for: indexPath) as! InfoSettingProfileTableViewCell
+        
         cell.aboutSelfLabel.text = arr[indexPath.row] + " : "
         cell.isProfileEditing = isProfileEditing
+        
         if indexPath.row.isMultiple(of: 2) {
             cell.backgroundColor = .systemGray6
+        } else {
+            cell.backgroundColor = .white
         }
         
         return cell
@@ -91,24 +95,24 @@ extension SettingsProfileViewController: UITableViewDataSource {
 }
 
 extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
-    func goToProfileScreen(_ sender: HeaderSettingsTableViewCell) {
-        if sender.isOpaque {
-//            print("goToProfileScreen")
-            coordinator?.showProfileScreen()
-        }
+    func goToProfileScreen() {
+//        if sender.isOpaque {
+//            print("goCoordinator")
+        coordinator?.returnToProfileScreen()
+//        }
 
     }
     
-//
-//    func editTaped(_ sender: HeaderSettingsTableViewCell) {
-//
-//        isProfileEditing.toggle()
-//
-//        if sender.editButton.titleLabel?.text == "edit".localized {
-//            sender.editButton.setTitle("save".localized, for: .normal)
-//        } else {
-//            sender.editButton.setTitle("edit".localized, for: .normal)
-//        }
-//        tableView.reloadData()
-//    }
+
+    func editTaped(_ sender: HeaderSettingsTableViewCell) {
+
+        isProfileEditing.toggle()
+//        print("editTaped")
+        if sender.editButton.titleLabel?.text == "edit".localized {
+            sender.editButton.setTitle("save".localized, for: .normal)
+        } else {
+            sender.editButton.setTitle("edit".localized, for: .normal)
+        }
+        tableView.reloadData()
+    }
 }

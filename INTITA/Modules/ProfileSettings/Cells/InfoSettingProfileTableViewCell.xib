@@ -28,12 +28,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2P-yl-2AN">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2P-yl-2AN">
                                 <rect key="frame" x="79" y="0.0" width="240" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="dJa-de-bvl"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="240" id="dJa-de-bvl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>

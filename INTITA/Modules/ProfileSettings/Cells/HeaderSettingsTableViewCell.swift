@@ -8,8 +8,8 @@
 import UIKit
 
 protocol HeaderSettingsTableViewCellDelegate: AnyObject {
-//    func editTaped(_ sender: HeaderSettingsTableViewCell)
-    func goToProfileScreen(_ sender: HeaderSettingsTableViewCell)
+    func editTaped(_ sender: HeaderSettingsTableViewCell)
+    func goToProfileScreen()
 }
 
 class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
@@ -30,14 +30,14 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        
-//        delegate.editTaped(self)
+//        print("editButtonTapped")
+        delegate.editTaped(self)
                 
     }
     
     @IBAction func backBattonTaped(_ sender: Any) {
 //        print("backBattonTaped")
-        delegate.goToProfileScreen(self)
+        delegate.goToProfileScreen()
     }
     
     private func setupCell() {
