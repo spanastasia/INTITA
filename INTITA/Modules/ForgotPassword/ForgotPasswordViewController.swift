@@ -17,7 +17,7 @@ enum ForgotCells: Int {
 
 class ForgotPasswordViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: ForgotPasswordCoordinator?
+    var coordinator: ForgotPasswordCoordinator?
     
     var validateEmail = Validate()
     
@@ -33,8 +33,6 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         
         registerCells()
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.barTintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,6 +67,11 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         forgotTableView.register(TextTableViewCell.nib(), forCellReuseIdentifier: TextTableViewCell.identifier)
         
         forgotTableView.register(RegisterButtonTableViewCell.nib(), forCellReuseIdentifier: RegisterButtonTableViewCell.identifier)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+    
+        coordinator?.returnToLoginScreen()
     }
     
 }
