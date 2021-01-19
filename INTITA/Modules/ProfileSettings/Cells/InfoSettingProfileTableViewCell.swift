@@ -29,11 +29,13 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     }
         
     private func setupTextField() {
+        
         infoTextField.isHidden = false
         infoTextField.rounded(cornerRadius: 1, roundOnlyBottomCorners: true)
     }
     
     func hideTextField() {
+        
         infoTextField.isHidden = true
         infoTextField.rounded(cornerRadius: 0, roundOnlyBottomCorners: true)
     }
@@ -43,6 +45,7 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
 extension InfoSettingProfileTableViewCell: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.becomeFirstResponder()
         print("you taper textfild")
         return true

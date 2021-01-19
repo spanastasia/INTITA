@@ -30,13 +30,13 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-//        print("editButtonTapped")
+
         delegate.editTaped(self)
                 
     }
     
     @IBAction func backBattonTaped(_ sender: Any) {
-//        print("backBattonTaped")
+
         delegate.goToProfileScreen()
     }
     

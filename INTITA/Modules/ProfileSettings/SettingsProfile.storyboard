@@ -23,19 +23,26 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIj-KA-cKh">
                                 <rect key="frame" x="0.0" y="44" width="414" height="190"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghK-0v-7BC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                 <color key="backgroundColor" name="mainColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Npq-ax-oex"/>
-                        <color key="backgroundColor" name="mainColor"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ghK-0v-7BC" secondAttribute="trailing" id="8Ma-aJ-Kei"/>
                             <constraint firstItem="Cjb-vl-QM8" firstAttribute="leading" secondItem="Npq-ax-oex" secondAttribute="leading" id="8ZK-a4-9rm"/>
+                            <constraint firstItem="ghK-0v-7BC" firstAttribute="top" secondItem="9Dg-D4-xHT" secondAttribute="top" id="KwY-fk-BHS"/>
+                            <constraint firstItem="ghK-0v-7BC" firstAttribute="top" secondItem="9Dg-D4-xHT" secondAttribute="top" id="MxI-oa-cjI"/>
                             <constraint firstItem="Npq-ax-oex" firstAttribute="bottom" secondItem="Cjb-vl-QM8" secondAttribute="bottom" constant="-34" id="NQF-Nz-8i7"/>
                             <constraint firstItem="Npq-ax-oex" firstAttribute="trailing" secondItem="Cjb-vl-QM8" secondAttribute="trailing" id="OHo-OQ-kha"/>
+                            <constraint firstItem="ghK-0v-7BC" firstAttribute="leading" secondItem="9Dg-D4-xHT" secondAttribute="leading" id="VE0-Qi-P2T"/>
                             <constraint firstItem="Npq-ax-oex" firstAttribute="trailing" secondItem="PIj-KA-cKh" secondAttribute="trailing" id="hZg-OM-Fqy"/>
                             <constraint firstItem="PIj-KA-cKh" firstAttribute="top" secondItem="Npq-ax-oex" secondAttribute="top" id="qmv-KL-OAR"/>
                             <constraint firstItem="Cjb-vl-QM8" firstAttribute="top" secondItem="PIj-KA-cKh" secondAttribute="bottom" id="rOW-Ih-h2e"/>
+                            <constraint firstItem="PIj-KA-cKh" firstAttribute="top" secondItem="ghK-0v-7BC" secondAttribute="bottom" constant="-5" id="swx-yK-o6j"/>
                             <constraint firstItem="PIj-KA-cKh" firstAttribute="leading" secondItem="Npq-ax-oex" secondAttribute="leading" id="xMf-ue-7xf"/>
                             <constraint firstItem="Cjb-vl-QM8" firstAttribute="top" secondItem="Npq-ax-oex" secondAttribute="top" constant="190" id="y7S-oz-hDO"/>
                         </constraints>

@@ -16,13 +16,27 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     lazy var backButton = UIButton()
 
     let arr = [
-                "firstName", "full_name", "secondName",
-                "nickname", "birthday", "email",
-                "facebook", "linkedin", "twitter",
-                "phone", "address", "education",
-                "aboutUs", "aboutMy", "avatar",
-                "skype", "country", "city",
-                "current_job", "userStatus"
+        "firstName",
+        "secondName",
+        "nickname",
+        "birthday",
+        "country",
+        "city",
+        "address",
+        "phone",
+        "aboutMy",
+        "interests",
+        "education",
+        "prev_job",
+        "current_job",
+        "aboutUs",
+        "skype",
+        "facebook",
+        "linkedin",
+        "twitter",
+        "prefer_specializations",
+        "educform",
+        "education_shift"
             ]
 
     @IBOutlet weak var headerView: UIView!
@@ -89,25 +103,22 @@ extension SettingsProfileViewController: UITableViewDataSource {
         }
         
         return cell
-        
     }
     
 }
 
 extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
+    
     func goToProfileScreen() {
-//        if sender.isOpaque {
-//            print("goCoordinator")
-        coordinator?.returnToProfileScreen()
-//        }
 
+        coordinator?.returnToProfileScreen()
     }
     
 
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
 
         isProfileEditing.toggle()
-//        print("editTaped")
+
         if sender.editButton.titleLabel?.text == "edit".localized {
             sender.editButton.setTitle("save".localized, for: .normal)
         } else {
