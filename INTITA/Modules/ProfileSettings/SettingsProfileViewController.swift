@@ -51,7 +51,8 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         setupCell()
 
         headerContentView.delegate = self
-        headerView.addSubview(headerContentView)        
+        headerContentView.frame.size.width = view.frame.width
+        headerView.addSubview(headerContentView)
         
     }
     

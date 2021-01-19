@@ -24,9 +24,7 @@ class SettingsProfileCoordinator: Coordinator {
     }
     
     func returnToProfileScreen() {
-        //        print("navigationController")
+ 
         navigationController.popViewController(animated: true)
-        
-    }
-    
+    }    
 }
