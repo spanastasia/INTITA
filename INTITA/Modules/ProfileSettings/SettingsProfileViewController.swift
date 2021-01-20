@@ -92,7 +92,7 @@ extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoSettingProfileTableViewCell", for: indexPath) as? InfoSettingProfileTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell
         
         cell?.aboutSelfLabel.text = arr[indexPath.row] + " : "
         cell?.isProfileEditing = isProfileEditing
