@@ -92,18 +92,18 @@ extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoSettingProfileTableViewCell", for: indexPath) as! InfoSettingProfileTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InfoSettingProfileTableViewCell", for: indexPath) as? InfoSettingProfileTableViewCell
         
-        cell.aboutSelfLabel.text = arr[indexPath.row] + " : "
-        cell.isProfileEditing = isProfileEditing
+        cell?.aboutSelfLabel.text = arr[indexPath.row] + " : "
+        cell?.isProfileEditing = isProfileEditing
         
         if indexPath.row.isMultiple(of: 2) {
-            cell.backgroundColor = .systemGray6
+            cell?.backgroundColor = .systemGray6
         } else {
-            cell.backgroundColor = .white
+            cell?.backgroundColor = .white
         }
         
-        return cell
+        return cell ?? UITableViewCell()
     }
     
 }
