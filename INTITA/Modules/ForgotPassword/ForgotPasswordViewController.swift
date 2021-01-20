@@ -8,7 +8,7 @@
 import UIKit
 
 enum ForgotCells: Int {
-    case logoImageCell = 0
+    case logoImageCell = 1
     case explanationLabelCell
     case emailTextFieldCell
     case emptyCell
@@ -56,7 +56,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         view.layoutSubviews()
         forgotTableView.endUpdates()
         
-        forgotTableView.scrollToRow(at: IndexPath(row: 3, section: 0), at: .bottom, animated: true)
+        forgotTableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
     }
     
     func registerCells() {
@@ -84,7 +84,7 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let nameCell = ForgotCells(rawValue: indexPath.row)
+        let nameCell = ForgotCells(rawValue: indexPath.row + 1)
         var cell: UITableViewCell?
         
         switch nameCell {
@@ -120,7 +120,7 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let nameCell = ForgotCells(rawValue: indexPath.row)
+        let nameCell = ForgotCells(rawValue: indexPath.row + 1)
         var cellHeight: CGFloat
         
         switch nameCell {
@@ -145,6 +145,8 @@ extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, Ale
         guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
         
         guard let email = emailCell.textField.text else { return }
+        
+        emailCell.textField.resignFirstResponder()
         
         if !validateEmail.validateEmail(email: email) {
             
