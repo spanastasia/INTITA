@@ -121,20 +121,20 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let nameCell = ForgotCells(rawValue: indexPath.row)
-        var heightCell: CGFloat
+        var cellHeight: CGFloat
         
         switch nameCell {
         case .logoImageCell:
-            heightCell = 243
+            cellHeight = 243
         case .explanationLabelCell:
-            heightCell = 150
+            cellHeight = 150
         case .emailTextFieldCell, .sendButtonCell:
-            heightCell = 77
+            cellHeight = 77
         default:
-            heightCell = 20
+            cellHeight = 20
         }
         
-        return heightCell
+        return cellHeight
     }
 }
 
