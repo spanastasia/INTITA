@@ -9,15 +9,22 @@ import UIKit
 
 class OpportunitiesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var financeLabel: UILabel!
+    
+    @IBOutlet weak var firstLineView: UIView!
+    @IBOutlet weak var secondLineView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func downButtonTapped(_ sender: Any) {
+        
     }
+    
     
 }

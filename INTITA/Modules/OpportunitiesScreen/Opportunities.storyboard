@@ -32,6 +32,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehs-Sr-9RB">
+                                <rect key="frame" x="28" y="181" width="358" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="LYq-Xz-kJ4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Gm-b4-BoK"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,11 +46,16 @@
                             <constraint firstItem="qre-CZ-oPV" firstAttribute="leading" secondItem="7Gm-b4-BoK" secondAttribute="leading" constant="8" id="GBT-Kz-Kow"/>
                             <constraint firstItem="hiJ-2G-1e0" firstAttribute="top" secondItem="7Gm-b4-BoK" secondAttribute="top" constant="8" id="Gt2-Rw-1uu"/>
                             <constraint firstItem="qre-CZ-oPV" firstAttribute="top" secondItem="7Gm-b4-BoK" secondAttribute="top" constant="8" id="MyP-Co-ZkE"/>
+                            <constraint firstItem="Ehs-Sr-9RB" firstAttribute="top" secondItem="qre-CZ-oPV" secondAttribute="bottom" constant="100" id="Y5I-fF-W0m"/>
+                            <constraint firstItem="Ehs-Sr-9RB" firstAttribute="leading" secondItem="7Gm-b4-BoK" secondAttribute="leading" constant="28" id="Z9Z-ro-gvb"/>
                             <constraint firstItem="hiJ-2G-1e0" firstAttribute="leading" secondItem="qre-CZ-oPV" secondAttribute="trailing" constant="8" id="bJv-0o-VM7"/>
+                            <constraint firstItem="7Gm-b4-BoK" firstAttribute="trailing" secondItem="Ehs-Sr-9RB" secondAttribute="trailing" constant="28" id="dQF-Hl-fs4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="heightOfView" destination="LYq-Xz-kJ4" id="V5e-hD-waQ"/>
                         <outlet property="nameLabel" destination="hiJ-2G-1e0" id="abF-A3-SgD"/>
+                        <outlet property="taskView" destination="Ehs-Sr-9RB" id="8Io-Q9-vcy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBl-CB-uZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
