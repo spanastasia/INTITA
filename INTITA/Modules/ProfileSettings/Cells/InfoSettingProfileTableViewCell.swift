@@ -9,16 +9,13 @@ import UIKit
 
 class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
 
-    @IBOutlet weak var aboutSelfLabel: UILabel!
+    @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoTextField: UITextField!
     
     var isProfileEditing = false {
         didSet {
-            if isProfileEditing {
-                setupTextField()
-            } else {
-                hideTextField()
-            }
+            isProfileEditing ? setupTextField() : hideTextField()
         }
     }
     
@@ -38,6 +35,18 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         
         infoTextField.isHidden = true
         infoTextField.rounded(cornerRadius: 0, roundOnlyBottomCorners: true)
+    }
+    
+    func configure(withTitle: String, isEditing: Bool, indexPath: Int) {
+        
+        if indexPath.isMultiple(of: 2) {
+            cellView.backgroundColor = .systemGray6
+        } else {
+            cellView.backgroundColor = .white
+        }
+        
+        isProfileEditing = isEditing
+        titleLabel.text = withTitle
     }
     
 }

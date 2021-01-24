@@ -33,7 +33,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="240" id="dJa-de-bvl"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -48,8 +48,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="aboutSelfLabel" destination="4He-Dk-BPq" id="MMd-Rd-nd7"/>
+                <outlet property="cellView" destination="H2p-sc-9uM" id="xII-7X-F34"/>
                 <outlet property="infoTextField" destination="Y2P-yl-2AN" id="tAn-6r-4Ri"/>
+                <outlet property="titleLabel" destination="4He-Dk-BPq" id="MMd-Rd-nd7"/>
             </connections>
             <point key="canvasLocation" x="10" y="88"/>
         </tableViewCell>

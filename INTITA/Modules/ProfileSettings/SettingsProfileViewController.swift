@@ -94,14 +94,9 @@ extension SettingsProfileViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell
         
-        cell?.aboutSelfLabel.text = arr[indexPath.row] + " : "
-        cell?.isProfileEditing = isProfileEditing
-        
-        if indexPath.row.isMultiple(of: 2) {
-            cell?.backgroundColor = .systemGray6
-        } else {
-            cell?.backgroundColor = .white
-        }
+        cell?.configure(withTitle: arr[indexPath.row] + " : ",
+                        isEditing: isProfileEditing,
+                        indexPath: indexPath.row)
         
         return cell ?? UITableViewCell()
     }
@@ -120,11 +115,6 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
 
         isProfileEditing.toggle()
 
-        if sender.editButton.titleLabel?.text == "edit".localized {
-            sender.editButton.setTitle("save".localized, for: .normal)
-        } else {
-            sender.editButton.setTitle("edit".localized, for: .normal)
-        }
         tableView.reloadData()
     }
 }
