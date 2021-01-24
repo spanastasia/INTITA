@@ -43,7 +43,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="nameScreenLabel" destination="hiJ-2G-1e0" id="abF-A3-SgD"/>
+                        <outlet property="nameLabel" destination="hiJ-2G-1e0" id="abF-A3-SgD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBl-CB-uZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
