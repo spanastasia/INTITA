@@ -11,7 +11,7 @@
         <!--Opportunities View Controller-->
         <scene sceneID="Hj1-bC-GT5">
             <objects>
-                <viewController id="714-Qr-irM" customClass="OpportunitiesViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OpportunitiesViewController" id="714-Qr-irM" customClass="OpportunitiesViewController" customModule="INTITA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Jp-Cx-ejA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -410,9 +410,9 @@
 		6466671C25BDCFE100FAF5DA /* OpportunitiesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */,
-				6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */,
 				6466673525BDD22D00FAF5DA /* Opportunities.storyboard */,
+				6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */,
+				6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */,
 				6466673925BDD24100FAF5DA /* OpportunitiesViewModel.swift */,
 			);
 			path = OpportunitiesScreen;
