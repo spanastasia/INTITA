@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,9 +14,37 @@
                     <view key="view" contentMode="scaleToFill" id="3Jp-Cx-ejA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qre-CZ-oPV">
+                                <rect key="frame" x="8" y="52" width="48" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="90y-Ov-kMW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="chevron.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTappet:" destination="714-Qr-irM" eventType="touchUpInside" id="HA0-jb-7hL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiJ-2G-1e0">
+                                <rect key="frame" x="64" y="52" width="57" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7Gm-b4-BoK"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qre-CZ-oPV" firstAttribute="leading" secondItem="7Gm-b4-BoK" secondAttribute="leading" constant="8" id="GBT-Kz-Kow"/>
+                            <constraint firstItem="hiJ-2G-1e0" firstAttribute="top" secondItem="7Gm-b4-BoK" secondAttribute="top" constant="8" id="Gt2-Rw-1uu"/>
+                            <constraint firstItem="qre-CZ-oPV" firstAttribute="top" secondItem="7Gm-b4-BoK" secondAttribute="top" constant="8" id="MyP-Co-ZkE"/>
+                            <constraint firstItem="hiJ-2G-1e0" firstAttribute="leading" secondItem="qre-CZ-oPV" secondAttribute="trailing" constant="8" id="bJv-0o-VM7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameScreenLabel" destination="hiJ-2G-1e0" id="abF-A3-SgD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBl-CB-uZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,8 +52,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
     </resources>
 </document>
