@@ -12,6 +12,7 @@ class OpportunitiesViewController: UIViewController, Storyboarded {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var taskView: UIView!
     @IBOutlet weak var heightOfView: NSLayoutConstraint!
+    @IBOutlet weak var availableOptionsLabel: UILabel!
     
     var coordinator: OpportunitiesCoordinator?
     private lazy var contentView: OpportunitiesTableViewCell = .fromNib()
