@@ -49,6 +49,10 @@
 		6466159D25967C1E00173A13 /* InfoSettingProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */; };
 		646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */; };
 		646615A725967C6100173A13 /* InfoSettingProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */; };
+		6466672E25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */; };
+		6466673225BDD21C00FAF5DA /* OpportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */; };
+		6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6466673525BDD22D00FAF5DA /* Opportunities.storyboard */; };
+		6466673A25BDD24100FAF5DA /* OpportunitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466673925BDD24100FAF5DA /* OpportunitiesViewModel.swift */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
 		64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F40254C71F2004E6A4E /* Storyboarded.swift */; };
@@ -161,6 +165,10 @@
 		641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCoordinator.swift; sourceTree = "<group>"; };
 		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
+		6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesCoordinator.swift; sourceTree = "<group>"; };
+		6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesViewController.swift; sourceTree = "<group>"; };
+		6466673525BDD22D00FAF5DA /* Opportunities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Opportunities.storyboard; sourceTree = "<group>"; };
+		6466673925BDD24100FAF5DA /* OpportunitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesViewModel.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
 		64B74F3D254C71B1004E6A4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		64B74F40254C71F2004E6A4E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -399,6 +407,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		6466671C25BDCFE100FAF5DA /* OpportunitiesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */,
+				6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */,
+				6466673525BDD22D00FAF5DA /* Opportunities.storyboard */,
+				6466673925BDD24100FAF5DA /* OpportunitiesViewModel.swift */,
+			);
+			path = OpportunitiesScreen;
+			sourceTree = "<group>";
+		};
 		6473C8B62596465900CE2F10 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +553,7 @@
 				64B74F47254DC369004E6A4E /* Welcome */,
 				3F87983F255E70AC0094D6D9 /* Profile */,
 				641B86F9258D207D005FAA24 /* ProfileSettings */,
+				6466671C25BDCFE100FAF5DA /* OpportunitiesScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -661,6 +681,7 @@
 				84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */,
 				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
+				6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */,
 				49C098052578CE42000A8935 /* currentUser.json in Resources */,
 				84E2A75125B7425700B07CBF /* Countries.plist in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
@@ -693,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6466672E25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift in Sources */,
 				646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */,
 				6466159D25967C1E00173A13 /* InfoSettingProfileTableViewCell.swift in Sources */,
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
@@ -732,6 +754,7 @@
 				84067391256D517000A25431 /* TextTableViewCellModel.swift in Sources */,
 				BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
+				6466673A25BDD24100FAF5DA /* OpportunitiesViewModel.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
 				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
@@ -748,6 +771,7 @@
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
 				3F2E770B255474C600853140 /* AlertView.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,
+				6466673225BDD21C00FAF5DA /* OpportunitiesViewController.swift in Sources */,
 				BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */,
 				BA4FF37D259600250063218C /* TasksViewModel.swift in Sources */,
 				84A08F5D2556B9AE00565689 /* LogInViewController.swift in Sources */,
