@@ -7,7 +7,23 @@
 
 import UIKit
 
+protocol OpportunitiesTableViewCellDelegate: AnyObject {
+    func changeMainViewSize(withType: OpportunitiesView)
+}
+
 class OpportunitiesTableViewCell: UITableViewCell {
+    
+    var delegate: OpportunitiesTableViewCellDelegate?
+    var type: OpportunitiesView?
+    var isProfileSize = false {
+        didSet {
+            if isProfileSize {
+                configureSmallView()
+            } else {
+                configureExtendedView()
+            }
+        }
+    }
 
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
@@ -16,15 +32,52 @@ class OpportunitiesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var firstLineView: UIView!
     @IBOutlet weak var secondLineView: UIView!
+    @IBOutlet weak var mainView: UIView!
+    
+    @IBOutlet weak var downButton: UIButton!
+    @IBOutlet weak var heightOfViewConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    
+    func configureSmallView() {
+        
+        mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
+        mainView.rounded()
+        
+        heightOfViewConstraint.constant = 75
+        
+        downButton.isHidden = false
+        firstLineView.isHidden = true
+        secondLineView.isHidden = true
+        
+        taskLabel.text = ""
+        financeLabel.text = ""
+    }
+    
+    func configureExtendedView() {
+        
+        mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
+        mainView.rounded()
+        
+        heightOfViewConstraint.constant = 120
+        
+        downButton.isHidden = true
+        firstLineView.isHidden = false
+        secondLineView.isHidden = false
+        
+        taskLabel.text = "taskLabel"
+        financeLabel.text = "financeLabel"
     }
     
     @IBAction func downButtonTapped(_ sender: Any) {
         
+//        print("downButtonTapped")
+        if let type = type {
+            delegate?.changeMainViewSize(withType: type)
+        }
     }
-    
-    
+        
 }

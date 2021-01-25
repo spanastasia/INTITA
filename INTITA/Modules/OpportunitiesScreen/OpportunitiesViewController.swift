@@ -9,36 +9,67 @@ import UIKit
 
 class OpportunitiesViewController: UIViewController, Storyboarded {
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var courseView: UIView!
     @IBOutlet weak var taskView: UIView!
-    @IBOutlet weak var heightOfView: NSLayoutConstraint!
+    @IBOutlet weak var studiesView: UIView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var availableOptionsLabel: UILabel!
     
+    @IBOutlet weak var heightOfCourseView: NSLayoutConstraint!
+    @IBOutlet weak var heightOfStudiesView: NSLayoutConstraint!
+    @IBOutlet weak var heightOfTaskView: NSLayoutConstraint!
+    
     var coordinator: OpportunitiesCoordinator?
-    private lazy var contentView: OpportunitiesTableViewCell = .fromNib()
+    var isProfileSize = true
+    var tape: OpportunitiesView?
+    
+    private lazy var contentCourseView: OpportunitiesTableViewCell = .fromNib()
+    private lazy var contentTaskView: OpportunitiesTableViewCell = .fromNib()
+    private lazy var contentStudiesView: OpportunitiesTableViewCell = .fromNib()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        setupNameLabel()
+        setupAvailableOptionsLabel()
         
-        sutupNameLabel()
-        
-        setupFirstView()
-//        taskView.addSubview(contentView)
+        setupCourseView()
+        setupTaskView()
+        setupStudiesView()
 
     }
     
-    func sutupNameLabel() {
+    func setupNameLabel() {
         nameLabel.text = "opportunities".localized
     }
     
-    func setupFirstView() {
-        
-        taskView.bordered(borderWidth: 1, borderColor: UIColor.black.cgColor)
-        taskView.rounded(cornerRadius: 10)
-        heightOfView.constant = 120
-        taskView.frame.size.width = view.frame.width - 56
-        taskView.frame.size.height = 120
-        taskView.addSubview(contentView)
+    func setupAvailableOptionsLabel() {
+        availableOptionsLabel.text = "available_options".localized
+    }
+    
+    func setupCourseView() {
+
+        contentCourseView.type = .course
+        contentCourseView.delegate = self
+        contentCourseView.isProfileSize = isProfileSize
+        courseView.addSubview(contentCourseView)
+    }
+    
+    func setupTaskView() {
+
+        contentTaskView.type = .task
+        contentTaskView.delegate = self
+        contentTaskView.isProfileSize = isProfileSize
+        taskView.addSubview(contentTaskView)
+    }
+    
+    func setupStudiesView() {
+
+        contentStudiesView.type = .study
+        contentStudiesView.delegate = self
+        contentStudiesView.isProfileSize = isProfileSize
+        studiesView.addSubview(contentStudiesView)
     }
     
     @IBAction func backButtonTappet(_ sender: UIButton) {
@@ -46,4 +77,29 @@ class OpportunitiesViewController: UIViewController, Storyboarded {
         coordinator?.returnToProfileScreen()
     }
     
+}
+
+extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
+    
+    func changeMainViewSize(withType: OpportunitiesView) {
+
+        switch withType {
+        case .course:
+            print("course")
+            heightOfCourseView.constant = 120
+            contentCourseView.configureExtendedView()
+        case .task:
+            print("task")
+            heightOfTaskView.constant = 120
+            contentTaskView.configureExtendedView()
+        case .study:
+            print("study")
+            heightOfStudiesView.constant = 120
+            contentStudiesView.configureExtendedView()
+            
+        }
+        
+        isProfileSize.toggle()
+    }
+        
 }
