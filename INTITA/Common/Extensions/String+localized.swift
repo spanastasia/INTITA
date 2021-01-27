@@ -10,5 +10,19 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    func localizedCountry(locale: Locale = .current) -> String {
+        switch locale.languageCode {
+        case "en":
+            return "" // from json
+        case "ru":
+            return "" // from json
+        case "ua":
+            return "" // from json
+        default:
+            return self
+        }
+        
+    }
 }
 
