@@ -7,12 +7,16 @@
 
 import UIKit
 
-enum ForgotCells: Int {
+enum ForgotCell: Int, CaseIterable {
     case logoImageCell = 1
     case explanationLabelCell
     case emailTextFieldCell
     case emptyCell
     case sendButtonCell
+    
+    var rowIndex: Int {
+             return rawValue - 1
+         }
 }
 
 class ForgotPasswordViewController: UIViewController, Storyboarded {
@@ -39,14 +43,12 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         super.viewDidAppear(true)
         
         startMonitoringKeyboard()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
         stopMonitoringKeyboard()
-
     }
     
     override func animateKeyboardAppearance(height: CGFloat) {
@@ -56,7 +58,7 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
         view.layoutSubviews()
         forgotTableView.endUpdates()
         
-        forgotTableView.scrollToRow(at: IndexPath(row: 4, section: 0), at: .bottom, animated: true)
+        forgotTableView.scrollToRow(at: IndexPath(row: ForgotCell.sendButtonCell.rowIndex, section: 0), at: .bottom, animated: true)
     }
     
     func registerCells() {
@@ -79,12 +81,12 @@ class ForgotPasswordViewController: UIViewController, Storyboarded {
 extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return ForgotCell.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let nameCell = ForgotCells(rawValue: indexPath.row + 1)
+        let nameCell = ForgotCell(rawValue: indexPath.row + 1)
         var cell: UITableViewCell?
         
         switch nameCell {
@@ -120,7 +122,7 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let nameCell = ForgotCells(rawValue: indexPath.row + 1)
+        let nameCell = ForgotCell(rawValue: indexPath.row + 1)
         var cellHeight: CGFloat
         
         switch nameCell {
@@ -142,7 +144,7 @@ extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, Ale
     
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
         
-        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? TextTableViewCell else { return }
+        guard let emailCell = forgotTableView.cellForRow(at: IndexPath(row: ForgotCell.emailTextFieldCell.rowIndex, section: 0)) as? TextTableViewCell else { return }
         
         guard let email = emailCell.textField.text else { return }
         
@@ -156,7 +158,6 @@ extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, Ale
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
          
         } else {
-            
             showAlert(header: "passRecovery".localized)
         }
     }
