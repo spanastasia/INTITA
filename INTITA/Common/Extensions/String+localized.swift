@@ -12,13 +12,18 @@ extension String {
     }
     
     func localizedCountry(locale: Locale = .current) -> String {
+        let countries = CountryService().getCountries()
+        let country = countries?.filter {
+            $0.geocode == self
+        }
+        
         switch locale.languageCode {
         case "en":
-            return "" // from json
+            return country?.first?.titleEN ?? "" // from json
         case "ru":
-            return "" // from json
+            return country?.first?.titleRU ?? "" // from json
         case "ua":
-            return "" // from json
+            return country?.first?.titleUA ?? "" // from json
         default:
             return self
         }
