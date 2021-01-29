@@ -19,7 +19,7 @@ class CountryList: XCTestCase {
             XCTFail()
             return
         }
-        guard let array = countryList.getCountry() else {
+        guard let array = countryList.getCountries() else {
             XCTFail()
             return
         }
