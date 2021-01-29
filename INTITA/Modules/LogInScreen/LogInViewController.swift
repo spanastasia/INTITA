@@ -7,14 +7,19 @@
 
 import UIKit
 
-enum LoginCells: Int {
-    case logoImageCell = 0
+enum LoginCell: Int, CaseIterable {
     case emptyCellOne
-    case emailTextFieldCell
+    case logoImageCell
     case emptyCellTwo
+    case emailTextFieldCell
+    case emptyCellThree
     case passwordTextFieldCell
     case linksButtonCell
     case loginButtonCell
+    
+    var rowIndex: Int {
+             return rawValue
+    }
 }
 
 enum CredentialsError {
@@ -80,7 +85,7 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableViewBottomContraint.constant = height
         view.layoutSubviews()
         
-        tableView.scrollToRow(at: IndexPath(row: 5, section: 0), at: .bottom, animated: true)
+        tableView.scrollToRow(at: IndexPath(row: LoginCell.loginButtonCell.rawValue, section: 0), at: .bottom, animated: true)
     }
     
     func handleViewModelUpdateWith(error: Error?) {
@@ -103,18 +108,20 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
 extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return LoginCell.allCases.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let nameCell = LoginCells(rawValue: indexPath.row)
+
+        let nameCell = LoginCell(rawValue: indexPath.row)
         var heightCell: CGFloat
-        
+
         switch nameCell {
+        case .emptyCellOne:
+            heightCell = 45
         case .logoImageCell:
             heightCell = 243
-        case .emptyCellOne:
+        case .emptyCellTwo:
             heightCell = 52
         case .loginButtonCell, .emailTextFieldCell:
             heightCell = 78
@@ -130,7 +137,7 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let nameCell = LoginCells(rawValue: indexPath.row)
+        let nameCell = LoginCell(rawValue: indexPath.row)
         var cell: UITableViewCell?
         
         switch nameCell {
@@ -174,9 +181,9 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
     
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
         
-        guard let emailCell = tableView.cellForRow(at: IndexPath(row: 2,
+        guard let emailCell = tableView.cellForRow(at: IndexPath(row: LoginCell.emailTextFieldCell.rawValue,
                                                                  section: 0)) as? TextTableViewCell,
-              let passwordCell = tableView.cellForRow(at: IndexPath(row: 4,
+              let passwordCell = tableView.cellForRow(at: IndexPath(row: LoginCell.passwordTextFieldCell.rawValue,
                                                                     section: 0)) as? TextTableViewCell else { return }
         
         emailCell.textField.resignFirstResponder()

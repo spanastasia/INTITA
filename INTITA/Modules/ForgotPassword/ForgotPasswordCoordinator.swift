@@ -21,4 +21,8 @@ class ForgotPasswordCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func returnToLoginScreen() {
+        
+        navigationController.popViewController(animated: true)
+    }
 }
