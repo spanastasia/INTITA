@@ -1,0 +1,2034 @@
+[
+        {
+            "id": 1,
+            "title_ua": "Україна",
+            "title_ru": "Украина",
+            "title_en": "Ukraine",
+            "geocode": "UA",
+            "title": "Україна"
+        },
+        {
+            "id": 2,
+            "title_ua": "Білорусь",
+            "title_ru": "Беларусь",
+            "title_en": "Belarus",
+            "geocode": "BY",
+            "title": "Білорусь"
+        },
+        {
+            "id": 3,
+            "title_ua": "Молдова",
+            "title_ru": "Молдова",
+            "title_en": "Moldova",
+            "geocode": "MD",
+            "title": "Молдова"
+        },
+        {
+            "id": 4,
+            "title_ua": "Польща",
+            "title_ru": "Польша",
+            "title_en": "Poland",
+            "geocode": "PL",
+            "title": "Польща"
+        },
+        {
+            "id": 5,
+            "title_ua": "Румунія",
+            "title_ru": "Румыния",
+            "title_en": "Romania",
+            "geocode": "RO",
+            "title": "Румунія"
+        },
+        {
+            "id": 6,
+            "title_ua": "Острів Вознесіння",
+            "title_ru": "о-в Вознесения",
+            "title_en": "Ascension Island",
+            "geocode": "AC",
+            "title": "Острів Вознесіння"
+        },
+        {
+            "id": 7,
+            "title_ua": "Андорра",
+            "title_ru": "Андорра",
+            "title_en": "Andorra",
+            "geocode": "AD",
+            "title": "Андорра"
+        },
+        {
+            "id": 8,
+            "title_ua": "Обʼєднані Арабські Емірати",
+            "title_ru": "ОАЭ",
+            "title_en": "United Arab Emirates",
+            "geocode": "AE",
+            "title": "Обʼєднані Арабські Емірати"
+        },
+        {
+            "id": 9,
+            "title_ua": "Афганістан",
+            "title_ru": "Афганистан",
+            "title_en": "Afghanistan",
+            "geocode": "AF",
+            "title": "Афганістан"
+        },
+        {
+            "id": 10,
+            "title_ua": "Антигуа і Барбуда",
+            "title_ru": "Антигуа и Барбуда",
+            "title_en": "Antigua & Barbuda",
+            "geocode": "AG",
+            "title": "Антигуа і Барбуда"
+        },
+        {
+            "id": 11,
+            "title_ua": "Ангілья",
+            "title_ru": "Ангилья",
+            "title_en": "Anguilla",
+            "geocode": "AI",
+            "title": "Ангілья"
+        },
+        {
+            "id": 12,
+            "title_ua": "Албанія",
+            "title_ru": "Албания",
+            "title_en": "Albania",
+            "geocode": "AL",
+            "title": "Албанія"
+        },
+        {
+            "id": 13,
+            "title_ua": "Вірменія",
+            "title_ru": "Армения",
+            "title_en": "Armenia",
+            "geocode": "AM",
+            "title": "Вірменія"
+        },
+        {
+            "id": 14,
+            "title_ua": "Ангола",
+            "title_ru": "Ангола",
+            "title_en": "Angola",
+            "geocode": "AO",
+            "title": "Ангола"
+        },
+        {
+            "id": 15,
+            "title_ua": "Антарктика",
+            "title_ru": "Антарктида",
+            "title_en": "Antarctica",
+            "geocode": "AQ",
+            "title": "Антарктика"
+        },
+        {
+            "id": 16,
+            "title_ua": "Аргентина",
+            "title_ru": "Аргентина",
+            "title_en": "Argentina",
+            "geocode": "AR",
+            "title": "Аргентина"
+        },
+        {
+            "id": 17,
+            "title_ua": "Американське Самоа",
+            "title_ru": "Американское Самоа",
+            "title_en": "American Samoa",
+            "geocode": "AS",
+            "title": "Американське Самоа"
+        },
+        {
+            "id": 18,
+            "title_ua": "Австрія",
+            "title_ru": "Австрия",
+            "title_en": "Austria",
+            "geocode": "AT",
+            "title": "Австрія"
+        },
+        {
+            "id": 19,
+            "title_ua": "Австралія",
+            "title_ru": "Австралия",
+            "title_en": "Australia",
+            "geocode": "AU",
+            "title": "Австралія"
+        },
+        {
+            "id": 20,
+            "title_ua": "Аруба",
+            "title_ru": "Аруба",
+            "title_en": "Aruba",
+            "geocode": "AW",
+            "title": "Аруба"
+        },
+        {
+            "id": 21,
+            "title_ua": "Аландські острови",
+            "title_ru": "Аландские о-ва",
+            "title_en": "Åland Islands",
+            "geocode": "AX",
+            "title": "Аландські острови"
+        },
+        {
+            "id": 22,
+            "title_ua": "Азербайджан",
+            "title_ru": "Азербайджан",
+            "title_en": "Azerbaijan",
+            "geocode": "AZ",
+            "title": "Азербайджан"
+        },
+        {
+            "id": 23,
+            "title_ua": "Боснія і Герцоговина",
+            "title_ru": "Босния и Герцеговина",
+            "title_en": "Bosnia & Herzegovina",
+            "geocode": "BA",
+            "title": "Боснія і Герцоговина"
+        },
+        {
+            "id": 24,
+            "title_ua": "Барбадос",
+            "title_ru": "Барбадос",
+            "title_en": "Barbados",
+            "geocode": "BB",
+            "title": "Барбадос"
+        },
+        {
+            "id": 25,
+            "title_ua": "Бангладеш",
+            "title_ru": "Бангладеш",
+            "title_en": "Bangladesh",
+            "geocode": "BD",
+            "title": "Бангладеш"
+        },
+        {
+            "id": 26,
+            "title_ua": "Бельгія",
+            "title_ru": "Бельгия",
+            "title_en": "Belgium",
+            "geocode": "BE",
+            "title": "Бельгія"
+        },
+        {
+            "id": 27,
+            "title_ua": "Буркіна-Фасо",
+            "title_ru": "Буркина-Фасо",
+            "title_en": "Burkina Faso",
+            "geocode": "BF",
+            "title": "Буркіна-Фасо"
+        },
+        {
+            "id": 28,
+            "title_ua": "Болгарія",
+            "title_ru": "Болгария",
+            "title_en": "Bulgaria",
+            "geocode": "BG",
+            "title": "Болгарія"
+        },
+        {
+            "id": 29,
+            "title_ua": "Бахрейн",
+            "title_ru": "Бахрейн",
+            "title_en": "Bahrain",
+            "geocode": "BH",
+            "title": "Бахрейн"
+        },
+        {
+            "id": 30,
+            "title_ua": "Бурунді",
+            "title_ru": "Бурунди",
+            "title_en": "Burundi",
+            "geocode": "BI",
+            "title": "Бурунді"
+        },
+        {
+            "id": 31,
+            "title_ua": "Бенін",
+            "title_ru": "Бенин",
+            "title_en": "Benin",
+            "geocode": "BJ",
+            "title": "Бенін"
+        },
+        {
+            "id": 32,
+            "title_ua": "Сен-Бартельмі",
+            "title_ru": "Сен-Бартельми",
+            "title_en": "St. Barthélemy",
+            "geocode": "BL",
+            "title": "Сен-Бартельмі"
+        },
+        {
+            "id": 33,
+            "title_ua": "Бермуди",
+            "title_ru": "Бермудские о-ва",
+            "title_en": "Bermuda",
+            "geocode": "BM",
+            "title": "Бермуди"
+        },
+        {
+            "id": 34,
+            "title_ua": "Бруней",
+            "title_ru": "Бруней-Даруссалам",
+            "title_en": "Brunei",
+            "geocode": "BN",
+            "title": "Бруней"
+        },
+        {
+            "id": 35,
+            "title_ua": "Болівія",
+            "title_ru": "Боливия",
+            "title_en": "Bolivia",
+            "geocode": "BO",
+            "title": "Болівія"
+        },
+        {
+            "id": 36,
+            "title_ua": "Нідерландські Карибські острови",
+            "title_ru": "Бонэйр, Синт-Эстатиус и Саба",
+            "title_en": "Caribbean Netherlands",
+            "geocode": "BQ",
+            "title": "Нідерландські Карибські острови"
+        },
+        {
+            "id": 37,
+            "title_ua": "Бразилія",
+            "title_ru": "Бразилия",
+            "title_en": "Brazil",
+            "geocode": "BR",
+            "title": "Бразилія"
+        },
+        {
+            "id": 38,
+            "title_ua": "Багами",
+            "title_ru": "Багамские о-ва",
+            "title_en": "Bahamas",
+            "geocode": "BS",
+            "title": "Багами"
+        },
+        {
+            "id": 39,
+            "title_ua": "Бутан",
+            "title_ru": "Бутан",
+            "title_en": "Bhutan",
+            "geocode": "BT",
+            "title": "Бутан"
+        },
+        {
+            "id": 40,
+            "title_ua": "Ботсвана",
+            "title_ru": "Ботсвана",
+            "title_en": "Botswana",
+            "geocode": "BW",
+            "title": "Ботсвана"
+        },
+        {
+            "id": 41,
+            "title_ua": "Беліз",
+            "title_ru": "Белиз",
+            "title_en": "Belize",
+            "geocode": "BZ",
+            "title": "Беліз"
+        },
+        {
+            "id": 42,
+            "title_ua": "Канада",
+            "title_ru": "Канада",
+            "title_en": "Canada",
+            "geocode": "CA",
+            "title": "Канада"
+        },
+        {
+            "id": 43,
+            "title_ua": "Кокосові (Кілінгові) острови",
+            "title_ru": "Кокосовые о-ва",
+            "title_en": "Cocos (Keeling) Islands",
+            "geocode": "CC",
+            "title": "Кокосові (Кілінгові) острови"
+        },
+        {
+            "id": 44,
+            "title_ua": "Конго – Кіншаса",
+            "title_ru": "Конго - Киншаса",
+            "title_en": "Congo - Kinshasa",
+            "geocode": "CD",
+            "title": "Конго – Кіншаса"
+        },
+        {
+            "id": 45,
+            "title_ua": "Центральноафриканська Республіка",
+            "title_ru": "ЦАР",
+            "title_en": "Central African Republic",
+            "geocode": "CF",
+            "title": "Центральноафриканська Республіка"
+        },
+        {
+            "id": 46,
+            "title_ua": "Конго – Браззавіль",
+            "title_ru": "Конго - Браззавиль",
+            "title_en": "Congo - Brazzaville",
+            "geocode": "CG",
+            "title": "Конго – Браззавіль"
+        },
+        {
+            "id": 47,
+            "title_ua": "Швейцарія",
+            "title_ru": "Швейцария",
+            "title_en": "Switzerland",
+            "geocode": "CH",
+            "title": "Швейцарія"
+        },
+        {
+            "id": 48,
+            "title_ua": "Кот-д’Івуар",
+            "title_ru": "Кот-д’Ивуар",
+            "title_en": "Côte d’Ivoire",
+            "geocode": "CI",
+            "title": "Кот-д’Івуар"
+        },
+        {
+            "id": 49,
+            "title_ua": "Острови Кука",
+            "title_ru": "о-ва Кука",
+            "title_en": "Cook Islands",
+            "geocode": "CK",
+            "title": "Острови Кука"
+        },
+        {
+            "id": 50,
+            "title_ua": "Чилі",
+            "title_ru": "Чили",
+            "title_en": "Chile",
+            "geocode": "CL",
+            "title": "Чилі"
+        },
+        {
+            "id": 51,
+            "title_ua": "Камерун",
+            "title_ru": "Камерун",
+            "title_en": "Cameroon",
+            "geocode": "CM",
+            "title": "Камерун"
+        },
+        {
+            "id": 52,
+            "title_ua": "Китай",
+            "title_ru": "Китай",
+            "title_en": "China",
+            "geocode": "CN",
+            "title": "Китай"
+        },
+        {
+            "id": 53,
+            "title_ua": "Колумбія",
+            "title_ru": "Колумбия",
+            "title_en": "Colombia",
+            "geocode": "CO",
+            "title": "Колумбія"
+        },
+        {
+            "id": 54,
+            "title_ua": "Коста-Рика",
+            "title_ru": "Коста-Рика",
+            "title_en": "Costa Rica",
+            "geocode": "CR",
+            "title": "Коста-Рика"
+        },
+        {
+            "id": 55,
+            "title_ua": "Куба",
+            "title_ru": "Куба",
+            "title_en": "Cuba",
+            "geocode": "CU",
+            "title": "Куба"
+        },
+        {
+            "id": 56,
+            "title_ua": "Кабо Верде",
+            "title_ru": "Кабо-Верде",
+            "title_en": "Cape Verde",
+            "geocode": "CV",
+            "title": "Кабо Верде"
+        },
+        {
+            "id": 57,
+            "title_ua": "Кюрасао",
+            "title_ru": "Кюрасао",
+            "title_en": "Curaçao",
+            "geocode": "CW",
+            "title": "Кюрасао"
+        },
+        {
+            "id": 58,
+            "title_ua": "Острів Різдва",
+            "title_ru": "о-в Рождества",
+            "title_en": "Christmas Island",
+            "geocode": "CX",
+            "title": "Острів Різдва"
+        },
+        {
+            "id": 59,
+            "title_ua": "Кіпр",
+            "title_ru": "Кипр",
+            "title_en": "Cyprus",
+            "geocode": "CY",
+            "title": "Кіпр"
+        },
+        {
+            "id": 60,
+            "title_ua": "Чехія",
+            "title_ru": "Чехия",
+            "title_en": "Czech Republic",
+            "geocode": "CZ",
+            "title": "Чехія"
+        },
+        {
+            "id": 61,
+            "title_ua": "Німеччина",
+            "title_ru": "Германия",
+            "title_en": "Germany",
+            "geocode": "DE",
+            "title": "Німеччина"
+        },
+        {
+            "id": 62,
+            "title_ua": "Дієго-Гарсія",
+            "title_ru": "Диего-Гарсия",
+            "title_en": "Diego Garcia",
+            "geocode": "DG",
+            "title": "Дієго-Гарсія"
+        },
+        {
+            "id": 63,
+            "title_ua": "Джибуті",
+            "title_ru": "Джибути",
+            "title_en": "Djibouti",
+            "geocode": "DJ",
+            "title": "Джибуті"
+        },
+        {
+            "id": 64,
+            "title_ua": "Данія",
+            "title_ru": "Дания",
+            "title_en": "Denmark",
+            "geocode": "DK",
+            "title": "Данія"
+        },
+        {
+            "id": 65,
+            "title_ua": "Домініка",
+            "title_ru": "Доминика",
+            "title_en": "Dominica",
+            "geocode": "DM",
+            "title": "Домініка"
+        },
+        {
+            "id": 66,
+            "title_ua": "Домініканська Республіка",
+            "title_ru": "Доминиканская Республика",
+            "title_en": "Dominican Republic",
+            "geocode": "DO",
+            "title": "Домініканська Республіка"
+        },
+        {
+            "id": 67,
+            "title_ua": "Алжир",
+            "title_ru": "Алжир",
+            "title_en": "Algeria",
+            "geocode": "DZ",
+            "title": "Алжир"
+        },
+        {
+            "id": 68,
+            "title_ua": "Сеута і Мелілья",
+            "title_ru": "Сеута и Мелилья",
+            "title_en": "Ceuta & Melilla",
+            "geocode": "EA",
+            "title": "Сеута і Мелілья"
+        },
+        {
+            "id": 69,
+            "title_ua": "Еквадор",
+            "title_ru": "Эквадор",
+            "title_en": "Ecuador",
+            "geocode": "EC",
+            "title": "Еквадор"
+        },
+        {
+            "id": 70,
+            "title_ua": "Естонія",
+            "title_ru": "Эстония",
+            "title_en": "Estonia",
+            "geocode": "EE",
+            "title": "Естонія"
+        },
+        {
+            "id": 71,
+            "title_ua": "Єгипет",
+            "title_ru": "Египет",
+            "title_en": "Egypt",
+            "geocode": "EG",
+            "title": "Єгипет"
+        },
+        {
+            "id": 72,
+            "title_ua": "Західна Сахара",
+            "title_ru": "Западная Сахара",
+            "title_en": "Western Sahara",
+            "geocode": "EH",
+            "title": "Західна Сахара"
+        },
+        {
+            "id": 73,
+            "title_ua": "Еритрея",
+            "title_ru": "Эритрея",
+            "title_en": "Eritrea",
+            "geocode": "ER",
+            "title": "Еритрея"
+        },
+        {
+            "id": 74,
+            "title_ua": "Іспанія",
+            "title_ru": "Испания",
+            "title_en": "Spain",
+            "geocode": "ES",
+            "title": "Іспанія"
+        },
+        {
+            "id": 75,
+            "title_ua": "Ефіопія",
+            "title_ru": "Эфиопия",
+            "title_en": "Ethiopia",
+            "geocode": "ET",
+            "title": "Ефіопія"
+        },
+        {
+            "id": 76,
+            "title_ua": "Фінляндія",
+            "title_ru": "Финляндия",
+            "title_en": "Finland",
+            "geocode": "FI",
+            "title": "Фінляндія"
+        },
+        {
+            "id": 77,
+            "title_ua": "Фіджі",
+            "title_ru": "Фиджи",
+            "title_en": "Fiji",
+            "geocode": "FJ",
+            "title": "Фіджі"
+        },
+        {
+            "id": 78,
+            "title_ua": "Фолклендські острови",
+            "title_ru": "Фолклендские о-ва",
+            "title_en": "Falkland Islands",
+            "geocode": "FK",
+            "title": "Фолклендські острови"
+        },
+        {
+            "id": 79,
+            "title_ua": "Мікронезія",
+            "title_ru": "Федеративные Штаты Микронезии",
+            "title_en": "Micronesia",
+            "geocode": "FM",
+            "title": "Мікронезія"
+        },
+        {
+            "id": 80,
+            "title_ua": "Фарерські острови",
+            "title_ru": "Фарерские о-ва",
+            "title_en": "Faroe Islands",
+            "geocode": "FO",
+            "title": "Фарерські острови"
+        },
+        {
+            "id": 81,
+            "title_ua": "Франція",
+            "title_ru": "Франция",
+            "title_en": "France",
+            "geocode": "FR",
+            "title": "Франція"
+        },
+        {
+            "id": 82,
+            "title_ua": "Габон",
+            "title_ru": "Габон",
+            "title_en": "Gabon",
+            "geocode": "GA",
+            "title": "Габон"
+        },
+        {
+            "id": 83,
+            "title_ua": "Велика Британія",
+            "title_ru": "Великобритания",
+            "title_en": "United Kingdom",
+            "geocode": "GB",
+            "title": "Велика Британія"
+        },
+        {
+            "id": 84,
+            "title_ua": "Гренада",
+            "title_ru": "Гренада",
+            "title_en": "Grenada",
+            "geocode": "GD",
+            "title": "Гренада"
+        },
+        {
+            "id": 85,
+            "title_ua": "Грузія",
+            "title_ru": "Грузия",
+            "title_en": "Georgia",
+            "geocode": "GE",
+            "title": "Грузія"
+        },
+        {
+            "id": 86,
+            "title_ua": "Французька Гвіана",
+            "title_ru": "Французская Гвиана",
+            "title_en": "French Guiana",
+            "geocode": "GF",
+            "title": "Французька Гвіана"
+        },
+        {
+            "id": 87,
+            "title_ua": "Гернсі",
+            "title_ru": "Гернси",
+            "title_en": "Guernsey",
+            "geocode": "GG",
+            "title": "Гернсі"
+        },
+        {
+            "id": 88,
+            "title_ua": "Гана",
+            "title_ru": "Гана",
+            "title_en": "Ghana",
+            "geocode": "GH",
+            "title": "Гана"
+        },
+        {
+            "id": 89,
+            "title_ua": "Гібралтар",
+            "title_ru": "Гибралтар",
+            "title_en": "Gibraltar",
+            "geocode": "GI",
+            "title": "Гібралтар"
+        },
+        {
+            "id": 90,
+            "title_ua": "Гренландія",
+            "title_ru": "Гренландия",
+            "title_en": "Greenland",
+            "geocode": "GL",
+            "title": "Гренландія"
+        },
+        {
+            "id": 91,
+            "title_ua": "Гамбія",
+            "title_ru": "Гамбия",
+            "title_en": "Gambia",
+            "geocode": "GM",
+            "title": "Гамбія"
+        },
+        {
+            "id": 92,
+            "title_ua": "Гвінея",
+            "title_ru": "Гвинея",
+            "title_en": "Guinea",
+            "geocode": "GN",
+            "title": "Гвінея"
+        },
+        {
+            "id": 93,
+            "title_ua": "Гваделупа",
+            "title_ru": "Гваделупа",
+            "title_en": "Guadeloupe",
+            "geocode": "GP",
+            "title": "Гваделупа"
+        },
+        {
+            "id": 94,
+            "title_ua": "Екваторіальна Гвінея",
+            "title_ru": "Экваториальная Гвинея",
+            "title_en": "Equatorial Guinea",
+            "geocode": "GQ",
+            "title": "Екваторіальна Гвінея"
+        },
+        {
+            "id": 95,
+            "title_ua": "Греція",
+            "title_ru": "Греция",
+            "title_en": "Greece",
+            "geocode": "GR",
+            "title": "Греція"
+        },
+        {
+            "id": 96,
+            "title_ua": "Південна Джорджія та Південні Сандвічеві острови",
+            "title_ru": "Южная Георгия и Южные Сандвичевы о-ва",
+            "title_en": "South Georgia & South Sandwich Islands",
+            "geocode": "GS",
+            "title": "Південна Джорджія та Південні Сандвічеві острови"
+        },
+        {
+            "id": 97,
+            "title_ua": "Гватемала",
+            "title_ru": "Гватемала",
+            "title_en": "Guatemala",
+            "geocode": "GT",
+            "title": "Гватемала"
+        },
+        {
+            "id": 98,
+            "title_ua": "Гуам",
+            "title_ru": "Гуам",
+            "title_en": "Guam",
+            "geocode": "GU",
+            "title": "Гуам"
+        },
+        {
+            "id": 99,
+            "title_ua": "Гвінея-Бісау",
+            "title_ru": "Гвинея-Бисау",
+            "title_en": "Guinea-Bissau",
+            "geocode": "GW",
+            "title": "Гвінея-Бісау"
+        },
+        {
+            "id": 100,
+            "title_ua": "Гаяна",
+            "title_ru": "Гайана",
+            "title_en": "Guyana",
+            "geocode": "GY",
+            "title": "Гаяна"
+        },
+        {
+            "id": 101,
+            "title_ua": "Гонконг, О.А.Р. Китаю",
+            "title_ru": "Гонконг (особый район)",
+            "title_en": "Hong Kong SAR China",
+            "geocode": "HK",
+            "title": "Гонконг, О.А.Р. Китаю"
+        },
+        {
+            "id": 102,
+            "title_ua": "Гондурас",
+            "title_ru": "Гондурас",
+            "title_en": "Honduras",
+            "geocode": "HN",
+            "title": "Гондурас"
+        },
+        {
+            "id": 103,
+            "title_ua": "Хорватія",
+            "title_ru": "Хорватия",
+            "title_en": "Croatia",
+            "geocode": "HR",
+            "title": "Хорватія"
+        },
+        {
+            "id": 104,
+            "title_ua": "Гаїті",
+            "title_ru": "Гаити",
+            "title_en": "Haiti",
+            "geocode": "HT",
+            "title": "Гаїті"
+        },
+        {
+            "id": 105,
+            "title_ua": "Угорщина",
+            "title_ru": "Венгрия",
+            "title_en": "Hungary",
+            "geocode": "HU",
+            "title": "Угорщина"
+        },
+        {
+            "id": 106,
+            "title_ua": "Канарські острови",
+            "title_ru": "Канарские о-ва",
+            "title_en": "Canary Islands",
+            "geocode": "IC",
+            "title": "Канарські острови"
+        },
+        {
+            "id": 107,
+            "title_ua": "Індонезія",
+            "title_ru": "Индонезия",
+            "title_en": "Indonesia",
+            "geocode": "ID",
+            "title": "Індонезія"
+        },
+        {
+            "id": 108,
+            "title_ua": "Ірландія",
+            "title_ru": "Ирландия",
+            "title_en": "Ireland",
+            "geocode": "IE",
+            "title": "Ірландія"
+        },
+        {
+            "id": 109,
+            "title_ua": "Ізраїль",
+            "title_ru": "Израиль",
+            "title_en": "Israel",
+            "geocode": "IL",
+            "title": "Ізраїль"
+        },
+        {
+            "id": 110,
+            "title_ua": "Острів Мен",
+            "title_ru": "О-в Мэн",
+            "title_en": "Isle of Man",
+            "geocode": "IM",
+            "title": "Острів Мен"
+        },
+        {
+            "id": 111,
+            "title_ua": "Індія",
+            "title_ru": "Индия",
+            "title_en": "India",
+            "geocode": "IN",
+            "title": "Індія"
+        },
+        {
+            "id": 112,
+            "title_ua": "Британські території в Індійському океані",
+            "title_ru": "Британская территория в Индийском океане",
+            "title_en": "British Indian Ocean Territory",
+            "geocode": "IO",
+            "title": "Британські території в Індійському океані"
+        },
+        {
+            "id": 113,
+            "title_ua": "Ірак",
+            "title_ru": "Ирак",
+            "title_en": "Iraq",
+            "geocode": "IQ",
+            "title": "Ірак"
+        },
+        {
+            "id": 114,
+            "title_ua": "Іран",
+            "title_ru": "Иран",
+            "title_en": "Iran",
+            "geocode": "IR",
+            "title": "Іран"
+        },
+        {
+            "id": 115,
+            "title_ua": "Ісландія",
+            "title_ru": "Исландия",
+            "title_en": "Iceland",
+            "geocode": "IS",
+            "title": "Ісландія"
+        },
+        {
+            "id": 116,
+            "title_ua": "Італія",
+            "title_ru": "Италия",
+            "title_en": "Italy",
+            "geocode": "IT",
+            "title": "Італія"
+        },
+        {
+            "id": 117,
+            "title_ua": "Джерсі",
+            "title_ru": "Джерси",
+            "title_en": "Jersey",
+            "geocode": "JE",
+            "title": "Джерсі"
+        },
+        {
+            "id": 118,
+            "title_ua": "Ямайка",
+            "title_ru": "Ямайка",
+            "title_en": "Jamaica",
+            "geocode": "JM",
+            "title": "Ямайка"
+        },
+        {
+            "id": 119,
+            "title_ua": "Йорданія",
+            "title_ru": "Иордания",
+            "title_en": "Jordan",
+            "geocode": "JO",
+            "title": "Йорданія"
+        },
+        {
+            "id": 120,
+            "title_ua": "Японія",
+            "title_ru": "Япония",
+            "title_en": "Japan",
+            "geocode": "JP",
+            "title": "Японія"
+        },
+        {
+            "id": 121,
+            "title_ua": "Кенія",
+            "title_ru": "Кения",
+            "title_en": "Kenya",
+            "geocode": "KE",
+            "title": "Кенія"
+        },
+        {
+            "id": 122,
+            "title_ua": "Киргизстан",
+            "title_ru": "Киргизия",
+            "title_en": "Kyrgyzstan",
+            "geocode": "KG",
+            "title": "Киргизстан"
+        },
+        {
+            "id": 123,
+            "title_ua": "Камбоджа",
+            "title_ru": "Камбоджа",
+            "title_en": "Cambodia",
+            "geocode": "KH",
+            "title": "Камбоджа"
+        },
+        {
+            "id": 124,
+            "title_ua": "Кірибаті",
+            "title_ru": "Кирибати",
+            "title_en": "Kiribati",
+            "geocode": "KI",
+            "title": "Кірибаті"
+        },
+        {
+            "id": 125,
+            "title_ua": "Коморські острови",
+            "title_ru": "Коморские о-ва",
+            "title_en": "Comoros",
+            "geocode": "KM",
+            "title": "Коморські острови"
+        },
+        {
+            "id": 126,
+            "title_ua": "Сент-Кітс і Невіс",
+            "title_ru": "Сент-Китс и Невис",
+            "title_en": "St. Kitts & Nevis",
+            "geocode": "KN",
+            "title": "Сент-Кітс і Невіс"
+        },
+        {
+            "id": 127,
+            "title_ua": "Північна Корея",
+            "title_ru": "КНДР",
+            "title_en": "North Korea",
+            "geocode": "KP",
+            "title": "Північна Корея"
+        },
+        {
+            "id": 128,
+            "title_ua": "Південна Корея",
+            "title_ru": "Республика Корея",
+            "title_en": "South Korea",
+            "geocode": "KR",
+            "title": "Південна Корея"
+        },
+        {
+            "id": 129,
+            "title_ua": "Кувейт",
+            "title_ru": "Кувейт",
+            "title_en": "Kuwait",
+            "geocode": "KW",
+            "title": "Кувейт"
+        },
+        {
+            "id": 130,
+            "title_ua": "Кайманові острови",
+            "title_ru": "Каймановы о-ва",
+            "title_en": "Cayman Islands",
+            "geocode": "KY",
+            "title": "Кайманові острови"
+        },
+        {
+            "id": 131,
+            "title_ua": "Казахстан",
+            "title_ru": "Казахстан",
+            "title_en": "Kazakhstan",
+            "geocode": "KZ",
+            "title": "Казахстан"
+        },
+        {
+            "id": 132,
+            "title_ua": "Лаос",
+            "title_ru": "Лаос",
+            "title_en": "Laos",
+            "geocode": "LA",
+            "title": "Лаос"
+        },
+        {
+            "id": 133,
+            "title_ua": "Ліван",
+            "title_ru": "Ливан",
+            "title_en": "Lebanon",
+            "geocode": "LB",
+            "title": "Ліван"
+        },
+        {
+            "id": 134,
+            "title_ua": "Сент-Люсія",
+            "title_ru": "Сент-Люсия",
+            "title_en": "St. Lucia",
+            "geocode": "LC",
+            "title": "Сент-Люсія"
+        },
+        {
+            "id": 135,
+            "title_ua": "Ліхтенштейн",
+            "title_ru": "Лихтенштейн",
+            "title_en": "Liechtenstein",
+            "geocode": "LI",
+            "title": "Ліхтенштейн"
+        },
+        {
+            "id": 136,
+            "title_ua": "Шрі-Ланка",
+            "title_ru": "Шри-Ланка",
+            "title_en": "Sri Lanka",
+            "geocode": "LK",
+            "title": "Шрі-Ланка"
+        },
+        {
+            "id": 137,
+            "title_ua": "Ліберія",
+            "title_ru": "Либерия",
+            "title_en": "Liberia",
+            "geocode": "LR",
+            "title": "Ліберія"
+        },
+        {
+            "id": 138,
+            "title_ua": "Лесото",
+            "title_ru": "Лесото",
+            "title_en": "Lesotho",
+            "geocode": "LS",
+            "title": "Лесото"
+        },
+        {
+            "id": 139,
+            "title_ua": "Литва",
+            "title_ru": "Литва",
+            "title_en": "Lithuania",
+            "geocode": "LT",
+            "title": "Литва"
+        },
+        {
+            "id": 140,
+            "title_ua": "Люксембург",
+            "title_ru": "Люксембург",
+            "title_en": "Luxembourg",
+            "geocode": "LU",
+            "title": "Люксембург"
+        },
+        {
+            "id": 141,
+            "title_ua": "Латвія",
+            "title_ru": "Латвия",
+            "title_en": "Latvia",
+            "geocode": "LV",
+            "title": "Латвія"
+        },
+        {
+            "id": 142,
+            "title_ua": "Лівія",
+            "title_ru": "Ливия",
+            "title_en": "Libya",
+            "geocode": "LY",
+            "title": "Лівія"
+        },
+        {
+            "id": 143,
+            "title_ua": "Марокко",
+            "title_ru": "Марокко",
+            "title_en": "Morocco",
+            "geocode": "MA",
+            "title": "Марокко"
+        },
+        {
+            "id": 144,
+            "title_ua": "Монако",
+            "title_ru": "Монако",
+            "title_en": "Monaco",
+            "geocode": "MC",
+            "title": "Монако"
+        },
+        {
+            "id": 145,
+            "title_ua": "Чорногорія",
+            "title_ru": "Черногория",
+            "title_en": "Montenegro",
+            "geocode": "ME",
+            "title": "Чорногорія"
+        },
+        {
+            "id": 146,
+            "title_ua": "Сен-Мартен",
+            "title_ru": "Сен-Мартен",
+            "title_en": "St. Martin",
+            "geocode": "MF",
+            "title": "Сен-Мартен"
+        },
+        {
+            "id": 147,
+            "title_ua": "Мадагаскар",
+            "title_ru": "Мадагаскар",
+            "title_en": "Madagascar",
+            "geocode": "MG",
+            "title": "Мадагаскар"
+        },
+        {
+            "id": 148,
+            "title_ua": "Маршаллові Острови",
+            "title_ru": "Маршалловы о-ва",
+            "title_en": "Marshall Islands",
+            "geocode": "MH",
+            "title": "Маршаллові Острови"
+        },
+        {
+            "id": 149,
+            "title_ua": "Македонія",
+            "title_ru": "Македония",
+            "title_en": "Macedonia",
+            "geocode": "MK",
+            "title": "Македонія"
+        },
+        {
+            "id": 150,
+            "title_ua": "Малі",
+            "title_ru": "Мали",
+            "title_en": "Mali",
+            "geocode": "ML",
+            "title": "Малі"
+        },
+        {
+            "id": 151,
+            "title_ua": "Мʼянма (Бірма)",
+            "title_ru": "Мьянма (Бирма)",
+            "title_en": "Myanmar (Burma)",
+            "geocode": "MM",
+            "title": "Мʼянма (Бірма)"
+        },
+        {
+            "id": 152,
+            "title_ua": "Монголія",
+            "title_ru": "Монголия",
+            "title_en": "Mongolia",
+            "geocode": "MN",
+            "title": "Монголія"
+        },
+        {
+            "id": 153,
+            "title_ua": "Макао О.А.Р. Китаю",
+            "title_ru": "Макао (особый район)",
+            "title_en": "Macau SAR China",
+            "geocode": "MO",
+            "title": "Макао О.А.Р. Китаю"
+        },
+        {
+            "id": 154,
+            "title_ua": "Північні Маріанські острови",
+            "title_ru": "Северные Марианские о-ва",
+            "title_en": "Northern Mariana Islands",
+            "geocode": "MP",
+            "title": "Північні Маріанські острови"
+        },
+        {
+            "id": 155,
+            "title_ua": "Мартиніка",
+            "title_ru": "Мартиника",
+            "title_en": "Martinique",
+            "geocode": "MQ",
+            "title": "Мартиніка"
+        },
+        {
+            "id": 156,
+            "title_ua": "Мавританія",
+            "title_ru": "Мавритания",
+            "title_en": "Mauritania",
+            "geocode": "MR",
+            "title": "Мавританія"
+        },
+        {
+            "id": 157,
+            "title_ua": "Монтсеррат",
+            "title_ru": "Монтсеррат",
+            "title_en": "Montserrat",
+            "geocode": "MS",
+            "title": "Монтсеррат"
+        },
+        {
+            "id": 158,
+            "title_ua": "Мальта",
+            "title_ru": "Мальта",
+            "title_en": "Malta",
+            "geocode": "MT",
+            "title": "Мальта"
+        },
+        {
+            "id": 159,
+            "title_ua": "Маврикій",
+            "title_ru": "Маврикий",
+            "title_en": "Mauritius",
+            "geocode": "MU",
+            "title": "Маврикій"
+        },
+        {
+            "id": 160,
+            "title_ua": "Мальдіви",
+            "title_ru": "Мальдивские о-ва",
+            "title_en": "Maldives",
+            "geocode": "MV",
+            "title": "Мальдіви"
+        },
+        {
+            "id": 161,
+            "title_ua": "Малаві",
+            "title_ru": "Малави",
+            "title_en": "Malawi",
+            "geocode": "MW",
+            "title": "Малаві"
+        },
+        {
+            "id": 162,
+            "title_ua": "Мексика",
+            "title_ru": "Мексика",
+            "title_en": "Mexico",
+            "geocode": "MX",
+            "title": "Мексика"
+        },
+        {
+            "id": 163,
+            "title_ua": "Малайзія",
+            "title_ru": "Малайзия",
+            "title_en": "Malaysia",
+            "geocode": "MY",
+            "title": "Малайзія"
+        },
+        {
+            "id": 164,
+            "title_ua": "Мозамбік",
+            "title_ru": "Мозамбик",
+            "title_en": "Mozambique",
+            "geocode": "MZ",
+            "title": "Мозамбік"
+        },
+        {
+            "id": 165,
+            "title_ua": "Намібія",
+            "title_ru": "Намибия",
+            "title_en": "Namibia",
+            "geocode": "NA",
+            "title": "Намібія"
+        },
+        {
+            "id": 166,
+            "title_ua": "Нова Каледонія",
+            "title_ru": "Новая Каледония",
+            "title_en": "New Caledonia",
+            "geocode": "NC",
+            "title": "Нова Каледонія"
+        },
+        {
+            "id": 167,
+            "title_ua": "Нігер",
+            "title_ru": "Нигер",
+            "title_en": "Niger",
+            "geocode": "NE",
+            "title": "Нігер"
+        },
+        {
+            "id": 168,
+            "title_ua": "Острів Норфолк",
+            "title_ru": "о-в Норфолк",
+            "title_en": "Norfolk Island",
+            "geocode": "NF",
+            "title": "Острів Норфолк"
+        },
+        {
+            "id": 169,
+            "title_ua": "Нігерія",
+            "title_ru": "Нигерия",
+            "title_en": "Nigeria",
+            "geocode": "NG",
+            "title": "Нігерія"
+        },
+        {
+            "id": 170,
+            "title_ua": "Нікарагуа",
+            "title_ru": "Никарагуа",
+            "title_en": "Nicaragua",
+            "geocode": "NI",
+            "title": "Нікарагуа"
+        },
+        {
+            "id": 171,
+            "title_ua": "Нідерланди",
+            "title_ru": "Нидерланды",
+            "title_en": "Netherlands",
+            "geocode": "NL",
+            "title": "Нідерланди"
+        },
+        {
+            "id": 172,
+            "title_ua": "Норвегія",
+            "title_ru": "Норвегия",
+            "title_en": "Norway",
+            "geocode": "NO",
+            "title": "Норвегія"
+        },
+        {
+            "id": 173,
+            "title_ua": "Непал",
+            "title_ru": "Непал",
+            "title_en": "Nepal",
+            "geocode": "NP",
+            "title": "Непал"
+        },
+        {
+            "id": 174,
+            "title_ua": "Науру",
+            "title_ru": "Науру",
+            "title_en": "Nauru",
+            "geocode": "NR",
+            "title": "Науру"
+        },
+        {
+            "id": 175,
+            "title_ua": "Ніуе",
+            "title_ru": "Ниуэ",
+            "title_en": "Niue",
+            "geocode": "NU",
+            "title": "Ніуе"
+        },
+        {
+            "id": 176,
+            "title_ua": "Нова Зеландія",
+            "title_ru": "Новая Зеландия",
+            "title_en": "New Zealand",
+            "geocode": "NZ",
+            "title": "Нова Зеландія"
+        },
+        {
+            "id": 177,
+            "title_ua": "Оман",
+            "title_ru": "Оман",
+            "title_en": "Oman",
+            "geocode": "OM",
+            "title": "Оман"
+        },
+        {
+            "id": 178,
+            "title_ua": "Панама",
+            "title_ru": "Панама",
+            "title_en": "Panama",
+            "geocode": "PA",
+            "title": "Панама"
+        },
+        {
+            "id": 179,
+            "title_ua": "Перу",
+            "title_ru": "Перу",
+            "title_en": "Peru",
+            "geocode": "PE",
+            "title": "Перу"
+        },
+        {
+            "id": 180,
+            "title_ua": "Французька Полінезія",
+            "title_ru": "Французская Полинезия",
+            "title_en": "French Polynesia",
+            "geocode": "PF",
+            "title": "Французька Полінезія"
+        },
+        {
+            "id": 181,
+            "title_ua": "Папуа Нова Гвінея",
+            "title_ru": "Папуа – Новая Гвинея",
+            "title_en": "Papua New Guinea",
+            "geocode": "PG",
+            "title": "Папуа Нова Гвінея"
+        },
+        {
+            "id": 182,
+            "title_ua": "Філіппіни",
+            "title_ru": "Филиппины",
+            "title_en": "Philippines",
+            "geocode": "PH",
+            "title": "Філіппіни"
+        },
+        {
+            "id": 183,
+            "title_ua": "Пакистан",
+            "title_ru": "Пакистан",
+            "title_en": "Pakistan",
+            "geocode": "PK",
+            "title": "Пакистан"
+        },
+        {
+            "id": 184,
+            "title_ua": "Сен-Пʼєр і Мікелон",
+            "title_ru": "Сен-Пьер и Микелон",
+            "title_en": "St. Pierre & Miquelon",
+            "geocode": "PM",
+            "title": "Сен-Пʼєр і Мікелон"
+        },
+        {
+            "id": 185,
+            "title_ua": "Острови Піткерн",
+            "title_ru": "Питкэрн",
+            "title_en": "Pitcairn Islands",
+            "geocode": "PN",
+            "title": "Острови Піткерн"
+        },
+        {
+            "id": 186,
+            "title_ua": "Пуерто-Рико",
+            "title_ru": "Пуэрто-Рико",
+            "title_en": "Puerto Rico",
+            "geocode": "PR",
+            "title": "Пуерто-Рико"
+        },
+        {
+            "id": 187,
+            "title_ua": "Палестинські території",
+            "title_ru": "Палестинские территории",
+            "title_en": "Palestinian Territories",
+            "geocode": "PS",
+            "title": "Палестинські території"
+        },
+        {
+            "id": 188,
+            "title_ua": "Португалія",
+            "title_ru": "Португалия",
+            "title_en": "Portugal",
+            "geocode": "PT",
+            "title": "Португалія"
+        },
+        {
+            "id": 189,
+            "title_ua": "Палау",
+            "title_ru": "Палау",
+            "title_en": "Palau",
+            "geocode": "PW",
+            "title": "Палау"
+        },
+        {
+            "id": 190,
+            "title_ua": "Парагвай",
+            "title_ru": "Парагвай",
+            "title_en": "Paraguay",
+            "geocode": "PY",
+            "title": "Парагвай"
+        },
+        {
+            "id": 191,
+            "title_ua": "Катар",
+            "title_ru": "Катар",
+            "title_en": "Qatar",
+            "geocode": "QA",
+            "title": "Катар"
+        },
+        {
+            "id": 192,
+            "title_ua": "Реюньйон",
+            "title_ru": "Реюньон",
+            "title_en": "Réunion",
+            "geocode": "RE",
+            "title": "Реюньйон"
+        },
+        {
+            "id": 193,
+            "title_ua": "Румунія",
+            "title_ru": "Румыния",
+            "title_en": "Romania",
+            "geocode": "RO",
+            "title": "Румунія"
+        },
+        {
+            "id": 194,
+            "title_ua": "Сербія",
+            "title_ru": "Сербия",
+            "title_en": "Serbia",
+            "geocode": "RS",
+            "title": "Сербія"
+        },
+        {
+            "id": 195,
+            "title_ua": "Росія",
+            "title_ru": "Россия",
+            "title_en": "Russia",
+            "geocode": "RU",
+            "title": "Росія"
+        },
+        {
+            "id": 196,
+            "title_ua": "Руанда",
+            "title_ru": "Руанда",
+            "title_en": "Rwanda",
+            "geocode": "RW",
+            "title": "Руанда"
+        },
+        {
+            "id": 197,
+            "title_ua": "Саудівська Аравія",
+            "title_ru": "Саудовская Аравия",
+            "title_en": "Saudi Arabia",
+            "geocode": "SA",
+            "title": "Саудівська Аравія"
+        },
+        {
+            "id": 198,
+            "title_ua": "Соломонові Острови",
+            "title_ru": "Соломоновы о-ва",
+            "title_en": "Solomon Islands",
+            "geocode": "SB",
+            "title": "Соломонові Острови"
+        },
+        {
+            "id": 199,
+            "title_ua": "Сейшельські острови",
+            "title_ru": "Сейшельские о-ва",
+            "title_en": "Seychelles",
+            "geocode": "SC",
+            "title": "Сейшельські острови"
+        },
+        {
+            "id": 200,
+            "title_ua": "Судан",
+            "title_ru": "Судан",
+            "title_en": "Sudan",
+            "geocode": "SD",
+            "title": "Судан"
+        },
+        {
+            "id": 201,
+            "title_ua": "Швеція",
+            "title_ru": "Швеция",
+            "title_en": "Sweden",
+            "geocode": "SE",
+            "title": "Швеція"
+        },
+        {
+            "id": 202,
+            "title_ua": "Сінгапур",
+            "title_ru": "Сингапур",
+            "title_en": "Singapore",
+            "geocode": "SG",
+            "title": "Сінгапур"
+        },
+        {
+            "id": 203,
+            "title_ua": "Острів Святої Єлени",
+            "title_ru": "О-в Св. Елены",
+            "title_en": "St. Helena",
+            "geocode": "SH",
+            "title": "Острів Святої Єлени"
+        },
+        {
+            "id": 204,
+            "title_ua": "Словенія",
+            "title_ru": "Словения",
+            "title_en": "Slovenia",
+            "geocode": "SI",
+            "title": "Словенія"
+        },
+        {
+            "id": 205,
+            "title_ua": "Острови Свальбард і Ян-Маєн",
+            "title_ru": "Шпицберген и Ян-Майен",
+            "title_en": "Svalbard & Jan Mayen",
+            "geocode": "SJ",
+            "title": "Острови Свальбард і Ян-Маєн"
+        },
+        {
+            "id": 206,
+            "title_ua": "Словаччина",
+            "title_ru": "Словакия",
+            "title_en": "Slovakia",
+            "geocode": "SK",
+            "title": "Словаччина"
+        },
+        {
+            "id": 207,
+            "title_ua": "Сьєрра-Леоне",
+            "title_ru": "Сьерра-Леоне",
+            "title_en": "Sierra Leone",
+            "geocode": "SL",
+            "title": "Сьєрра-Леоне"
+        },
+        {
+            "id": 208,
+            "title_ua": "Сан-Марино",
+            "title_ru": "Сан-Марино",
+            "title_en": "San Marino",
+            "geocode": "SM",
+            "title": "Сан-Марино"
+        },
+        {
+            "id": 209,
+            "title_ua": "Сенегал",
+            "title_ru": "Сенегал",
+            "title_en": "Senegal",
+            "geocode": "SN",
+            "title": "Сенегал"
+        },
+        {
+            "id": 210,
+            "title_ua": "Сомалі",
+            "title_ru": "Сомали",
+            "title_en": "Somalia",
+            "geocode": "SO",
+            "title": "Сомалі"
+        },
+        {
+            "id": 211,
+            "title_ua": "Суринам",
+            "title_ru": "Суринам",
+            "title_en": "Suriname",
+            "geocode": "SR",
+            "title": "Суринам"
+        },
+        {
+            "id": 212,
+            "title_ua": "Південний Судан",
+            "title_ru": "Южный Судан",
+            "title_en": "South Sudan",
+            "geocode": "SS",
+            "title": "Південний Судан"
+        },
+        {
+            "id": 213,
+            "title_ua": "Сан-Томе і Прінсіпі",
+            "title_ru": "Сан-Томе и Принсипи",
+            "title_en": "São Tomé & Príncipe",
+            "geocode": "ST",
+            "title": "Сан-Томе і Прінсіпі"
+        },
+        {
+            "id": 214,
+            "title_ua": "Сальвадор",
+            "title_ru": "Сальвадор",
+            "title_en": "El Salvador",
+            "geocode": "SV",
+            "title": "Сальвадор"
+        },
+        {
+            "id": 215,
+            "title_ua": "Сінт-Мартен",
+            "title_ru": "Синт-Мартен",
+            "title_en": "Sint Maarten",
+            "geocode": "SX",
+            "title": "Сінт-Мартен"
+        },
+        {
+            "id": 216,
+            "title_ua": "Сирія",
+            "title_ru": "Сирия",
+            "title_en": "Syria",
+            "geocode": "SY",
+            "title": "Сирія"
+        },
+        {
+            "id": 217,
+            "title_ua": "Свазіленд",
+            "title_ru": "Свазиленд",
+            "title_en": "Swaziland",
+            "geocode": "SZ",
+            "title": "Свазіленд"
+        },
+        {
+            "id": 218,
+            "title_ua": "Трістан-да-Кунья",
+            "title_ru": "Тристан-да-Кунья",
+            "title_en": "Tristan da Cunha",
+            "geocode": "TA",
+            "title": "Трістан-да-Кунья"
+        },
+        {
+            "id": 219,
+            "title_ua": "Острови Теркс і Кайкос",
+            "title_ru": "О-ва Тёркс и Кайкос",
+            "title_en": "Turks & Caicos Islands",
+            "geocode": "TC",
+            "title": "Острови Теркс і Кайкос"
+        },
+        {
+            "id": 220,
+            "title_ua": "Чад",
+            "title_ru": "Чад",
+            "title_en": "Chad",
+            "geocode": "TD",
+            "title": "Чад"
+        },
+        {
+            "id": 221,
+            "title_ua": "Французькі Південні Території",
+            "title_ru": "Французские Южные Территории",
+            "title_en": "French Southern Territories",
+            "geocode": "TF",
+            "title": "Французькі Південні Території"
+        },
+        {
+            "id": 222,
+            "title_ua": "Того",
+            "title_ru": "Того",
+            "title_en": "Togo",
+            "geocode": "TG",
+            "title": "Того"
+        },
+        {
+            "id": 223,
+            "title_ua": "Таїланд",
+            "title_ru": "Таиланд",
+            "title_en": "Thailand",
+            "geocode": "TH",
+            "title": "Таїланд"
+        },
+        {
+            "id": 224,
+            "title_ua": "Таджикистан",
+            "title_ru": "Таджикистан",
+            "title_en": "Tajikistan",
+            "geocode": "TJ",
+            "title": "Таджикистан"
+        },
+        {
+            "id": 225,
+            "title_ua": "Токелау",
+            "title_ru": "Токелау",
+            "title_en": "Tokelau",
+            "geocode": "TK",
+            "title": "Токелау"
+        },
+        {
+            "id": 226,
+            "title_ua": "Східний Тимор",
+            "title_ru": "Восточный Тимор",
+            "title_en": "Timor-Leste",
+            "geocode": "TL",
+            "title": "Східний Тимор"
+        },
+        {
+            "id": 227,
+            "title_ua": "Туркменістан",
+            "title_ru": "Туркменистан",
+            "title_en": "Turkmenistan",
+            "geocode": "TM",
+            "title": "Туркменістан"
+        },
+        {
+            "id": 228,
+            "title_ua": "Туніс",
+            "title_ru": "Тунис",
+            "title_en": "Tunisia",
+            "geocode": "TN",
+            "title": "Туніс"
+        },
+        {
+            "id": 229,
+            "title_ua": "Тонга",
+            "title_ru": "Тонга",
+            "title_en": "Tonga",
+            "geocode": "TO",
+            "title": "Тонга"
+        },
+        {
+            "id": 230,
+            "title_ua": "Туреччина",
+            "title_ru": "Турция",
+            "title_en": "Turkey",
+            "geocode": "TR",
+            "title": "Туреччина"
+        },
+        {
+            "id": 231,
+            "title_ua": "Тринідад і Тобаго",
+            "title_ru": "Тринидад и Тобаго",
+            "title_en": "Trinidad & Tobago",
+            "geocode": "TT",
+            "title": "Тринідад і Тобаго"
+        },
+        {
+            "id": 232,
+            "title_ua": "Тувалу",
+            "title_ru": "Тувалу",
+            "title_en": "Tuvalu",
+            "geocode": "TV",
+            "title": "Тувалу"
+        },
+        {
+            "id": 233,
+            "title_ua": "Тайвань",
+            "title_ru": "Тайвань",
+            "title_en": "Taiwan",
+            "geocode": "TW",
+            "title": "Тайвань"
+        },
+        {
+            "id": 234,
+            "title_ua": "Танзанія",
+            "title_ru": "Танзания",
+            "title_en": "Tanzania",
+            "geocode": "TZ",
+            "title": "Танзанія"
+        },
+        {
+            "id": 235,
+            "title_ua": "Уганда",
+            "title_ru": "Уганда",
+            "title_en": "Uganda",
+            "geocode": "UG",
+            "title": "Уганда"
+        },
+        {
+            "id": 236,
+            "title_ua": "Віддалені острови США",
+            "title_ru": "Внешние малые о-ва (США)",
+            "title_en": "U.S. Outlying Islands",
+            "geocode": "UM",
+            "title": "Віддалені острови США"
+        },
+        {
+            "id": 237,
+            "title_ua": "США",
+            "title_ru": "Соединенные Штаты",
+            "title_en": "United States",
+            "geocode": "US",
+            "title": "США"
+        },
+        {
+            "id": 238,
+            "title_ua": "Уругвай",
+            "title_ru": "Уругвай",
+            "title_en": "Uruguay",
+            "geocode": "UY",
+            "title": "Уругвай"
+        },
+        {
+            "id": 239,
+            "title_ua": "Узбекистан",
+            "title_ru": "Узбекистан",
+            "title_en": "Uzbekistan",
+            "geocode": "UZ",
+            "title": "Узбекистан"
+        },
+        {
+            "id": 240,
+            "title_ua": "Ватикан",
+            "title_ru": "Ватикан",
+            "title_en": "Vatican City",
+            "geocode": "VA",
+            "title": "Ватикан"
+        },
+        {
+            "id": 241,
+            "title_ua": "Сент-Вінсент і Гренадини",
+            "title_ru": "Сент-Винсент и Гренадины",
+            "title_en": "St. Vincent & Grenadines",
+            "geocode": "VC",
+            "title": "Сент-Вінсент і Гренадини"
+        },
+        {
+            "id": 242,
+            "title_ua": "Венесуела",
+            "title_ru": "Венесуэла",
+            "title_en": "Venezuela",
+            "geocode": "VE",
+            "title": "Венесуела"
+        },
+        {
+            "id": 243,
+            "title_ua": "Британські Віргінські острови",
+            "title_ru": "Виргинские о-ва (Британские)",
+            "title_en": "British Virgin Islands",
+            "geocode": "VG",
+            "title": "Британські Віргінські острови"
+        },
+        {
+            "id": 244,
+            "title_ua": "Віргінські острови, США",
+            "title_ru": "Виргинские о-ва (США)",
+            "title_en": "U.S. Virgin Islands",
+            "geocode": "VI",
+            "title": "Віргінські острови, США"
+        },
+        {
+            "id": 245,
+            "title_ua": "Вʼєтнам",
+            "title_ru": "Вьетнам",
+            "title_en": "Vietnam",
+            "geocode": "VN",
+            "title": "Вʼєтнам"
+        },
+        {
+            "id": 246,
+            "title_ua": "Вануату",
+            "title_ru": "Вануату",
+            "title_en": "Vanuatu",
+            "geocode": "VU",
+            "title": "Вануату"
+        },
+        {
+            "id": 247,
+            "title_ua": "Волліс і Футуна",
+            "title_ru": "Уоллис и Футуна",
+            "title_en": "Wallis & Futuna",
+            "geocode": "WF",
+            "title": "Волліс і Футуна"
+        },
+        {
+            "id": 248,
+            "title_ua": "Самоа",
+            "title_ru": "Самоа",
+            "title_en": "Samoa",
+            "geocode": "WS",
+            "title": "Самоа"
+        },
+        {
+            "id": 249,
+            "title_ua": "Косово",
+            "title_ru": "Косово",
+            "title_en": "Kosovo",
+            "geocode": "XK",
+            "title": "Косово"
+        },
+        {
+            "id": 250,
+            "title_ua": "Ємен",
+            "title_ru": "Йемен",
+            "title_en": "Yemen",
+            "geocode": "YE",
+            "title": "Ємен"
+        },
+        {
+            "id": 251,
+            "title_ua": "Майотта",
+            "title_ru": "Майотта",
+            "title_en": "Mayotte",
+            "geocode": "YT",
+            "title": "Майотта"
+        },
+        {
+            "id": 252,
+            "title_ua": "ПАР",
+            "title_ru": "ЮАР",
+            "title_en": "South Africa",
+            "geocode": "ZA",
+            "title": "ПАР"
+        },
+        {
+            "id": 253,
+            "title_ua": "Замбія",
+            "title_ru": "Замбия",
+            "title_en": "Zambia",
+            "geocode": "ZM",
+            "title": "Замбія"
+        },
+        {
+            "id": 254,
+            "title_ua": "Зімбабве",
+            "title_ru": "Зимбабве",
+            "title_en": "Zimbabwe",
+            "geocode": "ZW",
+            "title": "Зімбабве"
+        }
+        ]

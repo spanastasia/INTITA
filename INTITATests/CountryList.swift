@@ -9,19 +9,32 @@ import XCTest
 @testable import INTITA
 
 class CountryList: XCTestCase {
+    let countryList = CountryService()
 
     func testGetCountry() {
         guard let path = Bundle.main.path(forResource: "Countries", ofType: "plist"),
               let dict = NSDictionary(contentsOfFile: path),
-           let ukraine = dict["1"] as? String
+           let ukrainea = dict["1"] as? String
         else {
             XCTFail()
             return
         }
+        guard let array = countryList.getCountry() else {
+            XCTFail()
+            return
+        }
+        var ukraine: CountryModel?
+        array.map {
+            if $0.geocode == "UA" {
+                ukraine = $0
+            }
+        }
+
         
-        XCTAssertEqual(ukraine, "UA")
-        XCTAssertEqual(ukraine.localizedCountry(locale: Locale(identifier: "en_EN")), "Ukraine")
-        XCTAssertEqual(ukraine.localizedCountry(locale: Locale(identifier: "ua_UA")), "Україна")
-        XCTAssertEqual(ukraine.localizedCountry(locale: Locale(identifier: "ru_RU")), "Украина")
+        XCTAssertEqual(ukraine?.geocode, "UA")
+        XCTAssertEqual(ukraine?.titleEN, "Ukraine")
+//        XCTAssertEqual(ukraine.localizedCountry(locale: Locale(identifier: "en_EN")), "Ukraine")
+//        XCTAssertEqual(ukraine.localizedCountry(locale: Locale(identifier: "ua_UA")), "Україна")
+//        XCTAssertEqual(ukraine.localizedCountry(locale: Locale(identifier: "ru_RU")), "Украина")
     }
 }
