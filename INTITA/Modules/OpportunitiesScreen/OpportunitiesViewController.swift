@@ -9,6 +9,7 @@ import UIKit
 
 class OpportunitiesViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var courseView: UIView!
     @IBOutlet weak var taskView: UIView!
     @IBOutlet weak var studiesView: UIView!
@@ -34,10 +35,13 @@ class OpportunitiesViewController: UIViewController, Storyboarded {
         setupNameLabel()
         setupAvailableOptionsLabel()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
 //        setupView(withType: OpportunitiesView.task, view: contentCourseView)
-        setupCourseView()
-        setupTaskView()
-        setupStudiesView()
+//        setupCourseView()
+//        setupTaskView()
+//        setupStudiesView()
 
     }
     
@@ -130,4 +134,36 @@ extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
         isProfileSize.toggle()
     }
         
+}
+
+extension OpportunitiesViewController: UITableViewDataSource {
+    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return Opportunities.allCases.count
+//    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Opportunities.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch indexPath.row {
+        case 0:
+            <#code#>
+        case 1:
+            <#code#>
+        case 2:
+            <#code#>
+        default:
+            <#code#>
+        }
+        
+        return UITableViewCell()
+    }
+    
+}
+
+extension OpportunitiesViewController: UITableViewDelegate {
+    
 }
