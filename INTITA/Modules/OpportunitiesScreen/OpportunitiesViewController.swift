@@ -114,15 +114,15 @@ extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
 
         switch withType {
         case .course:
-            print("course")
+//            print("course")
             heightOfCourseView.constant = 120
             contentCourseView.configureExtendedView()
         case .task:
-            print("task")
+//            print("task")
             heightOfTaskView.constant = 120
             contentTaskView.configureExtendedView()
         case .study:
-            print("study")
+//            print("study")
             heightOfStudiesView.constant = 120
             contentStudiesView.configureExtendedView()
         }
