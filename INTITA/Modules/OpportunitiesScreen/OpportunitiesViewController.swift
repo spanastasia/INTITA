@@ -34,6 +34,7 @@ class OpportunitiesViewController: UIViewController, Storyboarded {
         setupNameLabel()
         setupAvailableOptionsLabel()
         
+//        setupView(withType: OpportunitiesView.task, view: contentCourseView)
         setupCourseView()
         setupTaskView()
         setupStudiesView()
@@ -46,6 +47,14 @@ class OpportunitiesViewController: UIViewController, Storyboarded {
     
     func setupAvailableOptionsLabel() {
         availableOptionsLabel.text = "available_options".localized
+    }
+    
+    func setupView(withType: OpportunitiesView, view: UIView) {
+        
+//        view.type = withType
+//        view.delegate = self
+//        view.isProfileSize = isProfileSize
+//        courseView.addSubview(view)
     }
     
     func setupCourseView() {
@@ -81,7 +90,27 @@ class OpportunitiesViewController: UIViewController, Storyboarded {
 
 extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
     
-    func changeMainViewSize(withType: OpportunitiesView) {
+    func reduceHeightOfView(withType: OpportunitiesView) {
+//        print("reduceHeightOfView")
+        switch withType {
+        case .course:
+//            print("course")
+            heightOfCourseView.constant = 75
+            contentCourseView.configureSmallView()
+        case .task:
+//            print("task")
+            heightOfTaskView.constant = 75
+            contentTaskView.configureSmallView()
+        case .study:
+//            print("study")
+            heightOfStudiesView.constant = 75
+            contentStudiesView.configureSmallView()
+        }
+        
+        isProfileSize.toggle()
+    }
+    
+    func increaseHeightOfView(withType: OpportunitiesView) {
 
         switch withType {
         case .course:
@@ -96,7 +125,6 @@ extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
             print("study")
             heightOfStudiesView.constant = 120
             contentStudiesView.configureExtendedView()
-            
         }
         
         isProfileSize.toggle()

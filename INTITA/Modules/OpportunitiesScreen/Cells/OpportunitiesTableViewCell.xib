@@ -80,12 +80,21 @@
                             <constraint firstAttribute="height" constant="1" id="lcQ-2X-p2P"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeY-61-yNW">
+                        <rect key="frame" x="280" y="8" width="19" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" image="chevron.up" catalog="system"/>
+                        <connections>
+                            <action selector="upButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="61A-Sy-gEh"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="FlO-d7-4Pb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="7As-EB-iiG"/>
                     <constraint firstItem="Xhg-Q9-j8e" firstAttribute="top" secondItem="FlO-d7-4Pb" secondAttribute="bottom" constant="8" id="8Ai-ZI-K4Q"/>
                     <constraint firstItem="zgt-zz-W9t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8bJ-ay-LKb"/>
                     <constraint firstAttribute="trailing" secondItem="jtw-jn-igU" secondAttribute="trailing" constant="20" id="FhZ-qo-H8h"/>
+                    <constraint firstItem="KeY-61-yNW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Gfh-UY-LAd"/>
                     <constraint firstItem="EiE-BS-c4u" firstAttribute="top" secondItem="zgt-zz-W9t" secondAttribute="bottom" constant="24" id="GuM-DI-U0Q"/>
                     <constraint firstItem="7vn-LC-Gwf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Gx5-WB-yRW"/>
                     <constraint firstItem="7vn-LC-Gwf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GxG-4K-VSr"/>
@@ -103,6 +112,7 @@
                     <constraint firstAttribute="trailing" secondItem="zgt-zz-W9t" secondAttribute="trailing" constant="20" id="sGi-hu-AXT"/>
                     <constraint firstAttribute="trailing" secondItem="FlO-d7-4Pb" secondAttribute="trailing" constant="20" id="sGq-ZX-e6Z"/>
                     <constraint firstItem="ygo-Wv-LiH" firstAttribute="top" secondItem="zgt-zz-W9t" secondAttribute="bottom" id="wsj-Hy-CCj"/>
+                    <constraint firstAttribute="trailing" secondItem="KeY-61-yNW" secondAttribute="trailing" constant="20" id="yrd-jO-fRI"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -116,12 +126,14 @@
                 <outlet property="mainView" destination="7vn-LC-Gwf" id="HLJ-84-Y4f"/>
                 <outlet property="secondLineView" destination="FlO-d7-4Pb" id="hHC-1Q-dbd"/>
                 <outlet property="taskLabel" destination="K6Q-9p-nox" id="m2D-GS-QyD"/>
+                <outlet property="upButton" destination="KeY-61-yNW" id="mPz-nY-X3U"/>
             </connections>
             <point key="canvasLocation" x="7.9710144927536239" y="36.160714285714285"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
         <namedColor name="mainColor">
             <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

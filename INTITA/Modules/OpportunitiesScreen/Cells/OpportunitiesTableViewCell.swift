@@ -8,7 +8,8 @@
 import UIKit
 
 protocol OpportunitiesTableViewCellDelegate: AnyObject {
-    func changeMainViewSize(withType: OpportunitiesView)
+    func increaseHeightOfView(withType: OpportunitiesView)
+    func reduceHeightOfView(withType: OpportunitiesView)
 }
 
 class OpportunitiesTableViewCell: UITableViewCell {
@@ -34,6 +35,7 @@ class OpportunitiesTableViewCell: UITableViewCell {
     @IBOutlet weak var secondLineView: UIView!
     @IBOutlet weak var mainView: UIView!
     
+    @IBOutlet weak var upButton: UIButton!
     @IBOutlet weak var downButton: UIButton!
     @IBOutlet weak var heightOfViewConstraint: NSLayoutConstraint!
     
@@ -49,6 +51,7 @@ class OpportunitiesTableViewCell: UITableViewCell {
         
         heightOfViewConstraint.constant = 75
         
+        upButton.isHidden = true
         downButton.isHidden = false
         firstLineView.isHidden = true
         secondLineView.isHidden = true
@@ -64,6 +67,7 @@ class OpportunitiesTableViewCell: UITableViewCell {
         
         heightOfViewConstraint.constant = 120
         
+        upButton.isHidden = false
         downButton.isHidden = true
         firstLineView.isHidden = false
         secondLineView.isHidden = false
@@ -76,7 +80,14 @@ class OpportunitiesTableViewCell: UITableViewCell {
         
 //        print("downButtonTapped")
         if let type = type {
-            delegate?.changeMainViewSize(withType: type)
+            delegate?.increaseHeightOfView(withType: type)
+        }
+    }
+    
+    @IBAction func upButtonTapped(_ sender: Any) {
+//        print("upButtonTapped")
+        if let type = type {
+            delegate?.reduceHeightOfView(withType: type)
         }
     }
         
