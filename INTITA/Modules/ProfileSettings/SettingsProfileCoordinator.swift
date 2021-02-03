@@ -23,4 +23,8 @@ class SettingsProfileCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func returnToProfileScreen() {
+ 
+        navigationController.popViewController(animated: true)
+    }    
 }
