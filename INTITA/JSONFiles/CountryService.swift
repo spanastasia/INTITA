@@ -8,7 +8,7 @@
 import Foundation
 
 class CountryService {
-    func getCountries() -> [CountryModel]? {
+    static var countries: [CountryModel]? {
         var countries: [CountryModel]?
         guard let path = Bundle.main.url(forResource: "Countries", withExtension: "json") else { return nil}
         
@@ -22,6 +22,15 @@ class CountryService {
         }
         
         return countries
+    }
+    
+    static func countryBy(geocode: String) -> CountryModel? {
+        
+        let country = countries?.filter {
+            $0.geocode == geocode
+        }
+        
+        return country?.first
     }
 }
 
