@@ -42,7 +42,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     }
     
     func setupCell() {
-
         tableView.register(InfoSettingProfileTableViewCell.nib(),
                            forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
     }
@@ -72,7 +71,7 @@ extension SettingsProfileViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell
         
-        cell?.configure(withTitle: arr[indexPath.row] + " : ",
+        cell?.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
                         isEditing: isProfileEditing,
                         indexPath: indexPath.row)
         
@@ -84,15 +83,12 @@ extension SettingsProfileViewController: UITableViewDataSource {
 extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
     
     func goToProfileScreen() {
-
         coordinator?.returnToProfileScreen()
     }
     
-
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
 
         isProfileEditing.toggle()
-
         tableView.reloadData()
     }
 }
