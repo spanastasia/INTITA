@@ -10,20 +10,38 @@ import UIKit
 class SettingsProfileViewController: UIViewController, Storyboarded {
     
     var coordinator: SettingsProfileCoordinator?
+    
     private var isProfileEditing = false
+    private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
+    lazy var backButton = UIButton()
 
     let arr = [
-                "firstName", "full_name", "secondName",
-                "nickname", "birthday", "email",
-                "facebook", "linkedin", "twitter",
-                "phone", "address", "education",
-                "aboutUs", "aboutMy", "avatar",
-                "skype", "country", "city",
-                "current_job", "userStatus"
+        "firstName",
+        "secondName",
+        "nickname",
+        "birthday",
+        "country",
+        "city",
+        "address",
+        "phone",
+        "aboutMy",
+        "interests",
+        "education",
+        "prev_job",
+        "current_job",
+        "aboutUs",
+        "skype",
+        "facebook",
+        "linkedin",
+        "twitter",
+        "prefer_specializations",
+        "educform",
+        "education_shift"
             ]
 
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,25 +49,21 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         
         setupCell()
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.barTintColor = UIColor.primaryColor
 
+        headerContentView.delegate = self
+        headerContentView.frame.size.width = view.frame.width
+        headerView.addSubview(headerContentView)
+        
     }
     
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
-        guard parent == nil else {
-            return
-        }
+        guard parent == nil else { return }
         print("Did press Back button")
     }
     
     func setupCell() {
-        
-        tableView.register(HeaderSettingsTableViewCell.nib(),
-                           forCellReuseIdentifier: HeaderSettingsTableViewCell.identifier)
 
         tableView.register(InfoSettingProfileTableViewCell.nib(),
                            forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
@@ -73,51 +87,34 @@ extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        var height: CGFloat = 0
-        
-        if indexPath.row == 0 {
-            height = 188
-        } else {
-            height = 45
-        }
-        
-        return height
+        return 45
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderSettingsTableViewCell", for: indexPath) as! HeaderSettingsTableViewCell
-            
-            headerCell.delegate = self
-            return headerCell
-        } else {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "InfoSettingProfileTableViewCell", for: indexPath) as! InfoSettingProfileTableViewCell
-            cell.aboutSelfLabel.text = arr[indexPath.row] + " : "
-            cell.isProfileEditing = isProfileEditing
-            if indexPath.row.isMultiple(of: 2) {
-                cell.backgroundColor = .systemGray6
-            }
-            
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell
         
+        cell?.configure(withTitle: arr[indexPath.row] + " : ",
+                        isEditing: isProfileEditing,
+                        indexPath: indexPath.row)
+        
+        return cell ?? UITableViewCell()
     }
     
 }
 
 extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
+    
+    func goToProfileScreen() {
+
+        coordinator?.returnToProfileScreen()
+    }
+    
 
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
-        
+
         isProfileEditing.toggle()
-        
-        if sender.editButton.titleLabel?.text == "edit".localized {
-            sender.editButton.setTitle("save".localized, for: .normal)
-        } else {
-            sender.editButton.setTitle("edit".localized, for: .normal)
-        }
+
         tableView.reloadData()
     }
 }

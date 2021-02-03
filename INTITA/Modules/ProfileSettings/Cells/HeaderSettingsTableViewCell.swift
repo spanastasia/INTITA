@@ -9,6 +9,7 @@ import UIKit
 
 protocol HeaderSettingsTableViewCellDelegate: AnyObject {
     func editTaped(_ sender: HeaderSettingsTableViewCell)
+    func goToProfileScreen()
 }
 
 class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
@@ -29,9 +30,14 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        
+
         delegate.editTaped(self)
                 
+    }
+    
+    @IBAction func backBattonTaped(_ sender: Any) {
+
+        delegate.goToProfileScreen()
     }
     
     private func setupCell() {
