@@ -8,86 +8,85 @@
 import UIKit
 
 protocol OpportunitiesTableViewCellDelegate: AnyObject {
-    func increaseHeightOfView(withType: OpportunitiesView)
-    func reduceHeightOfView(withType: OpportunitiesView)
+    func downButtonTapped(sender: OpportunitiesTableViewCell, withType: Opportunities)
 }
 
-class OpportunitiesTableViewCell: UITableViewCell {
+class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     
     var delegate: OpportunitiesTableViewCellDelegate?
-    var type: OpportunitiesView?
+    var type: Opportunities?
     var isProfileSize = false {
         didSet {
+            guard let type = type else { return }
             if isProfileSize {
-                configureSmallView()
+                configureSmallView(with: type)
             } else {
-                configureExtendedView()
+                configureExtendedView(with: type)
             }
         }
     }
 
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var taskLabel: UILabel!
-    @IBOutlet weak var financeLabel: UILabel!
     
+    @IBOutlet weak var taskButton: UIButton!
+    @IBOutlet weak var financeButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
+
+    @IBOutlet weak var downBtnConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightMainViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var firstLineView: UIView!
     @IBOutlet weak var secondLineView: UIView!
-    @IBOutlet weak var mainView: UIView!
     
-    @IBOutlet weak var upButton: UIButton!
-    @IBOutlet weak var downButton: UIButton!
-    @IBOutlet weak var heightOfViewConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    func configureSmallView() {
+    func configureSmallView(with task: Opportunities) {
         
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
         
-        heightOfViewConstraint.constant = 75
+        heightMainViewConstraint.constant = 75
+        downBtnConstraint.constant = 8
         
-        upButton.isHidden = true
         downButton.isHidden = false
         firstLineView.isHidden = true
         secondLineView.isHidden = true
         
-        taskLabel.text = ""
-        financeLabel.text = ""
+        taskButton.isHidden = true
+        financeButton.isHidden = true
+        
+        mainLabel.text = task.sectionTitle
+        infoLabel.text = task.sectionInfo
     }
     
-    func configureExtendedView() {
+    func configureExtendedView(with task: Opportunities) {
         
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
+
+        heightMainViewConstraint.constant = 120
+//        downBtnConstraint.constant =
         
-        heightOfViewConstraint.constant = 120
-        
-        upButton.isHidden = false
         downButton.isHidden = true
         firstLineView.isHidden = false
         secondLineView.isHidden = false
         
-        taskLabel.text = "taskLabel"
-        financeLabel.text = "financeLabel"
+        taskButton.isHidden = false
+        financeButton.isHidden = false
+        mainLabel.text = task.sectionTitle
+        infoLabel.text = task.sectionInfo
     }
     
-    @IBAction func downButtonTapped(_ sender: Any) {
+    @IBAction func downButtonTapped(_ sender: UIButton) {
         
-//        print("downButtonTapped")
         if let type = type {
-            delegate?.increaseHeightOfView(withType: type)
-        }
-    }
-    
-    @IBAction func upButtonTapped(_ sender: Any) {
-//        print("upButtonTapped")
-        if let type = type {
-            delegate?.reduceHeightOfView(withType: type)
+            delegate?.downButtonTapped(sender: self, withType: type)
         }
     }
         

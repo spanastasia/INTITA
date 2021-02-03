@@ -9,5 +9,11 @@ import Foundation
 
 class OpportunitiesViewModel {
     
+    var numberOfStates: Int {
+        Opportunities.allCases.count
+    }
     
+    func getTitle(for state: State) -> String {
+        state.description
+    }
 }
