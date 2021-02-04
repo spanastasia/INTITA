@@ -15,29 +15,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
     lazy var backButton = UIButton()
 
-    let arr = [
-        "firstName",
-        "secondName",
-        "nickname",
-        "birthday",
-        "country",
-        "city",
-        "address",
-        "phone",
-        "aboutMy",
-        "interests",
-        "education",
-        "prev_job",
-        "current_job",
-        "aboutUs",
-        "skype",
-        "facebook",
-        "linkedin",
-        "twitter",
-        "prefer_specializations",
-        "educform",
-        "education_shift"
-            ]
+    var viewModel = SettingsProfileViewModel()
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -64,7 +42,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     }
     
     func setupCell() {
-
         tableView.register(InfoSettingProfileTableViewCell.nib(),
                            forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
     }
@@ -82,7 +59,7 @@ extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return arr.count
+        return viewModel.numberOfStates
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -94,7 +71,7 @@ extension SettingsProfileViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell
         
-        cell?.configure(withTitle: arr[indexPath.row] + " : ",
+        cell?.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
                         isEditing: isProfileEditing,
                         indexPath: indexPath.row)
         
@@ -106,15 +83,12 @@ extension SettingsProfileViewController: UITableViewDataSource {
 extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
     
     func goToProfileScreen() {
-
         coordinator?.returnToProfileScreen()
     }
     
-
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
 
         isProfileEditing.toggle()
-
         tableView.reloadData()
     }
 }

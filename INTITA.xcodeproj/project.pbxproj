@@ -43,6 +43,8 @@
 		49A4660F25C1D3C000C741D0 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4660E25C1D3C000C741D0 /* CountryList.swift */; };
 		49C098052578CE42000A8935 /* currentUser.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5A20AA257178750008FB0C /* currentUser.json */; };
 		49F53EAE25531263008327A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F53EAC25531263008327A6 /* Localizable.strings */; };
+		64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */; };
+		644F73C125C5BEAE001216EB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* UserModel.swift */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsProfileCoordinator.swift */; };
@@ -160,11 +162,13 @@
 		49F53EAD25531263008327A6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB02553126D008327A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB125531274008327A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewModel.swift; sourceTree = "<group>"; };
 		641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsProfile.storyboard; sourceTree = "<group>"; };
 		641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingProfileTableViewCell.swift; sourceTree = "<group>"; };
 		641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoSettingProfileTableViewCell.xib; sourceTree = "<group>"; };
 		641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		644F73C025C5BEAE001216EB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCoordinator.swift; sourceTree = "<group>"; };
 		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
@@ -263,6 +267,7 @@
 				3FB6FD22254FF4D800702D43 /* LogoutResponse.swift */,
 				3F2B29D6255AB84100DDE683 /* CurrentUser.swift */,
 				BA4FF3B8259A01160063218C /* TaskModel.swift */,
+				644F73C025C5BEAE001216EB /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */,
 				646615872596738300173A13 /* SettingsProfileCoordinator.swift */,
 				646615952596745200173A13 /* SettingsProfileViewController.swift */,
+				64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */,
 				641B8702258D20DC005FAA24 /* Cells */,
 			);
 			path = ProfileSettings;
@@ -726,6 +732,7 @@
 				3F2B29CC255A7FE500DDE683 /* UIView+fromNib.swift in Sources */,
 				BAA6305B258D27FD0042F290 /* User+CoreDataClass.swift in Sources */,
 				64BD43E625604C7B00880C9A /* JSONLoader.swift in Sources */,
+				644F73C125C5BEAE001216EB /* UserModel.swift in Sources */,
 				3F87984E255E738F0094D6D9 /* ProfileTableViewCell.swift in Sources */,
 				3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */,
 				64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */,
@@ -758,6 +765,7 @@
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
 				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
+				64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
 				64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */,
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
