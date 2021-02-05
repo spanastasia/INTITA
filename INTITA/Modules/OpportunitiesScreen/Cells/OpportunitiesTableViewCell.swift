@@ -8,20 +8,21 @@
 import UIKit
 
 protocol OpportunitiesTableViewCellDelegate: AnyObject {
-    func downButtonTapped(sender: OpportunitiesTableViewCell, withType: Opportunities)
+    func downButtonTapped(sender: OpportunitiesTableViewCell, withIndexPath: Opportunities.RawValue)
 }
 
 class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     
     var delegate: OpportunitiesTableViewCellDelegate?
     var type: Opportunities?
+    var spacing: CGFloat = 28
+    
     var isProfileSize = false {
         didSet {
-            guard let type = type else { return }
             if isProfileSize {
-                configureSmallView(with: type)
+                configureExtendedView()
             } else {
-                configureExtendedView(with: type)
+                configureSmallView()
             }
         }
     }
@@ -46,47 +47,72 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
         
     }
     
-    func configureSmallView(with task: Opportunities) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let margins = UIEdgeInsets(top: 0, left: 0, bottom: spacing, right: 0)
+        contentView.frame = contentView.frame.inset(by: margins)
+    }
+    
+    func configureSmallView() {
+        
+        guard let type = type else { return }
         
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
         
-        heightMainViewConstraint.constant = 75
-        downBtnConstraint.constant = 8
-        
-        downButton.isHidden = false
+        mainLabel.text = type.sectionTitle
+        infoLabel.text = type.sectionInfo
+
+        taskButton.isHidden = true
+        financeButton.isHidden = true
+
         firstLineView.isHidden = true
         secondLineView.isHidden = true
         
-        taskButton.isHidden = true
-        financeButton.isHidden = true
-        
-        mainLabel.text = task.sectionTitle
-        infoLabel.text = task.sectionInfo
     }
     
-    func configureExtendedView(with task: Opportunities) {
+    func configureExtendedView() {
         
+        guard let type = type else { return }
+
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
 
-        heightMainViewConstraint.constant = 120
-//        downBtnConstraint.constant =
+        mainLabel.text = type.sectionTitle
+        infoLabel.text = type.sectionInfo
         
-        downButton.isHidden = true
-        firstLineView.isHidden = false
-        secondLineView.isHidden = false
         
-        taskButton.isHidden = false
-        financeButton.isHidden = false
-        mainLabel.text = task.sectionTitle
-        infoLabel.text = task.sectionInfo
+        if type.itemsCount == 2 {
+            firstLineView.isHidden = false
+            secondLineView.isHidden = false
+            
+            taskButton.isHidden = false
+            financeButton.isHidden = false
+            
+            taskButton.setTitle(type.sectionButonTask, for: .normal)
+            financeButton.setTitle(type.sectionButonFinance, for: .normal)
+            
+        } else {
+            taskButton.isHidden = false
+            firstLineView.isHidden = false
+            
+            taskButton.setTitle(type.sectionButonTask, for: .normal)
+        }
     }
     
-    @IBAction func downButtonTapped(_ sender: UIButton) {
+    @IBAction func downButtonTapped(_ sender: Any) {
         
         if let type = type {
-            delegate?.downButtonTapped(sender: self, withType: type)
+            delegate?.downButtonTapped(sender: self, withIndexPath: type.rawValue)
+        }
+    }
+    
+    func rotateButton(_ expanded: Bool) {
+        if expanded {
+            downButton.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 70).rotated(by: CGFloat.pi)
+        } else {
+            downButton.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 0).rotated(by: CGFloat.zero)
         }
     }
         

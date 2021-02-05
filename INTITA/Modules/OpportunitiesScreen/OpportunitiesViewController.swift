@@ -16,8 +16,10 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
     
     var viewModel = OpportunitiesViewModel()
     var coordinator: OpportunitiesCoordinator?
-    var isProfileSize = true
-    var tape: Opportunities?
+    
+    private var isProfileSize = [false, false, false]
+    
+    var selectedRowIndex = NSIndexPath()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,72 +54,72 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
 
 extension OpportunitiesViewController: UITableViewDataSource {
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return Opportunities.allCases.count
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfStates
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: OpportunitiesTableViewCell.identifier, for: indexPath) as? OpportunitiesTableViewCell
-        cell?.delegate = self
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: OpportunitiesTableViewCell.identifier, for: indexPath) as? OpportunitiesTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.delegate = self
         
         switch indexPath.row {
         case 0:
-            cell?.configureSmallView(with: Opportunities.course)
-            cell?.type = .course
+            cell.type = .course
+            cell.isProfileSize = isProfileSize[indexPath.row]
         case 1:
-            cell?.configureSmallView(with: Opportunities.task)
-            cell?.type = .task
+            cell.type = .task
+            cell.isProfileSize = isProfileSize[indexPath.row]
         case 2:
-            cell?.configureSmallView(with: Opportunities.study)
-            cell?.type = .study
+            cell.type = .study
+            cell.isProfileSize = isProfileSize[indexPath.row]
 
         default:
             break
         }
         
-        return cell ?? UITableViewCell()
+        return cell
     }
     
 }
 
 extension OpportunitiesViewController: UITableViewDelegate {
-    
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 75
-//    }
 
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
-    
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 28
-//    }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 28
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        let height: CGFloat
+        if isProfileSize[indexPath.row] {
+            height = 168
+        } else {
+            height = 108
+        }
+        return height
+    }
+
 }
 
 extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
-    func downButtonTapped(sender: OpportunitiesTableViewCell, withType: Opportunities) {
-//        print("withType")
-
-        switch withType {
+    func downButtonTapped(sender: OpportunitiesTableViewCell, withIndexPath: Opportunities.RawValue) {
+        
+        isProfileSize[withIndexPath].toggle()
+        let isAction: Bool = isProfileSize[withIndexPath]
+        
+        switch sender.type {
         case .course:
-            sender.configureExtendedView(with: Opportunities.course)
+            sender.type = .course
         case .task:
-            sender.configureExtendedView(with: Opportunities.task)
+            sender.type = .task
         case .study:
-            sender.configureExtendedView(with: Opportunities.study)
+            sender.type = .study
+        default:
+            break
         }
-//        tableView.reloadData()
-    }
+        
+        sender.rotateButton(isAction)
+        
+        tableView.reloadData()
 
+    }
 }
