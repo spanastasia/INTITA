@@ -11,18 +11,18 @@ class TasksViewModel {
     var tasksModel: TasksModel = TasksModel.tempData
     
     var numberOfStates: Int {
-        State.allCases.count
+        Task.State.allCases.count
     }
     
-    func getCountOfTasks(in state: State) -> Int {
+    func getCountOfTasks(in state: Task.State) -> Int {
         getTasks(for: state).count
     }
     
-    func getTitle(for state: State) -> String {
+    func getTitle(for state: Task.State) -> String {
         state.description
     }
     
-    func getTasks(for state: State) -> [Task] {    
+    func getTasks(for state: Task.State) -> [Task] {    
         return tasksModel.tasks.filter { (task) in
             return task.state == state
         }

@@ -72,3 +72,6 @@
 "prefer_specializations" = "Выбрана специализация";
 "educ_form" = "Форма обучения";
 "education_shift" = "Смена образования";
+"offline" = "оффлайн";
+"online" = "онлайн";
+"online_offline" = "онлайн/оффлайн";
