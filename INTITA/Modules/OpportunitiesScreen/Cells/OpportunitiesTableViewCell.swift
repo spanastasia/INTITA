@@ -15,6 +15,7 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     
     var delegate: OpportunitiesTableViewCellDelegate?
     var type: Opportunities?
+    // - TODO:  get rid of spacing
     var spacing: CGFloat = 28
     
     var isProfileSize = false {
@@ -47,11 +48,11 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
         
     }
     
+    // - TODO: remove it please
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        let margins = UIEdgeInsets(top: 0, left: 0, bottom: spacing, right: 0)
-        contentView.frame = contentView.frame.inset(by: margins)
+//        let margins = UIEdgeInsets(top: 0, left: 0, bottom: spacing, right: 0)
+//        contentView.frame = contentView.frame.inset(by: margins)
     }
     
     func configureSmallView() {
@@ -83,7 +84,8 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
         infoLabel.text = type.sectionInfo
         
         
-        if type.itemsCount == 2 {
+        if type.itemsCount > 1 {
+            // StackView.arrangedSubviews.append( [Button + Separator, ..] + Button)
             firstLineView.isHidden = false
             secondLineView.isHidden = false
             
@@ -94,6 +96,7 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
             financeButton.setTitle(type.sectionButonFinance, for: .normal)
             
         } else {
+            // StackView.arrangedSubviews.append(Button)
             taskButton.isHidden = false
             firstLineView.isHidden = false
             
@@ -109,11 +112,13 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     }
     
     func rotateButton(_ expanded: Bool) {
-        if expanded {
-            downButton.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 70).rotated(by: CGFloat.pi)
-        } else {
-            downButton.transform = CGAffineTransform.identity.translatedBy(x: 0, y: 0).rotated(by: CGFloat.zero)
-        }
+        // TODO: fix the downButton behaviour
+        UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations:  {
+            self.downButton.transform = CGAffineTransform
+                .identity
+                .rotated(by: expanded ? .zero : .pi)
+            
+        }).startAnimation()
     }
         
 }

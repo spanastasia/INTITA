@@ -50,10 +50,27 @@ enum Opportunities: Int, Codable, CaseIterable {
     
     var sectionButonFinance: String {
         switch self {
- 
         case .course:
             return "available_courses_modules".localized
         default: return ""
+        }
+    }
+    
+    var items: [String] {
+        switch self {
+        case .course:
+            return [
+                "finances".localized,
+                "available_courses_modules".localized
+            ]
+        case .task:
+            return [
+                "tasks_detailed_answer".localized
+            ]
+        case .study:
+            return [
+                "type_training".localized
+            ]
         }
     }
     

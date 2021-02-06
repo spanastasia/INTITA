@@ -65,15 +65,16 @@ extension OpportunitiesViewController: UITableViewDataSource {
         }
         cell.delegate = self
         
+        cell.type = Opportunities(rawValue: indexPath.row)
         switch indexPath.row {
         case 0:
-            cell.type = .course
+//            cell.type = .course
             cell.isProfileSize = isProfileSize[indexPath.row]
         case 1:
-            cell.type = .task
+//            cell.type = .task
             cell.isProfileSize = isProfileSize[indexPath.row]
         case 2:
-            cell.type = .study
+//            cell.type = .study
             cell.isProfileSize = isProfileSize[indexPath.row]
 
         default:
@@ -87,16 +88,16 @@ extension OpportunitiesViewController: UITableViewDataSource {
 
 extension OpportunitiesViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        let height: CGFloat
-        if isProfileSize[indexPath.row] {
-            height = 168
-        } else {
-            height = 108
-        }
-        return height
-    }
+//        let height: CGFloat
+//        if isProfileSize[indexPath.row] {
+//            height = 168
+//        } else {
+//            height = 108
+//        }
+//        return height
+//    }
 
 }
 
@@ -119,7 +120,8 @@ extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
         
         sender.rotateButton(isAction)
         
-        tableView.reloadData()
-
+        tableView.performBatchUpdates {
+            tableView.reloadRows(at: [IndexPath(row: withIndexPath, section: 0)], with: .fade)
+        }
     }
 }
