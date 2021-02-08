@@ -13,4 +13,5 @@ class AppConstans {
     public static let phoneNumber2 = "+38 073 209 97 43"
     public static let isFirstTimeUser = "firstTimeUser"
     public static let coreDataModelName = "INTITA"
+    public static let urlPath = "urlPath"
 }

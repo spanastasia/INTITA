@@ -11,7 +11,7 @@
         <!--Settings Profile View Controller-->
         <scene sceneID="HQH-HS-Y9E">
             <objects>
-                <viewController storyboardIdentifier="SettingsProfileViewController" id="SB3-BW-lIE" customClass="SettingsProfileViewController" customModule="INTITA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsProfileViewController" id="SB3-BW-lIE" customClass="SettingsProfileViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Dg-D4-xHT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
