@@ -10,7 +10,7 @@ import Foundation
 class OpportunitiesViewModel {
     
     var numberOfStates: Int {
-        Opportunities.allCases.count
+        OpportunitiesModel.allCases.count
     }
     
     func getTitle(for state: State) -> String {

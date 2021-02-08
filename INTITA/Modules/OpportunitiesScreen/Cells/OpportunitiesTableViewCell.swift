@@ -8,15 +8,13 @@
 import UIKit
 
 protocol OpportunitiesTableViewCellDelegate: AnyObject {
-    func downButtonTapped(sender: OpportunitiesTableViewCell, withIndexPath: Opportunities.RawValue)
+    func changeSizeCell(sender: OpportunitiesTableViewCell, index: OpportunitiesModel.RawValue)
 }
 
 class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     
     var delegate: OpportunitiesTableViewCellDelegate?
-    var type: Opportunities?
-    // - TODO:  get rid of spacing
-    var spacing: CGFloat = 28
+    var type: OpportunitiesModel?
     
     var isProfileSize = false {
         didSet {
@@ -27,16 +25,17 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
             }
         }
     }
-
+    
+    @IBOutlet weak var arrayButtons: UIButton!
+    
+    @IBOutlet weak var arrayLines: UIView!
+    
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
     @IBOutlet weak var taskButton: UIButton!
     @IBOutlet weak var financeButton: UIButton!
     @IBOutlet weak var downButton: UIButton!
-
-    @IBOutlet weak var downBtnConstraint: NSLayoutConstraint!
-    @IBOutlet weak var heightMainViewConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var firstLineView: UIView!
@@ -48,19 +47,13 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
         
     }
     
-    // - TODO: remove it please
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        let margins = UIEdgeInsets(top: 0, left: 0, bottom: spacing, right: 0)
-//        contentView.frame = contentView.frame.inset(by: margins)
-    }
-    
     func configureSmallView() {
         
         guard let type = type else { return }
         
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
+        rotateButton(false)
         
         mainLabel.text = type.sectionTitle
         infoLabel.text = type.sectionInfo
@@ -79,12 +72,26 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
 
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
+        rotateButton(true)
 
         mainLabel.text = type.sectionTitle
         infoLabel.text = type.sectionInfo
         
+        for index in 0..<type.items.count {
+            
+        }
         
-        if type.itemsCount > 1 {
+        if type.items.count == 1 {
+            // StackView.arrangedSubviews.append(Button)
+            taskButton.isHidden = false
+            firstLineView.isHidden = false
+            
+            financeButton.isHidden = true
+            secondLineView.isHidden = true
+            
+            taskButton.setTitle(type.sectionButonTask, for: .normal)
+            
+        } else {
             // StackView.arrangedSubviews.append( [Button + Separator, ..] + Button)
             firstLineView.isHidden = false
             secondLineView.isHidden = false
@@ -94,31 +101,23 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
             
             taskButton.setTitle(type.sectionButonTask, for: .normal)
             financeButton.setTitle(type.sectionButonFinance, for: .normal)
-            
-        } else {
-            // StackView.arrangedSubviews.append(Button)
-            taskButton.isHidden = false
-            firstLineView.isHidden = false
-            
-            taskButton.setTitle(type.sectionButonTask, for: .normal)
         }
+
     }
     
     @IBAction func downButtonTapped(_ sender: Any) {
         
         if let type = type {
-            delegate?.downButtonTapped(sender: self, withIndexPath: type.rawValue)
+            delegate?.changeSizeCell(sender: self, index: type.rawValue)
         }
     }
-    
+
     func rotateButton(_ expanded: Bool) {
-        // TODO: fix the downButton behaviour
+
         UIViewPropertyAnimator(duration: 0.3, curve: .easeIn, animations:  {
             self.downButton.transform = CGAffineTransform
                 .identity
                 .rotated(by: expanded ? .zero : .pi)
-            
         }).startAnimation()
     }
-        
 }

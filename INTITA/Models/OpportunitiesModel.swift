@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Opportunities: Int, Codable, CaseIterable {
+enum OpportunitiesModel: Int, Codable, CaseIterable {
     case course
     case task
     case study
@@ -73,16 +73,16 @@ enum Opportunities: Int, Codable, CaseIterable {
             ]
         }
     }
-    
-    var itemsCount: Int {
-        switch self {
-
-        case .course:
-            return 2
-        case .task:
-            return 1
-        case .study:
-            return 1
-        }
-    }
+//    
+//    var itemsCount: Int {
+//        switch self {
+//
+//        case .course:
+//            return 2
+//        case .task:
+//            return 1
+//        case .study:
+//            return 1
+//        }
+//    }
 }

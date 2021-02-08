@@ -79,11 +79,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiE-BS-c4u">
-                                <rect key="frame" x="150.5" y="132" width="18.5" height="16"/>
+                                <rect key="frame" x="139.5" y="132" width="40" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="13d-dO-06p"/>
+                                    <constraint firstAttribute="width" constant="40" id="HFr-2N-Mrb"/>
                                 </constraints>
-                                <state key="normal" image="chevron.down" catalog="system"/>
+                                <state key="normal" image="chevron.up" catalog="system"/>
                                 <connections>
                                     <action selector="downButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6Xs-Ct-HkQ"/>
                                 </connections>
@@ -118,7 +119,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="downBtnConstraint" destination="zgt-zz-W9t" id="E0y-dh-dPk"/>
+                <outlet property="arrayButtons" destination="Rd3-AU-KsY" id="blR-i8-JMA"/>
+                <outlet property="arrayLines" destination="hqF-bW-l0v" id="ekE-Kp-BNK"/>
                 <outlet property="downButton" destination="EiE-BS-c4u" id="wEZ-G7-ren"/>
                 <outlet property="financeButton" destination="Rd3-AU-KsY" id="rVX-cK-uJe"/>
                 <outlet property="firstLineView" destination="jtw-jn-igU" id="XHC-GJ-LsY"/>
@@ -132,7 +134,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
         <namedColor name="mainColor">
             <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -18,8 +18,6 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
     var coordinator: OpportunitiesCoordinator?
     
     private var isProfileSize = [false, false, false]
-    
-    var selectedRowIndex = NSIndexPath()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,16 +63,13 @@ extension OpportunitiesViewController: UITableViewDataSource {
         }
         cell.delegate = self
         
-        cell.type = Opportunities(rawValue: indexPath.row)
+        cell.type = OpportunitiesModel(rawValue: indexPath.row)
         switch indexPath.row {
         case 0:
-//            cell.type = .course
             cell.isProfileSize = isProfileSize[indexPath.row]
         case 1:
-//            cell.type = .task
             cell.isProfileSize = isProfileSize[indexPath.row]
         case 2:
-//            cell.type = .study
             cell.isProfileSize = isProfileSize[indexPath.row]
 
         default:
@@ -88,40 +83,15 @@ extension OpportunitiesViewController: UITableViewDataSource {
 
 extension OpportunitiesViewController: UITableViewDelegate {
 
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-//        let height: CGFloat
-//        if isProfileSize[indexPath.row] {
-//            height = 168
-//        } else {
-//            height = 108
-//        }
-//        return height
-//    }
-
 }
 
 extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
-    func downButtonTapped(sender: OpportunitiesTableViewCell, withIndexPath: Opportunities.RawValue) {
+    func changeSizeCell(sender: OpportunitiesTableViewCell, index: OpportunitiesModel.RawValue) {
         
-        isProfileSize[withIndexPath].toggle()
-        let isAction: Bool = isProfileSize[withIndexPath]
-        
-        switch sender.type {
-        case .course:
-            sender.type = .course
-        case .task:
-            sender.type = .task
-        case .study:
-            sender.type = .study
-        default:
-            break
-        }
-        
-        sender.rotateButton(isAction)
+        isProfileSize[index].toggle()
         
         tableView.performBatchUpdates {
-            tableView.reloadRows(at: [IndexPath(row: withIndexPath, section: 0)], with: .fade)
+            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .fade)
         }
     }
 }
