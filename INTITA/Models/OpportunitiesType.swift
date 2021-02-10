@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum OpportunitiesModel: Int, Codable, CaseIterable {
+enum OpportunitiesType: Int, Codable, CaseIterable {
     case course
     case task
     case study
@@ -36,26 +36,6 @@ enum OpportunitiesModel: Int, Codable, CaseIterable {
         }
     }
     
-    var sectionButonTask: String {
-        switch self {
- 
-        case .course:
-            return "finances".localized
-        case .task:
-            return "tasks_detailed_answer".localized
-        case .study:
-            return "type_training".localized
-        }
-    }
-    
-    var sectionButonFinance: String {
-        switch self {
-        case .course:
-            return "available_courses_modules".localized
-        default: return ""
-        }
-    }
-    
     var items: [String] {
         switch self {
         case .course:
@@ -73,16 +53,5 @@ enum OpportunitiesModel: Int, Codable, CaseIterable {
             ]
         }
     }
-//    
-//    var itemsCount: Int {
-//        switch self {
-//
-//        case .course:
-//            return 2
-//        case .task:
-//            return 1
-//        case .study:
-//            return 1
-//        }
-//    }
+
 }

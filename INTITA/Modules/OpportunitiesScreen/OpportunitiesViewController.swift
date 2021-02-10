@@ -13,8 +13,7 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var availableOptionsLabel: UILabel!
-    
-    var viewModel = OpportunitiesViewModel()
+
     var coordinator: OpportunitiesCoordinator?
     
     private var isProfileSize = [false, false, false]
@@ -53,7 +52,7 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
 extension OpportunitiesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfStates
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,10 +62,9 @@ extension OpportunitiesViewController: UITableViewDataSource {
         }
         cell.delegate = self
         
-        cell.type = OpportunitiesModel(rawValue: indexPath.row)
+        cell.type = OpportunitiesType(rawValue: indexPath.row)
         switch indexPath.row {
         case 0:
-//            cell.setupStackView()
             cell.isProfileSize = isProfileSize[indexPath.row]
         case 1:
             cell.isProfileSize = isProfileSize[indexPath.row]
@@ -87,7 +85,7 @@ extension OpportunitiesViewController: UITableViewDelegate {
 }
 
 extension OpportunitiesViewController: OpportunitiesTableViewCellDelegate {
-    func changeSizeCell(sender: OpportunitiesTableViewCell, index: OpportunitiesModel.RawValue) {
+    func changeSizeCell(sender: OpportunitiesTableViewCell, index: OpportunitiesType.RawValue) {
         
         isProfileSize[index].toggle()
         

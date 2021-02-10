@@ -8,13 +8,13 @@
 import UIKit
 
 protocol OpportunitiesTableViewCellDelegate: AnyObject {
-    func changeSizeCell(sender: OpportunitiesTableViewCell, index: OpportunitiesModel.RawValue)
+    func changeSizeCell(sender: OpportunitiesTableViewCell, index: OpportunitiesType.RawValue)
 }
 
 class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     
     var delegate: OpportunitiesTableViewCellDelegate?
-    var type: OpportunitiesModel?
+    var type: OpportunitiesType?
     
     var isProfileSize = false {
         didSet {
@@ -45,7 +45,7 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupStackView()
+//        setupStackView()
     }
     
     func configureSmallView() {
@@ -86,9 +86,10 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
             financeButton.isHidden = true
             secondLineView.isHidden = true
             
-            taskButton.setTitle(type.sectionButonTask, for: .normal)
+            taskButton.setTitle(type.items[0], for: .normal)
             
         } else {
+//            setupStackView()
             // StackView.arrangedSubviews.append( [Button + Separator, ..] + Button)
             firstLineView.isHidden = false
             secondLineView.isHidden = false
@@ -96,14 +97,16 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
             taskButton.isHidden = false
             financeButton.isHidden = false
             
-            taskButton.setTitle(type.sectionButonTask, for: .normal)
-            financeButton.setTitle(type.sectionButonFinance, for: .normal)
+            taskButton.setTitle(type.items[0], for: .normal)
+            financeButton.setTitle(type.items[1], for: .normal)
         }
 
     }
     
     func setupStackView() {
         guard let type = type else { return }
+        
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         if type.items.count == 1 {
             let button = UIButton()
