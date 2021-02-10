@@ -13,6 +13,15 @@ protocol OpportunitiesTableViewCellDelegate: AnyObject {
 
 class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var firstLineView: UIView!
+    
+    @IBOutlet weak var downButton: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
+    
     var delegate: OpportunitiesTableViewCellDelegate?
     var type: OpportunitiesType?
     
@@ -26,50 +35,36 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
         }
     }
     
-    @IBOutlet weak var arrayButtons: UIButton!
-    
-    @IBOutlet weak var arrayLines: UIView!
-    
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
-    
-    @IBOutlet weak var taskButton: UIButton!
-    @IBOutlet weak var financeButton: UIButton!
-    @IBOutlet weak var downButton: UIButton!
-    
-    @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var firstLineView: UIView!
-    @IBOutlet weak var secondLineView: UIView!
-    
-    @IBOutlet weak var stackView: UIStackView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-//        setupStackView()
+
     }
     
     func configureSmallView() {
         
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
         guard let type = type else { return }
   
+        stackView.isHidden = true
+        firstLineView.isHidden = true
+        
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
         rotateButton(false)
         
         mainLabel.text = type.sectionTitle
         infoLabel.text = type.sectionInfo
-
-        taskButton.isHidden = true
-        financeButton.isHidden = true
-
-        firstLineView.isHidden = true
-        secondLineView.isHidden = true
-        
     }
     
     func configureExtendedView() {
         
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
         guard let type = type else { return }
+        
+        firstLineView.isHidden = false
+        stackView.isHidden = false
 
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
@@ -77,56 +72,36 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
 
         mainLabel.text = type.sectionTitle
         infoLabel.text = type.sectionInfo
-        
-        if type.items.count == 1 {
-            // StackView.arrangedSubviews.append(Button)
-            taskButton.isHidden = false
-            firstLineView.isHidden = false
-            
-            financeButton.isHidden = true
-            secondLineView.isHidden = true
-            
-            taskButton.setTitle(type.items[0], for: .normal)
-            
-        } else {
-//            setupStackView()
-            // StackView.arrangedSubviews.append( [Button + Separator, ..] + Button)
-            firstLineView.isHidden = false
-            secondLineView.isHidden = false
-            
-            taskButton.isHidden = false
-            financeButton.isHidden = false
-            
-            taskButton.setTitle(type.items[0], for: .normal)
-            financeButton.setTitle(type.items[1], for: .normal)
-        }
 
+        setupStackView()
     }
     
     func setupStackView() {
         guard let type = type else { return }
         
-        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        
-        if type.items.count == 1 {
-            let button = UIButton()
-            setupButton(button: button, title: type.items[type.rawValue])
-        } else {
-            for index in 0..<type.items.count {
+        for index in 0..<type.items.count {
+            
+            if type.items.count == 1 || index == (type.items.count - 1) {
+                let button = UIButton()
+                setupButton(button: button, title: type.items[index])
+            } else {
                 let button = UIButton()
                 let view = UIView()
-                setupLine(view: view)
                 setupButton(button: button, title: type.items[index])
+                setupLine(view: view)
             }
         }
+
     }
     
     func setupLine(view: UIView) {
         
         view.backgroundColor = UIColor.primaryColor
         
-        view.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        view.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        view.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 1).isActive = true
+        view.topAnchor.constraint(equalTo: view.topAnchor, constant: 1).isActive = true
+        view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         view.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
         stackView.addArrangedSubview(view)
@@ -142,6 +117,8 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
 
         button.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
         button.topAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
+        button.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 0).isActive = true
+        button.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 0).isActive = true
         button.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         stackView.addArrangedSubview(button)

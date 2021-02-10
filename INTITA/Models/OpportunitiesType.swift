@@ -14,7 +14,6 @@ enum OpportunitiesType: Int, Codable, CaseIterable {
     
     var sectionTitle: String {
         switch self {
- 
         case .course:
             return "courses_modules_finance".localized
         case .task:
@@ -26,7 +25,6 @@ enum OpportunitiesType: Int, Codable, CaseIterable {
     
     var sectionInfo: String {
         switch self {
- 
         case .course:
             return "information_about_course".localized
         case .task:
@@ -41,7 +39,7 @@ enum OpportunitiesType: Int, Codable, CaseIterable {
         case .course:
             return [
                 "finances".localized,
-                "available_courses_modules".localized
+                "available_courses_modules".localized,
             ]
         case .task:
             return [
@@ -53,5 +51,5 @@ enum OpportunitiesType: Int, Codable, CaseIterable {
             ]
         }
     }
-
+    
 }

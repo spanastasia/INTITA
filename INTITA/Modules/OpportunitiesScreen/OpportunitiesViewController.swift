@@ -16,7 +16,7 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
 
     var coordinator: OpportunitiesCoordinator?
     
-    private var isProfileSize = [false, false, false]
+    private var isProfileSize: [Bool] = Array(repeating: false, count: OpportunitiesType.allCases.count)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,8 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
     }
     
     func setupCell() {
-        tableView.register(OpportunitiesTableViewCell.nib(), forCellReuseIdentifier: OpportunitiesTableViewCell.identifier)
+        tableView.register(OpportunitiesTableViewCell.nib(),
+                           forCellReuseIdentifier: OpportunitiesTableViewCell.identifier)
     }
     
     func setupNameLabel() {
@@ -52,7 +53,7 @@ class OpportunitiesViewController: UIViewController, Storyboarded, NibCapable {
 extension OpportunitiesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return OpportunitiesType.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,17 +64,7 @@ extension OpportunitiesViewController: UITableViewDataSource {
         cell.delegate = self
         
         cell.type = OpportunitiesType(rawValue: indexPath.row)
-        switch indexPath.row {
-        case 0:
-            cell.isProfileSize = isProfileSize[indexPath.row]
-        case 1:
-            cell.isProfileSize = isProfileSize[indexPath.row]
-        case 2:
-            cell.isProfileSize = isProfileSize[indexPath.row]
-
-        default:
-            break
-        }
+        cell.isProfileSize = isProfileSize[indexPath.row]
         
         return cell
     }
