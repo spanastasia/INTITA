@@ -116,6 +116,7 @@
 		BAA6305C258D27FD0042F290 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA6305A258D27FD0042F290 /* User+CoreDataProperties.swift */; };
 		BAA63064258D41870042F290 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA63063258D41870042F290 /* CoreDataStack.swift */; };
 		BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */; };
+		BAAEC85425CF42B500F2660E /* EducationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAEC85325CF42B500F2660E /* EducationForm.swift */; };
 		BAF940CE2550754300AE50CE /* PromoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF940CD2550754300AE50CE /* PromoTextView.swift */; };
 /* End PBXBuildFile section */
 
@@ -243,6 +244,7 @@
 		BAA6305A258D27FD0042F290 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BAA63063258D41870042F290 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BAAB2BC9255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActivityIndicatorView.swift"; sourceTree = "<group>"; };
+		BAAEC85325CF42B500F2660E /* EducationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationForm.swift; sourceTree = "<group>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +285,7 @@
 				BA4FF3B8259A01160063218C /* TaskModel.swift */,
 				640B812925BF02A400F97F90 /* OpportunitiesModel.swift */,
 				644F73C025C5BEAE001216EB /* UserModel.swift */,
+				BAAEC85325CF42B500F2660E /* EducationForm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				BAA63041258CCF4D0042F290 /* INTITA.xcdatamodeld in Sources */,
 				841C851C25C41D51005C32F9 /* CountryModel.swift in Sources */,
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
+				BAAEC85425CF42B500F2660E /* EducationForm.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				BA4FF3CA25A0D6D50063218C /* TaskCell.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,

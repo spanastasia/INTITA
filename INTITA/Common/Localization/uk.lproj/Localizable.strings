@@ -82,3 +82,6 @@
 "prefer_specializations" = "Вибрана спеціалізація";
 "educ_form" = "Форма освіти";
 "education_shift" = "Зміна освіти";
+"offline" = "офлайн";
+"online" = "онлайн";
+"online_offline" = "онлайн/офлайн";

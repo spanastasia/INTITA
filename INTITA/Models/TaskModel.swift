@@ -17,45 +17,44 @@ struct Task: Codable  {
     var priority: Priority
     var state: State
     var createdDate: Date
-}
-
-enum Priority: String, Codable {
-    case medium
-    case high
-    case urgent
     
-    var description: String {
-        switch self {
-        case .medium:
-            return "medium_priority".localized
-        case .high:
-            return "high_priority".localized
-        case .urgent:
-            return "urgent_priority".localized
+    enum Priority: String, Codable {
+        case medium
+        case high
+        case urgent
+        
+        var description: String {
+            switch self {
+            case .medium:
+                return "medium_priority".localized
+            case .high:
+                return "high_priority".localized
+            case .urgent:
+                return "urgent_priority".localized
+            }
+        }
+    }
+    
+    enum State: Int, Codable, CaseIterable {
+        case waitingForTask
+        case inWork
+        case paused
+        case completed
+        
+        var description: String {
+            switch self {
+            case .waitingForTask:
+                return "waiting_task".localized
+            case .inWork:
+                return "in_work".localized
+            case .paused:
+                return "paused".localized
+            case .completed:
+                return "completed".localized
+            }
         }
     }
 }
-
-enum State: Int, Codable, CaseIterable {
-    case waitingForTask
-    case inWork
-    case paused
-    case completed
-    
-    var description: String {
-        switch self {
-        case .waitingForTask:
-            return "waiting_task".localized
-        case .inWork:
-            return "in_work".localized
-        case .paused:
-            return "paused".localized
-        case .completed:
-            return "completed".localized
-        }
-    }
-}
-
 
 struct TasksModel {
     var tasks: [Task]

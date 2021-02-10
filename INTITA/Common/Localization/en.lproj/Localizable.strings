@@ -83,3 +83,6 @@
 "prefer_specializations" = "Prefer specializations";
 "educ_form" = "Education form";
 "education_shift" = "Education shift";
+"offline" = "offline";
+"online" = "online";
+"online_offline" = "online/offline";

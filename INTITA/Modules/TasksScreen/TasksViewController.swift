@@ -49,13 +49,13 @@ class TasksViewController: UIViewController, Storyboarded {
 
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let state = State(rawValue: currentPage) else {return 0}
+        guard let state = Task.State(rawValue: currentPage) else {return 0}
         return viewModel.getCountOfTasks(in: state)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = taskTableView.dequeueReusableCell(withIdentifier: TaskCell.identifier, for: indexPath)  as? TaskCell,
-              let state = State(rawValue: currentPage) else { return UITableViewCell() }
+              let state = Task.State(rawValue: currentPage) else { return UITableViewCell() }
         let tasks = viewModel.getTasks(for: state)
         guard tasks.count > indexPath.row else { return UITableViewCell() }
         
@@ -70,7 +70,7 @@ extension TasksViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let state = State(rawValue: indexPath.row),
+        guard let state = Task.State(rawValue: indexPath.row),
               let sectionHeader = collectionView.dequeueReusableCell(withReuseIdentifier: TaskHeaderCell.identifier, for: indexPath) as? TaskHeaderCell else { return UICollectionViewCell() }
         
         sectionHeader.configure(title: viewModel.getTitle(for: state), count: viewModel.getCountOfTasks(in: state))
