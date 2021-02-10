@@ -41,16 +41,17 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
     @IBOutlet weak var firstLineView: UIView!
     @IBOutlet weak var secondLineView: UIView!
     
+    @IBOutlet weak var stackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setupStackView()
     }
     
     func configureSmallView() {
         
         guard let type = type else { return }
-        
+  
         mainView.bordered(borderWidth: 1, borderColor: UIColor.primaryColor.cgColor)
         mainView.rounded()
         rotateButton(false)
@@ -77,10 +78,6 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
         mainLabel.text = type.sectionTitle
         infoLabel.text = type.sectionInfo
         
-        for index in 0..<type.items.count {
-            
-        }
-        
         if type.items.count == 1 {
             // StackView.arrangedSubviews.append(Button)
             taskButton.isHidden = false
@@ -103,6 +100,49 @@ class OpportunitiesTableViewCell: UITableViewCell, NibCapable {
             financeButton.setTitle(type.sectionButonFinance, for: .normal)
         }
 
+    }
+    
+    func setupStackView() {
+        guard let type = type else { return }
+        
+        if type.items.count == 1 {
+            let button = UIButton()
+            setupButton(button: button, title: type.items[type.rawValue])
+        } else {
+            for index in 0..<type.items.count {
+                let button = UIButton()
+                let view = UIView()
+                setupLine(view: view)
+                setupButton(button: button, title: type.items[index])
+            }
+        }
+    }
+    
+    func setupLine(view: UIView) {
+        
+        view.backgroundColor = UIColor.primaryColor
+        
+        view.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        view.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        stackView.addArrangedSubview(view)
+        
+    }
+    
+    func setupButton(button: UIButton, title: String) {
+
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(UIColor.darkText, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+
+        button.bottomAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
+        button.topAnchor.constraint(equalTo: button.topAnchor, constant: 0).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        stackView.addArrangedSubview(button)
+        
     }
     
     @IBAction func downButtonTapped(_ sender: Any) {

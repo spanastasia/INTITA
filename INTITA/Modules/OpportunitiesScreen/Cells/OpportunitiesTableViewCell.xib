@@ -128,6 +128,7 @@
                 <outlet property="mainLabel" destination="zgt-zz-W9t" id="v80-UR-5uG"/>
                 <outlet property="mainView" destination="7dU-Ic-wFf" id="ihh-7M-5f5"/>
                 <outlet property="secondLineView" destination="hqF-bW-l0v" id="1v0-Cc-m00"/>
+                <outlet property="stackView" destination="5wr-gD-D8E" id="aoP-X6-dME"/>
                 <outlet property="taskButton" destination="ukc-NZ-V3P" id="tbX-L9-fJN"/>
             </connections>
             <point key="canvasLocation" x="3.6231884057971016" y="17.410714285714285"/>
