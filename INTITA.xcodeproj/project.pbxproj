@@ -331,7 +331,6 @@
 		BAAEC85325CF42B500F2660E /* EducationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationForm.swift; sourceTree = "<group>"; };
 		BAAEC86125D13BD800F2660E /* INTITA(dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INTITA(dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAEC87125D13BDB00F2660E /* Info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-dev.plist"; sourceTree = "<group>"; };
-		BAAEC9BD25D13ED400F2660E /* INTITA copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "INTITA copy-Info.plist"; path = "/Users/svitlana.korostelova/Google Drive/edu/Developer/swift/INTITA/INTITA copy-Info.plist"; sourceTree = "<absolute>"; };
 		BAF940CD2550754300AE50CE /* PromoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -429,7 +428,6 @@
 				3FF299E8254ADD800087AEC7 /* Products */,
 				BAA63006258B8F8F0042F290 /* Frameworks */,
 				6473C8B62596465900CE2F10 /* Recovered References */,
-				BAAEC9BD25D13ED400F2660E /* INTITA copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
