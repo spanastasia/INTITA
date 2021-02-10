@@ -66,6 +66,7 @@ extension OpportunitiesViewController: UITableViewDataSource {
         cell.type = OpportunitiesModel(rawValue: indexPath.row)
         switch indexPath.row {
         case 0:
+//            cell.setupStackView()
             cell.isProfileSize = isProfileSize[indexPath.row]
         case 1:
             cell.isProfileSize = isProfileSize[indexPath.row]
