@@ -51,6 +51,17 @@
 "priorities" = "Priorities";
 "type" = "Type";
 "groups" = "Groups";
+"opportunities" = "Opportunities";
+"available_options" = "All functions available to you";
+"courses_modules_finance" = "Courses/modules and finance";
+"information_about_course" = "Information on available content and contracts and accounts";
+"finances" = "Finances";
+"available_courses_modules" = "Available courses/modules";
+"tasks_detailed_answer" = "Tasks with a detailed answer";
+"answer_assessments" = "Answer to tasks and assessments";
+"type_training" = "Type of training";
+"type_training" = "Offline training";
+"courses_modules_etc" = "courses/modules, etc.";
 "first_name" = "First name";
 "second_name" = "Second name";
 "nickname" = "Nick name";
