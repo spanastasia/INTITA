@@ -1,5 +1,5 @@
 //
-//  OpportunitiesModel.swift
+//  OpportunitiesType.swift
 //  INTITA
 //
 //  Created by Viacheslav Markov on 25.01.2021.
