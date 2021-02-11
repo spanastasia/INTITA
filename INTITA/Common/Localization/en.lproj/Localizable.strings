@@ -75,3 +75,15 @@
 "offline" = "offline";
 "online" = "online";
 "online_offline" = "online/offline";
+"programming" = "Programming";
+"web_design" = "WEB Design (UI/UX)";
+"manual_qa" = "Manual QA";
+"dev_ops" = "DevOPS";
+"system_administration" = "System Administration";
+"hosting_support" = "Hosting Support";
+"english_for_it" = "English for IT";
+"hackers_school" = "Hackers' School (children 9-16 years old)";
+"it_camp" = "IT Camp (for children 9-16 years old)";
+"hr_and_ta" = "HR & TA";
+"project_management" = "Project Management (PM)";
+"automation_qa" = "Automation QA";

@@ -21,6 +21,35 @@ enum SpecialisationsList: Int {
     case project_management
     case automation_qa
     
+    var description: String {
+        switch self {
+        case .programming:
+            return "programming".localized
+        case .web_design:
+            return "web_design".localized
+        case .manual_qa:
+            <#code#>
+        case .dev_ops:
+            <#code#>
+        case .system_administration:
+            <#code#>
+        case .hosting_support:
+            <#code#>
+        case .english_for_it:
+            <#code#>
+        case .hackers_school:
+            <#code#>
+        case .it_camp:
+            <#code#>
+        case .hr_and_ta:
+            <#code#>
+        case .project_management:
+            <#code#>
+        case .automation_qa:
+            <#code#>
+        }
+    }
+    
 }
 
 //"specializations": [

@@ -75,3 +75,15 @@
 "offline" = "офлайн";
 "online" = "онлайн";
 "online_offline" = "онлайн/офлайн";
+"programming" = "Програмування";
+"web_design" = "Веб-дизайн (UI/UX)";
+"manual_qa" = "Ручне тестування";
+"dev_ops" = "DevOPS";
+"system_administration" = "Системне адміністрування";
+"hosting_support" = "Підтримка хостингу";
+"english_for_it" = "Англійська для ІТ";
+"hackers_school" = "Школа Хакерів (для дітей 9-16 років)";
+"it_camp" = "ІТ-табір (для дітей 9-16 років)";
+"hr_and_ta" = "HR & TA (людські ресурси і залучення талантів)";
+"project_management" = "Проектний менеджмент (PM)";
+"automation_qa" = "Автоматизоване тестування";
