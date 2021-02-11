@@ -28,138 +28,36 @@ enum SpecialisationsList: Int {
         case .web_design:
             return "web_design".localized
         case .manual_qa:
-            <#code#>
+            return "manual_qa".localized
         case .dev_ops:
-            <#code#>
+            return "dev_ops".localized
         case .system_administration:
-            <#code#>
+            return "system_administration".localized
         case .hosting_support:
-            <#code#>
+            return "hosting_support".localized
         case .english_for_it:
-            <#code#>
+            return "english_for_it".localized
         case .hackers_school:
-            <#code#>
+            return "hackers_school".localized
         case .it_camp:
-            <#code#>
+            return "it_camp".localized
         case .hr_and_ta:
-            <#code#>
+            return "hr_and_ta".localized
         case .project_management:
-            <#code#>
+            return "project_management".localized
         case .automation_qa:
-            <#code#>
+            return "automation_qa".localized
         }
     }
     
 }
 
-//"specializations": [
-//    {
-//        "id": 1,
-//        "title_ua": "Програмування",
-//        "title_ru": "Программирование",
-//        "title_en": "Programming",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Програмування"
-//    },
-//    {
-//        "id": 2,
-//        "title_ua": "Веб-дизайн (UI/UX)",
-//        "title_ru": "Веб-дизайн (UI/UX)",
-//        "title_en": "WEB Design (UI/UX)",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Веб-дизайн (UI/UX)"
-//    },
-//    {
-//        "id": 3,
-//        "title_ua": "Ручне тестування",
-//        "title_ru": "Ручное тестирование",
-//        "title_en": "Manual QA",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Ручне тестування"
-//    },
-//    {
-//        "id": 4,
-//        "title_ua": "DevOPS",
-//        "title_ru": "DevOPS",
-//        "title_en": "DevOPS",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "DevOPS"
-//    },
-//    {
-//        "id": 5,
-//        "title_ua": "Системне адміністрування",
-//        "title_ru": "Системное администрирование",
-//        "title_en": "System Administration",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Системне адміністрування"
-//    },
-//    {
-//        "id": 6,
-//        "title_ua": "Підтримка хостингу",
-//        "title_ru": "Поддержка хостинга",
-//        "title_en": "Hosting Support",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Підтримка хостингу"
-//    },
-//    {
-//        "id": 7,
-//        "title_ua": "Англійська для ІТ",
-//        "title_ru": "Аглийский для ИТ",
-//        "title_en": "English for IT",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Англійська для ІТ"
-//    },
-//    {
-//        "id": 8,
-//        "title_ua": "Школа Хакерів (для дітей 9-16 років)",
-//        "title_ru": "Школа Хакеров (для детей 9-16 лет)",
-//        "title_en": "Hackers' School (children 9-16 years old)",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Школа Хакерів (для дітей 9-16 років)"
-//    },
-//    {
-//        "id": 9,
-//        "title_ua": "ІТ-табір (для дітей 9-16 років)",
-//        "title_ru": "ІТ-лагерь (для детей 9-16 лет)",
-//        "title_en": "IT Camp (for children 9-16 years old)",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "ІТ-табір (для дітей 9-16 років)"
-//    },
-//    {
-//        "id": 10,
-//        "title_ua": "HR & TA (людські ресурси і залучення талантів)",
-//        "title_ru": "HR & TA",
-//        "title_en": "HR & TA",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "HR & TA (людські ресурси і залучення талантів)"
-//    },
-//    {
-//        "id": 11,
-//        "title_ua": "Проектний менеджмент (PM)",
-//        "title_ru": "Проектый менеджмент (PM)",
-//        "title_en": "Project Management (PM)",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Проектний менеджмент (PM)"
-//    },
-//    {
-//        "id": 12,
-//        "title_ua": "Автоматизоване тестування",
-//        "title_ru": "Автоматизированное тестирование",
-//        "title_en": "Automation QA",
-//        "created_at": null,
-//        "updated_at": null,
-//        "title": "Автоматизоване тестування"
-//    }
-//    ]
-
+enum CodingKeyEducation: String, CodingKey {
+    case id
+    case titleUA = "title_ua"
+    case titleRU = "title_ru"
+    case titleEN = "title_en"
+    case createdAt
+    case updatedAt
+    case title = "title"
+}
