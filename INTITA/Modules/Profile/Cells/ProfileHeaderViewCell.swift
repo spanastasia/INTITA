@@ -54,7 +54,11 @@ class ProfileHeaderViewCell: UITableViewCell {
         guard let userDB = CoreDataService.retrieveDataFromDB(appUser: user) else { return }
         
         nameLabel.text = "\(userDB.firstName)"
-        surnameLabel.text = "\(userDB.secondName)"
+        if let secondName = user.secondName {
+            surnameLabel.text = "\(secondName)"
+        } else {
+            surnameLabel.text = ""
+        }
         
         let countCharacters = (nameLabel.text?.count ?? 0) + (surnameLabel.text?.count ?? 0)
         
