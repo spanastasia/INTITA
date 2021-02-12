@@ -12,13 +12,13 @@ extension String {
     }
     
     func localized(locationType: LocationType, locale: Locale = .current) -> String {
-        var valueOptional: BaseProtocol?
+        var valueOptional: LocationProtocol?
         
         switch locationType {
         case .country:
-            valueOptional = BaseService<CountryModel>.value(by: self)
+            valueOptional = LocationService<CountryModel>.location(by: self)
         case .city:
-            valueOptional = BaseService<CityModel>.value(by: self)
+            valueOptional = LocationService<CityModel>.location(by: self)
         }
         
         guard let value = valueOptional else {

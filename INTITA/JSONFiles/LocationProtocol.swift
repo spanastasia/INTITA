@@ -1,5 +1,5 @@
 //
-//  BaseProtocol.swift
+//  LocationProtocol.swift
 //  INTITA
 //
 //  Created by Anastasiia Spiridonova on 12.02.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BaseProtocol: Codable {
+protocol LocationProtocol: Codable {
     var id: Int { get set }
     var titleUA: String { get set }
     var titleRU: String { get set }

@@ -1,5 +1,5 @@
 //
-//  BaseService.swift
+//  LocationService.swift
 //  INTITA
 //
 //  Created by Anastasiia Spiridonova on 12.02.2021.
@@ -7,14 +7,9 @@
 
 import Foundation
 
-class BaseService<T: BaseProtocol> {
+class LocationService<T: LocationProtocol> {
     
-    enum LocationType {
-        case country
-        case city
-    }
-    
-    static var values: [T]? {
+    static var locations: [T]? {
         var values: [T]?
         guard let path = Bundle.main.url(forResource: resource, withExtension: "json") else { return nil}
         
@@ -30,9 +25,9 @@ class BaseService<T: BaseProtocol> {
         return values
     }
     
-    static func value(by identifier: String) -> T? {
+    static func location(by identifier: String) -> T? {
         
-        let value = values?.first { $0.identifier == identifier }
+        let value = locations?.first { $0.identifier == identifier }
         
         return value
     }

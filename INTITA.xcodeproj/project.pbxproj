@@ -14,10 +14,10 @@
 		3F1DC09C25D69438000EF654 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F1DC09925D69437000EF654 /* Cities.json */; };
 		3F1DC0A425D69493000EF654 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0A325D69493000EF654 /* CityModel.swift */; };
 		3F1DC0A525D69493000EF654 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0A325D69493000EF654 /* CityModel.swift */; };
-		3F1DC0BC25D69EB1000EF654 /* BaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* BaseProtocol.swift */; };
-		3F1DC0BD25D69EB1000EF654 /* BaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* BaseProtocol.swift */; };
-		3F1DC0C225D69FEB000EF654 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* BaseService.swift */; };
-		3F1DC0C325D69FEB000EF654 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* BaseService.swift */; };
+		3F1DC0BC25D69EB1000EF654 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */; };
+		3F1DC0BD25D69EB1000EF654 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */; };
+		3F1DC0C225D69FEB000EF654 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* LocationService.swift */; };
+		3F1DC0C325D69FEB000EF654 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* LocationService.swift */; };
 		3F2B29CC255A7FE500DDE683 /* UIView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B29CB255A7FE500DDE683 /* UIView+fromNib.swift */; };
 		3F2B29D7255AB84100DDE683 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B29D6255AB84100DDE683 /* CurrentUser.swift */; };
 		3F2E76FF255408B100853140 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E76FE255408B100853140 /* UserData.swift */; };
@@ -238,8 +238,8 @@
 		3F0780A12554066500E0332F /* AppConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstans.swift; sourceTree = "<group>"; };
 		3F1DC09925D69437000EF654 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		3F1DC0A325D69493000EF654 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
-		3F1DC0BB25D69EB1000EF654 /* BaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProtocol.swift; sourceTree = "<group>"; };
-		3F1DC0C125D69FEB000EF654 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
+		3F1DC0C125D69FEB000EF654 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		3F2B29CB255A7FE500DDE683 /* UIView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fromNib.swift"; sourceTree = "<group>"; };
 		3F2B29D6255AB84100DDE683 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		3F2E76FE255408B100853140 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -636,8 +636,8 @@
 			children = (
 				3F1DC09925D69437000EF654 /* Cities.json */,
 				841C851425C1E4E0005C32F9 /* Countries.json */,
-				3F1DC0C125D69FEB000EF654 /* BaseService.swift */,
-				3F1DC0BB25D69EB1000EF654 /* BaseProtocol.swift */,
+				3F1DC0C125D69FEB000EF654 /* LocationService.swift */,
+				3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */,
 				841C851B25C41D51005C32F9 /* CountryModel.swift */,
 				3F1DC0A325D69493000EF654 /* CityModel.swift */,
 			);
@@ -981,7 +981,7 @@
 				BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
-				3F1DC0C225D69FEB000EF654 /* BaseService.swift in Sources */,
+				3F1DC0C225D69FEB000EF654 /* LocationService.swift in Sources */,
 				3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */,
 				84BF6462255E8CC200E2E036 /* TextTableViewCell.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
@@ -1023,7 +1023,7 @@
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				BA4FF3CA25A0D6D50063218C /* TaskCell.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
-				3F1DC0BC25D69EB1000EF654 /* BaseProtocol.swift in Sources */,
+				3F1DC0BC25D69EB1000EF654 /* LocationProtocol.swift in Sources */,
 				BAA63064258D41870042F290 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1061,7 +1061,7 @@
 				BAAEC8F725D13CA600F2660E /* ProfileTableViewCell.swift in Sources */,
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
-				3F1DC0BD25D69EB1000EF654 /* BaseProtocol.swift in Sources */,
+				3F1DC0BD25D69EB1000EF654 /* LocationProtocol.swift in Sources */,
 				BAAEC8C825D13C7800F2660E /* LogInViewController.swift in Sources */,
 				BAAEC8A725D13C5100F2660E /* ApiURL.swift in Sources */,
 				3F1DC0A525D69493000EF654 /* CityModel.swift in Sources */,
@@ -1092,7 +1092,7 @@
 				BAAEC93E25D13D0700F2660E /* AppDelegate.swift in Sources */,
 				BAAEC8C625D13C7800F2660E /* TextTableViewCell.swift in Sources */,
 				BAAEC92325D13CE000F2660E /* UIColor+Additions.swift in Sources */,
-				3F1DC0C325D69FEB000EF654 /* BaseService.swift in Sources */,
+				3F1DC0C325D69FEB000EF654 /* LocationService.swift in Sources */,
 				BAAEC8BF25D13C6D00F2660E /* TaskHeaderCell.swift in Sources */,
 				BAAEC90D25D13CBD00F2660E /* UserDefaultsManager.swift in Sources */,
 				BAAEC8CA25D13C7800F2660E /* TextTableViewCellModel.swift in Sources */,
