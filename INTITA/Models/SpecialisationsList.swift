@@ -57,7 +57,7 @@ enum CodingKeyEducation: String, CodingKey {
     case titleUA = "title_ua"
     case titleRU = "title_ru"
     case titleEN = "title_en"
-    case createdAt
-    case updatedAt
+    case createdAt = "created_at"
+    case updatedAt = "updated_at"
     case title = "title"
 }
