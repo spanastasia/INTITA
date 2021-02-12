@@ -51,7 +51,7 @@
 	<key>Network settings</key>
 	<string></string>
 	<key>urlPath</key>
-	<string>https://intita.com/</string>
+	<string>https://qa.intita.com/</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

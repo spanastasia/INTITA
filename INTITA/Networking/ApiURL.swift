@@ -13,7 +13,7 @@ enum ApiURL {
     case currentUser
     
     var path: String {
-        return "https://intita.com/"
+        return Bundle.main.object(forInfoDictionaryKey: AppConstans.urlPath) as? String ?? "/"
     }
     var apiVersion: String {
         return "api/v1"
