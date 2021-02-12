@@ -42,6 +42,11 @@ class ProfileCoordinator: Coordinator {
         let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController)
         settingScreenCoordinator.start()
     }
+    
+    func displayOpportunitiesScreen() {
+        let OpportunitiesScreenCoordinator = OpportunitiesCoordinator(navigationController: navigationController)
+        OpportunitiesScreenCoordinator.start()
+    }
 }
 
 extension ProfileCoordinator: ProfileHeaderViewDelegate {
@@ -61,8 +66,7 @@ extension ProfileCoordinator: ProfileTableViewCellDelegate {
             //MessagesCoordinator
             alertPresenter?.showAlert()
         case 1:
-            // Opportunities
-            alertPresenter?.showAlert()
+            displayOpportunitiesScreen()
         case 2:
             displayTasksProfileScreen()
         case 3:
