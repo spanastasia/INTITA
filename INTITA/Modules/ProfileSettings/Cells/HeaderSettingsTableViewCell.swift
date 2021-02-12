@@ -43,7 +43,11 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     private func setupCell() {
         
         guard let user = UserData.currentUser else { return }
-        nameLabel.text = "\(user.firstName) \(user.secondName)"
+        if let secondName = user.secondName {
+        nameLabel.text = "\(user.firstName) \(secondName)"
+        } else {
+            nameLabel.text = "\(user.firstName)"
+        }
         
         specializationLabel.text = user.preferSpecializations.first?.specialization.title
         guard let url = user.avatar else { return }

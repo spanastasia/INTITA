@@ -12,9 +12,10 @@ struct CurrentUser: Codable {
     var id: Int
     var firstName, fullName: String
     var middleName: String?
-    var secondName: String
+    var secondName: String?
     var nickname: String?
-    var birthday, email: String
+    var birthday: String?
+    var email: String
     var facebook, linkedin: String?
     var twitter, phone, address: String?
     var avatar: URL?
@@ -29,9 +30,9 @@ struct CurrentUser: Codable {
         firstName = try container.decode(String.self, forKey: .firstName)
         fullName = try container.decode(String.self, forKey: .fullName)
         middleName = try container.decodeIfPresent(String.self, forKey: .middleName)
-        secondName = try container.decode(String.self, forKey: .secondName)
+        secondName = try container.decodeIfPresent(String.self, forKey: .secondName)
         nickname = try container.decodeIfPresent(String.self, forKey: .nickname)
-        birthday = try container.decode(String.self, forKey: .birthday)
+        birthday = try container.decodeIfPresent(String.self, forKey: .birthday)
         email = try container.decode(String.self, forKey: .email)
         facebook = try container.decodeIfPresent(String.self, forKey: .facebook)
         linkedin = try container.decodeIfPresent(String.self, forKey: .linkedin)

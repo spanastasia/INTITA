@@ -13,7 +13,7 @@ import CoreData
 extension User {
     @NSManaged public var address: String?
     @NSManaged public var avatar: URL?
-    @NSManaged public var birthday: String
+    @NSManaged public var birthday: String?
     @NSManaged public var email: String
     @NSManaged public var facebook: String?
     @NSManaged public var firstName: String
@@ -25,7 +25,7 @@ extension User {
     @NSManaged public var phone: String?
     @NSManaged public var preferSpecialization: String
     @NSManaged public var role: Int32
-    @NSManaged public var secondName: String
+    @NSManaged public var secondName: String?
     @NSManaged public var twitter: String?
 
 }
