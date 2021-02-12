@@ -19,18 +19,22 @@ struct Task: Codable  {
     var createdDate: Date
     
     enum Priority: String, Codable {
-        case medium
-        case high
-        case urgent
+        case low = "1"
+        case medium = "2"
+        case high = "3"
+        case urgent = "4"
         
         var description: String {
             switch self {
+            case .low:
+                return "low_priority".localized
             case .medium:
                 return "medium_priority".localized
             case .high:
                 return "high_priority".localized
             case .urgent:
                 return "urgent_priority".localized
+
             }
         }
     }
@@ -92,7 +96,7 @@ extension TasksModel {
                             author: "",
                             assignee: "",
                             watcher: "",
-                            priority: .medium,
+                            priority: .low,
                             state: .completed,
                             createdDate: Date()))
         

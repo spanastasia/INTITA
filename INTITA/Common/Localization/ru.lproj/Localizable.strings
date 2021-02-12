@@ -41,6 +41,7 @@
 "comming_soon" = "Ожидается...";
 "edit" = "редактировать";
 "my_tasks" = "Мои задания";
+"low_priority" = "Низкий";
 "medium_priority" = "Средний";
 "high_priority" = "Высокий";
 "urgent_priority" = "Срочный";
