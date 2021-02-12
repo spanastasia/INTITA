@@ -11,22 +11,30 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func localizedCountry(locale: Locale = .current) -> String {
-        guard let country = CountryService.countryBy(geocode: self) else {
-            return ""
+    func localized(locationType: LocationType, locale: Locale = .current) -> String {
+        var valueOptional: BaseProtocol?
+        
+        switch locationType {
+        case .country:
+            valueOptional = BaseService<CountryModel>.value(by: self)
+        case .city:
+            valueOptional = BaseService<CityModel>.value(by: self)
+        }
+        
+        guard let value = valueOptional else {
+            return self
         }
         
         switch locale.languageCode {
         case "en":
-            return country.titleEN
-        case "ru":
-            return country.titleRU
+            return value.titleEN
         case "ua":
-            return country.titleUA
+            return value.titleUA
+        case "ru":
+            return value.titleRU
         default:
             return self
         }
-        
     }
 }
 
