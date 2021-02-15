@@ -19,6 +19,8 @@ extension String {
             valueOptional = LocationService<CountryModel>.location(by: self)
         case .city:
             valueOptional = LocationService<CityModel>.location(by: self)
+        case .specialization:
+            valueOptional = LocationService<SpecializationModel>.location(by: self)
         }
         
         guard let value = valueOptional else {
