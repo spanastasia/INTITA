@@ -24,12 +24,15 @@ class TaskCell: UITableViewCell, NibCapable {
         
         taskPriority.text = task.priority.description
         switch task.priority {
+        case .low:
+            taskPriority.textColor = .green // did not found an example on intita.com
         case .medium:
-            taskPriority.textColor = .orange
+            taskPriority.textColor = UIColor.mediumPriorityColor
         case .high:
-            taskPriority.textColor = .red // intita.com #da4d44
+            taskPriority.textColor = UIColor.highPriorityColor
         case .urgent:
-            taskPriority.textColor = .purple // intita.com #780823
+            taskPriority.textColor = UIColor.urgentPriorityColor
+
         }
     }
 }

@@ -41,6 +41,7 @@
 "comming_soon" = "Comming soon...";
 "edit" = "edit";
 "my_tasks" = "My tasks";
+"low_priority" = "Low";
 "medium_priority" = "Medium";
 "high_priority" = "High";
 "urgent_priority" = "Urgent";
