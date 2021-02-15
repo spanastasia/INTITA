@@ -56,6 +56,8 @@
 		64154D4025DAA2A300952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
 		64154D4825DAACB400952C67 /* SpecializationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D4725DAACB400952C67 /* SpecializationModel.swift */; };
 		64154D5325DAAFFD00952C67 /* SpecializationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D5225DAAFFD00952C67 /* SpecializationList.swift */; };
+		64154D6025DAB92400952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
+		64154D6425DAB92500952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
 		64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */; };
 		642E6F9725BDE09500C239DC /* OpportunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */; };
 		642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */; };
@@ -913,6 +915,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F1DC09B25D69438000EF654 /* Cities.json in Resources */,
+				64154D6025DAB92400952C67 /* Specialization.json in Resources */,
 				841C852625C421CF005C32F9 /* Countries.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,6 +928,7 @@
 				BAAEC8FA25D13CA600F2660E /* ProfileHeaderViewCell.xib in Resources */,
 				BAAEC91425D13CCD00F2660E /* Localizable.strings in Resources */,
 				BAAEC90925D13CB300F2660E /* InfoSettingProfileTableViewCell.xib in Resources */,
+				64154D6425DAB92500952C67 /* Specialization.json in Resources */,
 				BAAEC8F825D13CA600F2660E /* ProfileTableViewCell.xib in Resources */,
 				BAAEC87F25D13C2700F2660E /* Countries.json in Resources */,
 				BAAEC91925D13CDA00F2660E /* MyriadPro-Light.ttf in Resources */,
