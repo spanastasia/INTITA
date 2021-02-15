@@ -53,7 +53,9 @@
 		49FC4EA125D44B9600024AD6 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F0254ADD800087AEC7 /* Welcome.storyboard */; };
 		49FC4EA625D44BA100024AD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F5254ADD830087AEC7 /* LaunchScreen.storyboard */; };
 		640B812A25BF02A400F97F90 /* OpportunitiesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640B812925BF02A400F97F90 /* OpportunitiesType.swift */; };
-		64154D1725D55CA300952C67 /* SpecialisationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D1625D55CA300952C67 /* SpecialisationsList.swift */; };
+		64154D4025DAA2A300952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
+		64154D4825DAACB400952C67 /* SpecializationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D4725DAACB400952C67 /* SpecializationModel.swift */; };
+		64154D5325DAAFFD00952C67 /* SpecializationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D5225DAAFFD00952C67 /* SpecializationList.swift */; };
 		64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */; };
 		642E6F9725BDE09500C239DC /* OpportunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */; };
 		642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */; };
@@ -279,7 +281,9 @@
 		49F53EB02553126D008327A6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49F53EB125531274008327A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		640B812925BF02A400F97F90 /* OpportunitiesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesType.swift; sourceTree = "<group>"; };
-		64154D1625D55CA300952C67 /* SpecialisationsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialisationsList.swift; sourceTree = "<group>"; };
+		64154D3F25DAA2A300952C67 /* Specialization.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Specialization.json; sourceTree = "<group>"; };
+		64154D4725DAACB400952C67 /* SpecializationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationModel.swift; sourceTree = "<group>"; };
+		64154D5225DAAFFD00952C67 /* SpecializationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationList.swift; sourceTree = "<group>"; };
 		64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewModel.swift; sourceTree = "<group>"; };
 		641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsProfile.storyboard; sourceTree = "<group>"; };
 		641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -403,7 +407,6 @@
 				640B812925BF02A400F97F90 /* OpportunitiesType.swift */,
 				644F73C025C5BEAE001216EB /* UserModel.swift */,
 				BAAEC85325CF42B500F2660E /* EducationForm.swift */,
-				64154D1625D55CA300952C67 /* SpecialisationsList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				64F78E74255C5874002C1565 /* Info.plist */,
 				64BD43F0256172DB00880C9A /* JSONLoaderTest.swift */,
 				BA5A2092256D98DC0008FB0C /* LogInViewModelTests.swift */,
+				64154D5225DAAFFD00952C67 /* SpecializationList.swift */,
 			);
 			path = INTITATests;
 			sourceTree = "<group>";
@@ -639,10 +643,12 @@
 			children = (
 				3F1DC09925D69437000EF654 /* Cities.json */,
 				841C851425C1E4E0005C32F9 /* Countries.json */,
+				64154D3F25DAA2A300952C67 /* Specialization.json */,
 				3F1DC0C125D69FEB000EF654 /* LocationService.swift */,
 				3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */,
 				841C851B25C41D51005C32F9 /* CountryModel.swift */,
 				3F1DC0A325D69493000EF654 /* CityModel.swift */,
+				64154D4725DAACB400952C67 /* SpecializationModel.swift */,
 			);
 			path = JSONFiles;
 			sourceTree = "<group>";
@@ -886,6 +892,7 @@
 				84E2A75125B7425700B07CBF /* Countries.plist in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
+				64154D4025DAA2A300952C67 /* Specialization.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				BA4FF3DD25A20C700063218C /* TaskCell.xib in Resources */,
 				841C852325C421CE005C32F9 /* Countries.json in Resources */,
@@ -955,6 +962,7 @@
 			files = (
 				6466672E25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift in Sources */,
 				646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */,
+				64154D4825DAACB400952C67 /* SpecializationModel.swift in Sources */,
 				6466159D25967C1E00173A13 /* InfoSettingProfileTableViewCell.swift in Sources */,
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
@@ -1027,8 +1035,6 @@
 				BA4FF3CA25A0D6D50063218C /* TaskCell.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
 				3F1DC0BC25D69EB1000EF654 /* LocationProtocol.swift in Sources */,
-				64154D1725D55CA300952C67 /* SpecialisationsList.swift in Sources */,
-				BA5A20D1257567E40008FB0C /* (null) in Sources */,
 				BAA63064258D41870042F290 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1037,6 +1043,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64154D5325DAAFFD00952C67 /* SpecializationList.swift in Sources */,
 				49A4660F25C1D3C000C741D0 /* CountryList.swift in Sources */,
 				BA5A2093256D99820008FB0C /* LogInViewModelTests.swift in Sources */,
 				64BD43F1256172DB00880C9A /* JSONLoaderTest.swift in Sources */,

@@ -44,6 +44,9 @@ class LocationService<T: LocationProtocol> {
         case String(describing: CityModel.self):
             resource = "Cities"
             
+        case String(describing: SpecializationModel.self):
+            resource = "Specialization"
+            
         default:
             resource = ""
         }
