@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kY0-Fr-4Ly">
-                        <rect key="frame" x="28" y="4" width="319" height="34"/>
+                        <rect key="frame" x="28" y="4" width="343" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4He-Dk-BPq">
                                 <rect key="frame" x="0.0" y="0.0" width="71" height="34"/>
@@ -36,12 +36,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-Ev-ToC">
+                                <rect key="frame" x="327" y="0.0" width="16" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="0fH-Nu-yi6"/>
+                                </constraints>
+                                <state key="normal" image="skipArrow"/>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="d9x-Ev-ToC" secondAttribute="trailing" id="ESF-Lz-gHI"/>
+                            <constraint firstItem="d9x-Ev-ToC" firstAttribute="leading" secondItem="Y2P-yl-2AN" secondAttribute="trailing" constant="8" symbolic="YES" id="Td9-F9-vgE"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kY0-Fr-4Ly" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="1QC-Yg-ZSj"/>
-                    <constraint firstAttribute="trailing" secondItem="kY0-Fr-4Ly" secondAttribute="trailing" constant="28" id="KDf-HT-ctd"/>
+                    <constraint firstAttribute="trailing" secondItem="kY0-Fr-4Ly" secondAttribute="trailing" constant="4" id="KDf-HT-ctd"/>
                     <constraint firstItem="kY0-Fr-4Ly" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="Uhy-x3-eRv"/>
                     <constraint firstAttribute="bottom" secondItem="kY0-Fr-4Ly" secondAttribute="bottom" constant="4" id="g6t-k0-gyf"/>
                 </constraints>
@@ -50,9 +61,13 @@
             <connections>
                 <outlet property="cellView" destination="H2p-sc-9uM" id="xII-7X-F34"/>
                 <outlet property="infoTextField" destination="Y2P-yl-2AN" id="tAn-6r-4Ri"/>
+                <outlet property="rightButton" destination="d9x-Ev-ToC" id="dTx-Th-SRF"/>
                 <outlet property="titleLabel" destination="4He-Dk-BPq" id="MMd-Rd-nd7"/>
             </connections>
             <point key="canvasLocation" x="10" y="88"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="skipArrow" width="9.5" height="17.5"/>
+    </resources>
 </document>

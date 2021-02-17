@@ -51,7 +51,11 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
 extension SettingsProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tappet \(indexPath.row) cell")
+//        print("You tappet \(indexPath.row) cell")
+        
+        if indexPath.row == 4 {
+            coordinator?.showCountryScreen()
+        }
     }
 }
 

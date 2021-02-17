@@ -17,14 +17,17 @@ class SettingsProfileCoordinator: Coordinator {
     }
 
     func start() {
-        
         let vc = SettingsProfileViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
     
     func returnToProfileScreen() {
- 
         navigationController.popViewController(animated: true)
-    }    
+    }
+    
+    func showCountryScreen() {
+        let countryScreen = CountryCoordinator(navigationController: navigationController)
+        countryScreen.start()
+    }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
 
+    @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoTextField: UITextField!
@@ -26,13 +27,13 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     }
         
     private func setupTextField() {
-        
+        rightButton.isHidden = false
         infoTextField.isHidden = false
         infoTextField.rounded(cornerRadius: 1, roundOnlyBottomCorners: true)
     }
     
     func hideTextField() {
-        
+        rightButton.isHidden = true
         infoTextField.isHidden = true
         infoTextField.rounded(cornerRadius: 0, roundOnlyBottomCorners: true)
     }
