@@ -11,6 +11,7 @@ enum ApiURL {
     case login(email: String, password: String)
     case logout
     case currentUser
+    case editUser(user: EditingUser)
     
     var path: String {
         return Bundle.main.object(forInfoDictionaryKey: AppConstans.urlPath) as? String ?? "/"
@@ -27,7 +28,12 @@ enum ApiURL {
             return "\(path)\(apiVersion)/logout"
         case .currentUser:
             return "\(path)\(apiVersion)/currentUser"
+        case .editUser:
+            if let id = UserData.currentUser?.id {
+                return "\(path)\(apiVersion)/editUser/\(id)"
+            }
         }
+        return ""
     }
     
     var httpMethod: String {
@@ -36,6 +42,8 @@ enum ApiURL {
             return "POST"
         case .currentUser:
             return "GET"
+        case .editUser:
+            return "PUT"
         }
     }
     
@@ -46,32 +54,30 @@ enum ApiURL {
                 "email" : email,
                 "password" : password
             ]
-            guard let data = try? JSONSerialization.data(withJSONObject: json, options: [])
-            else { return nil }
-            return data
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .logout, .currentUser:
             return nil
+        case .editUser(let user):
+            return try? JSONEncoder().encode(user)
         }
     }
     
-    var value: String? {
+    var headerFields: [String: String]? {
         switch self {
         case .login:
-            return "application/json"
+            return ["Content-Type" : "application/json"]
         case .logout, .currentUser:
             guard let token = UserData.token else {
                 return nil
             }
-            return "Bearer \(token)"
-        }
-    }
-
-    var headerField: String {
-        switch self {
-        case .login:
-            return "Content-Type"
-        case .logout, .currentUser:
-            return "Authorization"
+            return ["Authorization" : "Bearer \(token)"]
+        case .editUser:
+            guard let token = UserData.token else {
+                return nil
+            }
+            return ["Content-Type" : "application/json",
+                    "Accept" : "application/json",
+                    "Authorization" : "Bearer \(token)"]
         }
     }
     
@@ -81,13 +87,15 @@ enum ApiURL {
         }
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod
+        request.allHTTPHeaderFields = headerFields
         
         switch self {
         case .login:
-            request.setValue(value, forHTTPHeaderField: headerField)
             request.httpBody = bodyParams
         case .logout, .currentUser:
-            request.setValue(value, forHTTPHeaderField: headerField)
+            break
+        case .editUser:
+            request.httpBody = bodyParams
         }
         return request
     }
@@ -99,6 +107,8 @@ enum ApiURL {
         case .currentUser:
             return "currentUser"
         case .logout:
+            return nil
+        case .editUser:
             return nil
         }
     }

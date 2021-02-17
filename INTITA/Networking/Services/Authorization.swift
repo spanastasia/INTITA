@@ -9,11 +9,10 @@ import Foundation
 
 enum HTTPType {
     case real
-    
     case mock
     case fail
     
-    var service: AuthorizationProtocol {
+    var authorizationService: AuthorizationProtocol {
         switch self {
         case .real:
             return AuthorizationReal.shared
@@ -21,6 +20,17 @@ enum HTTPType {
             return AuthorizationMock()
         case .fail:
             return AuthorizationFailing()
+        }
+    }
+    
+    var editService: EditUserProtocol {
+        switch self {
+        case .real:
+            return EditUserReal.shared
+        case .mock:
+            return EditUserMock()
+        case .fail:
+            return EditUserFailing()
         }
     }
 }
@@ -64,15 +74,15 @@ final class Authorization: AuthorizationProtocol {
     }
     
     func login(email: String, password: String, completion: @escaping (Error?) -> Void) {
-        configurations[.login]?.service.login(email: email, password: password, completion: completion)
+        configurations[.login]?.authorizationService.login(email: email, password: password, completion: completion)
     }
     
     func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void) {
-        configurations[.logout]?.service.logout(completion: completion)
+        configurations[.logout]?.authorizationService.logout(completion: completion)
     }
     
     func fetchUserInfo(completion: @escaping (Error?) -> Void) {
-        configurations[.user]?.service.fetchUserInfo(completion: completion)
+        configurations[.user]?.authorizationService.fetchUserInfo(completion: completion)
     }
 }
 
