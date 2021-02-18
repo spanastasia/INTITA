@@ -22,23 +22,13 @@ enum HTTPType {
             return AuthorizationFailing()
         }
     }
-    
-    var editService: EditUserProtocol {
-        switch self {
-        case .real:
-            return EditUserReal.shared
-        case .mock:
-            return EditUserMock()
-        case .fail:
-            return EditUserFailing()
-        }
-    }
 }
 
 protocol AuthorizationProtocol {
     func login(email: String, password: String, completion: @escaping (Error?) -> Void)
     func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void)
     func fetchUserInfo(completion: @escaping (Error?) -> Void)
+    func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void)
 }
 
 final class Authorization: AuthorizationProtocol {
@@ -49,6 +39,7 @@ final class Authorization: AuthorizationProtocol {
         case login
         case logout
         case user
+        case editUser
         
         static var realConfigurations: [Method: HTTPType] {
             var result: [Method: HTTPType] = [:]
@@ -84,6 +75,10 @@ final class Authorization: AuthorizationProtocol {
     func fetchUserInfo(completion: @escaping (Error?) -> Void) {
         configurations[.user]?.authorizationService.fetchUserInfo(completion: completion)
     }
+    func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
+        configurations[.user]?.authorizationService.editUserInfo(newUser: newUser, completion: completion)
+    }
+    
 }
 
 fileprivate class AuthorizationReal: AuthorizationProtocol {
@@ -130,6 +125,18 @@ fileprivate class AuthorizationReal: AuthorizationProtocol {
             }
         }
     }
+    
+    public func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
+        guard let request = ApiURL.editUser(user: newUser).request else { return }
+        APIRequest.shared.request(request: request) { (result: Result<EditUserResponse, Error>) in
+            switch result {
+            case .success(_):
+                Authorization.shared.fetchUserInfo(completion: completion)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
 }
 
 fileprivate class AuthorizationFailing: AuthorizationProtocol {
@@ -138,6 +145,7 @@ fileprivate class AuthorizationFailing: AuthorizationProtocol {
         case login
         case logout
         case user
+        case editUser
         
         var errorDescription: String? {
             switch self {
@@ -147,6 +155,8 @@ fileprivate class AuthorizationFailing: AuthorizationProtocol {
                 return "Logout error occured..."
             case .user:
                 return "User error occured..."
+            case .editUser:
+                return "Edit user error occured..."
             }
         }
     }
@@ -161,6 +171,10 @@ fileprivate class AuthorizationFailing: AuthorizationProtocol {
     
     func fetchUserInfo(completion: @escaping (Error?) -> Void) {
         completion(TestError.user)
+    }
+    
+    public func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
+        completion(TestError.editUser)
     }
 }
 
@@ -190,5 +204,25 @@ fileprivate class AuthorizationMock: AuthorizationProtocol {
         
         UserData.set(currentUser: response)
         completion(nil)
+    }
+    
+    public func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
+        let mockUser = EditingUser(firstName: "John", secondName: "Doe", nickname: "Godfather", preferSpecializations: [1], educform: 1, educationShift: 1)
+        do {
+            _ = try JSONEncoder().encode(mockUser)
+        } catch {
+            completion(error)
+            return
+        }
+        
+        guard let file = ApiURL.editUser(user: newUser).mockFileName,
+              let data = JSONLoader.loadJsonData(file: file)
+        else { return }
+        do {
+            _ = try JSONDecoder().decode(EditingUser.self, from: data)
+        } catch {
+            completion(error)
+            return
+        }
     }
 }

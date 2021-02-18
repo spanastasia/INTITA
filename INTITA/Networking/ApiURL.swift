@@ -109,7 +109,7 @@ enum ApiURL {
         case .logout:
             return nil
         case .editUser:
-            return nil
+            return "editUser"
         }
     }
 }

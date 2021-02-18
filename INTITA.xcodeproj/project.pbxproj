@@ -56,6 +56,8 @@
 		3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF299EE254ADD800087AEC7 /* WelcomeViewController.swift */; };
 		3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F3254ADD830087AEC7 /* Assets.xcassets */; };
 		3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF29A11254C0BEC0087AEC7 /* String+localized.swift */; };
+		3FF473AF25DE643B00E6914A /* editUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FF473AE25DE643B00E6914A /* editUser.json */; };
+		3FF473B025DE643B00E6914A /* editUser.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FF473AE25DE643B00E6914A /* editUser.json */; };
 		3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAC972254DAAFF00AED580 /* RequestAPI.swift */; };
 		49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */; };
 		4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972F34C2590A6D900616295 /* CustomPageControl.swift */; };
@@ -285,6 +287,7 @@
 		3FF299F6254ADD830087AEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FF299F8254ADD830087AEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF29A11254C0BEC0087AEC7 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
+		3FF473AE25DE643B00E6914A /* editUser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = editUser.json; sourceTree = "<group>"; };
 		3FFAC972254DAAFF00AED580 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		49064446256926CC0068D2DF /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		4972F34C2590A6D900616295 /* CustomPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
@@ -610,6 +613,7 @@
 		64BD43E925604C8100880C9A /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				3FF473AE25DE643B00E6914A /* editUser.json */,
 				64BD43EC25604C9800880C9A /* token.json */,
 				BA5A20AA257178750008FB0C /* currentUser.json */,
 				64BD43E525604C7B00880C9A /* JSONLoader.swift */,
@@ -908,6 +912,7 @@
 				3F1DC09A25D69438000EF654 /* Cities.json in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
+				3FF473AF25DE643B00E6914A /* editUser.json in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
 				BA4FF3732595FA7A0063218C /* Tasks.storyboard in Resources */,
@@ -955,6 +960,7 @@
 				BAAEC90025D13CAE00F2660E /* SettingsProfile.storyboard in Resources */,
 				BAAEC8C225D13C6D00F2660E /* Tasks.storyboard in Resources */,
 				BAAEC94225D13D1100F2660E /* Countries.plist in Resources */,
+				3FF473B025DE643B00E6914A /* editUser.json in Resources */,
 				BAAEC8AF25D13C5D00F2660E /* token.json in Resources */,
 				BAAEC8CB25D13C7800F2660E /* TextTableViewCell.xib in Resources */,
 				BAAEC93A25D13D0400F2660E /* LaunchScreen.storyboard in Resources */,
