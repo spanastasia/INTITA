@@ -83,11 +83,13 @@ extension CountryViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        print("\(searchBar.text)")
-        
-        searchArray = searchText.isEmpty ? countryList : countryList?.filter({ (model) -> Bool in
-            return model.titleEN.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        })
+        searchArray = searchText.isEmpty
+            ? countryList
+            : countryList?.filter({ (model) -> Bool in
+                return model.titleEN.contains(searchText)
+                    || model.titleUA.contains(searchText)
+                    || model.titleRU.contains(searchText)
+            })
         tableView.reloadData()
     }
 }
