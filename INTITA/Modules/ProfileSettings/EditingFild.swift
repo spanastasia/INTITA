@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  EditingFild.swift
 //  INTITA
 //
 //  Created by Viacheslav Markov on 30.01.2021.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum UserModel: Int, CaseIterable {
+enum EditingFild: Int, CaseIterable {
     case firstName
     case secondName
     case nickname
     case birthday
-    case country  // values
-    case city  // values
+    case country
+    case city
     case address
     case phone
     case aboutMy
@@ -27,8 +27,19 @@ enum UserModel: Int, CaseIterable {
     case linkedin
     case twitter
     case prefer_specializations
-    case educform // values
-    case education_shift  // values
+    case educform
+    case education_shift
+    
+    var editType: SettingProfileCell {
+        switch self {
+        case .country, .city, .prefer_specializations:
+            return .button
+        case .educform:
+            return .menu
+        default:
+            return .textField
+        }
+    }
     
     var description: String {
         switch self {
@@ -78,6 +89,6 @@ enum UserModel: Int, CaseIterable {
     }
     
     static var statusList: [String] {
-        return UserModel.allCases.map { $0.description }
+        return EditingFild.allCases.map { $0.description }
     }
 }

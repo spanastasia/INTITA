@@ -8,9 +8,9 @@
 import Foundation
 
 class SettingsProfileViewModel {
-    var arrayItems = UserModel.statusList
+    var arrayItems = EditingFild.statusList
     
     var numberOfStates: Int {
-        UserModel.allCases.count
+        EditingFild.allCases.count
     }
 }

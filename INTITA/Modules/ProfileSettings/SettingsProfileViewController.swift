@@ -51,9 +51,8 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
 extension SettingsProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("You tappet \(indexPath.row) cell")
         
-        if indexPath.row == 4 {
+        if indexPath.row == 4 && isProfileEditing {
             coordinator?.showCountryScreen()
         }
     }
@@ -66,20 +65,21 @@ extension SettingsProfileViewController: UITableViewDataSource {
         return viewModel.numberOfStates
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 45
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell else {
+            return UITableViewCell()
+        }
         
-        cell?.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
+        if let type = EditingFild(rawValue: indexPath.row)?.editType {
+            cell.type = type
+        }
+
+        cell.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
                         isEditing: isProfileEditing,
                         indexPath: indexPath.row)
         
-        return cell ?? UITableViewCell()
+        return cell
     }
     
 }
@@ -91,8 +91,9 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
     }
     
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
-
+        
         isProfileEditing.toggle()
+        sender.setupEditBtn(isTrue: isProfileEditing)
         tableView.reloadData()
     }
 }

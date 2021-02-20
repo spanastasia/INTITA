@@ -22,9 +22,6 @@ class CountryCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.present(vc, animated: true)
     }
-    
-//    func returnToProfileSettingsScreen() {
-//        navigationController.popViewController(animated: true)
-//    }
+
 }
 

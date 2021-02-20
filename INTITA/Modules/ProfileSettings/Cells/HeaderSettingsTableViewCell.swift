@@ -30,13 +30,11 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-
         delegate.editTaped(self)
-                
     }
     
-    @IBAction func backBattonTaped(_ sender: Any) {
-
+   
+    @IBAction func backBattonTapped(_ sender: Any) {
         delegate.goToProfileScreen()
     }
     
@@ -44,7 +42,7 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
         
         guard let user = UserData.currentUser else { return }
         if let secondName = user.secondName {
-        nameLabel.text = "\(user.firstName) \(secondName)"
+            nameLabel.text = "\(user.firstName) \(secondName)"
         } else {
             nameLabel.text = "\(user.firstName)"
         }
@@ -60,4 +58,14 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
         mainView.shadowed()
     }
     
+    func setupEditBtn(isTrue: Bool) {
+        
+        if isTrue {
+            editButton.imageView?.image = UIImage(systemName: "checkmarck.circle")
+            editButton.setTitle("  save".localized, for: .normal)
+        } else {
+            editButton.imageView?.image = UIImage(named: "editBtn")
+            editButton.setTitle("  edit".localized, for: .normal)
+        }
+    }    
 }
