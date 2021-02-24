@@ -41,14 +41,12 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         switch type {
         case .textField:
             infoTextField.rounded(cornerRadius: 1, roundOnlyBottomCorners: true)
-            infoTextField.placeholder = "some text"
             infoTextField.isHidden = false
             rightButton.isHidden = true
             countryButton.isHidden = true
         default:
             rightButton.isHidden = false
             countryButton.isHidden = false
-            countryButton.setTitle("country".localized, for: .normal)
             stackView.bordered(borderWidth: 1, borderColor: UIColor.systemGray5.cgColor)
             stackView.rounded(cornerRadius: 5, roundOnlyBottomCorners: false)
             infoTextField.isHidden = true
@@ -63,7 +61,7 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         infoTextField.rounded(cornerRadius: 0, roundOnlyBottomCorners: true)
     }
     
-    func configure(withTitle: String, isEditing: Bool, indexPath: Int) {
+    func configure(withTitle: String, value: String, isEditing: Bool, indexPath: Int) {
         
         if indexPath.isMultiple(of: 2) {
             cellView.backgroundColor = .systemGray6
@@ -73,6 +71,15 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         
         isProfileEditing = isEditing
         titleLabel.text = withTitle
+        
+        switch type {
+        case .textField:
+            infoTextField.placeholder = value
+        case .button:
+            countryButton.setTitle(value, for: .normal)
+        default:
+            break
+        }
         
     }
     
