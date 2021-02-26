@@ -47,6 +47,40 @@ struct CurrentUser: Codable {
         role = try container.decode(Int.self, forKey: .role)
         preferSpecializations = try container.decode([PreferSpecialization].self, forKey: .preferSpecializations)
     }
+    
+    init?(from editingUser: EditingUser) {
+        guard let current = UserData.currentUser else { return nil }
+        
+        id = current.id
+        firstName = editingUser.firstName ?? current.firstName
+        secondName = editingUser.secondName ?? current.secondName
+        middleName = current.middleName
+        var str = ""
+        if firstName.count > 0 {
+            str.append(firstName)
+            if secondName != nil {
+                str.append(" ")
+            }
+            if let surname = secondName {
+                str.append(surname)
+            }
+        }
+        
+        fullName = str
+        nickname = editingUser.nickname
+        birthday = editingUser.birthday
+        email = current.email
+        facebook = editingUser.facebook
+        linkedin = editingUser.linkedin
+        twitter = editingUser.twitter
+        phone = editingUser.phone
+        address = editingUser.address
+        avatar = current.avatar
+        role = current.role
+        
+        //TODO: preferedSpecializations in CurrentuUser and in EditingUser are of different types.
+        preferSpecializations = current.preferSpecializations
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, firstName

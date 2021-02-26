@@ -131,7 +131,9 @@ fileprivate class AuthorizationReal: AuthorizationProtocol {
         APIRequest.shared.request(request: request) { (result: Result<EditUserResponse, Error>) in
             switch result {
             case .success(_):
-                Authorization.shared.fetchUserInfo(completion: completion)
+                if let user = CurrentUser(from: newUser) {
+                    UserData.set(currentUser: user)
+                }
             case .failure(let error):
                 completion(error)
             }
