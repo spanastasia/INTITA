@@ -34,8 +34,6 @@ enum EditingFild: Int, CaseIterable {
         switch self {
         case .country, .city, .prefer_specializations:
             return .button
-        case .educform:
-            return .menu
         default:
             return .textField
         }

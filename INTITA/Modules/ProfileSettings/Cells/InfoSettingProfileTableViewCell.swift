@@ -10,7 +10,34 @@ import UIKit
 enum SettingProfileCell {
     case button
     case textField
-    case menu
+    
+    func isArrowHidden(isEditing: Bool) -> Bool {
+        switch self {
+        case .button:
+            return isEditing == false
+        case .textField:
+            return true
+        }
+    }
+    
+    func isSelectHidden(isEditing: Bool) -> Bool {
+        switch self {
+        case .button:
+            return false
+        case .textField:
+            return true
+        }
+    }
+    
+    func isInputHidden(isEditing: Bool) -> Bool {
+        switch self {
+        case .button:
+            return true
+        case .textField:
+            return false
+        }
+    }
+    
 }
 
 class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
@@ -21,46 +48,38 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
     
     var type: SettingProfileCell = .textField
     var isProfileEditing = false {
         didSet {
-            isProfileEditing ? setupTextField() : hideTextField()
+            updateContent()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        setupTextField()
+        setupTextField()
     }
         
     private func setupTextField() {
         
+        updateContent()
+        
         switch type {
         case .textField:
-            infoTextField.rounded(cornerRadius: 1, roundOnlyBottomCorners: true)
             infoTextField.placeholder = "some text"
-            infoTextField.isHidden = false
-            rightButton.isHidden = true
-            countryButton.isHidden = true
         default:
-            rightButton.isHidden = false
-            countryButton.isHidden = false
             countryButton.setTitle("country".localized, for: .normal)
-            stackView.bordered(borderWidth: 1, borderColor: UIColor.systemGray5.cgColor)
-            stackView.rounded(cornerRadius: 5, roundOnlyBottomCorners: false)
-            infoTextField.isHidden = true
         }
     }
     
-    func hideTextField() {
-        rightButton.isHidden = true
-        countryButton.isHidden = true
-        infoTextField.isHidden = true
-        stackView.bordered(borderWidth: 0)
-        infoTextField.rounded(cornerRadius: 0, roundOnlyBottomCorners: true)
+    func updateContent() {
+        rightButton.isHidden = type.isArrowHidden(isEditing: isProfileEditing)
+        countryButton.isHidden = type.isSelectHidden(isEditing: isProfileEditing)
+        infoTextField.isHidden = type.isInputHidden(isEditing: isProfileEditing)
+        
+        isUserInteractionEnabled = isProfileEditing
     }
     
     func configure(withTitle: String, isEditing: Bool, indexPath: Int) {
@@ -70,7 +89,6 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         } else {
             cellView.backgroundColor = .white
         }
-        
         isProfileEditing = isEditing
         titleLabel.text = withTitle
         
