@@ -15,7 +15,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
     lazy var backButton = UIButton()
 
-    var viewModel = SettingsProfileViewModel()
+    var viewModel: SettingsProfileViewModel!
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -75,9 +75,11 @@ extension SettingsProfileViewController: UITableViewDataSource {
             cell.type = type
         }
 
+        let value = viewModel.getValue(at: indexPath.row)
         cell.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
-                        isEditing: isProfileEditing,
-                        indexPath: indexPath.row)
+                       value: value,
+                       isEditing: isProfileEditing,
+                       indexPath: indexPath.row)
         
         return cell
     }

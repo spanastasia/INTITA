@@ -60,17 +60,18 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         super.awakeFromNib()
         
         setupTextField()
+        infoTextField.placeholder = "tap to edit"
     }
         
-    private func setupTextField() {
+    private func setupTextField(with value: String = "") {
         
         updateContent()
         
         switch type {
         case .textField:
-            infoTextField.placeholder = "some text"
+            infoTextField.text = value
         default:
-            countryButton.setTitle("country".localized, for: .normal)
+            countryButton.setTitle(value, for: .normal)
         }
     }
     
@@ -82,7 +83,9 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         isUserInteractionEnabled = isProfileEditing
     }
     
-    func configure(withTitle: String, isEditing: Bool, indexPath: Int) {
+    func configure(withTitle: String, value: String?, isEditing: Bool, indexPath: Int) {
+        
+        setupTextField(with: value ?? "tap to edit")
         
         if indexPath.isMultiple(of: 2) {
             cellView.backgroundColor = .systemGray6

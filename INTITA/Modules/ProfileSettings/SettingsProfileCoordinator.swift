@@ -11,15 +11,22 @@ class SettingsProfileCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    
+    var existingUser: CurrentUser
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, existingUser: CurrentUser) {
         self.navigationController = navigationController
+        self.existingUser = existingUser
     }
 
     func start() {
-        let vc = SettingsProfileViewController.instantiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        let settingsViewController = SettingsProfileViewController.instantiate()
+        settingsViewController.coordinator = self
+        
+        let settingsViewModel = SettingsProfileViewModel(existingUser: existingUser)
+        settingsViewController.viewModel = settingsViewModel
+        
+        navigationController.pushViewController(settingsViewController, animated: true)
     }
     
     func returnToProfileScreen() {

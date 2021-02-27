@@ -28,7 +28,7 @@ enum HTTPType {
 protocol AuthorizationProtocol {
     func login(email: String, password: String, completion: @escaping (Error?) -> Void)
     func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void)
-    func fetchUserInfo(completion: @escaping (Error?) -> Void)
+    func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void)
 }
 
 final class Authorization: AuthorizationProtocol {
@@ -71,7 +71,7 @@ final class Authorization: AuthorizationProtocol {
         configurations[.logout]?.service.logout(completion: completion)
     }
     
-    func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+    func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void) {
         configurations[.user]?.service.fetchUserInfo(completion: completion)
     }
 }
@@ -108,15 +108,15 @@ fileprivate class AuthorizationReal: AuthorizationProtocol {
         }
     }
     
-    public func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+    public func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void) {
         guard let request = ApiURL.currentUser.request else { return }
         APIRequest.shared.request(request: request) { (result: Result<CurrentUser, Error>) in
             switch result {
             case .success(let user):
                 UserData.set(currentUser: user)
-                completion(nil)
+                completion(.success(user))
             case .failure(let error):
-                completion(error)
+                completion(.failure(error))
             }
         }
     }
@@ -149,8 +149,8 @@ fileprivate class AuthorizationFailing: AuthorizationProtocol {
         completion(.failure(TestError.logout))
     }
     
-    func fetchUserInfo(completion: @escaping (Error?) -> Void) {
-        completion(TestError.user)
+    func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void) {
+        completion(.failure(TestError.user))
     }
 }
 
@@ -170,7 +170,7 @@ fileprivate class AuthorizationMock: AuthorizationProtocol {
         //
     }
     
-    func fetchUserInfo(completion: @escaping (Error?) -> Void) {
+    func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void) {
         guard let file = ApiURL.currentUser.mockFileName,
               let data = JSONLoader.loadJsonData(file: file),
               let response = try? JSONDecoder().decode(CurrentUser.self, from: data)
@@ -179,6 +179,6 @@ fileprivate class AuthorizationMock: AuthorizationProtocol {
         }
         
         UserData.set(currentUser: response)
-        completion(nil)
+        completion(.success(response))
     }
 }

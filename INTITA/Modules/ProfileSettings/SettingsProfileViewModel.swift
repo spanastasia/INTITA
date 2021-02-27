@@ -13,4 +13,14 @@ class SettingsProfileViewModel {
     var numberOfStates: Int {
         EditingFild.allCases.count
     }
+    
+    var existingUser: CurrentUser
+    
+    init(existingUser: CurrentUser) {
+        self.existingUser = existingUser
+    }
+    
+    func getValue(at index: Int) -> String? {
+        return EditingFild.allCases[index].valueFromUser(existingUser)
+    }
 }

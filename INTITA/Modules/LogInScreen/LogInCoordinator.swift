@@ -32,8 +32,8 @@ class LogInCoordinator: Coordinator {
 }
 
 extension LogInCoordinator: LogInViewModelDelegate {
-    func loginSuccess() {
-        let successCoordinator = ProfileCoordinator(navigationController: navigationController)
+    func loginSuccess(with user: CurrentUser) {
+        let successCoordinator = ProfileCoordinator(navigationController: navigationController, user: user)
         childCoordinators.append(successCoordinator)
         DispatchQueue.main.async {
             successCoordinator.start()

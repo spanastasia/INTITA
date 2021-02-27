@@ -89,4 +89,47 @@ enum EditingFild: Int, CaseIterable {
     static var statusList: [String] {
         return EditingFild.allCases.map { $0.description }
     }
+    
+    func valueFromUser(_ user: CurrentUser) -> String? {
+        switch self {
+        case .firstName: return user.firstName
+        case .secondName: return user.secondName
+        case .nickname: return user.nickname
+        case .birthday: return user.birthday
+        case .country:
+            return "1234"
+        case .city:
+            return "city".localized
+        case .address:
+            return "address".localized
+        case .phone:
+            return "phone".localized
+        case .aboutMy:
+            return "about_me".localized
+        case .interests:
+            return "interests".localized
+        case .education:
+            return "education".localized
+        case .prev_job:
+            return "prev_job".localized
+        case .current_job:
+            return "current_job".localized
+        case .aboutUs:
+            return "about_us".localized
+        case .skype:
+            return "skype".localized
+        case .facebook:
+            return "facebook".localized
+        case .linkedin:
+            return "linkedin".localized
+        case .twitter:
+            return "twitter".localized
+        case .prefer_specializations:
+            return "prefer_specializations".localized
+        case .educform:
+            return "educ_form".localized
+        case .education_shift:
+            return "education_shift".localized
+        }
+    }
 }

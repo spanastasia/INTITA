@@ -10,7 +10,7 @@ import Foundation
 typealias LogInViewModelCallback = (Error?) -> Void
 
 protocol LogInViewModelDelegate: AnyObject {
-    func loginSuccess()
+    func loginSuccess(with user: CurrentUser)
 }
 
 class LogInViewModel {
@@ -33,11 +33,12 @@ class LogInViewModel {
     }
     
     func fetchUserInfo() {
-        authorizationService.fetchUserInfo { [weak self] error in
-            if let error = error  {
-                self?.updateCallback?(error)  // 2 [.login: .mock], [.user, .failing]
-            } else {
-                self?.delegate?.loginSuccess()// 3 .mock
+        authorizationService.fetchUserInfo { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.delegate?.loginSuccess(with: user) // 2 [.login: .mock], [.user, .failing]
+            case .failure(let error):
+                self?.updateCallback?(error) // 3 .mock
             }
         }
     }
