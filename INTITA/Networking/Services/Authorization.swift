@@ -28,7 +28,7 @@ protocol AuthorizationProtocol {
     func login(email: String, password: String, completion: @escaping (Error?) -> Void)
     func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void)
     func fetchUserInfo(completion: @escaping (Error?) -> Void)
-    func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void)
+    func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void)
 }
 
 final class Authorization: AuthorizationProtocol {
@@ -75,7 +75,7 @@ final class Authorization: AuthorizationProtocol {
     func fetchUserInfo(completion: @escaping (Error?) -> Void) {
         configurations[.user]?.authorizationService.fetchUserInfo(completion: completion)
     }
-    func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
+    func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void) {
         configurations[.user]?.authorizationService.editUserInfo(newUser: newUser, completion: completion)
     }
     
@@ -126,17 +126,16 @@ fileprivate class AuthorizationReal: AuthorizationProtocol {
         }
     }
     
-    public func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
+    public func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void) {
         guard let request = ApiURL.editUser(user: newUser).request else { return }
         APIRequest.shared.request(request: request) { (result: Result<EditUserResponse, Error>) in
             switch result {
-            case .success(_):
-                if let user = CurrentUser(from: newUser) {
-                    UserData.set(currentUser: user)
-                }
+            case .success:
+                completion(.success(newUser))
             case .failure(let error):
-                completion(error)
+                completion(.failure(error))
             }
+            
         }
     }
 }
@@ -175,8 +174,8 @@ fileprivate class AuthorizationFailing: AuthorizationProtocol {
         completion(TestError.user)
     }
     
-    public func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
-        completion(TestError.editUser)
+    public func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void) {
+        completion(.failure(TestError.editUser))
     }
 }
 
@@ -208,12 +207,12 @@ fileprivate class AuthorizationMock: AuthorizationProtocol {
         completion(nil)
     }
     
-    public func editUserInfo(newUser: EditingUser, completion: @escaping (Error?) -> Void) {
+    public func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void) {
         let mockUser = EditingUser(firstName: "John", secondName: "Doe", nickname: "Godfather", preferSpecializations: [1], educform: 1, educationShift: 1)
         do {
             _ = try JSONEncoder().encode(mockUser)
         } catch {
-            completion(error)
+            completion(.failure(error))
             return
         }
         
@@ -222,8 +221,9 @@ fileprivate class AuthorizationMock: AuthorizationProtocol {
         else { return }
         do {
             _ = try JSONDecoder().decode(EditingUser.self, from: data)
+            completion(.success(newUser))
         } catch {
-            completion(error)
+            completion(.failure(error))
             return
         }
     }
