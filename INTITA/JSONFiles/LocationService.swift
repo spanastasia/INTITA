@@ -26,10 +26,11 @@ class LocationService<T: LocationProtocol> {
     }
     
     static func location(by identifier: String) -> T? {
-        
-        let value = locations?.first { $0.identifier == identifier }
-        
-        return value
+        return locations?.first { $0.identifier == identifier }
+    }
+    
+    static func getValue(by id: Int) -> T? {
+        return locations?.first{ $0.id == id }
     }
     
     private static var resource: String {
