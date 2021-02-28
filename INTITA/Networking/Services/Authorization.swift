@@ -28,7 +28,6 @@ protocol AuthorizationProtocol {
     func login(email: String, password: String, completion: @escaping (Error?) -> Void)
     func logout(completion: @escaping (Result<LogoutResponse, Error>) -> Void)
     func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void)
-    func fetchUserInfo(completion: @escaping (Error?) -> Void)
     func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void)
 }
 
@@ -74,11 +73,9 @@ final class Authorization: AuthorizationProtocol {
     }
     
     func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void) {
-        configurations[.user]?.service.fetchUserInfo(completion: completion)
-    }
-    func fetchUserInfo(completion: @escaping (Error?) -> Void) {
         configurations[.user]?.authorizationService.fetchUserInfo(completion: completion)
     }
+
     func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void) {
         configurations[.user]?.authorizationService.editUserInfo(newUser: newUser, completion: completion)
     }
