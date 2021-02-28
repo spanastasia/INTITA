@@ -61,10 +61,10 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     func setupEditBtn(isTrue: Bool) {
         
         if isTrue {
-            editButton.imageView?.image = UIImage(systemName: "checkmarck.circle")
+            editButton.setImage(UIImage(named: "checkDone"), for: .normal)
             editButton.setTitle("  save".localized, for: .normal)
         } else {
-            editButton.imageView?.image = UIImage(named: "editBtn")
+            editButton.setImage(UIImage(named: "editBtn"), for: .normal)
             editButton.setTitle("  edit".localized, for: .normal)
         }
     }    
