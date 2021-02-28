@@ -2,15 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../INTITA/Modules/OpportunitiesScreen/Opportunities.storyboard">
-   </FileRef>
-   <FileRef
-      location = "group:../INTITA/Modules/OpportunitiesScreen/OpportunitiesCoordinator.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../INTITA/Modules/OpportunitiesScreen/OpportunitiesViewController.swift">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>
