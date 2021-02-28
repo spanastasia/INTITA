@@ -88,9 +88,9 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         setupTextField(with: value ?? "tap to edit")
         
         if indexPath.isMultiple(of: 2) {
-            cellView.backgroundColor = .systemGray6
-        } else {
             cellView.backgroundColor = .white
+        } else {
+            cellView.backgroundColor = .systemGray6
         }
         isProfileEditing = isEditing
         titleLabel.text = withTitle

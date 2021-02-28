@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="80" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHO-vw-SHh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHO-vw-SHh">
                                 <rect key="frame" x="28" y="44" width="358" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -61,6 +61,7 @@
                     <connections>
                         <outlet property="searchBar" destination="CK8-Fw-HBd" id="5Hl-l0-Jo6"/>
                         <outlet property="tableView" destination="iUD-Sr-N8e" id="WUd-6n-g8k"/>
+                        <outlet property="titleLabel" destination="iHO-vw-SHh" id="UAc-NN-WNr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5x-1Z-z0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,15 +7,22 @@
 
 import UIKit
 
+protocol CountryViewControllerDelegate: AnyObject {
+    func countryViewController(_ sender: UIViewController, didSelectCountry country: CountryModel)
+}
+
 class CountryViewController: UIViewController, Storyboarded {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    weak var delegate: CountryViewControllerDelegate?
     var coordinator: CountryCoordinator?
-    let countryList = LocationService<CountryModel>.locations
-    var viewModel = CountryViewModel()
-    var searchArray: [CountryModel]? = []
+    var viewModel: CountryViewModel?
+    
+    let countryList: [CountryModel]! = LocationService<CountryModel>.locations
+    var searchArray: [CountryModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +32,8 @@ class CountryViewController: UIViewController, Storyboarded {
         
         searchBar.delegate = self
         searchArray = countryList
+        
+        titleLabel.text = "country_selection".localized
     }
     
     func flag(country: String) -> String {
@@ -39,21 +48,25 @@ class CountryViewController: UIViewController, Storyboarded {
 }
 
 extension CountryViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.countryViewController(self, didSelectCountry: searchArray[indexPath.row])
+        
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension CountryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchArray?.count ?? 0
+        return searchArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        let geocode = searchArray?[indexPath.row].geocode
+        let geocode = searchArray[indexPath.row].geocode
         
-        cell.imageView?.image = flag(country: geocode ?? "EN").emojiToImage()
-        cell.textLabel?.text = searchArray?[indexPath.row].titleEN
+        cell.imageView?.image = flag(country: geocode).emojiToImage()
+        cell.textLabel?.text = searchArray[indexPath.row].titleEN
         
         return  cell
     }
@@ -83,11 +96,15 @@ extension CountryViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        print("\(searchBar.text)")
         
-        searchArray = searchText.isEmpty ? countryList : countryList?.filter({ (model) -> Bool in
-            return model.titleEN.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        })
+        searchArray = (searchText.isEmpty
+                        ? countryList
+                        : countryList.filter({ (model) -> Bool in
+            return model.titleEN.range(of: searchText,
+                                       options: .caseInsensitive,
+                                       range: nil, locale: nil) != nil
+        }))
+        
         tableView.reloadData()
     }
 }

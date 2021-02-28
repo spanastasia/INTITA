@@ -27,6 +27,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         
         setupCell()
+        setupHeaderTableView()
 
         headerContentView.delegate = self
         headerContentView.frame.size.width = view.frame.width
@@ -39,6 +40,19 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         
         guard parent == nil else { return }
         print("Did press Back button")
+    }
+    
+    func setupHeaderTableView() {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+        header.backgroundColor = .systemGray6
+        
+        let label = UILabel(frame: CGRect(x: 28, y: 8, width: view.frame.width - 16, height: 20))
+        label.text = "system_profile".localized
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textAlignment = .left
+        header.addSubview(label)
+        
+        tableView.tableHeaderView = header
     }
     
     func setupCell() {

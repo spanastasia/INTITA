@@ -96,40 +96,23 @@ enum EditingFild: Int, CaseIterable {
         case .secondName: return user.secondName
         case .nickname: return user.nickname
         case .birthday: return user.birthday
-        case .country:
-            return "1234"
-        case .city:
-            return "city".localized
-        case .address:
-            return "address".localized
-        case .phone:
-            return "phone".localized
-        case .aboutMy:
-            return "about_me".localized
-        case .interests:
-            return "interests".localized
-        case .education:
-            return "education".localized
-        case .prev_job:
-            return "prev_job".localized
-        case .current_job:
-            return "current_job".localized
-        case .aboutUs:
-            return "about_us".localized
-        case .skype:
-            return "skype".localized
-        case .facebook:
-            return "facebook".localized
-        case .linkedin:
-            return "linkedin".localized
-        case .twitter:
-            return "twitter".localized
-        case .prefer_specializations:
-            return "prefer_specializations".localized
-        case .educform:
-            return "educ_form".localized
-        case .education_shift:
-            return "education_shift".localized
+        case .country: return "\(String(describing: user.country))"
+        case .city: return "vin"
+        case .address: return user.address
+        case .phone: return user.phone
+        case .aboutMy: return "user.about_me"
+        case .interests: return "user.interests"
+        case .education: return "user.education"
+        case .prev_job: return "user.prev_job"
+        case .current_job: return "user.current_job"
+        case .aboutUs: return "user.about_us"
+        case .skype: return "user.skype"
+        case .facebook: return user.facebook
+        case .linkedin: return user.linkedin
+        case .twitter: return user.twitter
+        case .prefer_specializations: return "user.preferSpecializations"
+        case .educform: return "user.educ_form"
+        case .education_shift: return "user.education_shift"
         }
     }
 }

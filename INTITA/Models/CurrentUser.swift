@@ -20,6 +20,7 @@ struct CurrentUser: Codable {
     var twitter, phone, address: String?
     var avatar: URL?
     var role: Int
+    var country: Int?
     
     var preferSpecializations: [PreferSpecialization]
     
@@ -46,6 +47,7 @@ struct CurrentUser: Codable {
         }
         role = try container.decode(Int.self, forKey: .role)
         preferSpecializations = try container.decode([PreferSpecialization].self, forKey: .preferSpecializations)
+        country = try container.decodeIfPresent(Int.self, forKey: .country)
     }
 
     enum CodingKeys: String, CodingKey {
@@ -54,6 +56,7 @@ struct CurrentUser: Codable {
         case middleName, secondName, nickname, birthday, email
         case facebook, linkedin, twitter, phone, address, avatar, role
         case preferSpecializations = "prefer_specializations"
+        case country
     }
 }
 

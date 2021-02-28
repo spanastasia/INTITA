@@ -35,6 +35,14 @@ class SettingsProfileCoordinator: Coordinator {
     
     func showCountryScreen() {
         let countryScreen = CountryCoordinator(navigationController: navigationController)
+        countryScreen.delegate = self
         countryScreen.start()
     }
+}
+
+extension SettingsProfileCoordinator: CountryCoordinatorDelegate {
+    func countryViewController(_ sender: Coordinator, didSelectCountry country: CountryModel) {
+        print(country)
+    }
+    
 }

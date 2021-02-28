@@ -86,3 +86,5 @@
 "offline" = "offline";
 "online" = "online";
 "online_offline" = "online/offline";
+"country_selection" = "Country selection";
+"system_profile" = "System profile";
