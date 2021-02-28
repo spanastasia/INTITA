@@ -16,6 +16,7 @@ extension LogInViewModel {
 }
 
 class MockLogInViewModelDelegate: LogInViewModelDelegate {
+    
     private var expectation: XCTestExpectation?
     private var testCase: XCTestCase
     
@@ -28,7 +29,8 @@ class MockLogInViewModelDelegate: LogInViewModelDelegate {
     }
     
     // MARK: - LogInViewModelDelegate:
-    func loginSuccess() {
+    
+    func loginSuccess(with user: CurrentUser) {
         expectation?.fulfill()
         expectation = nil
     }
