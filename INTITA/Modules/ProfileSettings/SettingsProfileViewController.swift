@@ -32,6 +32,15 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         headerContentView.frame.size.width = view.frame.width
         headerView.addSubview(headerContentView)
         
+        viewModel.subscribe { error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            self.tableView.reloadData()
+        }
+        
     }
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)

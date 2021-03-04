@@ -16,12 +16,12 @@ class CountryCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     weak var delegate: CountryCoordinatorDelegate?
-    var user: CurrentUser
-    var selectedCountry: CountryModel!
+    
+    var selectedCountry: CountryModel?
 
-    init(navigationController: UINavigationController, user: CurrentUser) {
+    init(navigationController: UINavigationController, selectedCountry: CountryModel?) {
         self.navigationController = navigationController
-        self.user = user
+        self.selectedCountry = selectedCountry
     }
 
     func start() {

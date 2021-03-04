@@ -20,6 +20,10 @@ class SettingsProfileViewModel {
     
     init(existingUser: CurrentUser) {
         self.existingUser = existingUser
+        
+        if let countryId = existingUser.country {
+            selectedCountry = LocationService<CountryModel>.getValue(by: countryId)
+        }
     }
     
     func getValue(at index: Int) -> String? {
@@ -31,6 +35,7 @@ class SettingsProfileViewModel {
     }
 
     func selectCountry(_ country: CountryModel) {
+        existingUser.country = country.id
         selectedCountry = country
         updateCallback?(nil)
     }

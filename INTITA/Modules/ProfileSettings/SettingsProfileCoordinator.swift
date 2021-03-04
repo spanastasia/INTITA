@@ -11,19 +11,21 @@ class SettingsProfileCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var selectedCountry: CountryModel?
+    let settingsViewModel: SettingsProfileViewModel
+    
     var existingUser: CurrentUser
 
     init(navigationController: UINavigationController, existingUser: CurrentUser) {
         self.navigationController = navigationController
         self.existingUser = existingUser
+        
+        settingsViewModel = SettingsProfileViewModel(existingUser: existingUser)
     }
 
     func start() {
         let settingsViewController = SettingsProfileViewController.instantiate()
         settingsViewController.coordinator = self
         
-        let settingsViewModel = SettingsProfileViewModel(existingUser: existingUser)
         settingsViewController.viewModel = settingsViewModel
         
         navigationController.pushViewController(settingsViewController, animated: true)
@@ -35,14 +37,16 @@ class SettingsProfileCoordinator: Coordinator {
     
     func showCountryScreen() {
         let countryScreen = CountryCoordinator(navigationController: navigationController,
-                                               user: existingUser)
+                                               selectedCountry: settingsViewModel.selectedCountry)
         countryScreen.delegate = self
         countryScreen.start()
     }
 }
 
 extension SettingsProfileCoordinator: CountryCoordinatorDelegate {
+    
     func countryViewController(_ sender: Coordinator, didSelectCountry country: CountryModel) {
-        existingUser.country = country.id
+        settingsViewModel.selectCountry(country)
     }
+    
 }
