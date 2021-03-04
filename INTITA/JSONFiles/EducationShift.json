@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title_ua": "ранкова",
+        "title_ru": "утренняя",
+        "title_en": "morning",
+        "title": "ранкова"
+    },
+    {
+        "id": 2,
+        "title_ua": "вечірня",
+        "title_ru": "вечерняя",
+        "title_en": "evening",
+        "title": "вечірня"
+    },
+    {
+        "id": 3,
+        "title_ua": "байдуже",
+        "title_ru": "без разницы",
+        "title_en": "all one",
+        "title": "байдуже"
+    }
+]
