@@ -70,10 +70,14 @@
 		64154D5325DAAFFD00952C67 /* SpecializationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D5225DAAFFD00952C67 /* SpecializationList.swift */; };
 		64154D6025DAB92400952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
 		64154D6425DAB92500952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
+		64154D7225DC211E00952C67 /* Country.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64154D7125DC211E00952C67 /* Country.storyboard */; };
+		64154D7825DC215A00952C67 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7725DC215A00952C67 /* CountryViewController.swift */; };
+		64154D7D25DC218600952C67 /* CountryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7C25DC218600952C67 /* CountryCoordinator.swift */; };
+		64154D8725DD596300952C67 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D8625DD596300952C67 /* CountryViewModel.swift */; };
 		64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */; };
 		642E6F9725BDE09500C239DC /* OpportunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */; };
 		642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */; };
-		644F73C125C5BEAE001216EB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* UserModel.swift */; };
+		644F73C125C5BEAE001216EB /* EditingFild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* EditingFild.swift */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsProfileCoordinator.swift */; };
@@ -93,6 +97,10 @@
 		64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44282569696900880C9A /* ExplanationTableViewCell.swift */; };
 		64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44292569696900880C9A /* ExplanationTableViewCell.xib */; };
 		64BD44952572523900880C9A /* UITextField+indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44942572523900880C9A /* UITextField+indent.swift */; };
+		64EE8A9925EBFC2200B6D9F3 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D8625DD596300952C67 /* CountryViewModel.swift */; };
+		64EE8A9D25EBFC2400B6D9F3 /* CountryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7C25DC218600952C67 /* CountryCoordinator.swift */; };
+		64EE8AA125EBFC2800B6D9F3 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7725DC215A00952C67 /* CountryViewController.swift */; };
+		64EE8AA525EBFC2E00B6D9F3 /* Country.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64154D7125DC211E00952C67 /* Country.storyboard */; };
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
@@ -147,7 +155,7 @@
 		BAAEC89325D13C3C00F2660E /* INTITA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAA6303F258CCF4D0042F290 /* INTITA.xcdatamodeld */; };
 		BAAEC89725D13C4400F2660E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA63049258CE1190042F290 /* CoreDataService.swift */; };
 		BAAEC89825D13C4400F2660E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA63063258D41870042F290 /* CoreDataStack.swift */; };
-		BAAEC89C25D13C4B00F2660E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* UserModel.swift */; };
+		BAAEC89C25D13C4B00F2660E /* EditingFild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* EditingFild.swift */; };
 		BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E91A254E8F2B00426261 /* LoginResponse.swift */; };
 		BAAEC89E25D13C4B00F2660E /* EducationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAEC85325CF42B500F2660E /* EducationForm.swift */; };
 		BAAEC89F25D13C4B00F2660E /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2B29D6255AB84100DDE683 /* CurrentUser.swift */; };
@@ -301,6 +309,10 @@
 		64154D3F25DAA2A300952C67 /* Specialization.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Specialization.json; sourceTree = "<group>"; };
 		64154D4725DAACB400952C67 /* SpecializationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationModel.swift; sourceTree = "<group>"; };
 		64154D5225DAAFFD00952C67 /* SpecializationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationList.swift; sourceTree = "<group>"; };
+		64154D7125DC211E00952C67 /* Country.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Country.storyboard; sourceTree = "<group>"; };
+		64154D7725DC215A00952C67 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
+		64154D7C25DC218600952C67 /* CountryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCoordinator.swift; sourceTree = "<group>"; };
+		64154D8625DD596300952C67 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewModel.swift; sourceTree = "<group>"; };
 		641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsProfile.storyboard; sourceTree = "<group>"; };
 		641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -309,7 +321,7 @@
 		641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesTableViewCell.swift; sourceTree = "<group>"; };
 		642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpportunitiesTableViewCell.xib; sourceTree = "<group>"; };
-		644F73C025C5BEAE001216EB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		644F73C025C5BEAE001216EB /* EditingFild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingFild.swift; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCoordinator.swift; sourceTree = "<group>"; };
 		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesCoordinator.swift; sourceTree = "<group>"; };
@@ -423,7 +435,6 @@
 				3F2B29D6255AB84100DDE683 /* CurrentUser.swift */,
 				BA4FF3B8259A01160063218C /* TaskModel.swift */,
 				640B812925BF02A400F97F90 /* OpportunitiesType.swift */,
-				644F73C025C5BEAE001216EB /* UserModel.swift */,
 				BAAEC85325CF42B500F2660E /* EducationForm.swift */,
 				3F45997725DD27D400AE26E9 /* EditUserResponse.swift */,
 			);
@@ -552,6 +563,17 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		64154D7625DC212400952C67 /* CountryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				64154D7125DC211E00952C67 /* Country.storyboard */,
+				64154D7725DC215A00952C67 /* CountryViewController.swift */,
+				64154D7C25DC218600952C67 /* CountryCoordinator.swift */,
+				64154D8625DD596300952C67 /* CountryViewModel.swift */,
+			);
+			path = CountryScreen;
+			sourceTree = "<group>";
+		};
 		641B86F9258D207D005FAA24 /* ProfileSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +581,7 @@
 				646615872596738300173A13 /* SettingsProfileCoordinator.swift */,
 				646615952596745200173A13 /* SettingsProfileViewController.swift */,
 				64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */,
+				644F73C025C5BEAE001216EB /* EditingFild.swift */,
 				641B8702258D20DC005FAA24 /* Cells */,
 			);
 			path = ProfileSettings;
@@ -749,6 +772,7 @@
 				3F87983F255E70AC0094D6D9 /* Profile */,
 				641B86F9258D207D005FAA24 /* ProfileSettings */,
 				6466671C25BDCFE100FAF5DA /* OpportunitiesScreen */,
+				64154D7625DC212400952C67 /* CountryScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -904,6 +928,7 @@
 				BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */,
 				3F87983C255E70A60094D6D9 /* Profile.storyboard in Resources */,
 				84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */,
+				64154D7225DC211E00952C67 /* Country.storyboard in Resources */,
 				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
 				6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */,
@@ -954,6 +979,7 @@
 				BAAEC91925D13CDA00F2660E /* MyriadPro-Light.ttf in Resources */,
 				3F1DC09C25D69438000EF654 /* Cities.json in Resources */,
 				BAAEC90625D13CB300F2660E /* HeaderSettingsTableViewCell.xib in Resources */,
+				64EE8AA525EBFC2E00B6D9F3 /* Country.storyboard in Resources */,
 				BAAEC8C025D13C6D00F2660E /* TaskHeaderCell.xib in Resources */,
 				3F1DC0F625D9064A000EF654 /* OpportunitiesTableViewCell.xib in Resources */,
 				BAAEC92E25D13CE800F2660E /* AlertView.xib in Resources */,
@@ -993,13 +1019,14 @@
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
+				64154D7D25DC218600952C67 /* CountryCoordinator.swift in Sources */,
 				49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */,
 				640B812A25BF02A400F97F90 /* OpportunitiesType.swift in Sources */,
 				84BF645C255E8B4000E2E036 /* LogoTableViewCell.swift in Sources */,
 				3F2B29CC255A7FE500DDE683 /* UIView+fromNib.swift in Sources */,
 				BAA6305B258D27FD0042F290 /* User+CoreDataClass.swift in Sources */,
 				64BD43E625604C7B00880C9A /* JSONLoader.swift in Sources */,
-				644F73C125C5BEAE001216EB /* UserModel.swift in Sources */,
+				644F73C125C5BEAE001216EB /* EditingFild.swift in Sources */,
 				3F87984E255E738F0094D6D9 /* ProfileTableViewCell.swift in Sources */,
 				3F1DC0A425D69493000EF654 /* CityModel.swift in Sources */,
 				3FF299EF254ADD800087AEC7 /* WelcomeViewController.swift in Sources */,
@@ -1034,6 +1061,8 @@
 				3FAF33BF25DA667200DA0B98 /* EditingUser.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
+				64154D7825DC215A00952C67 /* CountryViewController.swift in Sources */,
+				64154D8725DD596300952C67 /* CountryViewModel.swift in Sources */,
 				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
 				64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
@@ -1102,18 +1131,20 @@
 				BAAEC8F725D13CA600F2660E /* ProfileTableViewCell.swift in Sources */,
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
+				64EE8A9D25EBFC2400B6D9F3 /* CountryCoordinator.swift in Sources */,
 				3F1DC0BD25D69EB1000EF654 /* LocationProtocol.swift in Sources */,
 				BAAEC8C825D13C7800F2660E /* LogInViewController.swift in Sources */,
 				BAAEC8A725D13C5100F2660E /* ApiURL.swift in Sources */,
 				3F1DC0A525D69493000EF654 /* CityModel.swift in Sources */,
 				BAAEC8A125D13C4B00F2660E /* LogoutResponse.swift in Sources */,
-				BAAEC89C25D13C4B00F2660E /* UserModel.swift in Sources */,
+				BAAEC89C25D13C4B00F2660E /* EditingFild.swift in Sources */,
 				BAAEC91D25D13CE000F2660E /* UITextField+indent.swift in Sources */,
 				BAAEC89E25D13C4B00F2660E /* EducationForm.swift in Sources */,
 				BAAEC8AB25D13C5800F2660E /* Authorization.swift in Sources */,
 				BAAEC8A525D13C5100F2660E /* ApiError.swift in Sources */,
 				BAAEC8A025D13C4B00F2660E /* TaskModel.swift in Sources */,
 				BAAEC8CC25D13C7800F2660E /* LogInCoordinator.swift in Sources */,
+				64EE8AA125EBFC2800B6D9F3 /* CountryViewController.swift in Sources */,
 				BAAEC92225D13CE000F2660E /* String+localized.swift in Sources */,
 				3F1DC0F225D90645000EF654 /* OpportunitiesTableViewCell.swift in Sources */,
 				BAAEC8E425D13C9100F2660E /* CustomPageControl.swift in Sources */,
@@ -1146,6 +1177,7 @@
 				BAAEC92425D13CE000F2660E /* UIViewController+AlertView.swift in Sources */,
 				BAAEC90825D13CB300F2660E /* InfoSettingProfileTableViewCell.swift in Sources */,
 				BAAEC91025D13CBD00F2660E /* UserData.swift in Sources */,
+				64EE8A9925EBFC2200B6D9F3 /* CountryViewModel.swift in Sources */,
 				BAAEC92625D13CE000F2660E /* CGFloat+toRadians.swift in Sources */,
 				BAAEC92725D13CE000F2660E /* UIViewController+Keyboard.swift in Sources */,
 				BAAEC8BB25D13C6D00F2660E /* TasksViewController.swift in Sources */,

@@ -15,9 +15,12 @@ class ProfileCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     weak var alertPresenter: ProfileCoordinatorAlertPresenter?
+    
+    let user: CurrentUser
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, user: CurrentUser) {
         self.navigationController = navigationController
+        self.user = user
     }
 
     func start() {
@@ -39,7 +42,7 @@ class ProfileCoordinator: Coordinator {
     }
     //3
     func displaySettingsProfileScreen() {
-        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController)
+        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController, existingUser: user)
         settingScreenCoordinator.start()
     }
     
@@ -51,11 +54,7 @@ class ProfileCoordinator: Coordinator {
 
 extension ProfileCoordinator: ProfileHeaderViewDelegate {
     func avatarTapped() {
-        guard let systemProfileCoordinator = childCoordinators.first else {
-            alertPresenter?.showAlert()
-            return
-        }
-        systemProfileCoordinator.start()
+        displaySettingsProfileScreen()
     }
 }
 

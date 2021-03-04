@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  EditingFild.swift
 //  INTITA
 //
 //  Created by Viacheslav Markov on 30.01.2021.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum UserModel: Int, CaseIterable {
+enum EditingFild: Int, CaseIterable {
     case firstName
     case secondName
     case nickname
     case birthday
-    case country  // values
-    case city  // values
+    case country
+    case city
     case address
     case phone
     case aboutMy
@@ -27,8 +27,17 @@ enum UserModel: Int, CaseIterable {
     case linkedin
     case twitter
     case prefer_specializations
-    case educform // values
-    case education_shift  // values
+    case educform
+    case education_shift
+    
+    var editType: SettingProfileCell {
+        switch self {
+        case .country, .city, .prefer_specializations:
+            return .button
+        default:
+            return .textField
+        }
+    }
     
     var description: String {
         switch self {
@@ -78,6 +87,41 @@ enum UserModel: Int, CaseIterable {
     }
     
     static var statusList: [String] {
-        return UserModel.allCases.map { $0.description }
+        return EditingFild.allCases.map { $0.description }
     }
+    
+    func valueFromUser(_ user: CurrentUser) -> String? {
+        switch self {
+        case .firstName: return user.firstName
+        case .secondName: return user.secondName
+        case .nickname: return user.nickname
+        case .birthday: return user.birthday
+        case .country: return funWithCounties(with: user.country)
+        case .city: return "vin"
+        case .address: return user.address
+        case .phone: return user.phone
+        case .aboutMy: return "user.about_me"
+        case .interests: return "user.interests"
+        case .education: return "user.education"
+        case .prev_job: return "user.prev_job"
+        case .current_job: return "user.current_job"
+        case .aboutUs: return "user.about_us"
+        case .skype: return "user.skype"
+        case .facebook: return user.facebook
+        case .linkedin: return user.linkedin
+        case .twitter: return user.twitter
+        case .prefer_specializations: return "user.preferSpecializations"
+        case .educform: return "user.educ_form"
+        case .education_shift: return "user.education_shift"
+        }
+    }
+}
+
+func funWithCounties(with id: Int?) -> String? {
+    let data = JSONLoader.loadJsonData(file: "Countries")
+    let decoder = JSONDecoder()
+    let coutries = try! decoder.decode([CountryModel].self, from: data!)
+    let ourCountry = coutries[(id ?? 1) - 1]
+
+    return ourCountry.geocode.localized(locationType: .country)
 }

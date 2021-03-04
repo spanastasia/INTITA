@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CountryModel: LocationProtocol {
+struct CountryModel: LocationProtocol, Equatable {
     var id: Int
     var titleUA: String
     var titleRU: String

@@ -86,3 +86,5 @@
 "offline" = "оффлайн";
 "online" = "онлайн";
 "online_offline" = "онлайн/оффлайн";
+"country_selection" = "Выбор страны";
+"system_profile" = "Системный профиль";

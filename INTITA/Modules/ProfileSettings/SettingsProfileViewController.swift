@@ -13,9 +13,8 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     
     private var isProfileEditing = false
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
-    lazy var backButton = UIButton()
 
-    var viewModel = SettingsProfileViewModel()
+    var viewModel: SettingsProfileViewModel!
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -27,18 +26,40 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         
         setupCell()
+        setupHeaderTableView()
 
         headerContentView.delegate = self
         headerContentView.frame.size.width = view.frame.width
         headerView.addSubview(headerContentView)
         
+        viewModel.subscribe { error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            self.tableView.reloadData()
+        }
+        
     }
-    
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
         guard parent == nil else { return }
         print("Did press Back button")
+    }
+    
+    func setupHeaderTableView() {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+        header.backgroundColor = .systemGray6
+        
+        let label = UILabel(frame: CGRect(x: 28, y: 8, width: view.frame.width - 16, height: 20))
+        label.text = "system_profile".localized
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textAlignment = .left
+        header.addSubview(label)
+        
+        tableView.tableHeaderView = header
     }
     
     func setupCell() {
@@ -51,7 +72,10 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
 extension SettingsProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tappet \(indexPath.row) cell")
+        
+        if indexPath.row == 4 && isProfileEditing {
+            coordinator?.showCountryScreen()
+        }
     }
 }
 
@@ -62,20 +86,23 @@ extension SettingsProfileViewController: UITableViewDataSource {
         return viewModel.numberOfStates
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return 45
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell else {
+            return UITableViewCell()
+        }
         
-        cell?.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
-                        isEditing: isProfileEditing,
-                        indexPath: indexPath.row)
+        if let type = EditingFild(rawValue: indexPath.row)?.editType {
+            cell.type = type
+        }
+
+        let value = viewModel.getValue(at: indexPath.row)
+        cell.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
+                       value: value,
+                       isEditing: isProfileEditing,
+                       indexPath: indexPath.row)
         
-        return cell ?? UITableViewCell()
+        return cell
     }
     
 }
@@ -87,8 +114,9 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
     }
     
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
-
+        
         isProfileEditing.toggle()
+        sender.setupEditBtn(isTrue: isProfileEditing)
         tableView.reloadData()
     }
 }

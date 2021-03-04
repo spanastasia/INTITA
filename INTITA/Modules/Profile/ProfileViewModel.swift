@@ -28,9 +28,11 @@ class ProfileViewModel {
     
     func fetchUser() {
         if let updateCallback = updateCallback {
-            Authorization.shared.fetchUserInfo { error in
-                DispatchQueue.main.async {
-                    updateCallback(error)
+            Authorization.shared.fetchUserInfo { result in
+                if case Result.failure(let error) = result {
+                    DispatchQueue.main.async {
+                        updateCallback(error)
+                    }
                 }
             }
         }
