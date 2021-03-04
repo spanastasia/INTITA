@@ -580,8 +580,8 @@
 				641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */,
 				646615872596738300173A13 /* SettingsProfileCoordinator.swift */,
 				646615952596745200173A13 /* SettingsProfileViewController.swift */,
-				644F73C025C5BEAE001216EB /* EditingFild.swift */,
 				64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */,
+				644F73C025C5BEAE001216EB /* EditingFild.swift */,
 				641B8702258D20DC005FAA24 /* Cells */,
 			);
 			path = ProfileSettings;

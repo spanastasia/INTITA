@@ -54,11 +54,7 @@ class ProfileCoordinator: Coordinator {
 
 extension ProfileCoordinator: ProfileHeaderViewDelegate {
     func avatarTapped() {
-        guard let systemProfileCoordinator = childCoordinators.first else {
-            alertPresenter?.showAlert()
-            return
-        }
-        systemProfileCoordinator.start()
+        displaySettingsProfileScreen()
     }
 }
 

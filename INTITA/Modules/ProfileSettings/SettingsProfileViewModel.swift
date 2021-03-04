@@ -9,6 +9,8 @@ import Foundation
 
 class SettingsProfileViewModel {
     var arrayItems = EditingFild.statusList
+    private var updateCallback: ProfileViewModelCallback?
+    var selectedCountry: CountryModel?
     
     var numberOfStates: Int {
         EditingFild.allCases.count
@@ -22,5 +24,14 @@ class SettingsProfileViewModel {
     
     func getValue(at index: Int) -> String? {
         return EditingFild.allCases[index].valueFromUser(existingUser)
+    }
+    
+    func subscribe(updateCallback: ProfileViewModelCallback?) {
+        self.updateCallback = updateCallback
+    }
+
+    func selectCountry(_ country: CountryModel) {
+        selectedCountry = country
+        updateCallback?(nil)
     }
 }

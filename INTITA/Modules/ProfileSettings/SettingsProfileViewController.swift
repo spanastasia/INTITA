@@ -13,7 +13,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     
     private var isProfileEditing = false
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
-    lazy var backButton = UIButton()
 
     var viewModel: SettingsProfileViewModel!
 
@@ -34,7 +33,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         headerView.addSubview(headerContentView)
         
     }
-    
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         

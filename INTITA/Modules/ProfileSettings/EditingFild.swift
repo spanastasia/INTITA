@@ -96,7 +96,7 @@ enum EditingFild: Int, CaseIterable {
         case .secondName: return user.secondName
         case .nickname: return user.nickname
         case .birthday: return user.birthday
-        case .country: return "\(String(describing: user.country))"
+        case .country: return funWithCounties(with: user.country)
         case .city: return "vin"
         case .address: return user.address
         case .phone: return user.phone
@@ -115,4 +115,13 @@ enum EditingFild: Int, CaseIterable {
         case .education_shift: return "user.education_shift"
         }
     }
+}
+
+func funWithCounties(with id: Int?) -> String? {
+    let data = JSONLoader.loadJsonData(file: "Countries")
+    let decoder = JSONDecoder()
+    let coutries = try! decoder.decode([CountryModel].self, from: data!)
+    let ourCountry = coutries[(id ?? 1) - 1]
+
+    return ourCountry.geocode.localized(locationType: .country)
 }

@@ -68,6 +68,9 @@ extension CountryViewController: UITableViewDataSource {
         cell.imageView?.image = flag(country: geocode).emojiToImage()
         cell.textLabel?.text = searchArray[indexPath.row].titleEN
         
+        if viewModel!.isAlreadySelected(at: indexPath.row) {
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        }
         return  cell
     }
     

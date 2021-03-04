@@ -11,7 +11,7 @@ class SettingsProfileCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    
+    var selectedCountry: CountryModel?
     var existingUser: CurrentUser
 
     init(navigationController: UINavigationController, existingUser: CurrentUser) {
@@ -34,7 +34,8 @@ class SettingsProfileCoordinator: Coordinator {
     }
     
     func showCountryScreen() {
-        let countryScreen = CountryCoordinator(navigationController: navigationController)
+        let countryScreen = CountryCoordinator(navigationController: navigationController,
+                                               user: existingUser)
         countryScreen.delegate = self
         countryScreen.start()
     }
@@ -42,7 +43,6 @@ class SettingsProfileCoordinator: Coordinator {
 
 extension SettingsProfileCoordinator: CountryCoordinatorDelegate {
     func countryViewController(_ sender: Coordinator, didSelectCountry country: CountryModel) {
-        print(country)
+        existingUser.country = country.id
     }
-    
 }

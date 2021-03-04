@@ -16,9 +16,12 @@ class CountryCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     weak var delegate: CountryCoordinatorDelegate?
+    var user: CurrentUser
+    var selectedCountry: CountryModel!
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, user: CurrentUser) {
         self.navigationController = navigationController
+        self.user = user
     }
 
     func start() {
@@ -27,9 +30,9 @@ class CountryCoordinator: Coordinator {
         countryViewController.coordinator = self
         countryViewController.delegate = self
         
-        let countryViewModel = CountryViewModel()
+        let countryViewModel = CountryViewModel(selectedCountry: selectedCountry)
         countryViewController.viewModel = countryViewModel
-        
+
         navigationController.present(countryViewController, animated: true)
     }
 
