@@ -20,4 +20,5 @@ enum LocationType {
     case country
     case city
     case specialization
+    case educationShift
 }

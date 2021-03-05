@@ -112,7 +112,7 @@ enum EditingFild: Int, CaseIterable {
         case .twitter: return user.twitter
         case .prefer_specializations: return "user.preferSpecializations"
         case .educform: return "user.educ_form"
-        case .education_shift: return "user.education_shift"
+        case .education_shift: return funWithEducationShift(with: user.educationShift)
         }
     }
 }
@@ -124,4 +124,13 @@ func funWithCounties(with id: Int?) -> String? {
     let ourCountry = coutries[(id ?? 1) - 1]
 
     return ourCountry.geocode.localized(locationType: .country)
+}
+
+func funWithEducationShift(with id: Int?) -> String? {
+    let data = JSONLoader.loadJsonData(file: "EducationShift")
+    let decoder = JSONDecoder()
+    let educationShift = try! decoder.decode([EducationShiftModel].self, from: data!)
+    let ourEducationShift = educationShift[(id ?? 1) - 1]
+
+    return ourEducationShift.titleEN.localized(locationType: .educationShift)
 }
