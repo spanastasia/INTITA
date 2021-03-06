@@ -21,7 +21,7 @@ class CountryViewController: UIViewController, Storyboarded {
     var coordinator: CountryCoordinator?
     var viewModel: CountryViewModel?
     
-    let countryList: [CountryModel]! = LocationService<CountryModel>.locations
+    let countryList: [CountryModel]! = JSONService<CountryModel>.values
     var searchArray: [CountryModel] = []
 
     override func viewDidLoad() {

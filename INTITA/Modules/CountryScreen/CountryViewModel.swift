@@ -9,7 +9,7 @@ import Foundation
 
 class CountryViewModel {
     
-    let countryList = LocationService<CountryModel>.locations
+    let countryList = JSONService<CountryModel>.values
     var selectedCountry: CountryModel?
     
     var numberOfCountry: Int? {

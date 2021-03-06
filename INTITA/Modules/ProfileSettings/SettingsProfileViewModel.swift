@@ -16,18 +16,23 @@ class SettingsProfileViewModel {
         EditingFild.allCases.count
     }
     
-    var existingUser: CurrentUser
+    private var editingUser: EditingUser?
+    var isProfileEditing: Bool = false
     
     init(existingUser: CurrentUser) {
-        self.existingUser = existingUser
+        editingUser = EditingUser(from: existingUser)
         
         if let countryId = existingUser.country {
-            selectedCountry = LocationService<CountryModel>.getValue(by: countryId)
+            selectedCountry = JSONService<CountryModel>.getValue(by: countryId)
         }
+    }
+    func isCountryRow(row: Int) -> Bool {
+        return row == 4 && isProfileEditing
     }
     
     func getValue(at index: Int) -> String? {
-        return EditingFild.allCases[index].valueFromUser(existingUser)
+        guard let userToEdit = editingUser else { return nil }
+        return EditingFild.allCases[index].valueFromUser(userToEdit)
     }
     
     func subscribe(updateCallback: ProfileViewModelCallback?) {
@@ -35,8 +40,13 @@ class SettingsProfileViewModel {
     }
 
     func selectCountry(_ country: CountryModel) {
-        existingUser.country = country.id
+        editingUser?.country = country
         selectedCountry = country
+        updateCallback?(nil)
+    }
+    
+    func startEditUser() {
+        isProfileEditing.toggle()
         updateCallback?(nil)
     }
 }

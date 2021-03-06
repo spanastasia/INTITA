@@ -12,7 +12,7 @@ struct EditingUser: Codable {
     var secondName: String?
     var nickname: String?
     var birthday: String?
-    var country: Int?
+    var country: CountryModel?
     var city: Int?
     var address: String?
     var phone: String?
@@ -52,5 +52,31 @@ struct EditingUser: Codable {
         case preferSpecializations = "prefer_specializations"
         case educform
         case educationShift = "education_shift"
+    }
+}
+
+extension EditingUser {
+    init(from existingUser: CurrentUser) {
+        firstName = existingUser.firstName
+        secondName = existingUser.secondName
+        nickname = existingUser.nickname
+        birthday = existingUser.birthday
+        country = JSONService<CountryModel>.getValue(by: existingUser.country!)
+        city = existingUser.city
+        address = existingUser.address
+        phone = existingUser.phone
+        aboutMy = ""//existingUser. TODO:
+        interests = ""//existingUser. TODO:
+        education = ""//existingUser. TODO:
+        prevJob = ""//existingUser. TODO:
+        currentJob = ""//existingUser. TODO:
+        aboutUs = ""//existingUser. TODO:
+        skype = ""//existingUser. TODO:
+        facebook = existingUser.facebook
+        linkedin = existingUser.linkedin
+        twitter = existingUser.twitter
+        preferSpecializations = existingUser.preferSpecializations.map(\.specializationId)
+        educform = 1//existingUser. TODO:
+        educationShift = existingUser.educationShift
     }
 }

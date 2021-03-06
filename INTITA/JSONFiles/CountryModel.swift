@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CountryModel: LocationProtocol, Equatable {
+struct CountryModel: LocalizedResponseProtocol, Equatable {
     var id: Int
     var titleUA: String
     var titleRU: String
@@ -15,6 +15,7 @@ struct CountryModel: LocationProtocol, Equatable {
     var geocode: String
     
     var identifier: String { geocode }
+    static var type: LocationType { .country }
 
     enum CodingKeys: String, CodingKey {
         case id

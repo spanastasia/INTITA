@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct SpecializationModel: LocationProtocol {
+struct SpecializationModel: LocalizedResponseProtocol {
     
     var id: Int
     var titleUA: String
     var titleRU: String
     var titleEN: String
     
-    var identifier: String { String(id) }
-
+    static var type: LocationType { .specialization }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case titleUA = "title_ua"
