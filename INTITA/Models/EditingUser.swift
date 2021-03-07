@@ -65,18 +65,18 @@ extension EditingUser {
         city = existingUser.city
         address = existingUser.address
         phone = existingUser.phone
-        aboutMy = ""//existingUser. TODO:
-        interests = ""//existingUser. TODO:
-        education = ""//existingUser. TODO:
-        prevJob = ""//existingUser. TODO:
-        currentJob = ""//existingUser. TODO:
-        aboutUs = ""//existingUser. TODO:
-        skype = ""//existingUser. TODO:
+        aboutMy = existingUser.aboutMy
+        interests = existingUser.interests
+        education = existingUser.education
+        prevJob = existingUser.prevJob
+        currentJob = existingUser.currentJob
+        aboutUs = existingUser.aboutUs
+        skype = existingUser.skype
         facebook = existingUser.facebook
         linkedin = existingUser.linkedin
         twitter = existingUser.twitter
         preferSpecializations = existingUser.preferSpecializations.map(\.specializationId)
-        educform = 1//existingUser. TODO:
+        educform = existingUser.educform
         educationShift = existingUser.educationShift
     }
 }

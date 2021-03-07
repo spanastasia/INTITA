@@ -23,6 +23,14 @@ struct CurrentUser: Codable {
     var country: Int?
     var city: Int?
     var educationShift: Int?
+    var aboutMy: String?
+    var interests: String?
+    var education: String?
+    var prevJob: String?
+    var currentJob: String?
+    var aboutUs: String?
+    var skype: String?
+    var educform: Int?
     
     var preferSpecializations: [PreferSpecialization]
     
@@ -52,6 +60,14 @@ struct CurrentUser: Codable {
         country = try container.decodeIfPresent(Int.self, forKey: .country)
         city = try container.decodeIfPresent(Int.self, forKey: .city)
         educationShift = try container.decodeIfPresent(Int.self, forKey: .educationShift)
+        aboutMy = try container.decodeIfPresent(String.self, forKey: .aboutMy)
+        interests = try container.decodeIfPresent(String.self, forKey: .interests)
+        education = try container.decodeIfPresent(String.self, forKey: .education)
+        prevJob = try container.decodeIfPresent(String.self, forKey: .prevJob)
+        currentJob = try container.decodeIfPresent(String.self, forKey: .currentJob)
+        aboutUs = try container.decodeIfPresent(String.self, forKey: .aboutUs)
+        skype = try container.decodeIfPresent(String.self, forKey: .skype)
+        educform = try container.decodeIfPresent(Int.self, forKey: .educform)
     }
     
     init?(from editingUser: EditingUser) {
@@ -89,6 +105,14 @@ struct CurrentUser: Codable {
         country = editingUser.country?.id
         city = editingUser.city
         educationShift = editingUser.educationShift
+        aboutMy = editingUser.aboutMy
+        interests = editingUser.interests
+        education = editingUser.education
+        prevJob = editingUser.prevJob
+        currentJob = editingUser.currentJob
+        aboutUs = editingUser.aboutUs
+        skype = editingUser.skype
+        educform = editingUser.educform
     }
 
     enum CodingKeys: String, CodingKey {
@@ -100,6 +124,14 @@ struct CurrentUser: Codable {
         case country
         case educationShift = "education_shift"
         case city
+        case aboutMy = "about_my"
+        case interests
+        case education
+        case prevJob = "prev_job"
+        case currentJob = "current_job"
+        case aboutUs = "about_us"
+        case skype
+        case educform = "educ_form"
     }
 }
 
@@ -136,4 +168,3 @@ struct Specialization: Codable {
         case titleRu = "title_ru"
     }
 }
-

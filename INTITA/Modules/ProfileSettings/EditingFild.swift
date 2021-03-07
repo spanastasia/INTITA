@@ -100,18 +100,18 @@ enum EditingFild: Int, CaseIterable {
         case .city: return getCity(by: user.city)
         case .address: return user.address
         case .phone: return user.phone
-        case .aboutMy: return "user.about_me"
-        case .interests: return "user.interests"
-        case .education: return "user.education"
-        case .prev_job: return "user.prev_job"
-        case .current_job: return "user.current_job"
-        case .aboutUs: return "user.about_us"
-        case .skype: return "user.skype"
+        case .aboutMy: return user.aboutMy
+        case .interests: return user.interests
+        case .education: return user.education
+        case .prev_job: return user.prevJob
+        case .current_job: return user.currentJob
+        case .aboutUs: return user.aboutUs
+        case .skype: return user.skype
         case .facebook: return user.facebook
         case .linkedin: return user.linkedin
         case .twitter: return user.twitter
-        case .prefer_specializations: return "user.preferSpecializations"
-        case .educform: return "user.educ_form"
+        case .prefer_specializations: return getPreferSpecializations(by: user.preferSpecializations[0])//user.preferSpecializations
+        case .educform: return getEducform(by: user.educform)
         case .education_shift: return getEducationShift(by: user.educationShift)
         }
     }
@@ -124,5 +124,16 @@ enum EditingFild: Int, CaseIterable {
     private func getEducationShift(by id: Int?) -> String? {
         guard let educationShiftId = id else { return nil }
         return JSONService<EducationShiftModel>.getValue(by: educationShiftId)?.identifier.localized(locationType: .educationShift)
+    }
+    
+    private func getEducform(by id: Int?) -> String? {
+        guard let educform = id else { return nil }
+        let e = EducationForm.init(rawValue: educform)
+        return e?.description
+    }
+    
+    private func getPreferSpecializations(by id: Int?) -> String? {
+        guard let preferSpecializations = id else { return nil }
+        return JSONService<SpecializationModel>.getValue(by: preferSpecializations)?.identifier.localized(locationType: .specialization)
     }
 }
