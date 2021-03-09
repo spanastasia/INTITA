@@ -110,7 +110,7 @@ enum EditingFild: Int, CaseIterable {
         case .facebook: return user.facebook
         case .linkedin: return user.linkedin
         case .twitter: return user.twitter
-        case .prefer_specializations: return getPreferSpecializations(by: user.preferSpecializations[0])//user.preferSpecializations
+        case .prefer_specializations: return getPreferSpecializations(by: user.preferSpecializations[0])
         case .educform: return getEducform(by: user.educform)
         case .education_shift: return getEducationShift(by: user.educationShift)
         }
