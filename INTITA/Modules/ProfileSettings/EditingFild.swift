@@ -90,14 +90,14 @@ enum EditingFild: Int, CaseIterable {
         return EditingFild.allCases.map { $0.description }
     }
     
-    func valueFromUser(_ user: CurrentUser) -> String? {
+    func valueFromUser(_ user: EditingUser) -> String? {
         switch self {
         case .firstName: return user.firstName
         case .secondName: return user.secondName
         case .nickname: return user.nickname
         case .birthday: return user.birthday
-        case .country: return funWithCounties(with: user.country)
-        case .city: return "vin"
+        case .country: return user.country?.getLocalizedValue()
+        case .city: return getCity(by: user.city)
         case .address: return user.address
         case .phone: return user.phone
         case .aboutMy: return "user.about_me"
@@ -112,16 +112,17 @@ enum EditingFild: Int, CaseIterable {
         case .twitter: return user.twitter
         case .prefer_specializations: return "user.preferSpecializations"
         case .educform: return "user.educ_form"
-        case .education_shift: return "user.education_shift"
+        case .education_shift: return getEducationShift(by: user.educationShift)
         }
     }
-}
-
-func funWithCounties(with id: Int?) -> String? {
-    let data = JSONLoader.loadJsonData(file: "Countries")
-    let decoder = JSONDecoder()
-    let coutries = try! decoder.decode([CountryModel].self, from: data!)
-    let ourCountry = coutries[(id ?? 1) - 1]
-
-    return ourCountry.geocode.localized(locationType: .country)
+    
+    private func getCity(by id: Int?) -> String? {
+        guard let countryId = id else { return nil }
+        return JSONService<CityModel>.getValue(by: countryId)?.identifier.localized(locationType: .city)
+    }
+    
+    private func getEducationShift(by id: Int?) -> String? {
+        guard let educationShiftId = id else { return nil }
+        return JSONService<EducationShiftModel>.getValue(by: educationShiftId)?.identifier.localized(locationType: .educationShift)
+    }
 }

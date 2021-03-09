@@ -21,6 +21,8 @@ struct CurrentUser: Codable {
     var avatar: URL?
     var role: Int
     var country: Int?
+    var city: Int?
+    var educationShift: Int?
     
     var preferSpecializations: [PreferSpecialization]
     
@@ -48,6 +50,8 @@ struct CurrentUser: Codable {
         role = try container.decode(Int.self, forKey: .role)
         preferSpecializations = try container.decode([PreferSpecialization].self, forKey: .preferSpecializations)
         country = try container.decodeIfPresent(Int.self, forKey: .country)
+        city = try container.decodeIfPresent(Int.self, forKey: .city)
+        educationShift = try container.decodeIfPresent(Int.self, forKey: .educationShift)
     }
     
     init?(from editingUser: EditingUser) {
@@ -82,7 +86,9 @@ struct CurrentUser: Codable {
         
         //TODO: preferedSpecializations in CurrentuUser and in EditingUser are of different types.
         preferSpecializations = current.preferSpecializations
-        country = editingUser.country
+        country = editingUser.country?.id
+        city = editingUser.city
+        educationShift = editingUser.educationShift
     }
 
     enum CodingKeys: String, CodingKey {
@@ -92,6 +98,8 @@ struct CurrentUser: Codable {
         case facebook, linkedin, twitter, phone, address, avatar, role
         case preferSpecializations = "prefer_specializations"
         case country
+        case educationShift = "education_shift"
+        case city
     }
 }
 

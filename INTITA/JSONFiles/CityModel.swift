@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CityModel: LocationProtocol {
+struct CityModel: LocalizedResponseProtocol {
     var id: Int
     var countryId: Int
     var titleUA: String
     var titleRU: String
     var titleEN: String
-
-    var identifier: String { String(id) }
+    
+    static var type: LocationType { .city }
     
     enum CodingKeys: String, CodingKey {
         case id

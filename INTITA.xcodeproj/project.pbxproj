@@ -14,10 +14,10 @@
 		3F1DC09C25D69438000EF654 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F1DC09925D69437000EF654 /* Cities.json */; };
 		3F1DC0A425D69493000EF654 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0A325D69493000EF654 /* CityModel.swift */; };
 		3F1DC0A525D69493000EF654 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0A325D69493000EF654 /* CityModel.swift */; };
-		3F1DC0BC25D69EB1000EF654 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */; };
-		3F1DC0BD25D69EB1000EF654 /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */; };
-		3F1DC0C225D69FEB000EF654 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* LocationService.swift */; };
-		3F1DC0C325D69FEB000EF654 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* LocationService.swift */; };
+		3F1DC0BC25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* LocalizedResponseProtocol.swift */; };
+		3F1DC0BD25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0BB25D69EB1000EF654 /* LocalizedResponseProtocol.swift */; };
+		3F1DC0C225D69FEB000EF654 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* JSONService.swift */; };
+		3F1DC0C325D69FEB000EF654 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DC0C125D69FEB000EF654 /* JSONService.swift */; };
 		3F1DC0E225D905AA000EF654 /* Opportunities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6466673525BDD22D00FAF5DA /* Opportunities.storyboard */; };
 		3F1DC0E625D905AF000EF654 /* OpportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */; };
 		3F1DC0EA25D905B2000EF654 /* OpportunitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */; };
@@ -101,6 +101,10 @@
 		64EE8A9D25EBFC2400B6D9F3 /* CountryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7C25DC218600952C67 /* CountryCoordinator.swift */; };
 		64EE8AA125EBFC2800B6D9F3 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7725DC215A00952C67 /* CountryViewController.swift */; };
 		64EE8AA525EBFC2E00B6D9F3 /* Country.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64154D7125DC211E00952C67 /* Country.storyboard */; };
+		64EE8AE325F16D0200B6D9F3 /* EducationShift.json in Resources */ = {isa = PBXBuildFile; fileRef = 64EE8AE225F16D0100B6D9F3 /* EducationShift.json */; };
+		64EE8AE425F16D0200B6D9F3 /* EducationShift.json in Resources */ = {isa = PBXBuildFile; fileRef = 64EE8AE225F16D0100B6D9F3 /* EducationShift.json */; };
+		64EE8AEC25F16D7300B6D9F3 /* EducationShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EE8AEB25F16D7300B6D9F3 /* EducationShiftModel.swift */; };
+		64EE8AED25F16D7300B6D9F3 /* EducationShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EE8AEB25F16D7300B6D9F3 /* EducationShiftModel.swift */; };
 		64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */; };
 		64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */; };
 		64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64F78E292551DA01002C1565 /* ForgotPassword.storyboard */; };
@@ -263,8 +267,8 @@
 		3F0780A12554066500E0332F /* AppConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstans.swift; sourceTree = "<group>"; };
 		3F1DC09925D69437000EF654 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 		3F1DC0A325D69493000EF654 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
-		3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
-		3F1DC0C125D69FEB000EF654 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		3F1DC0BB25D69EB1000EF654 /* LocalizedResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedResponseProtocol.swift; sourceTree = "<group>"; };
+		3F1DC0C125D69FEB000EF654 /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
 		3F2B29CB255A7FE500DDE683 /* UIView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fromNib.swift"; sourceTree = "<group>"; };
 		3F2B29D6255AB84100DDE683 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		3F2E76FE255408B100853140 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 		64BD44282569696900880C9A /* ExplanationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationTableViewCell.swift; sourceTree = "<group>"; };
 		64BD44292569696900880C9A /* ExplanationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExplanationTableViewCell.xib; sourceTree = "<group>"; };
 		64BD44942572523900880C9A /* UITextField+indent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+indent.swift"; sourceTree = "<group>"; };
+		64EE8AE225F16D0100B6D9F3 /* EducationShift.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EducationShift.json; sourceTree = "<group>"; };
+		64EE8AEB25F16D7300B6D9F3 /* EducationShiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationShiftModel.swift; sourceTree = "<group>"; };
 		64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordCoordinator.swift; sourceTree = "<group>"; };
 		64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		64F78E292551DA01002C1565 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
@@ -687,11 +693,13 @@
 				3F1DC09925D69437000EF654 /* Cities.json */,
 				841C851425C1E4E0005C32F9 /* Countries.json */,
 				64154D3F25DAA2A300952C67 /* Specialization.json */,
-				3F1DC0C125D69FEB000EF654 /* LocationService.swift */,
-				3F1DC0BB25D69EB1000EF654 /* LocationProtocol.swift */,
+				64EE8AE225F16D0100B6D9F3 /* EducationShift.json */,
+				3F1DC0C125D69FEB000EF654 /* JSONService.swift */,
+				3F1DC0BB25D69EB1000EF654 /* LocalizedResponseProtocol.swift */,
 				841C851B25C41D51005C32F9 /* CountryModel.swift */,
 				3F1DC0A325D69493000EF654 /* CityModel.swift */,
 				64154D4725DAACB400952C67 /* SpecializationModel.swift */,
+				64EE8AEB25F16D7300B6D9F3 /* EducationShiftModel.swift */,
 			);
 			path = JSONFiles;
 			sourceTree = "<group>";
@@ -937,6 +945,7 @@
 				84E2A75125B7425700B07CBF /* Countries.plist in Resources */,
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
+				64EE8AE325F16D0200B6D9F3 /* EducationShift.json in Resources */,
 				64154D4025DAA2A300952C67 /* Specialization.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				BA4FF3DD25A20C700063218C /* TaskCell.xib in Resources */,
@@ -988,6 +997,7 @@
 				BAAEC8D225D13C7800F2660E /* RegisterButtonTableViewCell.xib in Resources */,
 				BAAEC8E825D13C9600F2660E /* Welcome.storyboard in Resources */,
 				BAAEC8C925D13C7800F2660E /* LinksTableViewCell.xib in Resources */,
+				64EE8AE425F16D0200B6D9F3 /* EducationShift.json in Resources */,
 				BAAEC8D025D13C7800F2660E /* LogIn.storyboard in Resources */,
 				BAAEC8DC25D13C8500F2660E /* ExplanationTableViewCell.xib in Resources */,
 				BAAEC91825D13CDA00F2660E /* MyriadPro-Regular.ttf in Resources */,
@@ -1045,7 +1055,7 @@
 				BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
-				3F1DC0C225D69FEB000EF654 /* LocationService.swift in Sources */,
+				3F1DC0C225D69FEB000EF654 /* JSONService.swift in Sources */,
 				3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */,
 				84BF6462255E8CC200E2E036 /* TextTableViewCell.swift in Sources */,
 				3F45997825DD27D400AE26E9 /* EditUserResponse.swift in Sources */,
@@ -1073,6 +1083,7 @@
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
+				64EE8AEC25F16D7300B6D9F3 /* EducationShiftModel.swift in Sources */,
 				BA4FF3B9259A01160063218C /* TaskModel.swift in Sources */,
 				BA4FF3792595FF3B0063218C /* TasksCoordinator.swift in Sources */,
 				BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */,
@@ -1091,7 +1102,7 @@
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
 				BA4FF3CA25A0D6D50063218C /* TaskCell.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
-				3F1DC0BC25D69EB1000EF654 /* LocationProtocol.swift in Sources */,
+				3F1DC0BC25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */,
 				BAA63064258D41870042F290 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1132,7 +1143,7 @@
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
 				64EE8A9D25EBFC2400B6D9F3 /* CountryCoordinator.swift in Sources */,
-				3F1DC0BD25D69EB1000EF654 /* LocationProtocol.swift in Sources */,
+				3F1DC0BD25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */,
 				BAAEC8C825D13C7800F2660E /* LogInViewController.swift in Sources */,
 				BAAEC8A725D13C5100F2660E /* ApiURL.swift in Sources */,
 				3F1DC0A525D69493000EF654 /* CityModel.swift in Sources */,
@@ -1168,7 +1179,8 @@
 				BAAEC93E25D13D0700F2660E /* AppDelegate.swift in Sources */,
 				BAAEC8C625D13C7800F2660E /* TextTableViewCell.swift in Sources */,
 				BAAEC92325D13CE000F2660E /* UIColor+Additions.swift in Sources */,
-				3F1DC0C325D69FEB000EF654 /* LocationService.swift in Sources */,
+				64EE8AED25F16D7300B6D9F3 /* EducationShiftModel.swift in Sources */,
+				3F1DC0C325D69FEB000EF654 /* JSONService.swift in Sources */,
 				BAAEC8BF25D13C6D00F2660E /* TaskHeaderCell.swift in Sources */,
 				BAAEC90D25D13CBD00F2660E /* UserDefaultsManager.swift in Sources */,
 				BAAEC8CA25D13C7800F2660E /* TextTableViewCellModel.swift in Sources */,

@@ -11,7 +11,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     
     var coordinator: SettingsProfileCoordinator?
     
-    private var isProfileEditing = false
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
 
     var viewModel: SettingsProfileViewModel!
@@ -73,7 +72,7 @@ extension SettingsProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 4 && isProfileEditing {
+        if viewModel.isCountryRow(row: indexPath.row) {
             coordinator?.showCountryScreen()
         }
     }
@@ -99,7 +98,7 @@ extension SettingsProfileViewController: UITableViewDataSource {
         let value = viewModel.getValue(at: indexPath.row)
         cell.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
                        value: value,
-                       isEditing: isProfileEditing,
+                       isEditing: viewModel.isProfileEditing,
                        indexPath: indexPath.row)
         
         return cell
@@ -115,8 +114,8 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
     
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
         
-        isProfileEditing.toggle()
-        sender.setupEditBtn(isTrue: isProfileEditing)
-        tableView.reloadData()
+        viewModel.startEditUser()
+        
+        sender.setupEditBtn(isTrue: viewModel.isProfileEditing)
     }
 }

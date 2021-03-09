@@ -15,7 +15,10 @@ class SettingsProfileCoordinator: Coordinator {
     
     var existingUser: CurrentUser
 
-    init(navigationController: UINavigationController, existingUser: CurrentUser) {
+    init(
+        navigationController: UINavigationController,
+         existingUser: CurrentUser
+    ) {
         self.navigationController = navigationController
         self.existingUser = existingUser
         

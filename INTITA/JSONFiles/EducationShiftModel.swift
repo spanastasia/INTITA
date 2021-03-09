@@ -1,20 +1,22 @@
 //
-//  SpecializationModel.swift
+//  EducationShiftModel.swift
 //  INTITA
 //
-//  Created by Viacheslav Markov on 15.02.2021.
+//  Created by Viacheslav Markov on 04.03.2021.
 //
 
 import Foundation
 
-struct SpecializationModel: LocalizedResponseProtocol {
+struct EducationShiftModel: LocalizedResponseProtocol {
     
     var id: Int
     var titleUA: String
     var titleRU: String
     var titleEN: String
     
-    static var type: LocationType { .specialization }
+    static var type: LocationType {
+        return .educationShift
+    }
     
     enum CodingKeys: String, CodingKey {
         case id
