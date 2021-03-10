@@ -138,10 +138,9 @@ enum EditingFild: Int, CaseIterable {
 
         for index in array {
             guard let specialization = JSONService<SpecializationModel>.getValue(by: index)?.identifier.localized(locationType: .specialization) else { return "" }
-            preferSpecializations = index == array.last ? specialization + koma : specialization
-
-            preferSpecializations += specialization + koma
+            preferSpecializations = index == array.last ? specialization : specialization + koma
         }
+        
         return preferSpecializations
     }
 }
