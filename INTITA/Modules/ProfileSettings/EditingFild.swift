@@ -110,7 +110,7 @@ enum EditingFild: Int, CaseIterable {
         case .facebook: return user.facebook
         case .linkedin: return user.linkedin
         case .twitter: return user.twitter
-        case .prefer_specializations: return getPreferSpecializations(by: user.preferSpecializations[0])
+        case .prefer_specializations: return getPreferSpecializations(by: user.preferSpecializations)
         case .educform: return getEducform(by: user.educform)
         case .education_shift: return getEducationShift(by: user.educationShift)
         }
@@ -132,8 +132,16 @@ enum EditingFild: Int, CaseIterable {
         return e?.description
     }
     
-    private func getPreferSpecializations(by id: Int?) -> String? {
-        guard let preferSpecializations = id else { return nil }
-        return JSONService<SpecializationModel>.getValue(by: preferSpecializations)?.identifier.localized(locationType: .specialization)
+    private func getPreferSpecializations(by array: [Int]) -> String {
+        var preferSpecializations: String = ""
+        let koma = ", "
+
+        for index in array {
+            guard let specialization = JSONService<SpecializationModel>.getValue(by: index)?.identifier.localized(locationType: .specialization) else { return "" }
+            preferSpecializations = index == array.last ? specialization + koma : specialization
+
+            preferSpecializations += specialization + koma
+        }
+        return preferSpecializations
     }
 }
