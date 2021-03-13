@@ -14,7 +14,7 @@ struct CityModel: LocalizedResponseProtocol {
     var titleRU: String
     var titleEN: String
     
-    static var type: LocationType { .city }
+    static var type: LocalizedFile { .city }
     
     enum CodingKeys: String, CodingKey {
         case id

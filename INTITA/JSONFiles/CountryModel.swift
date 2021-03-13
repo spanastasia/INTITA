@@ -15,7 +15,7 @@ struct CountryModel: LocalizedResponseProtocol, Equatable {
     var geocode: String
     
     var identifier: String { geocode }
-    static var type: LocationType { .country }
+    static var type: LocalizedFile { .country }
 
     enum CodingKeys: String, CodingKey {
         case id
