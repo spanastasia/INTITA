@@ -8,12 +8,12 @@
 import Foundation
 
 class SettingsProfileViewModel {
-    var arrayItems = EditingFild.statusList
+    var arrayItems = EditingField.statusList
     private var updateCallback: ProfileViewModelCallback?
     var selectedCountry: CountryModel?
     
     var numberOfStates: Int {
-        EditingFild.allCases.count
+        EditingField.allCases.count
     }
     
     private var editingUser: EditingUser?
@@ -32,7 +32,7 @@ class SettingsProfileViewModel {
     
     func getValue(at index: Int) -> String? {
         guard let userToEdit = editingUser else { return nil }
-        return EditingFild.allCases[index].valueFromUser(userToEdit)
+        return EditingField.allCases[index].valueFromUser(userToEdit)
     }
     
     func subscribe(updateCallback: ProfileViewModelCallback?) {
