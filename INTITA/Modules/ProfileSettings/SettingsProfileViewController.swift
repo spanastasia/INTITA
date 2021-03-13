@@ -91,7 +91,7 @@ extension SettingsProfileViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if let type = EditingFild(rawValue: indexPath.row)?.editType {
+        if let type = EditingField(rawValue: indexPath.row)?.editType {
             cell.type = type
         }
 
