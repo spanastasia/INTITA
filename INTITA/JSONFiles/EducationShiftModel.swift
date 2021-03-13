@@ -14,9 +14,7 @@ struct EducationShiftModel: LocalizedResponseProtocol {
     var titleRU: String
     var titleEN: String
     
-    static var type: LocationType {
-        return .educationShift
-    }
+    static var type: LocalizedFile { .educationShift }
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -88,6 +88,10 @@
 		6466672E25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */; };
 		6466673225BDD21C00FAF5DA /* OpportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */; };
 		6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6466673525BDD22D00FAF5DA /* Opportunities.storyboard */; };
+		646F00E325FA6D3E00D4AAD6 /* Careers.json in Resources */ = {isa = PBXBuildFile; fileRef = 646F00E225FA6D3E00D4AAD6 /* Careers.json */; };
+		646F00E425FA6D3E00D4AAD6 /* Careers.json in Resources */ = {isa = PBXBuildFile; fileRef = 646F00E225FA6D3E00D4AAD6 /* Careers.json */; };
+		646F00EA25FA6D8D00D4AAD6 /* CareerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */; };
+		646F00EB25FA6D8D00D4AAD6 /* CareerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
 		64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F40254C71F2004E6A4E /* Storyboarded.swift */; };
@@ -331,6 +335,8 @@
 		6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesCoordinator.swift; sourceTree = "<group>"; };
 		6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesViewController.swift; sourceTree = "<group>"; };
 		6466673525BDD22D00FAF5DA /* Opportunities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Opportunities.storyboard; sourceTree = "<group>"; };
+		646F00E225FA6D3E00D4AAD6 /* Careers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Careers.json; sourceTree = "<group>"; };
+		646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerModel.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
 		64B74F3D254C71B1004E6A4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		64B74F40254C71F2004E6A4E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -690,6 +696,7 @@
 		841C851325C1E4A0005C32F9 /* JSONFiles */ = {
 			isa = PBXGroup;
 			children = (
+				646F00E225FA6D3E00D4AAD6 /* Careers.json */,
 				3F1DC09925D69437000EF654 /* Cities.json */,
 				841C851425C1E4E0005C32F9 /* Countries.json */,
 				64154D3F25DAA2A300952C67 /* Specialization.json */,
@@ -700,6 +707,7 @@
 				3F1DC0A325D69493000EF654 /* CityModel.swift */,
 				64154D4725DAACB400952C67 /* SpecializationModel.swift */,
 				64EE8AEB25F16D7300B6D9F3 /* EducationShiftModel.swift */,
+				646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */,
 			);
 			path = JSONFiles;
 			sourceTree = "<group>";
@@ -954,6 +962,7 @@
 				3F1DC09A25D69438000EF654 /* Cities.json in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
+				646F00E325FA6D3E00D4AAD6 /* Careers.json in Resources */,
 				3FF473AF25DE643B00E6914A /* editUser.json in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
@@ -1006,6 +1015,7 @@
 				BAAEC90025D13CAE00F2660E /* SettingsProfile.storyboard in Resources */,
 				BAAEC8C225D13C6D00F2660E /* Tasks.storyboard in Resources */,
 				BAAEC94225D13D1100F2660E /* Countries.plist in Resources */,
+				646F00E425FA6D3E00D4AAD6 /* Careers.json in Resources */,
 				3FF473B025DE643B00E6914A /* editUser.json in Resources */,
 				BAAEC8AF25D13C5D00F2660E /* token.json in Resources */,
 				BAAEC8CB25D13C7800F2660E /* TextTableViewCell.xib in Resources */,
@@ -1057,6 +1067,7 @@
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
 				3F1DC0C225D69FEB000EF654 /* JSONService.swift in Sources */,
 				3F879866255FB3140094D6D9 /* CGFloat+toRadians.swift in Sources */,
+				646F00EA25FA6D8D00D4AAD6 /* CareerModel.swift in Sources */,
 				84BF6462255E8CC200E2E036 /* TextTableViewCell.swift in Sources */,
 				3F45997825DD27D400AE26E9 /* EditUserResponse.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
@@ -1124,6 +1135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F1DC0E625D905AF000EF654 /* OpportunitiesViewController.swift in Sources */,
+				646F00EB25FA6D8D00D4AAD6 /* CareerModel.swift in Sources */,
 				BAAEC92125D13CE000F2660E /* UIFont+Additions.swift in Sources */,
 				BAAEC8D725D13C8100F2660E /* ForgotPasswordViewController.swift in Sources */,
 				BAAEC92825D13CE000F2660E /* Coordinator.swift in Sources */,

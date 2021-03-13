@@ -14,7 +14,7 @@ protocol LocalizedResponseProtocol: Codable {
     var titleEN: String { get set }
     
     var identifier: String { get }
-    static var type: LocationType { get }
+    static var type: LocalizedFile { get }
     
     func getLocalizedValue() -> String?
 }
@@ -27,11 +27,12 @@ extension LocalizedResponseProtocol {
     }
 }
 
-enum LocationType {
+enum LocalizedFile {
     case country
     case city
     case specialization
     case educationShift
+    case career
     
     var fileName: String {
         switch self {
@@ -43,6 +44,8 @@ enum LocationType {
             return "Specialization"
         case .educationShift:
             return "EducationShift"
+        case .career:
+            return "Careers"
         }
     }
 }

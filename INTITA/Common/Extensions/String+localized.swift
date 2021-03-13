@@ -11,7 +11,7 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func localized(locationType: LocationType, locale: Locale = .current) -> String {
+    func localized(locationType: LocalizedFile, locale: Locale = .current) -> String {
         var valueOptional: LocalizedResponseProtocol?
         
         switch locationType {
@@ -23,6 +23,8 @@ extension String {
             valueOptional = JSONService<SpecializationModel>.getValue(by: self)
         case .educationShift:
             valueOptional = JSONService<EducationShiftModel>.getValue(by: self)
+        case .career:
+            valueOptional = JSONService<CareerModel>.getValue(by: self)
         }
         
         guard let value = valueOptional else {

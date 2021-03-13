@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title_ua": "Фріланс",
+        "title_ru": "Фриланс",
+        "title_en": "Freelance",
+        "created_at": null,
+        "updated_at": null,
+        "title": "Фріланс"
+    },
+    {
+        "id": 2,
+        "title_ua": "Продуктова компанія",
+        "title_ru": "Продуктовая компания",
+        "title_en": "Product company",
+        "created_at": null,
+        "updated_at": null,
+        "title": "Продуктова компанія"
+    },
+    {
+        "id": 3,
+        "title_ua": "Аутсорс",
+        "title_ru": "Аутсорс",
+        "title_en": "Outsourcing",
+        "created_at": null,
+        "updated_at": null,
+        "title": "Аутсорс"
+    },
+    {
+        "id": 4,
+        "title_ua": "Власний стартап",
+        "title_ru": "Собственный стартап",
+        "title_en": "Own startup",
+        "created_at": null,
+        "updated_at": null,
+        "title": "Власний стартап"
+    }
+]

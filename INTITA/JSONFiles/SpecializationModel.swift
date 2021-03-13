@@ -14,7 +14,7 @@ struct SpecializationModel: LocalizedResponseProtocol {
     var titleRU: String
     var titleEN: String
     
-    static var type: LocationType { .specialization }
+    static var type: LocalizedFile { .specialization }
     
     enum CodingKeys: String, CodingKey {
         case id
