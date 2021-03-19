@@ -103,7 +103,7 @@ struct CurrentUser: Codable {
         //TODO: preferedSpecializations in CurrentuUser and in EditingUser are of different types.
         preferSpecializations = current.preferSpecializations
         country = editingUser.country?.id
-        city = editingUser.city
+        city = editingUser.city?.id
         educationShift = editingUser.educationShift
         aboutMy = editingUser.aboutMy
         interests = editingUser.interests

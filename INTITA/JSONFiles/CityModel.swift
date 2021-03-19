@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CityModel: LocalizedResponseProtocol {
+struct CityModel: LocalizedResponseProtocol, Equatable {
     var id: Int
     var countryId: Int
     var titleUA: String

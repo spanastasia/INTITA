@@ -13,7 +13,7 @@ struct EditingUser: Codable {
     var nickname: String?
     var birthday: String?
     var country: CountryModel?
-    var city: Int?
+    var city: CityModel?
     var address: String?
     var phone: String?
     var aboutMy: String?
@@ -62,7 +62,7 @@ extension EditingUser {
         nickname = existingUser.nickname
         birthday = existingUser.birthday
         country = JSONService<CountryModel>.getValue(by: existingUser.country!)
-        city = existingUser.city
+        city = JSONService<CityModel>.getValue(by: existingUser.city!)//existingUser.city
         address = existingUser.address
         phone = existingUser.phone
         aboutMy = existingUser.aboutMy

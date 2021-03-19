@@ -97,7 +97,7 @@ enum EditingField: Int, CaseIterable {
         case .nickname: return user.nickname
         case .birthday: return user.birthday
         case .country: return user.country?.getLocalizedValue()
-        case .city: return getCity(by: user.city)
+        case .city: return user.city?.getLocalizedValue()//getCity(by: user.city)
         case .address: return user.address
         case .phone: return user.phone
         case .aboutMe: return user.aboutMy

@@ -87,7 +87,8 @@ extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier, for: indexPath) as? InfoSettingProfileTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier,
+                                                       for: indexPath) as? InfoSettingProfileTableViewCell else {
             return UITableViewCell()
         }
         

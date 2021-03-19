@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CountryCoordinatorDelegate: AnyObject {
-    func countryViewController(_ sender: Coordinator, didSelectCountry country: CountryModel)
+    func countryViewController(_ sender: Coordinator, editingUser: EditingUser)
 }
 
 class CountryCoordinator: Coordinator {
@@ -17,11 +17,13 @@ class CountryCoordinator: Coordinator {
     var navigationController: UINavigationController
     weak var delegate: CountryCoordinatorDelegate?
     
+    var existingUser: CurrentUser
+    var choosedItem: ChoosedItem?
     var selectedCountry: CountryModel?
 
-    init(navigationController: UINavigationController, selectedCountry: CountryModel?) {
+    init(navigationController: UINavigationController, existingUser: CurrentUser) {
         self.navigationController = navigationController
-        self.selectedCountry = selectedCountry
+        self.existingUser = existingUser
     }
 
     func start() {
@@ -29,8 +31,9 @@ class CountryCoordinator: Coordinator {
         let countryViewController = CountryViewController.instantiate()
         countryViewController.coordinator = self
         countryViewController.delegate = self
-        
-        let countryViewModel = CountryViewModel(selectedCountry: selectedCountry)
+
+        let countryViewModel = CountryViewModel(existingUser: existingUser)
+        countryViewModel.choosedItem = choosedItem
         countryViewController.viewModel = countryViewModel
 
         navigationController.present(countryViewController, animated: true)
@@ -39,7 +42,7 @@ class CountryCoordinator: Coordinator {
 }
 
 extension CountryCoordinator: CountryViewControllerDelegate {
-    func countryViewController(_ sender: UIViewController, didSelectCountry country: CountryModel) {
-        delegate?.countryViewController(self, didSelectCountry: country)
+    func countryViewController(_ sender: UIViewController, editingUser: EditingUser) {
+        delegate?.countryViewController(self, editingUser: editingUser)
     }
 }

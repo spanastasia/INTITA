@@ -40,16 +40,18 @@ class SettingsProfileCoordinator: Coordinator {
     
     func showCountryScreen() {
         let countryScreen = CountryCoordinator(navigationController: navigationController,
-                                               selectedCountry: settingsViewModel.selectedCountry)
+                                               existingUser: existingUser)
+        countryScreen.choosedItem = settingsViewModel.choosedItem
         countryScreen.delegate = self
         countryScreen.start()
     }
 }
 
 extension SettingsProfileCoordinator: CountryCoordinatorDelegate {
-    
-    func countryViewController(_ sender: Coordinator, didSelectCountry country: CountryModel) {
-        settingsViewModel.selectCountry(country)
+        
+    func countryViewController(_ sender: Coordinator, editingUser: EditingUser) {
+//        settingsViewModel.editingUser = editingUser
+        settingsViewModel.selectCountry(editingUser)
     }
     
 }
