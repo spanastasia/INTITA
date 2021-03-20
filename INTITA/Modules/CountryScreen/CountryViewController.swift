@@ -19,7 +19,7 @@ class CountryViewController: UIViewController, Storyboarded {
     
     weak var delegate: CountryViewControllerDelegate?
     var coordinator: CountryCoordinator?
-    var viewModel: CountryViewModel?
+    var viewModel: ListViewModel?
     
     var countryList: [CountryModel]! = []
     var searchArray: [CountryModel] = []

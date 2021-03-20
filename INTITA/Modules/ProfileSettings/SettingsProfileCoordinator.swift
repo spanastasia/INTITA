@@ -39,8 +39,12 @@ class SettingsProfileCoordinator: Coordinator {
     }
     
     func showCountryScreen() {
-        let countryScreen = CountryCoordinator(navigationController: navigationController,
-                                               existingUser: existingUser)
+        let countryScreen = CountryCoordinator(
+            navigationController: navigationController,
+            existingUser: existingUser,
+            items: JSONService<CountryModel>.values ?? []
+        )
+        
         countryScreen.choosedItem = settingsViewModel.choosedItem
         countryScreen.delegate = self
         countryScreen.start()

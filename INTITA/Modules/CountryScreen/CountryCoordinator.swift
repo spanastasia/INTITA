@@ -20,10 +20,12 @@ class CountryCoordinator: Coordinator {
     var existingUser: CurrentUser
     var choosedItem: ChoosedItem?
     var selectedCountry: CountryModel?
+    private let items: [LocalizedResponseProtocol]
 
-    init(navigationController: UINavigationController, existingUser: CurrentUser) {
+    init(navigationController: UINavigationController, existingUser: CurrentUser, items: [LocalizedResponseProtocol]) {
         self.navigationController = navigationController
         self.existingUser = existingUser
+        self.items = items
     }
 
     func start() {
@@ -32,7 +34,7 @@ class CountryCoordinator: Coordinator {
         countryViewController.coordinator = self
         countryViewController.delegate = self
 
-        let countryViewModel = CountryViewModel(existingUser: existingUser)
+        let countryViewModel = ListViewModel(items: items)
         countryViewModel.choosedItem = choosedItem
         countryViewController.viewModel = countryViewModel
 

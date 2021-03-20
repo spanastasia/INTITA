@@ -7,9 +7,11 @@
 
 import Foundation
 
-class CountryViewModel {
+
+class ListViewModel {
     
-    let countryList = JSONService<CountryModel>.values
+    let items: [LocalizedResponseProtocol]
+    
     var selectedCountry: CountryModel?
     
     var choosedItem: ChoosedItem?
@@ -45,8 +47,7 @@ class CountryViewModel {
         return (countryList?[index] == currentCountry) || (cityList?[index] == currentCity)
     }
 
-    init(existingUser: CurrentUser) {
-        self.existingUser = existingUser
-        editingUser = EditingUser(from: existingUser)
+    init(items: [LocalizedResponseProtocol]) {
+        self.items = items
     }
 }
