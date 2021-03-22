@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ChoosedItem {
+enum ChoosenItem {
     case country
     case city
 }
@@ -15,9 +15,11 @@ enum ChoosedItem {
 class SettingsProfileViewModel {
     var arrayItems = EditingField.statusList
     private var updateCallback: ProfileViewModelCallback?
-    var selectedCountry: CountryModel?
-    var selectedCity: CityModel?
-    var choosedItem: ChoosedItem?
+    
+    var choosenItem: ChoosenItem?
+    var selectedItem: LocalizedResponseProtocol?
+    var item: [LocalizedResponseProtocol]?
+
     
     var existingUser: CurrentUser?
     
@@ -33,15 +35,20 @@ class SettingsProfileViewModel {
         
         if let countryId = existingUser.country,
            let cityId = existingUser.city {
-            selectedCountry = JSONService<CountryModel>.getValue(by: countryId)
-            selectedCity = JSONService<CityModel>.getValue(by: cityId)
+            selectedItem = choosenItem == .country ? item?[countryId] : item?[cityId]
         }
         
     }
     
     func isCountryRow(row: Int) -> Bool {
-        if row == 4 { choosedItem = .country }
-        if row == 5 { choosedItem = .city }
+        if row == 4 {
+            item = JSONService<CountryModel>.values ?? []
+            choosenItem = .country
+        }
+        if row == 5 {
+            item = JSONService<CityModel>.values ?? []
+            choosenItem = .city
+        }
         return (row == 4 && isProfileEditing) || (row == 5 && isProfileEditing)
     }
     
@@ -54,16 +61,19 @@ class SettingsProfileViewModel {
         self.updateCallback = updateCallback
     }
 
-    func selectCountry(_ editingUser: EditingUser) {
-        guard CurrentUser(from: editingUser) != nil else { return }
+    func selectItem(_ editingItem: LocalizedResponseProtocol) {
+//        guard CurrentUser(from: editingUser) != nil else { return }
         
-        switch choosedItem {
+        switch choosenItem {
         case .country:
-            self.editingUser?.country = editingUser.country
-            selectedCountry = editingUser.country
+            self.editingUser?.country = editingItem as? CountryModel
+            selectedItem = editingUser?.country
+            if editingItem.id != 1 {
+                editingUser?.city = nil
+            }
         case .city:
-            self.editingUser?.city = editingUser.city
-            selectedCity = editingUser.city
+            self.editingUser?.city = editingItem as? CityModel
+            selectedItem = editingUser?.city
         default:
             break
         }

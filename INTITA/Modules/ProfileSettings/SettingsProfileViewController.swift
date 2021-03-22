@@ -73,7 +73,7 @@ extension SettingsProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if viewModel.isCountryRow(row: indexPath.row) {
-            coordinator?.showCountryScreen()
+            coordinator?.showListScreen()
         }
     }
 }

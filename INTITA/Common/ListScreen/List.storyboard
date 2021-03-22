@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Country View Controller-->
+        <!--List View Controller-->
         <scene sceneID="IFw-mt-371">
             <objects>
-                <viewController storyboardIdentifier="CountryViewController" id="aNN-hQ-hXi" customClass="CountryViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListViewController" id="aNN-hQ-hXi" customClass="ListViewController" customModule="INTITA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0RK-v1-Fqc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

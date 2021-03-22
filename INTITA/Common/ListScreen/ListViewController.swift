@@ -7,22 +7,22 @@
 
 import UIKit
 
-protocol CountryViewControllerDelegate: AnyObject {
-    func countryViewController(_ sender: UIViewController, editingUser: EditingUser)
+protocol ListViewControllerDelegate: AnyObject {
+    func listViewController(_ sender: UIViewController, didSelectItem: LocalizedResponseProtocol)
 }
 
-class CountryViewController: UIViewController, Storyboarded {
+class ListViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    weak var delegate: CountryViewControllerDelegate?
-    var coordinator: CountryCoordinator?
-    var viewModel: ListViewModel?
+    weak var delegate: ListViewControllerDelegate?
+    var coordinator: ListCoordinator?
+    var viewModel: ListViewModel!
     
-    var countryList: [CountryModel]! = []
-    var searchArray: [CountryModel] = []
+    var listItems: [LocalizedResponseProtocol]! = []
+    var searchItems: [LocalizedResponseProtocol] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +31,11 @@ class CountryViewController: UIViewController, Storyboarded {
         tableView.dataSource = self
         
         searchBar.delegate = self
-        countryList = viewModel?.countryList
-        searchArray = countryList
         
-        titleLabel.text = "country_selection".localized
+        listItems = viewModel?.items
+        searchItems = listItems
+        
+        titleLabel.text = viewModel?.isGeocode(at: 0) ?? false ? "country_selection".localized : "city_selection".localized
     }
     
     func flag(country: String) -> String {
@@ -48,47 +49,32 @@ class CountryViewController: UIViewController, Storyboarded {
 
 }
 
-extension CountryViewController: UITableViewDelegate {
+extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch viewModel?.choosedItem {
-        case .country:
-            viewModel?.editingUser?.country = searchArray[indexPath.row]
-        case .city:
-            viewModel?.editingUser?.city = viewModel?.cityList?[indexPath.row]//searchArray[indexPath.row]
-        default:
-            break
-        }
-        guard let editUser = viewModel?.editingUser else { return }
-        delegate?.countryViewController(self, editingUser: editUser)//didSelectCountry: searchArray[indexPath.row]
+        delegate?.listViewController(self, didSelectItem: searchItems[indexPath.row])
 
         dismiss(animated: true, completion: nil)
     }
 }
 
-extension CountryViewController: UITableViewDataSource {
+extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel?.numberOfCountry ?? 0
+        return searchItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         
-        switch viewModel?.choosedItem {
-        case .country:
-            let geocode = searchArray[indexPath.row].geocode
-            cell.imageView?.image = flag(country: geocode).emojiToImage()
-            cell.textLabel?.text = searchArray[indexPath.row].getLocalizedValue()
-        case .city:
-            let city = viewModel?.cityList?[indexPath.row].titleEN
-            cell.textLabel?.text = city
-        default:
-            break
+        if (viewModel?.isGeocode(at: indexPath.row)) == true {
+            let geocode = viewModel?.getGeocode(at: indexPath.row)
+            cell.imageView?.image = flag(country: geocode ?? "").emojiToImage()
         }
-        
-        
+
+            cell.textLabel?.text = searchItems[indexPath.row].getLocalizedValue()
+   
         if viewModel!.isAlreadySelected(at: indexPath.row) {
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
         }
@@ -111,19 +97,19 @@ extension String {
     }
 }
 
-extension CountryViewController: UISearchBarDelegate {
+extension ListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.endEditing(true)
         
-        searchArray = countryList
+        searchItems = listItems
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        searchArray = (searchText.isEmpty
-                        ? countryList
-                        : countryList.filter({ (model) -> Bool in
+        searchItems = (searchText.isEmpty
+                        ? listItems
+                        : listItems.filter({ (model) -> Bool in
                             return model.getLocalizedValue()?.range(of: searchText,
                                        options: .caseInsensitive,
                                        range: nil, locale: nil) != nil
