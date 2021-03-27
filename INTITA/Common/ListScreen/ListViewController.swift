@@ -21,8 +21,8 @@ class ListViewController: UIViewController, Storyboarded {
     var coordinator: ListCoordinator?
     var viewModel: ListViewModel!
     
-    var listItems: [LocalizedResponseProtocol]! = []
-    var searchItems: [LocalizedResponseProtocol] = []
+    lazy var listItems: [LocalizedResponseProtocol]! = []
+    lazy var searchItems: [LocalizedResponseProtocol]! = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +32,12 @@ class ListViewController: UIViewController, Storyboarded {
         
         searchBar.delegate = self
         
-        listItems = viewModel?.items
+        listItems = viewModel.items
         searchItems = listItems
         
-        titleLabel.text = viewModel?.isGeocode(at: 0) ?? false ? "country_selection".localized : "city_selection".localized
+        titleLabel.text = viewModel.isGeocode(at: 0) == true
+            ? "country_selection".localized
+            : "city_selection".localized
     }
     
     func flag(country: String) -> String {
@@ -75,7 +77,7 @@ extension ListViewController: UITableViewDataSource {
 
             cell.textLabel?.text = searchItems[indexPath.row].getLocalizedValue()
    
-        if viewModel!.isAlreadySelected(at: indexPath.row) {
+        if let _ = viewModel?.isAlreadySelected(at: indexPath.row) {
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
         }
         return  cell
@@ -101,8 +103,8 @@ extension ListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.endEditing(true)
-        
-        searchItems = listItems
+
+//        searchItems = listItems
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

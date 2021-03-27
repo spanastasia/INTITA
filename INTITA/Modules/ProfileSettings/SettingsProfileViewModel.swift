@@ -37,19 +37,35 @@ class SettingsProfileViewModel {
            let cityId = existingUser.city {
             selectedItem = choosenItem == .country ? item?[countryId] : item?[cityId]
         }
-        
     }
     
     func isCountryRow(row: Int) -> Bool {
-        if row == 4 {
+        
+        var isTrue: Bool = false
+        switch EditingField(rawValue: row) {
+        case .country:
             item = JSONService<CountryModel>.values ?? []
             choosenItem = .country
-        }
-        if row == 5 {
-            item = JSONService<CityModel>.values ?? []
+            isTrue = true
+        case .city where isUkraine():
             choosenItem = .city
+            isTrue = true
+        default:
+            break
         }
-        return (row == 4 && isProfileEditing) || (row == 5 && isProfileEditing)
+
+        return isTrue
+    }
+    
+    private func isUkraine() -> Bool {
+        item = JSONService<CityModel>.values ?? []
+        if editingUser?.country?.id == 1 {
+            item = JSONService<CityModel>.values ?? []
+            return true
+        } else {
+            item = nil
+            return false
+        }
     }
     
     func getValue(at index: Int) -> String? {
@@ -62,7 +78,6 @@ class SettingsProfileViewModel {
     }
 
     func selectItem(_ editingItem: LocalizedResponseProtocol) {
-//        guard CurrentUser(from: editingUser) != nil else { return }
         
         switch choosenItem {
         case .country:
@@ -77,7 +92,6 @@ class SettingsProfileViewModel {
         default:
             break
         }
-        
         updateCallback?(nil)
     }
     
