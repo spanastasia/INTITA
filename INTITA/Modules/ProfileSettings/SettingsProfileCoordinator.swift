@@ -38,18 +38,20 @@ class SettingsProfileCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     
-    func showCountryScreen() {
-        let countryScreen = CountryCoordinator(navigationController: navigationController,
-                                               selectedCountry: settingsViewModel.selectedCountry)
-        countryScreen.delegate = self
-        countryScreen.start()
+    func showListScreen() {
+        let listCoordinator = ListCoordinator(
+            navigationController: navigationController,
+            selectedItem: settingsViewModel.selectedItem,
+            items: settingsViewModel.item ?? []
+        )
+        
+        listCoordinator.delegate = self
+        listCoordinator.start()
     }
 }
 
-extension SettingsProfileCoordinator: CountryCoordinatorDelegate {
-    
-    func countryViewController(_ sender: Coordinator, didSelectCountry country: CountryModel) {
-        settingsViewModel.selectCountry(country)
+extension SettingsProfileCoordinator: ListCoordinatorDelegate {
+    func listViewController(_ sender: Coordinator, didSelectItem: LocalizedResponseProtocol) {
+        settingsViewModel.selectItem(didSelectItem)
     }
-    
 }

@@ -70,10 +70,10 @@
 		64154D5325DAAFFD00952C67 /* SpecializationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D5225DAAFFD00952C67 /* SpecializationList.swift */; };
 		64154D6025DAB92400952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
 		64154D6425DAB92500952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
-		64154D7225DC211E00952C67 /* Country.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64154D7125DC211E00952C67 /* Country.storyboard */; };
-		64154D7825DC215A00952C67 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7725DC215A00952C67 /* CountryViewController.swift */; };
-		64154D7D25DC218600952C67 /* CountryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7C25DC218600952C67 /* CountryCoordinator.swift */; };
-		64154D8725DD596300952C67 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D8625DD596300952C67 /* CountryViewModel.swift */; };
+		64154D7225DC211E00952C67 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64154D7125DC211E00952C67 /* List.storyboard */; };
+		64154D7825DC215A00952C67 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7725DC215A00952C67 /* ListViewController.swift */; };
+		64154D7D25DC218600952C67 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7C25DC218600952C67 /* ListCoordinator.swift */; };
+		64154D8725DD596300952C67 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D8625DD596300952C67 /* ListViewModel.swift */; };
 		64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */; };
 		642E6F9725BDE09500C239DC /* OpportunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */; };
 		642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */; };
@@ -101,10 +101,10 @@
 		64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44282569696900880C9A /* ExplanationTableViewCell.swift */; };
 		64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BD44292569696900880C9A /* ExplanationTableViewCell.xib */; };
 		64BD44952572523900880C9A /* UITextField+indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BD44942572523900880C9A /* UITextField+indent.swift */; };
-		64EE8A9925EBFC2200B6D9F3 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D8625DD596300952C67 /* CountryViewModel.swift */; };
-		64EE8A9D25EBFC2400B6D9F3 /* CountryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7C25DC218600952C67 /* CountryCoordinator.swift */; };
-		64EE8AA125EBFC2800B6D9F3 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7725DC215A00952C67 /* CountryViewController.swift */; };
-		64EE8AA525EBFC2E00B6D9F3 /* Country.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64154D7125DC211E00952C67 /* Country.storyboard */; };
+		64EE8A9925EBFC2200B6D9F3 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D8625DD596300952C67 /* ListViewModel.swift */; };
+		64EE8A9D25EBFC2400B6D9F3 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7C25DC218600952C67 /* ListCoordinator.swift */; };
+		64EE8AA125EBFC2800B6D9F3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D7725DC215A00952C67 /* ListViewController.swift */; };
+		64EE8AA525EBFC2E00B6D9F3 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64154D7125DC211E00952C67 /* List.storyboard */; };
 		64EE8AE325F16D0200B6D9F3 /* EducationShift.json in Resources */ = {isa = PBXBuildFile; fileRef = 64EE8AE225F16D0100B6D9F3 /* EducationShift.json */; };
 		64EE8AE425F16D0200B6D9F3 /* EducationShift.json in Resources */ = {isa = PBXBuildFile; fileRef = 64EE8AE225F16D0100B6D9F3 /* EducationShift.json */; };
 		64EE8AEC25F16D7300B6D9F3 /* EducationShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EE8AEB25F16D7300B6D9F3 /* EducationShiftModel.swift */; };
@@ -317,10 +317,10 @@
 		64154D3F25DAA2A300952C67 /* Specialization.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Specialization.json; sourceTree = "<group>"; };
 		64154D4725DAACB400952C67 /* SpecializationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationModel.swift; sourceTree = "<group>"; };
 		64154D5225DAAFFD00952C67 /* SpecializationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializationList.swift; sourceTree = "<group>"; };
-		64154D7125DC211E00952C67 /* Country.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Country.storyboard; sourceTree = "<group>"; };
-		64154D7725DC215A00952C67 /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
-		64154D7C25DC218600952C67 /* CountryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCoordinator.swift; sourceTree = "<group>"; };
-		64154D8625DD596300952C67 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
+		64154D7125DC211E00952C67 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
+		64154D7725DC215A00952C67 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		64154D7C25DC218600952C67 /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
+		64154D8625DD596300952C67 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewModel.swift; sourceTree = "<group>"; };
 		641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsProfile.storyboard; sourceTree = "<group>"; };
 		641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -575,15 +575,15 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		64154D7625DC212400952C67 /* CountryScreen */ = {
+		64154D7625DC212400952C67 /* ListScreen */ = {
 			isa = PBXGroup;
 			children = (
-				64154D7125DC211E00952C67 /* Country.storyboard */,
-				64154D7725DC215A00952C67 /* CountryViewController.swift */,
-				64154D7C25DC218600952C67 /* CountryCoordinator.swift */,
-				64154D8625DD596300952C67 /* CountryViewModel.swift */,
+				64154D7125DC211E00952C67 /* List.storyboard */,
+				64154D7725DC215A00952C67 /* ListViewController.swift */,
+				64154D7C25DC218600952C67 /* ListCoordinator.swift */,
+				64154D8625DD596300952C67 /* ListViewModel.swift */,
 			);
-			path = CountryScreen;
+			path = ListScreen;
 			sourceTree = "<group>";
 		};
 		641B86F9258D207D005FAA24 /* ProfileSettings */ = {
@@ -770,6 +770,7 @@
 				3F2E76FE255408B100853140 /* UserData.swift */,
 				3F0780A12554066500E0332F /* AppConstans.swift */,
 				64F78E3F25557CAE002C1565 /* Validate.swift */,
+				64154D7625DC212400952C67 /* ListScreen */,
 				49F53E9D25531234008327A6 /* Localization */,
 				BA8D88642552D917005A44C2 /* Fonts */,
 				3FF29A14254C0BFF0087AEC7 /* Extensions */,
@@ -788,7 +789,6 @@
 				3F87983F255E70AC0094D6D9 /* Profile */,
 				641B86F9258D207D005FAA24 /* ProfileSettings */,
 				6466671C25BDCFE100FAF5DA /* OpportunitiesScreen */,
-				64154D7625DC212400952C67 /* CountryScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -944,7 +944,7 @@
 				BA78F04125599D6100DE2FB5 /* MyriadPro-Light.ttf in Resources */,
 				3F87983C255E70A60094D6D9 /* Profile.storyboard in Resources */,
 				84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */,
-				64154D7225DC211E00952C67 /* Country.storyboard in Resources */,
+				64154D7225DC211E00952C67 /* List.storyboard in Resources */,
 				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
 				6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */,
@@ -997,7 +997,7 @@
 				BAAEC91925D13CDA00F2660E /* MyriadPro-Light.ttf in Resources */,
 				3F1DC09C25D69438000EF654 /* Cities.json in Resources */,
 				BAAEC90625D13CB300F2660E /* HeaderSettingsTableViewCell.xib in Resources */,
-				64EE8AA525EBFC2E00B6D9F3 /* Country.storyboard in Resources */,
+				64EE8AA525EBFC2E00B6D9F3 /* List.storyboard in Resources */,
 				BAAEC8C025D13C6D00F2660E /* TaskHeaderCell.xib in Resources */,
 				3F1DC0F625D9064A000EF654 /* OpportunitiesTableViewCell.xib in Resources */,
 				BAAEC92E25D13CE800F2660E /* AlertView.xib in Resources */,
@@ -1039,7 +1039,7 @@
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
-				64154D7D25DC218600952C67 /* CountryCoordinator.swift in Sources */,
+				64154D7D25DC218600952C67 /* ListCoordinator.swift in Sources */,
 				49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */,
 				640B812A25BF02A400F97F90 /* OpportunitiesType.swift in Sources */,
 				84BF645C255E8B4000E2E036 /* LogoTableViewCell.swift in Sources */,
@@ -1082,8 +1082,8 @@
 				3FAF33BF25DA667200DA0B98 /* EditingUser.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
-				64154D7825DC215A00952C67 /* CountryViewController.swift in Sources */,
-				64154D8725DD596300952C67 /* CountryViewModel.swift in Sources */,
+				64154D7825DC215A00952C67 /* ListViewController.swift in Sources */,
+				64154D8725DD596300952C67 /* ListViewModel.swift in Sources */,
 				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
 				64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */,
 				64F78E252551D9E1002C1565 /* ForgotPasswordViewController.swift in Sources */,
@@ -1154,7 +1154,7 @@
 				BAAEC8F725D13CA600F2660E /* ProfileTableViewCell.swift in Sources */,
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
-				64EE8A9D25EBFC2400B6D9F3 /* CountryCoordinator.swift in Sources */,
+				64EE8A9D25EBFC2400B6D9F3 /* ListCoordinator.swift in Sources */,
 				3F1DC0BD25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */,
 				BAAEC8C825D13C7800F2660E /* LogInViewController.swift in Sources */,
 				BAAEC8A725D13C5100F2660E /* ApiURL.swift in Sources */,
@@ -1167,7 +1167,7 @@
 				BAAEC8A525D13C5100F2660E /* ApiError.swift in Sources */,
 				BAAEC8A025D13C4B00F2660E /* TaskModel.swift in Sources */,
 				BAAEC8CC25D13C7800F2660E /* LogInCoordinator.swift in Sources */,
-				64EE8AA125EBFC2800B6D9F3 /* CountryViewController.swift in Sources */,
+				64EE8AA125EBFC2800B6D9F3 /* ListViewController.swift in Sources */,
 				BAAEC92225D13CE000F2660E /* String+localized.swift in Sources */,
 				3F1DC0F225D90645000EF654 /* OpportunitiesTableViewCell.swift in Sources */,
 				BAAEC8E425D13C9100F2660E /* CustomPageControl.swift in Sources */,
@@ -1201,7 +1201,7 @@
 				BAAEC92425D13CE000F2660E /* UIViewController+AlertView.swift in Sources */,
 				BAAEC90825D13CB300F2660E /* InfoSettingProfileTableViewCell.swift in Sources */,
 				BAAEC91025D13CBD00F2660E /* UserData.swift in Sources */,
-				64EE8A9925EBFC2200B6D9F3 /* CountryViewModel.swift in Sources */,
+				64EE8A9925EBFC2200B6D9F3 /* ListViewModel.swift in Sources */,
 				BAAEC92625D13CE000F2660E /* CGFloat+toRadians.swift in Sources */,
 				BAAEC92725D13CE000F2660E /* UIViewController+Keyboard.swift in Sources */,
 				BAAEC8BB25D13C6D00F2660E /* TasksViewController.swift in Sources */,

@@ -97,7 +97,7 @@ enum EditingField: Int, CaseIterable {
         case .nickname: return user.nickname
         case .birthday: return user.birthday
         case .country: return user.country?.getLocalizedValue()
-        case .city: return getCity(by: user.city)
+        case .city: return user.city?.getLocalizedValue()
         case .address: return user.address
         case .phone: return user.phone
         case .aboutMe: return user.aboutMy
@@ -114,14 +114,6 @@ enum EditingField: Int, CaseIterable {
         case .educform: return getEducationForm(by: user.educform)
         case .educationShift: return getEducationShift(by: user.educationShift)
         }
-    }
-    
-    private func getCity(by id: Int?) -> String? {
-        guard let cityId = id else { return nil }
-        
-        return JSONService<CityModel>
-            .getValue(by: cityId)?
-            .identifier.localized(locationType: .city)
     }
     
     private func getEducationShift(by id: Int?) -> String? {
