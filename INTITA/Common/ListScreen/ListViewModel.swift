@@ -57,7 +57,7 @@ class ListViewModel {
     
     func fetchCountries() {
         // Replace asyncAfter with fetch call when it's ready
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             self.searchItems = self.items
             self.updateCallback?(nil)
         }
