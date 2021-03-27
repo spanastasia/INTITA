@@ -61,8 +61,8 @@ extension EditingUser {
         secondName = existingUser.secondName
         nickname = existingUser.nickname
         birthday = existingUser.birthday
-        country = JSONService<CountryModel>.getValue(by: existingUser.country!)
-        city = JSONService<CityModel>.getValue(by: existingUser.city!)//existingUser.city
+        country = JSONService<CountryModel>.getValue(by: existingUser.country)
+        city = JSONService<CityModel>.getValue(by: existingUser.city)
         address = existingUser.address
         phone = existingUser.phone
         aboutMy = existingUser.aboutMy

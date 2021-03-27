@@ -34,7 +34,7 @@ extension String {
         switch locale.languageCode {
         case "en":
             return value.titleEN
-        case "ua":
+        case "uk":
             return value.titleUA
         case "ru":
             return value.titleRU

@@ -9,7 +9,10 @@ import Foundation
 
 class ListViewModel {
     
+    private var updateCallback: ProfileViewModelCallback?
+    
     let items: [LocalizedResponseProtocol]
+    var searchItems: [LocalizedResponseProtocol] = []
     
     var selectedItem: LocalizedResponseProtocol?
     var existingUser: CurrentUser?
@@ -21,6 +24,10 @@ class ListViewModel {
     init(items: [LocalizedResponseProtocol], selectedItem: LocalizedResponseProtocol?) {
         self.items = items
         self.selectedItem = selectedItem
+    }
+    
+    func subscribe(updateCallback: ProfileViewModelCallback?) {
+        self.updateCallback = updateCallback
     }
     
     func isAlreadySelected(at index: Int) -> Bool? {
@@ -36,5 +43,23 @@ class ListViewModel {
         let geocoge = countryList?[index].geocode
         
         return geocoge ?? ""
+    }
+    
+    func filterItems(by string: String) {
+        searchItems = items.filter { $0.contains(string) }
+        updateCallback?(nil)
+    }
+    
+    func resetFilter() {
+        searchItems = items
+        updateCallback?(nil)
+    }
+    
+    func fetchCountries() {
+        // Replace asyncAfter with fetch call when it's ready
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+            self.searchItems = self.items
+            self.updateCallback?(nil)
+        }
     }
 }

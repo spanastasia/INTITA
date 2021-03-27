@@ -20,9 +20,6 @@ class ListViewController: UIViewController, Storyboarded {
     weak var delegate: ListViewControllerDelegate?
     var coordinator: ListCoordinator?
     var viewModel: ListViewModel!
-    
-    lazy var listItems: [LocalizedResponseProtocol]! = []
-    lazy var searchItems: [LocalizedResponseProtocol]! = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,29 +29,26 @@ class ListViewController: UIViewController, Storyboarded {
         
         searchBar.delegate = self
         
-        listItems = viewModel.items
-        searchItems = listItems
-        
         titleLabel.text = viewModel.isGeocode(at: 0) == true
             ? "country_selection".localized
             : "city_selection".localized
-    }
-    
-    func flag(country: String) -> String {
-        let base = 127397
-        var usv = String.UnicodeScalarView()
-        for i in country.utf16 {
-            usv.append((UnicodeScalar(base + Int(i)) ?? UnicodeScalar.init(0)))
+        
+        viewModel.subscribe { _ in
+            DispatchQueue.main.async {
+                self.stopSpinner()
+                self.tableView.reloadData()
+            }
         }
-        return String(usv)
+        
+        startSpinner()
+        viewModel.fetchCountries()
     }
-
 }
 
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        delegate?.listViewController(self, didSelectItem: searchItems[indexPath.row])
+        delegate?.listViewController(self, didSelectItem: viewModel.searchItems[indexPath.row])
 
         dismiss(animated: true, completion: nil)
     }
@@ -63,24 +57,23 @@ extension ListViewController: UITableViewDelegate {
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return searchItems.count
+        return viewModel.searchItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let cell = UITableViewCell()
+        cell.imageView?.image = viewModel.searchItems[indexPath.row].icon
+        cell.textLabel?.text = viewModel.searchItems[indexPath.row].getLocalizedValue()
         
-        if (viewModel?.isGeocode(at: indexPath.row)) == true {
-            let geocode = viewModel?.getGeocode(at: indexPath.row)
-            cell.imageView?.image = flag(country: geocode ?? "").emojiToImage()
-        }
-
-            cell.textLabel?.text = searchItems[indexPath.row].getLocalizedValue()
-   
         if let _ = viewModel?.isAlreadySelected(at: indexPath.row) {
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        } else {
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 16.0)
         }
-        return  cell
     }
     
 }
@@ -101,22 +94,10 @@ extension String {
 
 extension ListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.endEditing(true)
-
-//        searchItems = listItems
+        viewModel.resetFilter()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        searchItems = (searchText.isEmpty
-                        ? listItems
-                        : listItems.filter({ (model) -> Bool in
-                            return model.getLocalizedValue()?.range(of: searchText,
-                                       options: .caseInsensitive,
-                                       range: nil, locale: nil) != nil
-        }))
-        
-        tableView.reloadData()
+        viewModel.filterItems(by: searchText)
     }
 }

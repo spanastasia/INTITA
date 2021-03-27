@@ -27,11 +27,11 @@ class JSONService<T: LocalizedResponseProtocol> {
         return values
     }
     
-    static func getValue(by identifier: String) -> T? {
+    static func getValue(by identifier: String?) -> T? {
         return values?.first { $0.identifier == identifier }
     }
     
-    static func getValue(by id: Int) -> T? {
+    static func getValue(by id: Int?) -> T? {
         return values?.first{ $0.id == id }
     }
 }
