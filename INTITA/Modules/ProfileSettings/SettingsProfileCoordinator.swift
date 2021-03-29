@@ -48,6 +48,11 @@ class SettingsProfileCoordinator: Coordinator {
         listCoordinator.delegate = self
         listCoordinator.start()
     }
+    
+    func showBirthdayScreen() {
+        let birthdayCoordinator = BirthdayCoordinator(navigationController: navigationController)
+        birthdayCoordinator.start()
+    }
 }
 
 extension SettingsProfileCoordinator: ListCoordinatorDelegate {

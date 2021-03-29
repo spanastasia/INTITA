@@ -72,9 +72,20 @@ extension SettingsProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if viewModel.isCountryRow(row: indexPath.row) {
+        switch EditingField.init(rawValue: indexPath.row) {
+        case .city, .country:
             coordinator?.showListScreen()
+            print("COUNTRY")
+        case .birthday:
+            coordinator?.showBirthdayScreen()
+            print("BIRTH")
+        default:
+            break
         }
+        
+//        if viewModel.isCountryRow(row: indexPath.row) {
+//            coordinator?.showListScreen()
+//        }
     }
 }
 
