@@ -7,10 +7,6 @@
 
 import UIKit
 
-//protocol BirthdayViewControllerDelegate: AnyObject {
-//    func birthdayViewController(_ sender: UIViewController, didSelectDay: String)
-//}
-
 class BirthdayViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var nameScreenLabel: UILabel!
@@ -34,8 +30,6 @@ class BirthdayViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-
-//        delegate?.birthdayViewController(self, didSelectDay: vi)
         coordinator?.returnToSettingsScreen()
     }
     
