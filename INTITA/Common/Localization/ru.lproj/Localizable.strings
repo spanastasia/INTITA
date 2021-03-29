@@ -89,3 +89,6 @@
 "country_selection" = "Выбор страны";
 "system_profile" = "Системный профиль";
 "city_selection" = "Выбор города";
+"done" = "Готово";
+"save" = "Сохранить";
+"edit" = "Редактировать";

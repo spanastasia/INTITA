@@ -29,6 +29,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFB-qA-jDg">
                                 <rect key="frame" x="35" y="135" width="58" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="OeE-SG-v3i"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="  edit" image="editBtn"/>
                                 <connections>

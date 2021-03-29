@@ -7,25 +7,65 @@
 
 import UIKit
 
+//protocol BirthdayViewControllerDelegate: AnyObject {
+//    func birthdayViewController(_ sender: UIViewController, didSelectDay: String)
+//}
+
 class BirthdayViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: BirthdayCoordinator?
+    @IBOutlet weak var nameScreenLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
+    
+    var coordinator: BirthdayCoordinator?
+    var viewModel: BirthdayViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNameScreenLabel()
+        setupDatePicker()
+        setupDoneButton()
+        setupDateTextField()
+        
+        datePicker?.addTarget(self, action: #selector(getDateFromPicker), for: .valueChanged)
 
-        // Do any additional setup after loading the view.
     }
     
+    @IBAction func doneButtonTapped(_ sender: Any) {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//        delegate?.birthdayViewController(self, didSelectDay: vi)
+        coordinator?.returnToSettingsScreen()
     }
-    */
+    
+    @objc func getDateFromPicker() {
 
+        let formater = DateFormatter()
+        view.endEditing(true)
+        formater.dateFormat = "yyyy-MM-dd"
+        dateTextField.text = formater.string(from: datePicker.date)
+        viewModel.setData(didSelectedDate: formater.string(from: datePicker.date))
+    }
+    
+    func setupDateTextField() {
+        dateTextField.text = viewModel?.selectedDate
+    }
+    
+    func setupNameScreenLabel() {
+        nameScreenLabel.text = "birthday".localized
+        nameScreenLabel.font = UIFont(name: "birthday".localized, size: 16)
+    }
+    
+    func setupDoneButton() {
+        doneButton.setTitle("done".localized, for: .normal)
+        doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+    }
+    
+    func setupDatePicker() {
+        datePicker.datePickerMode = .date
+        datePicker.locale = .current
+        datePicker.preferredDatePickerStyle = .inline
+    }
+    
 }

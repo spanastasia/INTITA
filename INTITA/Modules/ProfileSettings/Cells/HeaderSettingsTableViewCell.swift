@@ -53,7 +53,7 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
         avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
         
         avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
-        
+        editButton.setTitle("  " + "edit".localized, for: .normal)
         mainView.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         mainView.shadowed()
     }
@@ -62,10 +62,10 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
         
         if isTrue {
             editButton.setImage(UIImage(named: "checkDone"), for: .normal)
-            editButton.setTitle("  save".localized, for: .normal)
+            editButton.setTitle("  " + "save".localized, for: .normal)
         } else {
             editButton.setImage(UIImage(named: "editBtn"), for: .normal)
-            editButton.setTitle("  edit".localized, for: .normal)
+            editButton.setTitle("  " + "edit".localized, for: .normal)
         }
     }    
 }

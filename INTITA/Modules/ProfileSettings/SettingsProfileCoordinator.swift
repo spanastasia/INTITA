@@ -50,7 +50,9 @@ class SettingsProfileCoordinator: Coordinator {
     }
     
     func showBirthdayScreen() {
-        let birthdayCoordinator = BirthdayCoordinator(navigationController: navigationController)
+        let birthdayCoordinator = BirthdayCoordinator(navigationController: navigationController,
+                                                      selectedDate: existingUser.birthday ?? "")
+        birthdayCoordinator.delegate = self
         birthdayCoordinator.start()
     }
 }
@@ -58,5 +60,11 @@ class SettingsProfileCoordinator: Coordinator {
 extension SettingsProfileCoordinator: ListCoordinatorDelegate {
     func listViewController(_ sender: Coordinator, didSelectItem: LocalizedResponseProtocol) {
         settingsViewModel.selectItem(didSelectItem)
+    }
+}
+
+extension SettingsProfileCoordinator: BirthdayCoordinatorDelegate {
+    func birthdayCoordinator(_ sender: Coordinator, didSelectDay: String) {
+        settingsViewModel.selectBirthday(didSelectDay)
     }
 }

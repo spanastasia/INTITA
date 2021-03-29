@@ -94,6 +94,8 @@
 		64670B2C2611E2A400442673 /* BirthdayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B2A2611E2A400442673 /* BirthdayCoordinator.swift */; };
 		64670B312611E2B400442673 /* Birthday.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64670B302611E2B400442673 /* Birthday.storyboard */; };
 		64670B322611E2B400442673 /* Birthday.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64670B302611E2B400442673 /* Birthday.storyboard */; };
+		64670B3E261222BD00442673 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B3D261222BD00442673 /* BirthdayViewModel.swift */; };
+		64670B3F261222BD00442673 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B3D261222BD00442673 /* BirthdayViewModel.swift */; };
 		646F00E325FA6D3E00D4AAD6 /* Careers.json in Resources */ = {isa = PBXBuildFile; fileRef = 646F00E225FA6D3E00D4AAD6 /* Careers.json */; };
 		646F00E425FA6D3E00D4AAD6 /* Careers.json in Resources */ = {isa = PBXBuildFile; fileRef = 646F00E225FA6D3E00D4AAD6 /* Careers.json */; };
 		646F00EA25FA6D8D00D4AAD6 /* CareerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */; };
@@ -344,6 +346,7 @@
 		64670B242611E28600442673 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		64670B2A2611E2A400442673 /* BirthdayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayCoordinator.swift; sourceTree = "<group>"; };
 		64670B302611E2B400442673 /* Birthday.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Birthday.storyboard; sourceTree = "<group>"; };
+		64670B3D261222BD00442673 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		646F00E225FA6D3E00D4AAD6 /* Careers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Careers.json; sourceTree = "<group>"; };
 		646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerModel.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
@@ -642,9 +645,10 @@
 		64670B362611E2BC00442673 /* BirthdayScreen */ = {
 			isa = PBXGroup;
 			children = (
+				64670B302611E2B400442673 /* Birthday.storyboard */,
 				64670B242611E28600442673 /* BirthdayViewController.swift */,
 				64670B2A2611E2A400442673 /* BirthdayCoordinator.swift */,
-				64670B302611E2B400442673 /* Birthday.storyboard */,
+				64670B3D261222BD00442673 /* BirthdayViewModel.swift */,
 			);
 			path = BirthdayScreen;
 			sourceTree = "<group>";
@@ -1061,6 +1065,7 @@
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
+				64670B3E261222BD00442673 /* BirthdayViewModel.swift in Sources */,
 				64154D7D25DC218600952C67 /* ListCoordinator.swift in Sources */,
 				49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */,
 				640B812A25BF02A400F97F90 /* OpportunitiesType.swift in Sources */,
@@ -1177,6 +1182,7 @@
 				BAAEC8F125D13CA100F2660E /* ProfileCoordinator.swift in Sources */,
 				BAAEC8BD25D13C6D00F2660E /* TaskCell.swift in Sources */,
 				BAAEC8F725D13CA600F2660E /* ProfileTableViewCell.swift in Sources */,
+				64670B3F261222BD00442673 /* BirthdayViewModel.swift in Sources */,
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
 				64EE8A9D25EBFC2400B6D9F3 /* ListCoordinator.swift in Sources */,

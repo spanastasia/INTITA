@@ -99,4 +99,9 @@ class SettingsProfileViewModel {
         isProfileEditing.toggle()
         updateCallback?(nil)
     }
+    
+    func selectBirthday(_ selectedBirthday: String) {
+        editingUser?.birthday = selectedBirthday
+        updateCallback?(nil)
+    }
 }

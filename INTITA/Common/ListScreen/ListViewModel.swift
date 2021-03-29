@@ -46,7 +46,7 @@ class ListViewModel {
     }
     
     func filterItems(by string: String) {
-        searchItems = items.filter { $0.contains(string) }
+        searchItems = string == "" ? items : items.filter { $0.contains(string) }
         updateCallback?(nil)
     }
     
