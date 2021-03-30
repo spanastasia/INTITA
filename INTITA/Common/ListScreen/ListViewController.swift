@@ -29,7 +29,7 @@ class ListViewController: UIViewController, Storyboarded {
         
         searchBar.delegate = self
         
-        titleLabel.text = viewModel.isGeocode(at: 0) == true
+        titleLabel.text = viewModel.isItemType()
             ? "country_selection".localized
             : "city_selection".localized
         

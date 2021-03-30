@@ -34,15 +34,8 @@ class ListViewModel {
         return (selectedItem?.id == items[index].id) ? true : nil
     }
     
-    func isGeocode(at index: Int) -> Bool {
-        return ((items[index] as? CountryModel) != nil) == true
-    }
-    
-    func getGeocode(at index: Int) -> String {
-        let countryList = JSONService<CountryModel>.values
-        let geocoge = countryList?[index].geocode
-        
-        return geocoge ?? ""
+    func isItemType() -> Bool {
+        return items.count == JSONService<CountryModel>.values?.count
     }
     
     func filterItems(by string: String) {

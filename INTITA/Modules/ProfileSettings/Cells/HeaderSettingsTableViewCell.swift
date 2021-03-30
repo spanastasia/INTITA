@@ -21,6 +21,7 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     @IBOutlet var specializationLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var editImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,19 +54,20 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
         avatarView.image = (try? UIImage(data: Data(contentsOf: url))) ?? UIImage(named: "defaultAvatar")
         
         avatarView.rounded(cornerRadius: avatarView.frame.width / 2)
-        editButton.setTitle("  " + "edit".localized, for: .normal)
+        
+        setupEditBtn(isTrue: false)
         mainView.rounded(cornerRadius: 5, roundOnlyBottomCorners: true)
         mainView.shadowed()
     }
     
     func setupEditBtn(isTrue: Bool) {
-        
+
         if isTrue {
-            editButton.setImage(UIImage(named: "checkDone"), for: .normal)
-            editButton.setTitle("  " + "save".localized, for: .normal)
+            editButton.setTitle("save".localized, for: .normal)
+            editImageView.image = UIImage(named: "checkDone")
         } else {
-            editButton.setImage(UIImage(named: "editBtn"), for: .normal)
-            editButton.setTitle("  " + "edit".localized, for: .normal)
+            editButton.setTitle("edit".localized, for: .normal)
+            editImageView.image = UIImage(named: "editBtn")
         }
-    }    
+    }
 }
