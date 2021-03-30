@@ -29,8 +29,8 @@
                             <constraint firstAttribute="width" constant="79" id="l4q-F0-BKw"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-YO-Ecr">
-                        <rect key="frame" x="48" y="143" width="279" height="35"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-YO-Ecr">
+                        <rect key="frame" x="28" y="143" width="319" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="LkU-Q4-owq"/>
                         </constraints>
@@ -40,9 +40,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="1PR-YO-Ecr" secondAttribute="trailing" constant="28" id="33d-bh-Reo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1PR-YO-Ecr" secondAttribute="trailing" constant="8" id="33d-bh-Reo"/>
                     <constraint firstItem="x0l-26-yBK" firstAttribute="leading" secondItem="rxd-oC-SMI" secondAttribute="leading" constant="29" id="5e6-Mu-ryn"/>
-                    <constraint firstItem="1PR-YO-Ecr" firstAttribute="leading" secondItem="rxd-oC-SMI" secondAttribute="leadingMargin" constant="28" id="Eb0-UY-XAZ"/>
+                    <constraint firstItem="1PR-YO-Ecr" firstAttribute="leading" secondItem="rxd-oC-SMI" secondAttribute="leadingMargin" constant="8" id="Eb0-UY-XAZ"/>
                     <constraint firstItem="x0l-26-yBK" firstAttribute="width" secondItem="x0l-26-yBK" secondAttribute="height" multiplier="317:93" id="GKk-a0-qQQ"/>
                     <constraint firstItem="1PR-YO-Ecr" firstAttribute="top" secondItem="x0l-26-yBK" secondAttribute="bottom" constant="34" id="LwX-yG-BFd"/>
                     <constraint firstItem="x0l-26-yBK" firstAttribute="top" secondItem="rxd-oC-SMI" secondAttribute="top" constant="16" id="XGX-Fu-NZl"/>

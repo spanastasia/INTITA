@@ -127,9 +127,9 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
         
         switch nameCell {
         case .logoImageCell:
-            cellHeight = 243
+            cellHeight = 208
         case .explanationLabelCell:
-            cellHeight = 150
+            cellHeight = 185
         case .emailTextFieldCell, .sendButtonCell:
             cellHeight = 77
         default:
@@ -154,7 +154,7 @@ extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, Ale
             
             emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
-            emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
+            emailCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
          
         } else {
