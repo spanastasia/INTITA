@@ -162,6 +162,8 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
         case .linksButtonCell:
             let linksCell = tableView.dequeueReusableCell(withIdentifier: LinksTableViewCell.identifier) as? LinksTableViewCell
             linksCell?.delegate = self
+            linksCell?.setButtonAtribut(title: "forgotPass")
+            
             cell = linksCell
             
         case .loginButtonCell:

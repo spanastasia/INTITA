@@ -14,6 +14,10 @@ protocol LinksTableViewCellDelegate: AnyObject {
 
 class LinksTableViewCell: UITableViewCell, NibCapable {
     
+    
+    @IBOutlet weak var forgotPassButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
     weak var delegate: LinksTableViewCellDelegate?
 
     @IBAction func forgotPassTapped(_ sender: UIButton) {
@@ -25,5 +29,16 @@ class LinksTableViewCell: UITableViewCell, NibCapable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setButtonAtribut(title: String) {
+        
+        let buttonAttributes: [NSAttributedString.Key: Any] = [
+            .underlineStyle: NSUnderlineStyle.single.rawValue]
+        let forgotPassAttributeString = NSMutableAttributedString(string: title.localized, attributes: buttonAttributes)
+        let registerAttributeString = NSMutableAttributedString(string: "register".localized, attributes: buttonAttributes)
+        
+        forgotPassButton.setAttributedTitle(forgotPassAttributeString, for: .normal)
+        registerButton.setAttributedTitle(registerAttributeString, for: .normal)
     }
 }

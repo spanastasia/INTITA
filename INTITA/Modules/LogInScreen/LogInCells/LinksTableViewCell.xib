@@ -57,6 +57,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="forgotPassButton" destination="GOv-2X-qzb" id="3It-1S-qbj"/>
+                <outlet property="registerButton" destination="jsc-EJ-KZk" id="cUB-km-SyP"/>
+            </connections>
             <point key="canvasLocation" x="147.82608695652175" y="115.51339285714285"/>
         </tableViewCell>
     </objects>
