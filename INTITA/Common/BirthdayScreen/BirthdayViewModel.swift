@@ -12,8 +12,18 @@ class  BirthdayViewModel {
     private var updateCallback: ProfileViewModelCallback?
     var selectedDate: String
     
+    var dateFromString: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "yyyy-MM-dd"
+        let date = dateFormatter.date(from: selectedDate)
+        return date
+    }
+    
     init(selectedDate: String) {
         self.selectedDate = selectedDate
+        if selectedDate == "" {
+            self.selectedDate = "Please, choose your birthday".localized
+        }
     }
     
     func subscribe(updateCallback: ProfileViewModelCallback?) {
@@ -25,4 +35,7 @@ class  BirthdayViewModel {
         updateCallback?(nil)
     }
     
+    func isBirthday() -> String {
+        return dateFromString == nil ? "" : selectedDate
+    }
 }

@@ -11,7 +11,7 @@ class BirthdayViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var nameScreenLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var currentBirthdayLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     
     var coordinator: BirthdayCoordinator?
@@ -23,10 +23,9 @@ class BirthdayViewController: UIViewController, Storyboarded {
         setupNameScreenLabel()
         setupDatePicker()
         setupDoneButton()
-        setupDateTextField()
+        setupCurrentBirthdayLabel()
         
         datePicker?.addTarget(self, action: #selector(getDateFromPicker), for: .valueChanged)
-
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -35,15 +34,15 @@ class BirthdayViewController: UIViewController, Storyboarded {
     
     @objc func getDateFromPicker() {
 
-        let formater = DateFormatter()
         view.endEditing(true)
+        let formater = DateFormatter()
         formater.dateFormat = "yyyy-MM-dd"
-        dateTextField.text = formater.string(from: datePicker.date)
+        currentBirthdayLabel.text = formater.string(from: datePicker.date)
         viewModel.setData(didSelectedDate: formater.string(from: datePicker.date))
     }
     
-    func setupDateTextField() {
-        dateTextField.text = viewModel?.selectedDate
+    func setupCurrentBirthdayLabel() {
+        currentBirthdayLabel.text = viewModel?.selectedDate
     }
     
     func setupNameScreenLabel() {
@@ -60,6 +59,8 @@ class BirthdayViewController: UIViewController, Storyboarded {
         datePicker.datePickerMode = .date
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .inline
+        datePicker.maximumDate = NSCalendar.current.date(byAdding: .year, value: -3, to: Date())
+        datePicker.date = viewModel.dateFromString ?? Date()
     }
     
 }

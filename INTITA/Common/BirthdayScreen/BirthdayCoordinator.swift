@@ -34,7 +34,7 @@ class  BirthdayCoordinator: Coordinator {
     }
     
     func returnToSettingsScreen() {
-        delegate?.birthdayCoordinator(self, didSelectDay: birthdayViewModel?.selectedDate ?? "")
+        delegate?.birthdayCoordinator(self, didSelectDay: birthdayViewModel?.isBirthday() ?? "")
         navigationController.dismiss(animated: true)
     }
 }

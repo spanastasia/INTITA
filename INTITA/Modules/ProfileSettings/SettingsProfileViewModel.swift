@@ -20,8 +20,8 @@ class SettingsProfileViewModel {
     var selectedItem: LocalizedResponseProtocol?
     var item: [LocalizedResponseProtocol]?
 
-    
     var existingUser: CurrentUser?
+    var selectedBirtgday: String?
     
     var numberOfStates: Int {
         EditingField.allCases.count
@@ -102,6 +102,7 @@ class SettingsProfileViewModel {
     
     func selectBirthday(_ selectedBirthday: String) {
         editingUser?.birthday = selectedBirthday
+        self.selectedBirtgday = selectedBirthday
         updateCallback?(nil)
     }
 }

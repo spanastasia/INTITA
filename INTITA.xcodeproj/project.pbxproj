@@ -77,6 +77,7 @@
 		64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */; };
 		642E6F9725BDE09500C239DC /* OpportunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */; };
 		642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */; };
+		643FDCD626165587003AF030 /* SpecializationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D4725DAACB400952C67 /* SpecializationModel.swift */; };
 		644F73C125C5BEAE001216EB /* EditingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* EditingField.swift */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
@@ -1241,6 +1242,7 @@
 				BAAEC8DD25D13C8500F2660E /* ExplanationTableViewCell.swift in Sources */,
 				BAAEC8CD25D13C7800F2660E /* LogInViewModel.swift in Sources */,
 				BAAEC8CF25D13C7800F2660E /* LogoTableViewCell.swift in Sources */,
+				643FDCD626165587003AF030 /* SpecializationModel.swift in Sources */,
 				BAAEC92025D13CE000F2660E /* UIView+fromNib.swift in Sources */,
 				BAAEC90725D13CB300F2660E /* HeaderSettingsTableViewCell.swift in Sources */,
 				BAAEC8F025D13CA100F2660E /* ProfileViewController.swift in Sources */,

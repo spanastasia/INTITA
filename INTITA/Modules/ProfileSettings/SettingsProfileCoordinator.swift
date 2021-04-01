@@ -51,7 +51,7 @@ class SettingsProfileCoordinator: Coordinator {
     
     func showBirthdayScreen() {
         let birthdayCoordinator = BirthdayCoordinator(navigationController: navigationController,
-                                                      selectedDate: existingUser.birthday ?? "")
+                                                      selectedDate: settingsViewModel.selectedBirtgday ?? "")
         birthdayCoordinator.delegate = self
         birthdayCoordinator.start()
     }
