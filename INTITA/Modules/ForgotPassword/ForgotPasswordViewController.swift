@@ -154,7 +154,7 @@ extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, Ale
             
             emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
-            emailCell.errorLabel.text = CredentialsError.wrongPassword.getString()
+            emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
          
         } else {
