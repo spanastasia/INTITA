@@ -119,25 +119,25 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
         return cell ?? UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let nameCell = ForgotCell(rawValue: indexPath.row + 1)
-        var cellHeight: CGFloat
-        
-        switch nameCell {
-        case .logoImageCell:
-            cellHeight = 208
-        case .explanationLabelCell:
-            cellHeight = 185
-        case .emailTextFieldCell, .sendButtonCell:
-            cellHeight = 77
-        default:
-            cellHeight = 20
-        }
-        
-        return cellHeight
-    }
+//    func tableView(_ tableView: UITableView,
+//                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        let nameCell = ForgotCell(rawValue: indexPath.row + 1)
+//        var cellHeight: CGFloat
+//        
+//        switch nameCell {
+//        case .logoImageCell:
+//            cellHeight = 208
+//        case .explanationLabelCell:
+//            cellHeight = 185
+//        case .emailTextFieldCell, .sendButtonCell:
+//            cellHeight = 77
+//        default:
+//            cellHeight = 20
+//        }
+//        
+//        return cellHeight
+//    }
 }
 
 extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, AlertAcceptable {

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="Zzs-Fw-eVt" customClass="LogoTableViewCell" customModule="INTITA" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" id="Zzs-Fw-eVt" customClass="LogoTableViewCell" customModule="INTITA" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zzs-Fw-eVt" id="rxd-oC-SMI">
@@ -18,11 +18,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="x0l-26-yBK">
-                        <rect key="frame" x="29" y="16" width="317" height="93"/>
+                        <rect key="frame" x="29" y="16" width="327" height="96"/>
                         <color key="backgroundColor" name="mainColor"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="el5-P0-Mg2">
-                        <rect key="frame" x="148" y="206" width="79" height="2"/>
+                        <rect key="frame" x="148" y="209" width="79" height="2"/>
                         <color key="backgroundColor" name="mainColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="UPW-E9-3GJ"/>
@@ -30,7 +30,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-YO-Ecr">
-                        <rect key="frame" x="28" y="143" width="319" height="35"/>
+                        <rect key="frame" x="28" y="146" width="319" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="LkU-Q4-owq"/>
                         </constraints>
@@ -49,6 +49,7 @@
                     <constraint firstItem="el5-P0-Mg2" firstAttribute="centerX" secondItem="rxd-oC-SMI" secondAttribute="centerX" id="Y3C-ch-1oB"/>
                     <constraint firstAttribute="trailing" secondItem="x0l-26-yBK" secondAttribute="trailing" constant="29" id="fTx-m6-ll7"/>
                     <constraint firstItem="el5-P0-Mg2" firstAttribute="top" secondItem="1PR-YO-Ecr" secondAttribute="bottom" constant="28" id="tmh-gF-GIU"/>
+                    <constraint firstAttribute="bottom" secondItem="el5-P0-Mg2" secondAttribute="bottom" id="u05-mM-Z8I"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="ne4-eu-jM1"/>

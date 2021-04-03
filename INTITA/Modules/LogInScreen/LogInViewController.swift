@@ -8,18 +8,14 @@
 import UIKit
 
 enum LoginCell: Int, CaseIterable {
-    case emptyCellOne
+//    case emptyCellOne
     case logoImageCell
     case emptyCellTwo
     case emailTextFieldCell
-    case emptyCellThree
+//    case emptyCellThree
     case passwordTextFieldCell
     case linksButtonCell
     case loginButtonCell
-    
-    var rowIndex: Int {
-             return rawValue
-    }
 }
 
 enum CredentialsError {
@@ -111,29 +107,29 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
         return LoginCell.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-        let nameCell = LoginCell(rawValue: indexPath.row)
-        var heightCell: CGFloat
-
-        switch nameCell {
-        case .emptyCellOne:
-            heightCell = 45
-        case .logoImageCell:
-            heightCell = 243
-        case .emptyCellTwo:
-            heightCell = 52
-        case .loginButtonCell, .emailTextFieldCell:
-            heightCell = 78
-        case .passwordTextFieldCell:
-            heightCell =  57
-        case .linksButtonCell:
-            heightCell = 40
-        default:
-            heightCell = 20.0
-        }
-        return heightCell
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        let nameCell = LoginCell(rawValue: indexPath.row)
+//        var heightCell: CGFloat
+//
+//        switch nameCell {
+//        case .emptyCellOne:
+//            heightCell = 45
+//        case .logoImageCell:
+//            heightCell = 243
+//        case .emptyCellTwo:
+//            heightCell = 52
+//        case .loginButtonCell, .emailTextFieldCell:
+//            heightCell = 78
+//        case .passwordTextFieldCell:
+//            heightCell =  57
+//        case .linksButtonCell:
+//            heightCell = 40
+//        default:
+//            heightCell = 20.0
+//        }
+//        return heightCell
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
