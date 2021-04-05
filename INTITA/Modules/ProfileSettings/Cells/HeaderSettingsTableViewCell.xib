@@ -27,14 +27,6 @@
                                     <constraint firstAttribute="width" constant="90" id="KFd-w8-lo6"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFB-qA-jDg">
-                                <rect key="frame" x="35" y="135" width="58" height="25"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="  edit" image="editBtn"/>
-                                <connections>
-                                    <action selector="editButtonTapped:" destination="qpw-P1-R1X" eventType="touchUpInside" id="zL4-LB-764"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="KYg-vH-o0I">
                                 <rect key="frame" x="197" y="35" width="110" height="48"/>
                                 <constraints>
@@ -57,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jo9-vc-nHw">
-                                <rect key="frame" x="8" y="8" width="48" height="18"/>
+                                <rect key="frame" x="8" y="8" width="48" height="17.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="u78-rQ-q7G"/>
                                 </constraints>
@@ -70,15 +62,41 @@
                                     <action selector="backBattonTapped:" destination="qpw-P1-R1X" eventType="touchUpInside" id="1eq-Tt-B12"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-sP-pQX">
+                                <rect key="frame" x="35" y="135" width="100" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editBtn" translatesAutoresizingMaskIntoConstraints="NO" id="gxU-0g-PEF">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="Vte-Jl-NOx"/>
+                                            <constraint firstAttribute="height" constant="25" id="rvh-i8-e2m"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFB-qA-jDg">
+                                        <rect key="frame" x="29" y="0.0" width="71" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="OeE-SG-v3i"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="edit"/>
+                                        <connections>
+                                            <action selector="editButtonTapped:" destination="qpw-P1-R1X" eventType="touchUpInside" id="zL4-LB-764"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="XmR-kw-ny6"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="mainColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KYg-vH-o0I" secondAttribute="trailing" constant="68" id="3V1-Bw-zxt"/>
                             <constraint firstItem="i3H-IY-XyA" firstAttribute="leading" secondItem="xd5-AK-fV5" secondAttribute="leading" constant="35" id="6fd-yH-C8n"/>
-                            <constraint firstItem="ZFB-qA-jDg" firstAttribute="leading" secondItem="xd5-AK-fV5" secondAttribute="leading" constant="35" id="Fhw-dr-HK7"/>
-                            <constraint firstAttribute="bottom" secondItem="ZFB-qA-jDg" secondAttribute="bottom" constant="24" id="X0O-wb-euF"/>
                             <constraint firstItem="KYg-vH-o0I" firstAttribute="top" secondItem="xd5-AK-fV5" secondAttribute="top" constant="35" id="Y1J-wP-gkb"/>
+                            <constraint firstItem="LS6-sP-pQX" firstAttribute="leading" secondItem="xd5-AK-fV5" secondAttribute="leading" constant="35" id="aPY-4I-acX"/>
                             <constraint firstItem="Jo9-vc-nHw" firstAttribute="leading" secondItem="xd5-AK-fV5" secondAttribute="leading" constant="8" id="c3b-uL-YGV"/>
+                            <constraint firstAttribute="bottom" secondItem="LS6-sP-pQX" secondAttribute="bottom" constant="24" id="cHD-72-PQj"/>
                             <constraint firstItem="Jo9-vc-nHw" firstAttribute="top" secondItem="xd5-AK-fV5" secondAttribute="top" constant="8" id="ruS-hU-mx3"/>
                             <constraint firstAttribute="bottom" secondItem="hIR-Sc-RFl" secondAttribute="bottom" constant="40" id="utW-rs-Rhd"/>
                             <constraint firstAttribute="trailing" secondItem="hIR-Sc-RFl" secondAttribute="trailing" constant="24" id="wc1-6F-bdA"/>
@@ -97,12 +115,19 @@
             <connections>
                 <outlet property="avatarView" destination="i3H-IY-XyA" id="532-sE-tVp"/>
                 <outlet property="editButton" destination="ZFB-qA-jDg" id="nJ8-7N-fIw"/>
+                <outlet property="editImageView" destination="gxU-0g-PEF" id="8Zn-Ow-cy7"/>
                 <outlet property="mainView" destination="xd5-AK-fV5" id="YcO-Bm-33a"/>
                 <outlet property="nameLabel" destination="KYg-vH-o0I" id="nNH-Wo-UjJ"/>
                 <outlet property="specializationLabel" destination="hIR-Sc-RFl" id="zkg-01-TMP"/>
             </connections>
             <point key="canvasLocation" x="-9.4202898550724647" y="-80.357142857142847"/>
         </tableViewCell>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="VSZ-cr-540">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="42" y="-188"/>
+        </button>
     </objects>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

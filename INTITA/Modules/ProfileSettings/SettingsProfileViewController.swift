@@ -72,8 +72,14 @@ extension SettingsProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if viewModel.isCountryRow(row: indexPath.row) {
+        switch EditingField.init(rawValue: indexPath.row) {
+        case .city, .country:
+            viewModel.isCountryRow(row: indexPath.row)
             coordinator?.showListScreen()
+        case .birthday:
+            coordinator?.showBirthdayScreen()
+        default:
+            break
         }
     }
 }
@@ -81,7 +87,6 @@ extension SettingsProfileViewController: UITableViewDelegate {
 extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return viewModel.numberOfStates
     }
     

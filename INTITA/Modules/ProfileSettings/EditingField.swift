@@ -32,7 +32,7 @@ enum EditingField: Int, CaseIterable {
     
     var editType: SettingProfileCell {
         switch self {
-        case .country, .city, .preferedSpecializations:
+        case .country, .city, .preferedSpecializations, .birthday:
             return .button
         default:
             return .textField
@@ -140,7 +140,7 @@ enum EditingField: Int, CaseIterable {
     
     func mutateFromIdToSpec(_ id: Int) -> String? {
         guard let specialization = JSONService<SpecializationModel>.getValue(by: id) else { return nil }
-        
+
         return specialization.identifier.localized(locationType: .specialization)
     }
 }

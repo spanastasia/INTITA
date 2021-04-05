@@ -48,10 +48,23 @@ class SettingsProfileCoordinator: Coordinator {
         listCoordinator.delegate = self
         listCoordinator.start()
     }
+    
+    func showBirthdayScreen() {
+        let birthdayCoordinator = BirthdayCoordinator(navigationController: navigationController,
+                                                      selectedDate: settingsViewModel.selectedBirthday ?? "")
+        birthdayCoordinator.delegate = self
+        birthdayCoordinator.start()
+    }
 }
 
 extension SettingsProfileCoordinator: ListCoordinatorDelegate {
     func listViewController(_ sender: Coordinator, didSelectItem: LocalizedResponseProtocol) {
         settingsViewModel.selectItem(didSelectItem)
+    }
+}
+
+extension SettingsProfileCoordinator: BirthdayCoordinatorDelegate {
+    func birthdayCoordinator(_ sender: Coordinator, didSelectDay: String) {
+        settingsViewModel.selectBirthday(didSelectDay)
     }
 }

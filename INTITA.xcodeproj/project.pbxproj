@@ -77,6 +77,7 @@
 		64170D1D25CB21B5000B3859 /* SettingsProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */; };
 		642E6F9725BDE09500C239DC /* OpportunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */; };
 		642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */; };
+		643FDCD626165587003AF030 /* SpecializationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D4725DAACB400952C67 /* SpecializationModel.swift */; };
 		644F73C125C5BEAE001216EB /* EditingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* EditingField.swift */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
@@ -88,6 +89,14 @@
 		6466672E25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */; };
 		6466673225BDD21C00FAF5DA /* OpportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */; };
 		6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6466673525BDD22D00FAF5DA /* Opportunities.storyboard */; };
+		64670B252611E28600442673 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B242611E28600442673 /* BirthdayViewController.swift */; };
+		64670B262611E28600442673 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B242611E28600442673 /* BirthdayViewController.swift */; };
+		64670B2B2611E2A400442673 /* BirthdayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B2A2611E2A400442673 /* BirthdayCoordinator.swift */; };
+		64670B2C2611E2A400442673 /* BirthdayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B2A2611E2A400442673 /* BirthdayCoordinator.swift */; };
+		64670B312611E2B400442673 /* Birthday.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64670B302611E2B400442673 /* Birthday.storyboard */; };
+		64670B322611E2B400442673 /* Birthday.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64670B302611E2B400442673 /* Birthday.storyboard */; };
+		64670B3E261222BD00442673 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B3D261222BD00442673 /* BirthdayViewModel.swift */; };
+		64670B3F261222BD00442673 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64670B3D261222BD00442673 /* BirthdayViewModel.swift */; };
 		646F00E325FA6D3E00D4AAD6 /* Careers.json in Resources */ = {isa = PBXBuildFile; fileRef = 646F00E225FA6D3E00D4AAD6 /* Careers.json */; };
 		646F00E425FA6D3E00D4AAD6 /* Careers.json in Resources */ = {isa = PBXBuildFile; fileRef = 646F00E225FA6D3E00D4AAD6 /* Careers.json */; };
 		646F00EA25FA6D8D00D4AAD6 /* CareerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */; };
@@ -335,6 +344,10 @@
 		6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesCoordinator.swift; sourceTree = "<group>"; };
 		6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesViewController.swift; sourceTree = "<group>"; };
 		6466673525BDD22D00FAF5DA /* Opportunities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Opportunities.storyboard; sourceTree = "<group>"; };
+		64670B242611E28600442673 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
+		64670B2A2611E2A400442673 /* BirthdayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayCoordinator.swift; sourceTree = "<group>"; };
+		64670B302611E2B400442673 /* Birthday.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Birthday.storyboard; sourceTree = "<group>"; };
+		64670B3D261222BD00442673 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		646F00E225FA6D3E00D4AAD6 /* Careers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Careers.json; sourceTree = "<group>"; };
 		646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareerModel.swift; sourceTree = "<group>"; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
@@ -630,6 +643,17 @@
 			path = OpportunitiesScreen;
 			sourceTree = "<group>";
 		};
+		64670B362611E2BC00442673 /* BirthdayScreen */ = {
+			isa = PBXGroup;
+			children = (
+				64670B302611E2B400442673 /* Birthday.storyboard */,
+				64670B242611E28600442673 /* BirthdayViewController.swift */,
+				64670B2A2611E2A400442673 /* BirthdayCoordinator.swift */,
+				64670B3D261222BD00442673 /* BirthdayViewModel.swift */,
+			);
+			path = BirthdayScreen;
+			sourceTree = "<group>";
+		};
 		6473C8B62596465900CE2F10 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,6 +794,7 @@
 				3F2E76FE255408B100853140 /* UserData.swift */,
 				3F0780A12554066500E0332F /* AppConstans.swift */,
 				64F78E3F25557CAE002C1565 /* Validate.swift */,
+				64670B362611E2BC00442673 /* BirthdayScreen */,
 				64154D7625DC212400952C67 /* ListScreen */,
 				49F53E9D25531234008327A6 /* Localization */,
 				BA8D88642552D917005A44C2 /* Fonts */,
@@ -954,6 +979,7 @@
 				64F78E2A2551DA01002C1565 /* ForgotPassword.storyboard in Resources */,
 				64BD43ED25604C9800880C9A /* token.json in Resources */,
 				64EE8AE325F16D0200B6D9F3 /* EducationShift.json in Resources */,
+				64670B312611E2B400442673 /* Birthday.storyboard in Resources */,
 				64154D4025DAA2A300952C67 /* Specialization.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				BA4FF3DD25A20C700063218C /* TaskCell.xib in Resources */,
@@ -1007,6 +1033,7 @@
 				BAAEC8E825D13C9600F2660E /* Welcome.storyboard in Resources */,
 				BAAEC8C925D13C7800F2660E /* LinksTableViewCell.xib in Resources */,
 				64EE8AE425F16D0200B6D9F3 /* EducationShift.json in Resources */,
+				64670B322611E2B400442673 /* Birthday.storyboard in Resources */,
 				BAAEC8D025D13C7800F2660E /* LogIn.storyboard in Resources */,
 				BAAEC8DC25D13C8500F2660E /* ExplanationTableViewCell.xib in Resources */,
 				BAAEC91825D13CDA00F2660E /* MyriadPro-Regular.ttf in Resources */,
@@ -1039,6 +1066,7 @@
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
+				64670B3E261222BD00442673 /* BirthdayViewModel.swift in Sources */,
 				64154D7D25DC218600952C67 /* ListCoordinator.swift in Sources */,
 				49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */,
 				640B812A25BF02A400F97F90 /* OpportunitiesType.swift in Sources */,
@@ -1073,6 +1101,7 @@
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
 				3F7E8181259B1DF9003EC665 /* NibCapable.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
+				64670B252611E28600442673 /* BirthdayViewController.swift in Sources */,
 				3F879841255E70D30094D6D9 /* ProfileViewController.swift in Sources */,
 				BAA6305C258D27FD0042F290 /* User+CoreDataProperties.swift in Sources */,
 				BAA6304A258CE1190042F290 /* CoreDataService.swift in Sources */,
@@ -1082,6 +1111,7 @@
 				3FAF33BF25DA667200DA0B98 /* EditingUser.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
+				64670B2B2611E2A400442673 /* BirthdayCoordinator.swift in Sources */,
 				64154D7825DC215A00952C67 /* ListViewController.swift in Sources */,
 				64154D8725DD596300952C67 /* ListViewModel.swift in Sources */,
 				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
@@ -1137,6 +1167,7 @@
 				3F1DC0E625D905AF000EF654 /* OpportunitiesViewController.swift in Sources */,
 				646F00EB25FA6D8D00D4AAD6 /* CareerModel.swift in Sources */,
 				BAAEC92125D13CE000F2660E /* UIFont+Additions.swift in Sources */,
+				64670B2C2611E2A400442673 /* BirthdayCoordinator.swift in Sources */,
 				BAAEC8D725D13C8100F2660E /* ForgotPasswordViewController.swift in Sources */,
 				BAAEC92825D13CE000F2660E /* Coordinator.swift in Sources */,
 				BAAEC89825D13C4400F2660E /* CoreDataStack.swift in Sources */,
@@ -1152,6 +1183,7 @@
 				BAAEC8F125D13CA100F2660E /* ProfileCoordinator.swift in Sources */,
 				BAAEC8BD25D13C6D00F2660E /* TaskCell.swift in Sources */,
 				BAAEC8F725D13CA600F2660E /* ProfileTableViewCell.swift in Sources */,
+				64670B3F261222BD00442673 /* BirthdayViewModel.swift in Sources */,
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
 				64EE8A9D25EBFC2400B6D9F3 /* ListCoordinator.swift in Sources */,
@@ -1184,6 +1216,7 @@
 				3FAF33C025DA667200DA0B98 /* EditingUser.swift in Sources */,
 				BAAEC8BE25D13C6D00F2660E /* TasksViewModel.swift in Sources */,
 				BAAEC92D25D13CE800F2660E /* AlertView.swift in Sources */,
+				64670B262611E28600442673 /* BirthdayViewController.swift in Sources */,
 				BAAEC92525D13CE000F2660E /* UIViewController+ActivityIndicatorView.swift in Sources */,
 				BAAEC91F25D13CE000F2660E /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F1DC0EA25D905B2000EF654 /* OpportunitiesCoordinator.swift in Sources */,
@@ -1209,6 +1242,7 @@
 				BAAEC8DD25D13C8500F2660E /* ExplanationTableViewCell.swift in Sources */,
 				BAAEC8CD25D13C7800F2660E /* LogInViewModel.swift in Sources */,
 				BAAEC8CF25D13C7800F2660E /* LogoTableViewCell.swift in Sources */,
+				643FDCD626165587003AF030 /* SpecializationModel.swift in Sources */,
 				BAAEC92025D13CE000F2660E /* UIView+fromNib.swift in Sources */,
 				BAAEC90725D13CB300F2660E /* HeaderSettingsTableViewCell.swift in Sources */,
 				BAAEC8F025D13CA100F2660E /* ProfileViewController.swift in Sources */,
