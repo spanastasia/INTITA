@@ -32,7 +32,7 @@ enum EditingField: Int, CaseIterable {
     
     var editType: SettingProfileCell {
         switch self {
-        case .country, .city, .preferedSpecializations:
+        case .country, .city, .preferedSpecializations, .birthday:
             return .button
         default:
             return .textField

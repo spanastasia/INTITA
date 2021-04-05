@@ -21,7 +21,7 @@ class SettingsProfileViewModel {
     var item: [LocalizedResponseProtocol]?
 
     var existingUser: CurrentUser?
-    var selectedBirtgday: String?
+    var selectedBirthday: String?
     
     var numberOfStates: Int {
         EditingField.allCases.count
@@ -36,6 +36,10 @@ class SettingsProfileViewModel {
         if let countryId = existingUser.country,
            let cityId = existingUser.city {
             selectedItem = choosenItem == .country ? item?[countryId] : item?[cityId]
+        }
+        
+        if let bd = existingUser.birthday {
+            selectedBirthday = bd
         }
     }
     
@@ -102,7 +106,7 @@ class SettingsProfileViewModel {
     
     func selectBirthday(_ selectedBirthday: String) {
         editingUser?.birthday = selectedBirthday
-        self.selectedBirtgday = selectedBirthday
+        self.selectedBirthday = selectedBirthday
         updateCallback?(nil)
     }
 }

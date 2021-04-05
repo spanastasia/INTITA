@@ -11,6 +11,7 @@ class  BirthdayViewModel {
     
     private var updateCallback: ProfileViewModelCallback?
     var selectedDate: String
+    var chosedDate: String?
     
     var dateFromString: Date? {
         let dateFormatter = DateFormatter()
@@ -31,11 +32,12 @@ class  BirthdayViewModel {
     }
     
     func setData(didSelectedDate: String) {
-        selectedDate = didSelectedDate
+        chosedDate = didSelectedDate
         updateCallback?(nil)
     }
     
-    func isBirthday() -> String {
-        return dateFromString == nil ? "" : selectedDate
+    func isBirthday() -> String? {
+        if chosedDate == nil { return selectedDate }
+        return chosedDate == selectedDate ? selectedDate : chosedDate
     }
 }

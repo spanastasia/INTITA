@@ -87,7 +87,6 @@ extension SettingsProfileViewController: UITableViewDelegate {
 extension SettingsProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return viewModel.numberOfStates
     }
     

@@ -9,7 +9,7 @@ import UIKit
 
 class BirthdayViewController: UIViewController, Storyboarded {
     
-    @IBOutlet weak var nameScreenLabel: UILabel!
+    @IBOutlet weak var birthdaySelectorLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var currentBirthdayLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
@@ -20,7 +20,7 @@ class BirthdayViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNameScreenLabel()
+        setupBirthdaySelectorLabel()
         setupDatePicker()
         setupDoneButton()
         setupCurrentBirthdayLabel()
@@ -29,6 +29,7 @@ class BirthdayViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
+//        viewModel.chosedDate =
         coordinator?.returnToSettingsScreen()
     }
     
@@ -37,22 +38,27 @@ class BirthdayViewController: UIViewController, Storyboarded {
         view.endEditing(true)
         let formater = DateFormatter()
         formater.dateFormat = "yyyy-MM-dd"
-        currentBirthdayLabel.text = formater.string(from: datePicker.date)
         viewModel.setData(didSelectedDate: formater.string(from: datePicker.date))
     }
     
     func setupCurrentBirthdayLabel() {
         currentBirthdayLabel.text = viewModel?.selectedDate
+        currentBirthdayLabel.font = UIFont(name: "MyriadPro-Regular", size: 18)
+        currentBirthdayLabel.textColor = .black
     }
     
-    func setupNameScreenLabel() {
-        nameScreenLabel.text = "birthday".localized
-        nameScreenLabel.font = UIFont(name: "birthday".localized, size: 16)
+    func setupBirthdaySelectorLabel() {
+        birthdaySelectorLabel.shadowed()
+        birthdaySelectorLabel.text = "birthday".localized
+        birthdaySelectorLabel.font = .primaryFontRegular
+        birthdaySelectorLabel.textColor = .primaryColor
     }
     
     func setupDoneButton() {
+        doneButton.shadowed()
         doneButton.setTitle("done".localized, for: .normal)
-        doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        doneButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 24)
+        doneButton.rounded(cornerRadius: 15.0)
     }
     
     func setupDatePicker() {
