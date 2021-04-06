@@ -59,7 +59,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="borderStackView" destination="y35-pw-ZQY" id="PH0-8b-2db"/>
                 <outlet property="cellView" destination="H2p-sc-9uM" id="xII-7X-F34"/>
                 <outlet property="countryButton" destination="d9x-Ev-ToC" id="I1y-D8-39l"/>
                 <outlet property="infoTextField" destination="Y2P-yl-2AN" id="tAn-6r-4Ri"/>

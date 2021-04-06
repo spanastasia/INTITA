@@ -33,42 +33,25 @@ class SettingsProfileViewModel {
     init(existingUser: CurrentUser) {
         editingUser = EditingUser(from: existingUser)
         
-        if let countryId = existingUser.country,
-           let cityId = existingUser.city {
-            selectedItem = choosenItem == .country ? item?[countryId] : item?[cityId]
-        }
-        
         if let birthday = existingUser.birthday {
             selectedBirthday = birthday
         }
     }
     
-    func isCountryRow(row: Int) -> Bool {
+    func isItemRow(row: Int) {
         
-        var isTrue: Bool = false
         switch EditingField(rawValue: row) {
         case .country:
             item = JSONService<CountryModel>.values ?? []
             choosenItem = .country
-            isTrue = true
-        case .city where isUkraine():
+            selectedItem = editingUser?.country
+        case .city where editingUser?.country?.id == 1:
             choosenItem = .city
-            isTrue = true
+            selectedItem = editingUser?.city
+        case .city:
+            item = nil
         default:
             break
-        }
-
-        return isTrue
-    }
-    
-    private func isUkraine() -> Bool {
-        item = JSONService<CityModel>.values ?? []
-        if editingUser?.country?.id == 1 {
-            item = JSONService<CityModel>.values ?? []
-            return true
-        } else {
-            item = nil
-            return false
         }
     }
     

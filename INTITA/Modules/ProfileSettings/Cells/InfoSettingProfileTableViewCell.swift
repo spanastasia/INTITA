@@ -81,11 +81,11 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         infoTextField.isHidden = type.isInputHidden(isEditing: isProfileEditing)
         
         if isProfileEditing {
-            infoTextField.font = .systemFont(ofSize: 14)
-            countryButton.titleLabel?.font = .systemFont(ofSize: 14)
+            infoTextField.font = UIFont(name: "MyriadPro-Light", size: 16)
+            countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Light", size: 16)
         } else {
-            infoTextField.font = .boldSystemFont(ofSize: 15)
-            countryButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
+            infoTextField.font = .boldSystemFont(ofSize: 14)
+            countryButton.titleLabel?.font = .boldSystemFont(ofSize: 14)
         }
         
         isUserInteractionEnabled = isProfileEditing
