@@ -38,8 +38,8 @@ class SettingsProfileViewModel {
             selectedItem = choosenItem == .country ? item?[countryId] : item?[cityId]
         }
         
-        if let bd = existingUser.birthday {
-            selectedBirthday = bd
+        if let birthday = existingUser.birthday {
+            selectedBirthday = birthday
         }
     }
     

@@ -80,10 +80,32 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         countryButton.isHidden = type.isSelectHidden(isEditing: isProfileEditing)
         infoTextField.isHidden = type.isInputHidden(isEditing: isProfileEditing)
         
+        if isProfileEditing {
+            infoTextField.font = .systemFont(ofSize: 14)
+            countryButton.titleLabel?.font = .systemFont(ofSize: 14)
+        } else {
+            infoTextField.font = .boldSystemFont(ofSize: 15)
+            countryButton.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        }
+        
         isUserInteractionEnabled = isProfileEditing
     }
     
     func configure(withTitle: String, value: String?, isEditing: Bool, indexPath: Int) {
+        
+        setupTextField(with: value ?? "tap to edit")
+        
+        if indexPath.isMultiple(of: 2) {
+            cellView.backgroundColor = .white
+        } else {
+            cellView.backgroundColor = .systemGray6
+        }
+        isProfileEditing = isEditing
+        titleLabel.text = withTitle
+        
+    }
+    
+    func configureIsEnabled(withTitle: String, value: String?, isEditing: Bool, indexPath: Int) {
         
         setupTextField(with: value ?? "tap to edit")
         
