@@ -84,8 +84,8 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
             infoTextField.font = UIFont(name: "MyriadPro-Light", size: 16)
             countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Light", size: 16)
         } else {
-            infoTextField.font = .boldSystemFont(ofSize: 14)
-            countryButton.titleLabel?.font = .boldSystemFont(ofSize: 14)
+            infoTextField.font = UIFont(name: "MyriadPro-Regular", size: 16)
+            countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 16)
         }
         
         isUserInteractionEnabled = isProfileEditing

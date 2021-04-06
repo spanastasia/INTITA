@@ -46,6 +46,7 @@ class SettingsProfileViewModel {
             choosenItem = .country
             selectedItem = editingUser?.country
         case .city where editingUser?.country?.id == 1:
+            item = JSONService<CityModel>.values ?? []
             choosenItem = .city
             selectedItem = editingUser?.city
         case .city:

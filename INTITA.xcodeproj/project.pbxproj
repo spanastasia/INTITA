@@ -462,6 +462,7 @@
 				640B812925BF02A400F97F90 /* OpportunitiesType.swift */,
 				BAAEC85325CF42B500F2660E /* EducationForm.swift */,
 				3F45997725DD27D400AE26E9 /* EditUserResponse.swift */,
+				64670B362611E2BC00442673 /* BirthdayScreen */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -794,7 +795,6 @@
 				3F2E76FE255408B100853140 /* UserData.swift */,
 				3F0780A12554066500E0332F /* AppConstans.swift */,
 				64F78E3F25557CAE002C1565 /* Validate.swift */,
-				64670B362611E2BC00442673 /* BirthdayScreen */,
 				64154D7625DC212400952C67 /* ListScreen */,
 				49F53E9D25531234008327A6 /* Localization */,
 				BA8D88642552D917005A44C2 /* Fonts */,
