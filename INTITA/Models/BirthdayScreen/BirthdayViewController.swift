@@ -29,7 +29,6 @@ class BirthdayViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-//        viewModel.chosedDate =
         coordinator?.returnToSettingsScreen()
     }
     

@@ -74,7 +74,7 @@ extension SettingsProfileViewController: UITableViewDelegate {
         
         switch EditingField.init(rawValue: indexPath.row) {
         case .city, .country:
-            viewModel.isCountryRow(row: indexPath.row)
+            viewModel.isItemRow(row: indexPath.row)
             coordinator?.showListScreen()
         case .birthday:
             coordinator?.showBirthdayScreen()
