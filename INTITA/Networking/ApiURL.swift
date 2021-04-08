@@ -58,7 +58,33 @@ enum ApiURL {
         case .logout, .currentUser:
             return nil
         case .editUser(let user):
-            return try? JSONEncoder().encode(user)
+            let json =
+                [
+                    "firstName" : user.firstName ?? "",
+                    "secondName" : user.secondName ?? "",
+                    "nickname" : user.nickname ?? "",
+                    "birthday" : user.birthday ?? "",
+                    "country" : user.country?.id ?? 0,
+                    "city" : user.city?.id ?? 0,
+                    "address" : user.address ?? "",
+                    "phone" : user.phone ?? "",
+                    "aboutMy" : user.aboutMy ?? "",
+                    "interests" : user.interests ?? "",
+                    "education" : user.education ?? "",
+                    "prevJob" : user.prevJob ?? "",
+                    "currentJob" : user.currentJob ?? "",
+                    "aboutUs" : user.aboutUs ?? "",
+                    "facebook" : user.facebook ?? "",
+                    
+//                    TODO: I gues there are fields which can not be changed by User
+//                    "skype" : user.skype ?? "",
+//                    "linkedin" : user.linkedin ?? "",
+//                    "twitter" : user.twitter ?? "",
+//                    "preferSpecializations" : user.preferSpecializations ?? [""],
+//                    "educform" : user.education "",
+//                    "educationShift" : user.educationShift ?? 0,
+                ] as [String : Any]
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
         }
     }
     

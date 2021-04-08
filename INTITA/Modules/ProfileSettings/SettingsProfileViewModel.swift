@@ -93,4 +93,18 @@ class SettingsProfileViewModel {
         self.selectedBirthday = selectedBirthday
         updateCallback?(nil)
     }
+    
+    func putEditingUser() {
+        guard let editingUser = editingUser else { return }
+        Authorization.shared.editUserInfo(newUser: editingUser) { [weak self] result  in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                guard let user = CurrentUser(from: editingUser) else { return }
+                UserData.set(currentUser: user)
+            case .failure(let error):
+                self.updateCallback?(error)
+            }
+        }
+    }
 }

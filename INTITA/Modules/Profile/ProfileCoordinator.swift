@@ -42,7 +42,7 @@ class ProfileCoordinator: Coordinator {
     }
     //3
     func displaySettingsProfileScreen() {
-        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController, existingUser: user)
+        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController, existingUser: UserData.currentUser!)
         settingScreenCoordinator.start()
     }
     

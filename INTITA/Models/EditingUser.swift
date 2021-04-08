@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EditingUser: Codable {
+struct EditingUser: Codable, Equatable {
     var firstName: String?
     var secondName: String?
     var nickname: String?

@@ -123,5 +123,9 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
         viewModel.startEditUser()
         
         sender.setupEditBtn(isTrue: viewModel.isProfileEditing)
+        
+        if !viewModel.isProfileEditing {
+            viewModel.putEditingUser()
+        }
     }
 }
