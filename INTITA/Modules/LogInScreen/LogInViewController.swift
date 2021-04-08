@@ -10,7 +10,7 @@ import UIKit
 enum LoginCell: Int, CaseIterable {
 //    case emptyCellOne
     case logoImageCell
-    case emptyCellTwo
+    //case emptyCellTwo
     case emailTextFieldCell
 //    case emptyCellThree
     case passwordTextFieldCell
@@ -212,10 +212,11 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
 
 extension LogInViewController: LinksTableViewCellDelegate {
     func linksTableViewCellDidPressRegister(_ sender: LinksTableViewCell) {
-        showAlert()
+        //showAlert()
+        coordinator?.forgotPasswordScreen(url: AppConstans.urlIntitaRegister)
     }
     
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {
-        coordinator?.forgotPasswordScreen()
+        coordinator?.forgotPasswordScreen(url: AppConstans.urlIntitaPasswordRecovery)
     }
 }

@@ -11,7 +11,7 @@ enum ForgotCell: Int, CaseIterable {
     case logoImageCell = 1
     case explanationLabelCell
     case emailTextFieldCell
-    case emptyCell
+//    case emptyCell
     case sendButtonCell
     
     var rowIndex: Int {
@@ -115,6 +115,7 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
             
         default:
             return UITableViewCell()
+       
         }
         return cell ?? UITableViewCell()
     }

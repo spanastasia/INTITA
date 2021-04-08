@@ -17,7 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GOv-2X-qzb">
-                        <rect key="frame" x="28" y="3" width="144" height="34"/>
+                        <rect key="frame" x="28" y="0.0" width="144" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="xh3-Te-eUT"/>
+                        </constraints>
                         <state key="normal">
                             <attributedString key="attributedTitle">
                                 <fragment content="Forgot Password?">
@@ -33,7 +36,10 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsc-EJ-KZk">
-                        <rect key="frame" x="280" y="3" width="67" height="34"/>
+                        <rect key="frame" x="280" y="0.0" width="67" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="3Ts-Eq-h9y"/>
+                        </constraints>
                         <state key="normal">
                             <attributedString key="attributedTitle">
                                 <fragment content="Register">
@@ -50,10 +56,10 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="GOv-2X-qzb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="2ZX-kN-vNm"/>
+                    <constraint firstItem="GOv-2X-qzb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2ZX-kN-vNm"/>
                     <constraint firstItem="GOv-2X-qzb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3pc-DI-Al4"/>
                     <constraint firstItem="GOv-2X-qzb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="8Pg-CO-jCt"/>
-                    <constraint firstAttribute="bottom" secondItem="GOv-2X-qzb" secondAttribute="bottom" constant="3" id="CCb-hW-i3A"/>
+                    <constraint firstAttribute="bottom" secondItem="GOv-2X-qzb" secondAttribute="bottom" id="CCb-hW-i3A"/>
                     <constraint firstAttribute="trailing" secondItem="jsc-EJ-KZk" secondAttribute="trailing" constant="28" id="FDE-3a-hCA"/>
                     <constraint firstItem="jsc-EJ-KZk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Noj-Bt-Hhx"/>
                 </constraints>
