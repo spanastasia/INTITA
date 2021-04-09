@@ -49,7 +49,7 @@
                     <constraint firstItem="el5-P0-Mg2" firstAttribute="centerX" secondItem="rxd-oC-SMI" secondAttribute="centerX" id="Y3C-ch-1oB"/>
                     <constraint firstAttribute="trailing" secondItem="x0l-26-yBK" secondAttribute="trailing" constant="29" id="fTx-m6-ll7"/>
                     <constraint firstItem="el5-P0-Mg2" firstAttribute="top" secondItem="1PR-YO-Ecr" secondAttribute="bottom" constant="28" id="tmh-gF-GIU"/>
-                    <constraint firstAttribute="bottom" secondItem="el5-P0-Mg2" secondAttribute="bottom" constant="23" id="u05-mM-Z8I"/>
+                    <constraint firstAttribute="bottom" secondItem="el5-P0-Mg2" secondAttribute="bottom" constant="33" id="u05-mM-Z8I"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="ne4-eu-jM1"/>

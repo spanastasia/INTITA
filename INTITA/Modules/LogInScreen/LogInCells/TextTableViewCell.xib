@@ -34,15 +34,6 @@
                             <constraint firstAttribute="width" secondItem="C17-y3-Nmd" secondAttribute="height" multiplier="1:1" id="Qdx-0S-eDv"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hf-iG-osq">
-                        <rect key="frame" x="28" y="80" width="319" height="19"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="19" id="ZfV-ae-Kof"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="1" green="0.36862435329999999" blue="0.51020655709999996" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxJ-o9-brx">
                         <rect key="frame" x="311" y="31.5" width="32" height="32"/>
                         <constraints>
@@ -58,24 +49,20 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="PHC-3C-b15" secondAttribute="bottom" id="6ER-OV-ruL"/>
                     <constraint firstItem="C17-y3-Nmd" firstAttribute="centerY" secondItem="PHC-3C-b15" secondAttribute="centerY" id="DbS-jI-FoG"/>
-                    <constraint firstItem="6hf-iG-osq" firstAttribute="top" secondItem="PHC-3C-b15" secondAttribute="bottom" constant="5" id="LuQ-W9-sic"/>
-                    <constraint firstAttribute="bottom" secondItem="6hf-iG-osq" secondAttribute="bottom" id="QfK-At-8iI"/>
                     <constraint firstItem="XxJ-o9-brx" firstAttribute="height" secondItem="C17-y3-Nmd" secondAttribute="height" id="X7m-WJ-6P6"/>
-                    <constraint firstItem="6hf-iG-osq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="XkX-zZ-hqX"/>
                     <constraint firstAttribute="trailing" secondItem="XxJ-o9-brx" secondAttribute="trailing" constant="32" id="blc-yD-hLa"/>
                     <constraint firstItem="XxJ-o9-brx" firstAttribute="centerY" secondItem="PHC-3C-b15" secondAttribute="centerY" id="g9M-DM-bqf"/>
                     <constraint firstItem="PHC-3C-b15" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="hCf-Ir-K0x"/>
                     <constraint firstAttribute="trailing" secondItem="C17-y3-Nmd" secondAttribute="trailing" constant="32" id="nP0-dI-OHd"/>
                     <constraint firstItem="PHC-3C-b15" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pYl-O5-Vgw"/>
-                    <constraint firstItem="6hf-iG-osq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pnu-ai-VV2"/>
                     <constraint firstItem="PHC-3C-b15" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="rOP-M1-k59"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="errorImage" destination="C17-y3-Nmd" id="uW4-Rx-XTt"/>
-                <outlet property="errorLabel" destination="6hf-iG-osq" id="ofy-3E-S43"/>
                 <outlet property="eyeButton" destination="XxJ-o9-brx" id="Rjj-28-whk"/>
                 <outlet property="eyeButtonTrailingContraint" destination="blc-yD-hLa" id="I8m-3d-iU3"/>
                 <outlet property="textField" destination="PHC-3C-b15" id="79a-AF-6ef"/>
