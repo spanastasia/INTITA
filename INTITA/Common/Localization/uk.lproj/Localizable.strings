@@ -18,10 +18,10 @@
 "auth" = "Авторизація";
 "register" = "Зареєструватися";
 "forgotPass" = "Забув пароль?";
-"wrongPassword" = "Неправильний пароль";
+"wrongPasswordWrongEmail" = "Неправильний пароль або Не правильна пошта";
 "inputPassword" = "Введіть пароль";
 "inputEmail" = "Введіть пошту";
-"wrongEmail" = "Не правильна пошта";
+"wrongEmailwrongPassword" = "Не правильна пошта або Неправильний пароль";
 "logIn" = "Увійти/>";
 "skip" = "ПРОПУСТИТИ";
 "send" = "ВІДПРАВИТИ />";

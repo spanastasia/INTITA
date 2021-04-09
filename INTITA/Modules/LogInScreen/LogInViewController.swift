@@ -12,7 +12,7 @@ enum LoginCell: Int, CaseIterable {
     case logoImageCell
     //case emptyCellTwo
     case emailTextFieldCell
-//    case emptyCellThree
+    case wrongPasswordEmailCell
     case passwordTextFieldCell
     case linksButtonCell
     case loginButtonCell
@@ -26,11 +26,11 @@ enum CredentialsError {
     func getString() -> String {
         switch self {
         case .wrongPassword:
-            return "wrongPassword".localized
+            return "wrongPasswordWrongEmail".localized
         case .emailIsEmpty:
             return "inputEmail".localized
         case .wrongEmail:
-            return "wrongEmail".localized
+            return "wrongEmailwrongPassword".localized
         }
     }
 }
@@ -98,6 +98,7 @@ class LogInViewController: UIViewController, Storyboarded, AlertAcceptable {
         tableView.register(TextTableViewCell.nib(), forCellReuseIdentifier: TextTableViewCell.identifier)
         tableView.register(RegisterButtonTableViewCell.nib(), forCellReuseIdentifier: RegisterButtonTableViewCell.identifier)
         tableView.register(LinksTableViewCell.nib(), forCellReuseIdentifier: LinksTableViewCell.identifier)
+        tableView.register(WrongPasswordEmailTableViewCell.nib(), forCellReuseIdentifier: WrongPasswordEmailTableViewCell.identifier)
     }
 }
 
@@ -148,6 +149,12 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
             emailCell?.configure(with: cellConfig)
             cell = emailCell
             
+        case .wrongPasswordEmailCell:
+            let wrongCell = tableView.dequeueReusableCell(withIdentifier: WrongPasswordEmailTableViewCell.identifier) as? WrongPasswordEmailTableViewCell
+            wrongCell?.errorLabel.textColor = UIColor.red
+            //wrongCell?.errorLabel.isHidden = true
+            cell = wrongCell
+            
         case .passwordTextFieldCell:
             let passwordCell =  tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.identifier) as? TextTableViewCell
             
@@ -166,6 +173,8 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
             buttonCell?.logInButton.setTitle("logIn".localized, for: .normal)
             cell = buttonCell
             
+        
+
         default:
             return UITableViewCell()
         }
@@ -177,10 +186,9 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
     
     func didPressLogInButton(_ sender: RegisterButtonTableViewCell) {
         
-        guard let emailCell = tableView.cellForRow(at: IndexPath(row: LoginCell.emailTextFieldCell.rawValue,
-                                                                 section: 0)) as? TextTableViewCell,
-              let passwordCell = tableView.cellForRow(at: IndexPath(row: LoginCell.passwordTextFieldCell.rawValue,
-                                                                    section: 0)) as? TextTableViewCell else { return }
+        guard let emailCell = tableView.cellForRow(at: IndexPath(row: LoginCell.emailTextFieldCell.rawValue, section: 0)) as? TextTableViewCell,
+              let passwordCell = tableView.cellForRow(at: IndexPath(row: LoginCell.passwordTextFieldCell.rawValue, section: 0)) as? TextTableViewCell else { return }
+              let wrongPasswordCell = tableView.cellForRow(at: IndexPath(row: LoginCell.wrongPasswordEmailCell.rawValue, section: 0)) as? WrongPasswordEmailTableViewCell
         
         emailCell.textField.resignFirstResponder()
         passwordCell.textField.resignFirstResponder()
@@ -193,19 +201,23 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
             return
         }
         
-        if !validator.validateEmail(email: email) {
-            emailCell.errorLabel.isHidden = false
+        if !validator.validateEmail(email: email) || !validator.validatePassword(password: password) {
+            wrongPasswordCell?.errorLabel.isHidden = false
+            //emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
-            emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
+            //emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
+            wrongPasswordCell?.errorLabel.text = CredentialsError.wrongEmail.getString()
+            //wrongPasswordCell?.errorLabel.text =
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-        }
-        
-        if !validator.validatePassword(password: password) {
-            passwordCell.errorLabel.isHidden = false
-            passwordCell.errorImage.isHidden = false
-            passwordCell.errorLabel.text = CredentialsError.wrongPassword.getString()
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         }
+        
+//        if !validator.validatePassword(password: password) {
+//            emailCell.errorLabel.isHidden = false
+//            emailCell.errorImage.isHidden = false
+//            emailCell.errorLabel.text = CredentialsError.wrongPassword.getString()
+//            emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
+//        }
     }
 
 }
