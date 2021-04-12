@@ -15,6 +15,9 @@ class TextTableViewCell: UITableViewCell, NibCapable {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var errorImage: UIImageView!
     var configuration: TextTableViewCellConfiguration?
+    
+    var warning : WrongPasswordEmailTableViewCell?
+    
 
     @IBAction func eyeButtonPressed(_ sender: UIButton) {
         if eyeButton.image(for: .normal) == UIImage(systemName: "eye") {
@@ -48,7 +51,7 @@ class TextTableViewCell: UITableViewCell, NibCapable {
         textField.rightViewMode = .always
         textField.delegate = self
         errorImage.isHidden = true
-        //errorLabel.isHidden = true
+        NotificationCenter.default.post(name: NSNotification.Name("errorLabel.isHidden"), object: nil)
         eyeButton.alpha = 0.5
         eyeButtonTrailingContraint.constant = 32
         textField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)

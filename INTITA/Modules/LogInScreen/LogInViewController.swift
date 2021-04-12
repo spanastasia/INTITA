@@ -8,9 +8,7 @@
 import UIKit
 
 enum LoginCell: Int, CaseIterable {
-//    case emptyCellOne
     case logoImageCell
-    //case emptyCellTwo
     case emailTextFieldCell
     case wrongPasswordEmailCell
     case passwordTextFieldCell
@@ -108,29 +106,6 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
         return LoginCell.allCases.count
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        let nameCell = LoginCell(rawValue: indexPath.row)
-//        var heightCell: CGFloat
-//
-//        switch nameCell {
-//        case .emptyCellOne:
-//            heightCell = 45
-//        case .logoImageCell:
-//            heightCell = 243
-//        case .emptyCellTwo:
-//            heightCell = 52
-//        case .loginButtonCell, .emailTextFieldCell:
-//            heightCell = 78
-//        case .passwordTextFieldCell:
-//            heightCell =  57
-//        case .linksButtonCell:
-//            heightCell = 40
-//        default:
-//            heightCell = 20.0
-//        }
-//        return heightCell
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -152,12 +127,10 @@ extension LogInViewController: UITableViewDelegate, UITableViewDataSource {
         case .wrongPasswordEmailCell:
             let wrongCell = tableView.dequeueReusableCell(withIdentifier: WrongPasswordEmailTableViewCell.identifier) as? WrongPasswordEmailTableViewCell
             wrongCell?.errorLabel.textColor = UIColor.red
-            //wrongCell?.errorLabel.isHidden = true
             cell = wrongCell
             
         case .passwordTextFieldCell:
             let passwordCell =  tableView.dequeueReusableCell(withIdentifier: TextTableViewCell.identifier) as? TextTableViewCell
-            
             let cellConfig = TextTableViewCellConfiguration(type: .password, placeholderText: "inputPassword".localized)
             passwordCell?.configure(with: cellConfig)
             cell = passwordCell
@@ -203,32 +176,23 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
         
         if !validator.validateEmail(email: email) || !validator.validatePassword(password: password) {
             wrongPasswordCell?.errorLabel.isHidden = false
-            //emailCell.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
-            //emailCell.errorLabel.text = CredentialsError.wrongEmail.getString()
             wrongPasswordCell?.errorLabel.text = CredentialsError.wrongEmail.getString()
-            //wrongPasswordCell?.errorLabel.text =
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
         }
-        
-//        if !validator.validatePassword(password: password) {
-//            emailCell.errorLabel.isHidden = false
-//            emailCell.errorImage.isHidden = false
-//            emailCell.errorLabel.text = CredentialsError.wrongPassword.getString()
-//            emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
-//        }
     }
 
 }
 
 extension LogInViewController: LinksTableViewCellDelegate {
     func linksTableViewCellDidPressRegister(_ sender: LinksTableViewCell) {
-        //showAlert()
+        
         coordinator?.forgotPasswordScreen(url: AppConstans.urlIntitaRegister)
     }
     
     func linksTableViewCellDidPressForgotPassword(_ sender: LinksTableViewCell) {
+        
         coordinator?.forgotPasswordScreen(url: AppConstans.urlIntitaPasswordRecovery)
     }
 }
