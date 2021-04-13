@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nh-iM-lxR">
-                        <rect key="frame" x="28" y="16" width="319" height="55"/>
+                        <rect key="frame" x="28" y="20" width="319" height="55"/>
                         <color key="backgroundColor" name="mainColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="RTY-6I-Pkd"/>
@@ -33,7 +33,7 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5nh-iM-lxR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="GxE-l2-JH5"/>
+                    <constraint firstItem="5nh-iM-lxR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="GxE-l2-JH5"/>
                     <constraint firstItem="5nh-iM-lxR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="Kv8-36-8sF"/>
                     <constraint firstItem="5nh-iM-lxR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Wln-LD-9mw"/>
                     <constraint firstAttribute="bottom" secondItem="5nh-iM-lxR" secondAttribute="bottom" constant="28" id="dIZ-Fj-zFv"/>
