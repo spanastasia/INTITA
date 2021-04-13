@@ -177,6 +177,7 @@ extension LogInViewController: RegisterButtonTableViewCellDelegate {
         if !validator.validateEmail(email: email) || !validator.validatePassword(password: password) {
             wrongPasswordCell?.errorLabel.isHidden = false
             emailCell.errorImage.isHidden = false
+            passwordCell.errorImage.isHidden = false
             wrongPasswordCell?.errorLabel.text = CredentialsError.wrongEmail.getString()
             emailCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
             passwordCell.textField.bordered(borderWidth: 1, borderColor: UIColor.red.cgColor)
