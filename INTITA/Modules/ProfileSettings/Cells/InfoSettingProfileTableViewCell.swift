@@ -60,7 +60,6 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         super.awakeFromNib()
         
         setupTextField()
-        infoTextField.placeholder = "tap to edit"
     }
         
     private func setupTextField(with value: String = "") {
@@ -83,9 +82,11 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         if isProfileEditing {
             infoTextField.font = UIFont(name: "MyriadPro-Light", size: 16)
             countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Light", size: 16)
+            infoTextField.placeholder = "tap to edit"
         } else {
             infoTextField.font = UIFont(name: "MyriadPro-Regular", size: 16)
             countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 16)
+            infoTextField.placeholder = ""
         }
         
         isUserInteractionEnabled = isProfileEditing
@@ -93,7 +94,7 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     
     func configure(withTitle: String, value: String?, isEditing: Bool, indexPath: Int) {
         
-        setupTextField(with: value ?? "tap to edit")
+        setupTextField(with: value ?? "")
         
         if indexPath.isMultiple(of: 2) {
             cellView.backgroundColor = .white
@@ -107,7 +108,7 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     
     func configureIsEnabled(withTitle: String, value: String?, isEditing: Bool, indexPath: Int) {
         
-        setupTextField(with: value ?? "tap to edit")
+        setupTextField(with: value ?? "")
         
         if indexPath.isMultiple(of: 2) {
             cellView.backgroundColor = .white
