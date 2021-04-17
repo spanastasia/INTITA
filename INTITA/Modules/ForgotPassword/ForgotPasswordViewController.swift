@@ -11,7 +11,7 @@ enum ForgotCell: Int, CaseIterable {
     case logoImageCell = 1
     case explanationLabelCell
     case emailTextFieldCell
-    case emptyCell
+//    case emptyCell
     case sendButtonCell
     
     var rowIndex: Int {
@@ -115,29 +115,30 @@ extension ForgotPasswordViewController: UITableViewDataSource, UITableViewDelega
             
         default:
             return UITableViewCell()
+       
         }
         return cell ?? UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let nameCell = ForgotCell(rawValue: indexPath.row + 1)
-        var cellHeight: CGFloat
-        
-        switch nameCell {
-        case .logoImageCell:
-            cellHeight = 243
-        case .explanationLabelCell:
-            cellHeight = 150
-        case .emailTextFieldCell, .sendButtonCell:
-            cellHeight = 77
-        default:
-            cellHeight = 20
-        }
-        
-        return cellHeight
-    }
+//    func tableView(_ tableView: UITableView,
+//                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        let nameCell = ForgotCell(rawValue: indexPath.row + 1)
+//        var cellHeight: CGFloat
+//        
+//        switch nameCell {
+//        case .logoImageCell:
+//            cellHeight = 208
+//        case .explanationLabelCell:
+//            cellHeight = 185
+//        case .emailTextFieldCell, .sendButtonCell:
+//            cellHeight = 77
+//        default:
+//            cellHeight = 20
+//        }
+//        
+//        return cellHeight
+//    }
 }
 
 extension ForgotPasswordViewController: RegisterButtonTableViewCellDelegate, AlertAcceptable {

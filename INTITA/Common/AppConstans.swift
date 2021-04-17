@@ -14,4 +14,6 @@ class AppConstans {
     public static let isFirstTimeUser = "firstTimeUser"
     public static let coreDataModelName = "INTITA"
     public static let urlPath = "urlPath"
+    public static let urlIntitaPasswordRecovery = "https://intita.com/login"
+    public static let urlIntitaRegister = "https://intita.com/register"
 }

@@ -18,10 +18,10 @@
 "auth" = "Autorization";
 "register" = "Register";
 "forgotPass" = "Forgot password?";
-"wrongPassword" = "Wrong password";
+"wrongPasswordWrongEmail" = "Wrong password or wrong email";
 "inputPassword" = "Input Password";
 "inputEmail" = "Input email";
-"wrongEmail" = "Wrong email";
+"wrongEmailwrongPassword" = "Wrong email or wrong password";
 "logIn" = "Log In/>";
 "skip" = "SKIP";
 "send" = "SEND />";

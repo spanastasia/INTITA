@@ -10,27 +10,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="Zzs-Fw-eVt" customClass="LogoTableViewCell" customModule="INTITA" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="391" id="Zzs-Fw-eVt" customClass="LogoTableViewCell" customModule="INTITA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="391"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zzs-Fw-eVt" id="rxd-oC-SMI">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="391"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="x0l-26-yBK">
-                        <rect key="frame" x="29" y="16" width="317" height="93"/>
+                        <rect key="frame" x="29" y="0.0" width="327" height="96"/>
                         <color key="backgroundColor" name="mainColor"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="el5-P0-Mg2">
-                        <rect key="frame" x="148" y="206" width="79" height="2"/>
+                        <rect key="frame" x="148" y="193" width="79" height="2"/>
                         <color key="backgroundColor" name="mainColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="UPW-E9-3GJ"/>
                             <constraint firstAttribute="width" constant="79" id="l4q-F0-BKw"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-YO-Ecr">
-                        <rect key="frame" x="48" y="143" width="279" height="35"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-YO-Ecr">
+                        <rect key="frame" x="28" y="130" width="319" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="LkU-Q4-owq"/>
                         </constraints>
@@ -40,15 +40,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="1PR-YO-Ecr" secondAttribute="trailing" constant="28" id="33d-bh-Reo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1PR-YO-Ecr" secondAttribute="trailing" constant="8" id="33d-bh-Reo"/>
                     <constraint firstItem="x0l-26-yBK" firstAttribute="leading" secondItem="rxd-oC-SMI" secondAttribute="leading" constant="29" id="5e6-Mu-ryn"/>
-                    <constraint firstItem="1PR-YO-Ecr" firstAttribute="leading" secondItem="rxd-oC-SMI" secondAttribute="leadingMargin" constant="28" id="Eb0-UY-XAZ"/>
+                    <constraint firstItem="1PR-YO-Ecr" firstAttribute="leading" secondItem="rxd-oC-SMI" secondAttribute="leadingMargin" constant="8" id="Eb0-UY-XAZ"/>
                     <constraint firstItem="x0l-26-yBK" firstAttribute="width" secondItem="x0l-26-yBK" secondAttribute="height" multiplier="317:93" id="GKk-a0-qQQ"/>
                     <constraint firstItem="1PR-YO-Ecr" firstAttribute="top" secondItem="x0l-26-yBK" secondAttribute="bottom" constant="34" id="LwX-yG-BFd"/>
-                    <constraint firstItem="x0l-26-yBK" firstAttribute="top" secondItem="rxd-oC-SMI" secondAttribute="top" constant="16" id="XGX-Fu-NZl"/>
+                    <constraint firstItem="x0l-26-yBK" firstAttribute="top" secondItem="rxd-oC-SMI" secondAttribute="top" id="XGX-Fu-NZl"/>
                     <constraint firstItem="el5-P0-Mg2" firstAttribute="centerX" secondItem="rxd-oC-SMI" secondAttribute="centerX" id="Y3C-ch-1oB"/>
                     <constraint firstAttribute="trailing" secondItem="x0l-26-yBK" secondAttribute="trailing" constant="29" id="fTx-m6-ll7"/>
                     <constraint firstItem="el5-P0-Mg2" firstAttribute="top" secondItem="1PR-YO-Ecr" secondAttribute="bottom" constant="28" id="tmh-gF-GIU"/>
+                    <constraint firstAttribute="bottom" secondItem="el5-P0-Mg2" secondAttribute="bottom" constant="33" id="u05-mM-Z8I"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="ne4-eu-jM1"/>
@@ -56,7 +57,7 @@
                 <outlet property="authLabel" destination="1PR-YO-Ecr" id="5R7-b3-D6K"/>
                 <outlet property="logoImageView" destination="x0l-26-yBK" id="k9y-cz-AgJ"/>
             </connections>
-            <point key="canvasLocation" x="-146" y="1"/>
+            <point key="canvasLocation" x="-147.10144927536234" y="49.888392857142854"/>
         </tableViewCell>
     </objects>
     <resources>

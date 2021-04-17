@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15D7765C2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */; };
+		15D7765D2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */; };
 		3F0780A22554066500E0332F /* AppConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0780A12554066500E0332F /* AppConstans.swift */; };
 		3F1DC09A25D69438000EF654 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F1DC09925D69437000EF654 /* Cities.json */; };
@@ -276,6 +278,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongPasswordEmailTableViewCell.swift; sourceTree = "<group>"; };
+		15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WrongPasswordEmailTableViewCell.xib; sourceTree = "<group>"; };
 		3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		3F0780A12554066500E0332F /* AppConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstans.swift; sourceTree = "<group>"; };
 		3F1DC09925D69437000EF654 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
@@ -761,6 +765,8 @@
 				84BF646C255E903D00E2E036 /* LinksTableViewCell.swift */,
 				84BF646D255E903D00E2E036 /* LinksTableViewCell.xib */,
 				84067390256D517000A25431 /* TextTableViewCellModel.swift */,
+				15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */,
+				15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */,
 			);
 			path = LogInCells;
 			sourceTree = "<group>";
@@ -990,6 +996,7 @@
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
 				646F00E325FA6D3E00D4AAD6 /* Careers.json in Resources */,
 				3FF473AF25DE643B00E6914A /* editUser.json in Resources */,
+				15D7765D2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
 				BA4FF3732595FA7A0063218C /* Tasks.storyboard in Resources */,
@@ -1130,6 +1137,7 @@
 				BA4FF3792595FF3B0063218C /* TasksCoordinator.swift in Sources */,
 				BAAB2BCA255DC67300D6D528 /* UIViewController+ActivityIndicatorView.swift in Sources */,
 				3FF299ED254ADD800087AEC7 /* SceneDelegate.swift in Sources */,
+				15D7765C2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift in Sources */,
 				3F2E770B255474C600853140 /* AlertView.swift in Sources */,
 				642E6F9725BDE09500C239DC /* OpportunitiesTableViewCell.swift in Sources */,
 				3FFAC973254DAAFF00AED580 /* RequestAPI.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
 class LogInCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
@@ -25,9 +26,10 @@ class LogInCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func forgotPasswordScreen() {
-        let forgotPasswordScreen = ForgotPasswordCoordinator(navigationController: navigationController)
-        forgotPasswordScreen.start()
+    func forgotPasswordScreen(url : String) {
+
+        let safari = SFSafariViewController(url: URL(string: url)!)
+        navigationController.present(safari, animated: true)
     }
 }
 
