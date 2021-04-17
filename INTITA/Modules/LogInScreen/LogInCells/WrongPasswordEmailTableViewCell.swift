@@ -14,12 +14,6 @@ class WrongPasswordEmailTableViewCell: UITableViewCell, NibCapable{
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setLabel()
-        NotificationCenter.default.addObserver(self, selector: #selector(setLabel), name: NSNotification.Name("errorLabel.isHidden"), object: nil)
-        
-    }
-    
-    @objc func setLabel() {
         errorLabel.isHidden = true
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TextTableViewCellDelegate: AnyObject {
+    func textTableViewCellDidBeginEditing(_ sender: TextTableViewCell)
+}
+
 class TextTableViewCell: UITableViewCell, NibCapable {
 
     @IBOutlet weak var eyeButtonTrailingContraint: NSLayoutConstraint!
@@ -17,6 +21,8 @@ class TextTableViewCell: UITableViewCell, NibCapable {
     var configuration: TextTableViewCellConfiguration?
     
     var warning : WrongPasswordEmailTableViewCell?
+    
+    weak var delegate: TextTableViewCellDelegate?
     
 
     @IBAction func eyeButtonPressed(_ sender: UIButton) {
@@ -31,6 +37,7 @@ class TextTableViewCell: UITableViewCell, NibCapable {
     
     @IBAction func didBeginEditing(_ sender: UITextField) {
         setupUI()
+        delegate?.textTableViewCellDidBeginEditing(self)
     }
     
     override func awakeFromNib() {
@@ -51,7 +58,6 @@ class TextTableViewCell: UITableViewCell, NibCapable {
         textField.rightViewMode = .always
         textField.delegate = self
         errorImage.isHidden = true
-        NotificationCenter.default.post(name: NSNotification.Name("errorLabel.isHidden"), object: nil)
         eyeButton.alpha = 0.5
         eyeButtonTrailingContraint.constant = 32
         textField.bordered(borderWidth: 1.0, borderColor: UIColor.black.cgColor)
