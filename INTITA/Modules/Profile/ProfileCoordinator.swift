@@ -15,12 +15,9 @@ class ProfileCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     weak var alertPresenter: ProfileCoordinatorAlertPresenter?
-    
-    let user: CurrentUser
 
     init(navigationController: UINavigationController, user: CurrentUser) {
         self.navigationController = navigationController
-        self.user = user
     }
 
     func start() {
@@ -42,7 +39,8 @@ class ProfileCoordinator: Coordinator {
     }
     //3
     func displaySettingsProfileScreen() {
-        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController, existingUser: UserData.currentUser!)
+        guard let user = UserData.currentUser else { return }
+        let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController, existingUser: user)
         settingScreenCoordinator.start()
     }
     
