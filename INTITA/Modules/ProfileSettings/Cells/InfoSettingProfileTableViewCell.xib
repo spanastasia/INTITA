@@ -23,23 +23,36 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="y35-pw-ZQY">
-                        <rect key="frame" x="282" y="8" width="163" height="165"/>
+                        <rect key="frame" x="245" y="8" width="200" height="165"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Edit Mode Text Field" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2P-yl-2AN">
-                                <rect key="frame" x="24" y="0.0" width="139" height="82.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="infoTextFieldTapped:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="pTg-Rh-Cjc"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-Ev-ToC">
-                                <rect key="frame" x="0.0" y="82.5" width="163" height="82.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Edit Mode Select Button">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EIj-fw-Dk8">
+                                <rect key="frame" x="162.5" y="0.0" width="37.5" height="82.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyD-L7-Ofm">
+                                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="82.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-g3-8B1">
+                                <rect key="frame" x="37" y="82.5" width="163" height="82.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Edit Mode Text Field" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2P-yl-2AN">
+                                        <rect key="frame" x="24" y="0.0" width="139" height="41.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-Ev-ToC">
+                                        <rect key="frame" x="0.0" y="41.5" width="163" height="41"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                        <state key="normal" title="Edit Mode Select Button">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zC0-gS-aVG">
@@ -52,6 +65,7 @@
                     <constraint firstItem="y35-pw-ZQY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1UM-SB-PMw"/>
                     <constraint firstItem="4He-Dk-BPq" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.45" id="7IM-jy-Mkz"/>
                     <constraint firstItem="4He-Dk-BPq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="8wS-dD-K83"/>
+                    <constraint firstItem="y35-pw-ZQY" firstAttribute="leading" secondItem="4He-Dk-BPq" secondAttribute="trailing" constant="4" id="JKZ-Pw-ee6"/>
                     <constraint firstAttribute="bottom" secondItem="y35-pw-ZQY" secondAttribute="bottom" constant="8" id="JqS-Aw-izv"/>
                     <constraint firstAttribute="right" secondItem="y35-pw-ZQY" secondAttribute="right" constant="28" id="R98-oa-EcW"/>
                     <constraint firstItem="4He-Dk-BPq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="TGU-4u-pAz"/>
@@ -64,9 +78,12 @@
             <connections>
                 <outlet property="cellView" destination="H2p-sc-9uM" id="xII-7X-F34"/>
                 <outlet property="countryButton" destination="d9x-Ev-ToC" id="I1y-D8-39l"/>
+                <outlet property="editingStackView" destination="7cD-g3-8B1" id="SlU-I3-3oJ"/>
                 <outlet property="infoTextField" destination="Y2P-yl-2AN" id="tAn-6r-4Ri"/>
                 <outlet property="rightButton" destination="zC0-gS-aVG" id="HjA-f4-rBO"/>
                 <outlet property="titleLabel" destination="4He-Dk-BPq" id="MMd-Rd-nd7"/>
+                <outlet property="usualStackView" destination="EIj-fw-Dk8" id="LmK-d9-3GW"/>
+                <outlet property="valueLabel" destination="EyD-L7-Ofm" id="D5I-Dy-Hjl"/>
             </connections>
             <point key="canvasLocation" x="80.434782608695656" y="132.92410714285714"/>
         </tableViewCell>

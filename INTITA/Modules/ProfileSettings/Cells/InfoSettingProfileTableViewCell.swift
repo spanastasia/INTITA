@@ -7,6 +7,20 @@
 
 import UIKit
 
+enum LinkCell {
+    case link
+    case text
+    
+    func isLinkEnable(isEditing: Bool) -> Bool {
+        switch self {
+        case .link:
+            return true
+        case .text:
+            return false
+        }
+    }
+}
+
 enum SettingProfileCell {
     case button
     case textField
@@ -53,9 +67,14 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var editingStackView: UIStackView!
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var usualStackView: UIStackView!
+    
     weak var delegate: InfoSettingProfileTableViewCellDelegate?
     
     var indexCell: Int?
+    var enableType: LinkCell = .text
     var type: SettingProfileCell = .textField
     var isProfileEditing = false {
         didSet {
@@ -68,11 +87,6 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         setupTextField()
     }
     
-    @IBAction func infoTextFieldTapped(_ sender: UITextField) {
-        
-//        sender.addTarget(self, action: #selector(editingChanged(_:)), for: .valueChanged)
-    }
-    
     @objc func editingChanged(_ textField: UITextField) {
         delegate?.didTapedTextField(self, tapedText: textField.text)
     }
@@ -80,6 +94,7 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     private func setupTextField(with value: String = "") {
         
         updateContent()
+        valueLabel.text = value
         
         switch type {
         case .textField:
@@ -90,23 +105,31 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     }
     
     func updateContent() {
+        
+        if isProfileEditing {
+            usualStackView.isHidden = true
+            editingStackView.isHidden = false
+            isUserInteractionEnabled = isProfileEditing
+        } else {
+            usualStackView.isHidden = false
+            editingStackView.isHidden = true
+            isUserInteractionEnabled = enableType.isLinkEnable(isEditing: isProfileEditing)
+        }
+        
         rightButton.isHidden = type.isArrowHidden(isEditing: isProfileEditing)
         countryButton.isHidden = type.isSelectHidden(isEditing: isProfileEditing)
         infoTextField.isHidden = type.isInputHidden(isEditing: isProfileEditing)
-        
+       
         if isProfileEditing {
             infoTextField.font = UIFont(name: "MyriadPro-Light", size: 16)
             countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Light", size: 16)
             infoTextField.placeholder = "tap to edit"
-//            infoTextField.delegate = self
             infoTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingDidEnd)
         } else {
             infoTextField.font = UIFont(name: "MyriadPro-Regular", size: 16)
             countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 16)
             infoTextField.placeholder = ""
         }
-        
-        isUserInteractionEnabled = isProfileEditing
     }
     
     func configure(withTitle: String, value: String?, isEditing: Bool, index: Int) {

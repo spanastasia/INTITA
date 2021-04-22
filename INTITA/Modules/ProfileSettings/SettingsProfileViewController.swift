@@ -71,13 +71,18 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
 extension SettingsProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print(indexPath.row)
         switch EditingField.init(rawValue: indexPath.row) {
         case .city, .country:
             viewModel.isItemRow(row: indexPath.row)
             coordinator?.showListScreen()
         case .birthday:
             coordinator?.showBirthdayScreen()
+        case .facebook, .linkedin, .twitter:
+            guard let stringURL = viewModel.getValue(at: indexPath.row) else { return }
+            if let url = URL(string: stringURL) {
+                coordinator?.showSafari(with: url)
+            }
         default:
             break
         }
@@ -97,8 +102,10 @@ extension SettingsProfileViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if let type = EditingField(rawValue: indexPath.row)?.editType {
+        if let type = EditingField(rawValue: indexPath.row)?.editType,
+           let enableType = EditingField(rawValue: indexPath.row)?.linkType {
             cell.type = type
+            cell.enableType = enableType
         }
 
         cell.delegate = self

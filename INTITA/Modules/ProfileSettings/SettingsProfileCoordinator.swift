@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import  SafariServices
 
 class SettingsProfileCoordinator: Coordinator {
     
@@ -54,6 +55,12 @@ class SettingsProfileCoordinator: Coordinator {
                                                       selectedDate: settingsViewModel.selectedBirthday ?? "")
         birthdayCoordinator.delegate = self
         birthdayCoordinator.start()
+    }
+    
+    func showSafari(with url: URL) {
+//        guard let url = URL(string: "https://www.apple.com") else { return }
+        let vc = SFSafariViewController(url: url)
+        navigationController.present(vc, animated: true)
     }
 }
 

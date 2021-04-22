@@ -32,10 +32,21 @@ enum EditingField: Int, CaseIterable {
     
     var editType: SettingProfileCell {
         switch self {
-        case .country, .city, .preferedSpecializations, .birthday:
+        case .country, .city, .preferedSpecializations, .birthday, .educform, .educationShift:
             return .button
+//        case .facebook, .linkedin:
+//            return .textView
         default:
             return .textField
+        }
+    }
+    
+    var linkType: LinkCell {
+        switch self {
+        case .facebook, .twitter, .linkedin:
+            return .link
+        default:
+            return .text
         }
     }
     
