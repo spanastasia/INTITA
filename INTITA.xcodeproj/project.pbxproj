@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15221810263203EA008F4EBE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1522180F263203EA008F4EBE /* Notifications.storyboard */; };
+		15221811263203EA008F4EBE /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1522180F263203EA008F4EBE /* Notifications.storyboard */; };
+		152218162632040D008F4EBE /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152218152632040D008F4EBE /* NotificationsViewController.swift */; };
+		152218172632040D008F4EBE /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152218152632040D008F4EBE /* NotificationsViewController.swift */; };
+		1522181C2632042C008F4EBE /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */; };
+		1522181D2632042C008F4EBE /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */; };
 		15D7765C2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */; };
 		15D7765D2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */; };
@@ -278,6 +284,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1522180F263203EA008F4EBE /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		152218152632040D008F4EBE /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
 		15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongPasswordEmailTableViewCell.swift; sourceTree = "<group>"; };
 		15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WrongPasswordEmailTableViewCell.xib; sourceTree = "<group>"; };
 		3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -446,6 +455,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1522180626320363008F4EBE /* NotificationsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1522180F263203EA008F4EBE /* Notifications.storyboard */,
+				152218152632040D008F4EBE /* NotificationsViewController.swift */,
+				1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */,
+			);
+			path = NotificationsScreen;
+			sourceTree = "<group>";
+		};
 		3F2E770D255474D300853140 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -820,6 +839,7 @@
 				3F87983F255E70AC0094D6D9 /* Profile */,
 				641B86F9258D207D005FAA24 /* ProfileSettings */,
 				6466671C25BDCFE100FAF5DA /* OpportunitiesScreen */,
+				1522180626320363008F4EBE /* NotificationsScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -976,6 +996,7 @@
 				3F87983C255E70A60094D6D9 /* Profile.storyboard in Resources */,
 				84BF6463255E8CC200E2E036 /* TextTableViewCell.xib in Resources */,
 				64154D7225DC211E00952C67 /* List.storyboard in Resources */,
+				15221810263203EA008F4EBE /* Notifications.storyboard in Resources */,
 				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
 				6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */,
@@ -1026,6 +1047,7 @@
 				BAAEC90925D13CB300F2660E /* InfoSettingProfileTableViewCell.xib in Resources */,
 				64154D6425DAB92500952C67 /* Specialization.json in Resources */,
 				BAAEC8F825D13CA600F2660E /* ProfileTableViewCell.xib in Resources */,
+				15221811263203EA008F4EBE /* Notifications.storyboard in Resources */,
 				BAAEC87F25D13C2700F2660E /* Countries.json in Resources */,
 				BAAEC91925D13CDA00F2660E /* MyriadPro-Light.ttf in Resources */,
 				3F1DC09C25D69438000EF654 /* Cities.json in Resources */,
@@ -1098,6 +1120,7 @@
 				64BD442A2569696900880C9A /* ExplanationTableViewCell.swift in Sources */,
 				64BD44952572523900880C9A /* UITextField+indent.swift in Sources */,
 				3F87985A255E74060094D6D9 /* ProfileFooterViewCell.swift in Sources */,
+				1522181C2632042C008F4EBE /* NotificationsCoordinator.swift in Sources */,
 				BA7B0670257A732E001CAC8E /* UIViewController+AlertView.swift in Sources */,
 				3F879845255E70E80094D6D9 /* ProfileCoordinator.swift in Sources */,
 				3FB6FD36255084F200702D43 /* ApiURL.swift in Sources */,
@@ -1129,6 +1152,7 @@
 				3FF29A12254C0BEC0087AEC7 /* String+localized.swift in Sources */,
 				646615962596745200173A13 /* SettingsProfileViewController.swift in Sources */,
 				3F2B29D7255AB84100DDE683 /* CurrentUser.swift in Sources */,
+				152218162632040D008F4EBE /* NotificationsViewController.swift in Sources */,
 				64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */,
 				BA78F03C255971A400DE2FB5 /* UIColor+Additions.swift in Sources */,
 				3F2E76FF255408B100853140 /* UserData.swift in Sources */,
@@ -1256,8 +1280,10 @@
 				BAAEC8F025D13CA100F2660E /* ProfileViewController.swift in Sources */,
 				BAAEC90225D13CAE00F2660E /* SettingsProfileCoordinator.swift in Sources */,
 				BAAEC8A625D13C5100F2660E /* RequestAPI.swift in Sources */,
+				152218172632040D008F4EBE /* NotificationsViewController.swift in Sources */,
 				BAAEC88B25D13C3500F2660E /* User+CoreDataClass.swift in Sources */,
 				BAAEC90F25D13CBD00F2660E /* Validate.swift in Sources */,
+				1522181D2632042C008F4EBE /* NotificationsCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
