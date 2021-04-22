@@ -8,6 +8,8 @@
 import UIKit
 
 class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
+    
+
 
     @IBOutlet weak var nameNotificationsLabel: UILabel!
     @IBOutlet weak var notificationTabelView: UITableView!
@@ -27,3 +29,4 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
     
 
 }
+

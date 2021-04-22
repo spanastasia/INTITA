@@ -13,6 +13,10 @@
 		152218172632040D008F4EBE /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152218152632040D008F4EBE /* NotificationsViewController.swift */; };
 		1522181C2632042C008F4EBE /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */; };
 		1522181D2632042C008F4EBE /* NotificationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */; };
+		1522182426320BAA008F4EBE /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522182226320BAA008F4EBE /* NotificationsTableViewCell.swift */; };
+		1522182526320BAA008F4EBE /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522182226320BAA008F4EBE /* NotificationsTableViewCell.swift */; };
+		1522182626320BAA008F4EBE /* NotificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1522182326320BAA008F4EBE /* NotificationsTableViewCell.xib */; };
+		1522182726320BAA008F4EBE /* NotificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1522182326320BAA008F4EBE /* NotificationsTableViewCell.xib */; };
 		15D7765C2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */; };
 		15D7765D2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */; };
@@ -287,6 +291,8 @@
 		1522180F263203EA008F4EBE /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		152218152632040D008F4EBE /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCoordinator.swift; sourceTree = "<group>"; };
+		1522182226320BAA008F4EBE /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
+		1522182326320BAA008F4EBE /* NotificationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsTableViewCell.xib; sourceTree = "<group>"; };
 		15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongPasswordEmailTableViewCell.swift; sourceTree = "<group>"; };
 		15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WrongPasswordEmailTableViewCell.xib; sourceTree = "<group>"; };
 		3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -458,11 +464,21 @@
 		1522180626320363008F4EBE /* NotificationsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1522182126320AD0008F4EBE /* NotificationsCells */,
 				1522180F263203EA008F4EBE /* Notifications.storyboard */,
 				152218152632040D008F4EBE /* NotificationsViewController.swift */,
 				1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */,
 			);
 			path = NotificationsScreen;
+			sourceTree = "<group>";
+		};
+		1522182126320AD0008F4EBE /* NotificationsCells */ = {
+			isa = PBXGroup;
+			children = (
+				1522182226320BAA008F4EBE /* NotificationsTableViewCell.swift */,
+				1522182326320BAA008F4EBE /* NotificationsTableViewCell.xib */,
+			);
+			path = NotificationsCells;
 			sourceTree = "<group>";
 		};
 		3F2E770D255474D300853140 /* AlertView */ = {
@@ -1020,6 +1036,7 @@
 				15D7765D2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib in Resources */,
 				3F87984F255E738F0094D6D9 /* ProfileTableViewCell.xib in Resources */,
 				84BF646F255E903D00E2E036 /* LinksTableViewCell.xib in Resources */,
+				1522182626320BAA008F4EBE /* NotificationsTableViewCell.xib in Resources */,
 				BA4FF3732595FA7A0063218C /* Tasks.storyboard in Resources */,
 				3F2E7708255474A100853140 /* AlertView.xib in Resources */,
 				BA4FF3A1259686130063218C /* TaskHeaderCell.xib in Resources */,
@@ -1069,6 +1086,7 @@
 				BAAEC8EC25D13C9D00F2660E /* Profile.storyboard in Resources */,
 				BAAEC8B325D13C6000F2660E /* currentUser.json in Resources */,
 				BAAEC90025D13CAE00F2660E /* SettingsProfile.storyboard in Resources */,
+				1522182726320BAA008F4EBE /* NotificationsTableViewCell.xib in Resources */,
 				BAAEC8C225D13C6D00F2660E /* Tasks.storyboard in Resources */,
 				BAAEC94225D13D1100F2660E /* Countries.plist in Resources */,
 				646F00E425FA6D3E00D4AAD6 /* Careers.json in Resources */,
@@ -1130,6 +1148,7 @@
 				84BF6462255E8CC200E2E036 /* TextTableViewCell.swift in Sources */,
 				3F45997825DD27D400AE26E9 /* EditUserResponse.swift in Sources */,
 				3F54E91B254E8F2B00426261 /* LoginResponse.swift in Sources */,
+				1522182426320BAA008F4EBE /* NotificationsTableViewCell.swift in Sources */,
 				3F7E8181259B1DF9003EC665 /* NibCapable.swift in Sources */,
 				3F54E923254E94E700426261 /* ApiError.swift in Sources */,
 				64670B252611E28600442673 /* BirthdayViewController.swift in Sources */,
@@ -1219,6 +1238,7 @@
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
 				64EE8A9D25EBFC2400B6D9F3 /* ListCoordinator.swift in Sources */,
+				1522182526320BAA008F4EBE /* NotificationsTableViewCell.swift in Sources */,
 				3F1DC0BD25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */,
 				BAAEC8C825D13C7800F2660E /* LogInViewController.swift in Sources */,
 				BAAEC8A725D13C5100F2660E /* ApiURL.swift in Sources */,
