@@ -48,6 +48,11 @@ class ProfileCoordinator: Coordinator {
         let OpportunitiesScreenCoordinator = OpportunitiesCoordinator(navigationController: navigationController)
         OpportunitiesScreenCoordinator.start()
     }
+    
+    func displayNotificationsScreen() {
+        let NotificationsScreenCoordinator = NotificationsCoordinator(navigationController: navigationController)
+        NotificationsScreenCoordinator.start()
+    }
 }
 
 extension ProfileCoordinator: ProfileHeaderViewDelegate {
@@ -60,8 +65,8 @@ extension ProfileCoordinator: ProfileTableViewCellDelegate {
     func goToVC(number: Int) {
         switch number {
         case 0:
-            //MessagesCoordinator
-            alertPresenter?.showAlert()
+            displayNotificationsScreen()
+//            alertPresenter?.showAlert()
         case 1:
             displayOpportunitiesScreen()
         case 2:

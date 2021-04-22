@@ -7,10 +7,12 @@
 
 import UIKit
 
-class NotificationsViewController: UIViewController {
+class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
 
     @IBOutlet weak var nameNotificationsLabel: UILabel!
     @IBOutlet weak var notificationTabelView: UITableView!
+    
+    var coordinator: NotificationsCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,7 @@ class NotificationsViewController: UIViewController {
     
 
     @IBAction func backButtonToProfile(_ sender: Any) {
-        
+        coordinator?.returnToProfileScreen()
     }
     
 

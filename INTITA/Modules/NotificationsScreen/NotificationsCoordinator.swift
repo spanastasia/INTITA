@@ -7,23 +7,28 @@
 
 import UIKit
 
-class NotificationsCoordinator: UIViewController {
+class NotificationsCoordinator: Coordinator {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var childCoordinators = [Coordinator]()
+    var navigationController: UINavigationController
 
-        // Do any additional setup after loading the view.
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
+    func start() {
+        
+        let vc = NotificationsViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func returnToProfileScreen() {
+
+        navigationController.popViewController(animated: true)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
