@@ -107,4 +107,42 @@ class SettingsProfileViewModel {
             }
         }
     }
+    
+    func setNewValueToTextField(from index: Int?, from value: String?) {
+        guard let index = index else { return }
+        switch EditingField(rawValue: index) {
+        case .firstName:
+            editingUser?.firstName = value
+        case .secondName:
+            editingUser?.secondName = value
+        case .nickname:
+            editingUser?.nickname = value
+        case .address:
+            editingUser?.address = value
+        case .phone:
+            editingUser?.phone = value
+        case .aboutMe:
+            editingUser?.aboutMy = value
+        case .interests:
+            editingUser?.interests = value
+        case .education:
+            editingUser?.education = value
+        case .previousJob:
+            editingUser?.prevJob = value
+        case .currentJob:
+            editingUser?.currentJob = value
+        case .aboutUs:
+            editingUser?.aboutUs = value
+        case .skype:
+            editingUser?.skype = value
+        case .facebook:
+            editingUser?.facebook = value
+        case .linkedin:
+            editingUser?.linkedin = value
+        case .twitter:
+            editingUser?.twitter = value
+        default:
+            break
+        }
+    }
 }

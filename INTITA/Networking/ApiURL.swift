@@ -58,32 +58,7 @@ enum ApiURL {
         case .logout, .currentUser:
             return nil
         case .editUser(let user):
-            let json =
-                [
-                    "firstName" : user.firstName ?? "",
-                    "secondName" : user.secondName ?? "",
-                    "nickname" : user.nickname ?? "",
-                    "birthday" : user.birthday ?? "",
-                    "country" : user.country?.id ?? 0,
-                    "city" : user.city?.id ?? 0,
-                    "address" : user.address ?? "",
-                    "phone" : user.phone ?? "",
-                    "aboutMy" : user.aboutMy ?? "",
-                    "interests" : user.interests ?? "",
-                    "education" : user.education ?? "",
-                    "prevJob" : user.prevJob ?? "",
-                    "currentJob" : user.currentJob ?? "",
-                    "aboutUs" : user.aboutUs ?? "",
-                    "facebook" : user.facebook ?? "",
-                    
-//                    TODO: I gues there are fields which can not be changed by User
-//                    "skype" : user.skype ?? "",
-//                    "linkedin" : user.linkedin ?? "",
-//                    "twitter" : user.twitter ?? "",
-//                    "preferSpecializations" : user.preferSpecializations ?? [""],
-//                    "educform" : user.education "",
-//                    "educationShift" : user.educationShift ?? 0,
-                ] as [String : Any]
+            let json = chosedFieldToSend(editingUser: user)
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         }
     }
@@ -137,5 +112,67 @@ enum ApiURL {
         case .editUser:
             return "editUser"
         }
+    }
+    
+    private func chosedFieldToSend(editingUser: EditingUser) -> [String: Any] {
+        guard let currentUser = UserData.currentUser else { return [:] }
+        var result: [String: Any] = [:]
+      
+        if currentUser.firstName != editingUser.firstName {
+            result["firstName"] = String(editingUser.firstName ?? "")
+        }
+        if currentUser.secondName != editingUser.secondName {
+            result["secondName"] = String(editingUser.secondName ?? "")
+        }
+        if currentUser.country != editingUser.country?.id {
+            result["country"] = editingUser.country?.id
+        }
+        if currentUser.city != editingUser.city?.id {
+            result["city"] = editingUser.city?.id
+        }
+        if currentUser.nickname != editingUser.nickname {
+            result["nickname"] = String(editingUser.nickname ?? "")
+        }
+        if currentUser.aboutMy != editingUser.aboutMy {
+            result["about_my"] = String(editingUser.aboutMy ?? "")
+        }
+        if currentUser.address != editingUser.address {
+            result["address"] = String(editingUser.address ?? "")
+        }
+        if currentUser.aboutUs != editingUser.aboutUs {
+            result["about_us"] = (editingUser.aboutUs ?? "")
+        }
+        if currentUser.birthday != editingUser.birthday {
+            result["birthday"] = String(editingUser.birthday ?? "")
+        }
+        if currentUser.currentJob != editingUser.currentJob {
+            result["current_job"] = (editingUser.currentJob ?? "")
+        }
+        if currentUser.prevJob != editingUser.prevJob {
+            result["prev_job"] = String(editingUser.prevJob ?? "")
+        }
+        if currentUser.facebook != editingUser.facebook {
+            result["facebook"] = String(editingUser.facebook ?? "")
+        }
+        if currentUser.interests != editingUser.interests {
+            result["interests"] = String(editingUser.interests ?? "")
+        }
+        if currentUser.linkedin != editingUser.linkedin {
+            result["linkedin"] = String(editingUser.linkedin ?? "")
+        }
+        if currentUser.phone != editingUser.phone {
+            result["phone"] = String(editingUser.phone ?? "")
+        }
+        if currentUser.twitter != editingUser.twitter {
+            result["twitter"] = String(editingUser.twitter ?? "")
+        }
+        if currentUser.skype != editingUser.skype {
+            result["skype"] = String(editingUser.skype ?? "")
+        }
+        if currentUser.education != editingUser.education {
+            result["education"] = String(editingUser.education ?? "")
+        }
+
+        return result
     }
 }

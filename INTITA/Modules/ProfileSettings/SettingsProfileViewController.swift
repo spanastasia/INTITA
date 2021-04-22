@@ -101,11 +101,12 @@ extension SettingsProfileViewController: UITableViewDataSource {
             cell.type = type
         }
 
+        cell.delegate = self
         let value = viewModel.getValue(at: indexPath.row)
         cell.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
                        value: value,
                        isEditing: viewModel.isProfileEditing,
-                       indexPath: indexPath.row)
+                       index: indexPath.row)
         
         return cell
     }
@@ -127,5 +128,12 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
         if !viewModel.isProfileEditing {
             viewModel.putEditingUser()
         }
+    }
+}
+
+extension SettingsProfileViewController: InfoSettingProfileTableViewCellDelegate {
+    func didTapedTextField(_ sender: InfoSettingProfileTableViewCell, tapedText: String?) {
+        viewModel.setNewValueToTextField(from: sender.indexCell, from: sender.infoTextField.text)
+        tableView.reloadData()
     }
 }

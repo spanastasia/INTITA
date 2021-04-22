@@ -29,6 +29,9 @@
                                 <rect key="frame" x="24" y="0.0" width="139" height="82.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="infoTextFieldTapped:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="pTg-Rh-Cjc"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-Ev-ToC">
                                 <rect key="frame" x="0.0" y="82.5" width="163" height="82.5"/>

@@ -40,6 +40,10 @@ enum SettingProfileCell {
     
 }
 
+protocol InfoSettingProfileTableViewCellDelegate: AnyObject {
+    func didTapedTextField(_ sender: InfoSettingProfileTableViewCell, tapedText: String?)
+}
+
 class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
 
     @IBOutlet weak var rightButton: UIButton!
@@ -49,6 +53,9 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    weak var delegate: InfoSettingProfileTableViewCellDelegate?
+    
+    var indexCell: Int?
     var type: SettingProfileCell = .textField
     var isProfileEditing = false {
         didSet {
@@ -58,8 +65,16 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setupTextField()
+    }
+    
+    @IBAction func infoTextFieldTapped(_ sender: UITextField) {
+        
+//        sender.addTarget(self, action: #selector(editingChanged(_:)), for: .valueChanged)
+    }
+    
+    @objc func editingChanged(_ textField: UITextField) {
+        delegate?.didTapedTextField(self, tapedText: textField.text)
     }
         
     private func setupTextField(with value: String = "") {
@@ -83,6 +98,8 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
             infoTextField.font = UIFont(name: "MyriadPro-Light", size: 16)
             countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Light", size: 16)
             infoTextField.placeholder = "tap to edit"
+//            infoTextField.delegate = self
+            infoTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingDidEnd)
         } else {
             infoTextField.font = UIFont(name: "MyriadPro-Regular", size: 16)
             countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 16)
@@ -92,11 +109,12 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         isUserInteractionEnabled = isProfileEditing
     }
     
-    func configure(withTitle: String, value: String?, isEditing: Bool, indexPath: Int) {
+    func configure(withTitle: String, value: String?, isEditing: Bool, index: Int) {
         
         setupTextField(with: value ?? "")
         
-        if indexPath.isMultiple(of: 2) {
+        indexCell = index
+        if index.isMultiple(of: 2) {
             cellView.backgroundColor = .white
         } else {
             cellView.backgroundColor = .systemGray6
@@ -122,12 +140,12 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     
 }
 
-extension InfoSettingProfileTableViewCell: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        textField.becomeFirstResponder()
-        print("you taper textfild")
-        return true
-    }
-}
+//extension InfoSettingProfileTableViewCell: UITextFieldDelegate {
+//    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+////        delegate?.didTapedTextField(self, tapedText: "blabla")
+//        textField.becomeFirstResponder()
+//        print("you taper textfild")
+//        return true
+//    }
+//}

@@ -21,7 +21,8 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     @IBOutlet var specializationLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var editImageView: UIImageView!
+    @IBOutlet weak var editImageButton: UIButton!
+    //    @IBOutlet weak var editImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,13 +31,17 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
 
     }
     
-    @IBAction func editButtonTapped(_ sender: UIButton) {
+    @IBAction func editButtonTapped(_ sender: Any) {
         delegate.editTaped(self)
     }
     
    
     @IBAction func backBattonTapped(_ sender: Any) {
         delegate.goToProfileScreen()
+    }
+    
+    @IBAction func editImageButtonTapped(_ sender: Any) {
+        delegate.editTaped(self)
     }
     
     private func setupCell() {
@@ -64,10 +69,10 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
 
         if isTrue {
             editButton.setTitle("save".localized, for: .normal)
-            editImageView.image = UIImage(named: "checkDone")
+            editImageButton.setImage(UIImage(named: "checkDone"), for: .normal)
         } else {
             editButton.setTitle("edit".localized, for: .normal)
-            editImageView.image = UIImage(named: "editBtn")
+            editImageButton.setImage(UIImage(named: "editBtn"), for: .normal)
         }
     }
 }
