@@ -10,5 +10,8 @@ import UIKit
 class NotificationsTableViewCell: UITableViewCell {
 
     
-    
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var sabjectLabel: UILabel!
+    @IBOutlet weak var massegLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
 }
