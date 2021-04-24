@@ -22,11 +22,9 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var editImageButton: UIButton!
-    //    @IBOutlet weak var editImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setupCell()
 
     }

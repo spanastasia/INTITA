@@ -24,12 +24,13 @@ enum LinkCell {
 enum SettingProfileCell {
     case button
     case textField
+    case textView
     
     func isArrowHidden(isEditing: Bool) -> Bool {
         switch self {
         case .button:
             return isEditing == false
-        case .textField:
+        case .textField, .textView:
             return true
         }
     }
@@ -38,16 +39,25 @@ enum SettingProfileCell {
         switch self {
         case .button:
             return false
-        case .textField:
+        case .textField, .textView:
             return true
         }
     }
     
     func isInputHidden(isEditing: Bool) -> Bool {
         switch self {
-        case .button:
+        case .button, .textView:
             return true
         case .textField:
+            return false
+        }
+    }
+    
+    func isStackViewHidden(isEditing: Bool) -> Bool {
+        switch self {
+        case .button, .textField:
+            return true
+        case .textView:
             return false
         }
     }
@@ -60,6 +70,7 @@ protocol InfoSettingProfileTableViewCellDelegate: AnyObject {
 
 class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
 
+    @IBOutlet weak var editingTextView: UITextView!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var countryButton: UIButton!
     @IBOutlet weak var infoTextField: UITextField!
@@ -99,6 +110,8 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
         switch type {
         case .textField:
             infoTextField.text = value
+        case .textView:
+            editingTextView.text = value
         default:
             countryButton.setTitle(value, for: .normal)
         }
@@ -116,20 +129,32 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
             isUserInteractionEnabled = enableType.isLinkEnable(isEditing: isProfileEditing)
         }
         
+        editingTextView.isHidden = type.isStackViewHidden(isEditing: isProfileEditing)
         rightButton.isHidden = type.isArrowHidden(isEditing: isProfileEditing)
         countryButton.isHidden = type.isSelectHidden(isEditing: isProfileEditing)
         infoTextField.isHidden = type.isInputHidden(isEditing: isProfileEditing)
        
-        if isProfileEditing {
-            infoTextField.font = UIFont(name: "MyriadPro-Light", size: 16)
-            countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Light", size: 16)
-            infoTextField.placeholder = "tap to edit"
-            infoTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingDidEnd)
-        } else {
-            infoTextField.font = UIFont(name: "MyriadPro-Regular", size: 16)
-            countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 16)
-            infoTextField.placeholder = ""
-        }
+//        if isProfileEditing {
+//            infoTextField.font = UIFont(name: "MyriadPro-Light", size: 16)
+//            countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Light", size: 16)
+//            setupTextView()
+//            infoTextField.placeholder = "tap to edit"
+//            infoTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingDidEnd)
+//        } else {
+//            infoTextField.font = UIFont(name: "MyriadPro-Regular", size: 16)
+//            countryButton.titleLabel?.font = UIFont(name: "MyriadPro-Regular", size: 16)
+//            infoTextField.placeholder = ""
+//        }
+        
+    }
+    
+    private func setupTextView() {
+        editingTextView.font = UIFont(name: "MyriadPro-Light", size: 16)
+        editingTextView.translatesAutoresizingMaskIntoConstraints = true
+        editingTextView.sizeToFit()
+        editingTextView.isScrollEnabled = false
+        editingTextView.becomeFirstResponder()
+        editingTextView.backgroundColor = self.backgroundColor
     }
     
     func configure(withTitle: String, value: String?, isEditing: Bool, index: Int) {
@@ -162,13 +187,3 @@ class InfoSettingProfileTableViewCell: UITableViewCell, NibCapable {
     }
     
 }
-
-//extension InfoSettingProfileTableViewCell: UITextFieldDelegate {
-//    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-////        delegate?.didTapedTextField(self, tapedText: "blabla")
-//        textField.becomeFirstResponder()
-//        print("you taper textfild")
-//        return true
-//    }
-//}

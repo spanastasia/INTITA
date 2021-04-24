@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some very long titlelllll" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4He-Dk-BPq">
-                        <rect key="frame" x="28" y="12" width="213" height="157"/>
+                        <rect key="frame" x="28" y="12" width="165.5" height="157"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="y35-pw-ZQY">
-                        <rect key="frame" x="245" y="8" width="200" height="165"/>
+                        <rect key="frame" x="197.5" y="8" width="247.5" height="165"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EIj-fw-Dk8">
-                                <rect key="frame" x="162.5" y="0.0" width="37.5" height="82.5"/>
+                                <rect key="frame" x="210" y="0.0" width="37.5" height="82.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyD-L7-Ofm">
                                         <rect key="frame" x="0.0" y="0.0" width="37.5" height="82.5"/>
@@ -37,20 +38,27 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-g3-8B1">
-                                <rect key="frame" x="37" y="82.5" width="163" height="82.5"/>
+                                <rect key="frame" x="11" y="82.5" width="236.5" height="82.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Edit Mode Text Field" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2P-yl-2AN">
-                                        <rect key="frame" x="24" y="0.0" width="139" height="41.5"/>
+                                        <rect key="frame" x="97.5" y="0.0" width="139" height="27.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9x-Ev-ToC">
-                                        <rect key="frame" x="0.0" y="41.5" width="163" height="41"/>
+                                        <rect key="frame" x="73.5" y="27.5" width="163" height="27.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                         <state key="normal" title="Edit Mode Select Button">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" text="Editing Text View" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="MDb-he-UNN">
+                                        <rect key="frame" x="0.0" y="55" width="236.5" height="27.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -63,7 +71,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="y35-pw-ZQY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1UM-SB-PMw"/>
-                    <constraint firstItem="4He-Dk-BPq" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.45" id="7IM-jy-Mkz"/>
+                    <constraint firstItem="4He-Dk-BPq" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.35" id="7IM-jy-Mkz"/>
                     <constraint firstItem="4He-Dk-BPq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="8wS-dD-K83"/>
                     <constraint firstItem="y35-pw-ZQY" firstAttribute="leading" secondItem="4He-Dk-BPq" secondAttribute="trailing" constant="4" id="JKZ-Pw-ee6"/>
                     <constraint firstAttribute="bottom" secondItem="y35-pw-ZQY" secondAttribute="bottom" constant="8" id="JqS-Aw-izv"/>
@@ -75,10 +83,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="MDb-he-UNN" firstAttribute="width" secondItem="njF-e1-oar" secondAttribute="width" multiplier="0.5" id="J7Y-42-qqn"/>
+            </constraints>
             <connections>
                 <outlet property="cellView" destination="H2p-sc-9uM" id="xII-7X-F34"/>
                 <outlet property="countryButton" destination="d9x-Ev-ToC" id="I1y-D8-39l"/>
                 <outlet property="editingStackView" destination="7cD-g3-8B1" id="SlU-I3-3oJ"/>
+                <outlet property="editingTextView" destination="MDb-he-UNN" id="sex-Vh-G3m"/>
                 <outlet property="infoTextField" destination="Y2P-yl-2AN" id="tAn-6r-4Ri"/>
                 <outlet property="rightButton" destination="zC0-gS-aVG" id="HjA-f4-rBO"/>
                 <outlet property="titleLabel" destination="4He-Dk-BPq" id="MMd-Rd-nd7"/>
@@ -90,5 +102,11 @@
     </objects>
     <resources>
         <image name="skipArrow" width="9.5" height="17.5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

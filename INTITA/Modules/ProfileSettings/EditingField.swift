@@ -34,8 +34,8 @@ enum EditingField: Int, CaseIterable {
         switch self {
         case .country, .city, .preferedSpecializations, .birthday, .educform, .educationShift:
             return .button
-//        case .facebook, .linkedin:
-//            return .textView
+        case .education, .facebook, .linkedin, .address, .skype: //
+            return .textView
         default:
             return .textField
         }
