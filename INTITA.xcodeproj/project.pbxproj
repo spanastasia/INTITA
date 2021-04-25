@@ -81,13 +81,23 @@
 		642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */; };
 		643FDCD626165587003AF030 /* SpecializationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D4725DAACB400952C67 /* SpecializationModel.swift */; };
 		644F73C125C5BEAE001216EB /* EditingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644F73C025C5BEAE001216EB /* EditingField.swift */; };
+		6451A89C2635E4CE000BC552 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A89A2635E4CE000BC552 /* ButtonTableViewCell.swift */; };
+		6451A89D2635E4CE000BC552 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A89A2635E4CE000BC552 /* ButtonTableViewCell.swift */; };
+		6451A89E2635E4CE000BC552 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A89B2635E4CE000BC552 /* ButtonTableViewCell.xib */; };
+		6451A89F2635E4CE000BC552 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A89B2635E4CE000BC552 /* ButtonTableViewCell.xib */; };
+		6451A8A52635E4E6000BC552 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8A32635E4E6000BC552 /* TextViewTableViewCell.swift */; };
+		6451A8A62635E4E6000BC552 /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8A32635E4E6000BC552 /* TextViewTableViewCell.swift */; };
+		6451A8A72635E4E6000BC552 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A8A42635E4E6000BC552 /* TextViewTableViewCell.xib */; };
+		6451A8A82635E4E6000BC552 /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A8A42635E4E6000BC552 /* TextViewTableViewCell.xib */; };
+		6451A8AE2635E4F8000BC552 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8AC2635E4F8000BC552 /* LabelTableViewCell.swift */; };
+		6451A8AF2635E4F8000BC552 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8AC2635E4F8000BC552 /* LabelTableViewCell.swift */; };
+		6451A8B02635E4F8000BC552 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */; };
+		6451A8B12635E4F8000BC552 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsProfileCoordinator.swift */; };
 		646615962596745200173A13 /* SettingsProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615952596745200173A13 /* SettingsProfileViewController.swift */; };
-		6466159D25967C1E00173A13 /* InfoSettingProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */; };
 		646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */; };
-		646615A725967C6100173A13 /* InfoSettingProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */; };
 		6466672E25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */; };
 		6466673225BDD21C00FAF5DA /* OpportunitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466673125BDD21C00FAF5DA /* OpportunitiesViewController.swift */; };
 		6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6466673525BDD22D00FAF5DA /* Opportunities.storyboard */; };
@@ -234,8 +244,6 @@
 		BAAEC90225D13CAE00F2660E /* SettingsProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsProfileCoordinator.swift */; };
 		BAAEC90625D13CB300F2660E /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		BAAEC90725D13CB300F2660E /* HeaderSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */; };
-		BAAEC90825D13CB300F2660E /* InfoSettingProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */; };
-		BAAEC90925D13CB300F2660E /* InfoSettingProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */; };
 		BAAEC90D25D13CBD00F2660E /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */; };
 		BAAEC90E25D13CBD00F2660E /* AppConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0780A12554066500E0332F /* AppConstans.swift */; };
 		BAAEC90F25D13CBD00F2660E /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F78E3F25557CAE002C1565 /* Validate.swift */; };
@@ -336,13 +344,17 @@
 		64154D8625DD596300952C67 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewModel.swift; sourceTree = "<group>"; };
 		641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsProfile.storyboard; sourceTree = "<group>"; };
-		641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSettingProfileTableViewCell.swift; sourceTree = "<group>"; };
-		641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoSettingProfileTableViewCell.xib; sourceTree = "<group>"; };
 		641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		642E6F9525BDE09500C239DC /* OpportunitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesTableViewCell.swift; sourceTree = "<group>"; };
 		642E6F9625BDE09500C239DC /* OpportunitiesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpportunitiesTableViewCell.xib; sourceTree = "<group>"; };
 		644F73C025C5BEAE001216EB /* EditingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingField.swift; sourceTree = "<group>"; };
+		6451A89A2635E4CE000BC552 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		6451A89B2635E4CE000BC552 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		6451A8A32635E4E6000BC552 /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		6451A8A42635E4E6000BC552 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
+		6451A8AC2635E4F8000BC552 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCoordinator.swift; sourceTree = "<group>"; };
 		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesCoordinator.swift; sourceTree = "<group>"; };
@@ -622,8 +634,12 @@
 			children = (
 				641CDF95258E0A61002537A2 /* HeaderSettingsTableViewCell.swift */,
 				641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */,
-				641B870D258D2983005FAA24 /* InfoSettingProfileTableViewCell.swift */,
-				641B870E258D2983005FAA24 /* InfoSettingProfileTableViewCell.xib */,
+				6451A89A2635E4CE000BC552 /* ButtonTableViewCell.swift */,
+				6451A89B2635E4CE000BC552 /* ButtonTableViewCell.xib */,
+				6451A8A32635E4E6000BC552 /* TextViewTableViewCell.swift */,
+				6451A8A42635E4E6000BC552 /* TextViewTableViewCell.xib */,
+				6451A8AC2635E4F8000BC552 /* LabelTableViewCell.swift */,
+				6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -967,8 +983,8 @@
 				49FC4EA625D44BA100024AD6 /* LaunchScreen.storyboard in Resources */,
 				49FC4EA125D44B9600024AD6 /* Welcome.storyboard in Resources */,
 				3F414E67259C821F00C6465E /* ProfileHeaderViewCell.xib in Resources */,
-				646615A725967C6100173A13 /* InfoSettingProfileTableViewCell.xib in Resources */,
 				646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */,
+				6451A8A72635E4E6000BC552 /* TextViewTableViewCell.xib in Resources */,
 				646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */,
 				64BD442B2569696900880C9A /* ExplanationTableViewCell.xib in Resources */,
 				84BF645D255E8B4000E2E036 /* LogoTableViewCell.xib in Resources */,
@@ -978,6 +994,7 @@
 				64154D7225DC211E00952C67 /* List.storyboard in Resources */,
 				84BF6469255E8F6500E2E036 /* RegisterButtonTableViewCell.xib in Resources */,
 				BA78F04325599D6300DE2FB5 /* MyriadPro-Regular.ttf in Resources */,
+				6451A89E2635E4CE000BC552 /* ButtonTableViewCell.xib in Resources */,
 				6466673625BDD22D00FAF5DA /* Opportunities.storyboard in Resources */,
 				642E6F9825BDE09500C239DC /* OpportunitiesTableViewCell.xib in Resources */,
 				49C098052578CE42000A8935 /* currentUser.json in Resources */,
@@ -989,6 +1006,7 @@
 				64154D4025DAA2A300952C67 /* Specialization.json in Resources */,
 				3FF299F4254ADD830087AEC7 /* Assets.xcassets in Resources */,
 				BA4FF3DD25A20C700063218C /* TaskCell.xib in Resources */,
+				6451A8B02635E4F8000BC552 /* LabelTableViewCell.xib in Resources */,
 				841C852325C421CE005C32F9 /* Countries.json in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				3F1DC09A25D69438000EF654 /* Cities.json in Resources */,
@@ -1023,7 +1041,7 @@
 				BAAEC8FA25D13CA600F2660E /* ProfileHeaderViewCell.xib in Resources */,
 				3F1DC0E225D905AA000EF654 /* Opportunities.storyboard in Resources */,
 				BAAEC91425D13CCD00F2660E /* Localizable.strings in Resources */,
-				BAAEC90925D13CB300F2660E /* InfoSettingProfileTableViewCell.xib in Resources */,
+				6451A89F2635E4CE000BC552 /* ButtonTableViewCell.xib in Resources */,
 				64154D6425DAB92500952C67 /* Specialization.json in Resources */,
 				BAAEC8F825D13CA600F2660E /* ProfileTableViewCell.xib in Resources */,
 				BAAEC87F25D13C2700F2660E /* Countries.json in Resources */,
@@ -1037,9 +1055,11 @@
 				BAAEC8FB25D13CA600F2660E /* ProfileFooterViewCell.xib in Resources */,
 				BAAEC8BC25D13C6D00F2660E /* TaskCell.xib in Resources */,
 				BAAEC8D225D13C7800F2660E /* RegisterButtonTableViewCell.xib in Resources */,
+				6451A8B12635E4F8000BC552 /* LabelTableViewCell.xib in Resources */,
 				BAAEC8E825D13C9600F2660E /* Welcome.storyboard in Resources */,
 				BAAEC8C925D13C7800F2660E /* LinksTableViewCell.xib in Resources */,
 				64EE8AE425F16D0200B6D9F3 /* EducationShift.json in Resources */,
+				6451A8A82635E4E6000BC552 /* TextViewTableViewCell.xib in Resources */,
 				64670B322611E2B400442673 /* Birthday.storyboard in Resources */,
 				BAAEC8D025D13C7800F2660E /* LogIn.storyboard in Resources */,
 				BAAEC8DC25D13C8500F2660E /* ExplanationTableViewCell.xib in Resources */,
@@ -1070,12 +1090,12 @@
 				646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */,
 				64745064261F4D1A005D26C4 /* CountryModel.swift in Sources */,
 				64154D4825DAACB400952C67 /* SpecializationModel.swift in Sources */,
-				6466159D25967C1E00173A13 /* InfoSettingProfileTableViewCell.swift in Sources */,
 				84BF6468255E8F6500E2E036 /* RegisterButtonTableViewCell.swift in Sources */,
 				3F0780A22554066500E0332F /* AppConstans.swift in Sources */,
 				3FB6FD23254FF4D800702D43 /* LogoutResponse.swift in Sources */,
 				64670B3E261222BD00442673 /* BirthdayViewModel.swift in Sources */,
 				64154D7D25DC218600952C67 /* ListCoordinator.swift in Sources */,
+				6451A8A52635E4E6000BC552 /* TextViewTableViewCell.swift in Sources */,
 				49064447256926CC0068D2DF /* UIViewController+Keyboard.swift in Sources */,
 				640B812A25BF02A400F97F90 /* OpportunitiesType.swift in Sources */,
 				84BF645C255E8B4000E2E036 /* LogoTableViewCell.swift in Sources */,
@@ -1112,9 +1132,11 @@
 				64670B252611E28600442673 /* BirthdayViewController.swift in Sources */,
 				3F879841255E70D30094D6D9 /* ProfileViewController.swift in Sources */,
 				BAA6305C258D27FD0042F290 /* User+CoreDataProperties.swift in Sources */,
+				6451A8AE2635E4F8000BC552 /* LabelTableViewCell.swift in Sources */,
 				BAA6304A258CE1190042F290 /* CoreDataService.swift in Sources */,
 				3F879849255E70FE0094D6D9 /* ProfileViewModel.swift in Sources */,
 				84067391256D517000A25431 /* TextTableViewCellModel.swift in Sources */,
+				6451A89C2635E4CE000BC552 /* ButtonTableViewCell.swift in Sources */,
 				BA78F0392559614C00DE2FB5 /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3FAF33BF25DA667200DA0B98 /* EditingUser.swift in Sources */,
 				3F54E926254E97FB00426261 /* Authorization.swift in Sources */,
@@ -1203,12 +1225,14 @@
 				BAAEC89C25D13C4B00F2660E /* EditingField.swift in Sources */,
 				BAAEC91D25D13CE000F2660E /* UITextField+indent.swift in Sources */,
 				BAAEC89E25D13C4B00F2660E /* EducationForm.swift in Sources */,
+				6451A89D2635E4CE000BC552 /* ButtonTableViewCell.swift in Sources */,
 				BAAEC8AB25D13C5800F2660E /* Authorization.swift in Sources */,
 				BAAEC8A525D13C5100F2660E /* ApiError.swift in Sources */,
 				BAAEC8A025D13C4B00F2660E /* TaskModel.swift in Sources */,
 				BAAEC8CC25D13C7800F2660E /* LogInCoordinator.swift in Sources */,
 				64EE8AA125EBFC2800B6D9F3 /* ListViewController.swift in Sources */,
 				BAAEC92225D13CE000F2660E /* String+localized.swift in Sources */,
+				6451A8AF2635E4F8000BC552 /* LabelTableViewCell.swift in Sources */,
 				3F1DC0F225D90645000EF654 /* OpportunitiesTableViewCell.swift in Sources */,
 				BAAEC8E425D13C9100F2660E /* CustomPageControl.swift in Sources */,
 				3F45997C25DD2B4000AE26E9 /* EditUserResponse.swift in Sources */,
@@ -1230,6 +1254,7 @@
 				3F1DC0EA25D905B2000EF654 /* OpportunitiesCoordinator.swift in Sources */,
 				BAAEC8CE25D13C7800F2660E /* RegisterButtonTableViewCell.swift in Sources */,
 				BAAEC93E25D13D0700F2660E /* AppDelegate.swift in Sources */,
+				6451A8A62635E4E6000BC552 /* TextViewTableViewCell.swift in Sources */,
 				BAAEC8C625D13C7800F2660E /* TextTableViewCell.swift in Sources */,
 				BAAEC92325D13CE000F2660E /* UIColor+Additions.swift in Sources */,
 				64EE8AED25F16D7300B6D9F3 /* EducationShiftModel.swift in Sources */,
@@ -1240,7 +1265,6 @@
 				3F1DC0EE25D905E2000EF654 /* OpportunitiesType.swift in Sources */,
 				BAAEC8C725D13C7800F2660E /* LinksTableViewCell.swift in Sources */,
 				BAAEC92425D13CE000F2660E /* UIViewController+AlertView.swift in Sources */,
-				BAAEC90825D13CB300F2660E /* InfoSettingProfileTableViewCell.swift in Sources */,
 				BAAEC91025D13CBD00F2660E /* UserData.swift in Sources */,
 				64EE8A9925EBFC2200B6D9F3 /* ListViewModel.swift in Sources */,
 				BAAEC92625D13CE000F2660E /* CGFloat+toRadians.swift in Sources */,

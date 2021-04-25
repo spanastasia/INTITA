@@ -20,10 +20,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+    
         setupCell()
         setupHeaderTableView()
 
@@ -36,17 +33,17 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                 print(error)
                 return
             }
-            
             self.tableView.reloadData()
         }
         
     }
-    override func didMove(toParent parent: UIViewController?) {
-        super.didMove(toParent: parent)
-        
-        guard parent == nil else { return }
-        print("Did press Back button")
-    }
+    
+//    override func didMove(toParent parent: UIViewController?) {
+//        super.didMove(toParent: parent)
+//
+//        guard parent == nil else { return }
+//        print("Did press Back button")
+//    }
     
     func setupHeaderTableView() {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
@@ -62,53 +59,13 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     }
     
     func setupCell() {
-        tableView.register(InfoSettingProfileTableViewCell.nib(),
-                           forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
+//        tableView.register(InfoSettingProfileTableViewCell.nib(),
+//                           forCellReuseIdentifier: InfoSettingProfileTableViewCell.identifier)
     }
 
 }
 
 extension SettingsProfileViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        switch EditingField.init(rawValue: indexPath.row) {
-        case .city, .country:
-            viewModel.isItemRow(row: indexPath.row)
-            coordinator?.showListScreen()
-        case .birthday:
-            coordinator?.showBirthdayScreen()
-        default:
-            break
-        }
-    }
-}
-
-extension SettingsProfileViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfStates
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoSettingProfileTableViewCell.identifier,
-                                                       for: indexPath) as? InfoSettingProfileTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        if let type = EditingField(rawValue: indexPath.row)?.editType {
-            cell.type = type
-        }
-
-        let value = viewModel.getValue(at: indexPath.row)
-        cell.configure(withTitle: viewModel.arrayItems[indexPath.row] + " : ",
-                       value: value,
-                       isEditing: viewModel.isProfileEditing,
-                       indexPath: indexPath.row)
-        
-        return cell
-    }
     
 }
 
@@ -121,11 +78,10 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
     func editTaped(_ sender: HeaderSettingsTableViewCell) {
         
         viewModel.startEditUser()
-        
         sender.setupEditBtn(isTrue: viewModel.isProfileEditing)
         
-        if !viewModel.isProfileEditing {
-            viewModel.putEditingUser()
-        }
+//        if !viewModel.isProfileEditing {
+//            viewModel.putEditingUser()
+//        }
     }
 }

@@ -65,13 +65,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-sP-pQX">
                                 <rect key="frame" x="35" y="135" width="100" height="25"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editBtn" translatesAutoresizingMaskIntoConstraints="NO" id="gxU-0g-PEF">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1b0-LI-raW">
                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="Vte-Jl-NOx"/>
-                                            <constraint firstAttribute="height" constant="25" id="rvh-i8-e2m"/>
+                                            <constraint firstAttribute="width" constant="25" id="hqb-eM-3kG"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="checkDone">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editImageButtonTapped:" destination="qpw-P1-R1X" eventType="touchUpInside" id="ilJ-yp-S0M"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFB-qA-jDg">
                                         <rect key="frame" x="29" y="0.0" width="71" height="25"/>
                                         <constraints>
@@ -115,7 +120,7 @@
             <connections>
                 <outlet property="avatarView" destination="i3H-IY-XyA" id="532-sE-tVp"/>
                 <outlet property="editButton" destination="ZFB-qA-jDg" id="nJ8-7N-fIw"/>
-                <outlet property="editImageView" destination="gxU-0g-PEF" id="8Zn-Ow-cy7"/>
+                <outlet property="editImageButton" destination="1b0-LI-raW" id="72j-6J-54I"/>
                 <outlet property="mainView" destination="xd5-AK-fV5" id="YcO-Bm-33a"/>
                 <outlet property="nameLabel" destination="KYg-vH-o0I" id="nNH-Wo-UjJ"/>
                 <outlet property="specializationLabel" destination="hIR-Sc-RFl" id="zkg-01-TMP"/>
@@ -130,9 +135,9 @@
         </button>
     </objects>
     <resources>
+        <image name="checkDone" width="38" height="38"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="defaultAvatar" width="530" height="530"/>
-        <image name="editBtn" width="25" height="25"/>
         <namedColor name="mainColor">
             <color red="0.29399999976158142" green="0.45899999141693115" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
