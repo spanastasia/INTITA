@@ -28,7 +28,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     private lazy var labelItems: [LabelItem] = {
         return viewModel.getArrayItems()
     }()
-    private var type: CellType = .textView
+    private var type: CellType = .inEnable
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -45,8 +45,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         tableView.delegate = self
         dataSource?.defaultRowAnimation = .left
         
-        dataSource?.apply(prepareSnapshot(), animatingDifferences: false)
-        
         viewModel.subscribe { error in
             if let error = error {
                 print(error)
@@ -54,6 +52,8 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
             }
             self.tableView.reloadData()
         }
+        
+        dataSource?.apply(prepareSnapshot(), animatingDifferences: false)
     }
     
     private func setupHeaderTableView() {
@@ -81,10 +81,8 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                 switch self.viewModel.getTypeEditingCell(with: indexPath.row) {
                 case .button:
                     self.type = .button
-                case .textView:
-                    self.type = .textView
                 default:
-                    self.type = .inEnable
+                    self.type = .textView
                 }
             } else {
                 self.type = .inEnable
@@ -132,6 +130,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
             guard let textViewCell = tableView.dequeueReusableCell(withIdentifier: TextViewTableViewCell.identifier) as? TextViewTableViewCell else {
                 return UITableViewCell()
             }
+            textViewCell.delegate = self
             textViewCell.configure(with: item)
             cell = textViewCell
         }
@@ -143,12 +142,17 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
 
 extension SettingsProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         switch EditingField(rawValue: indexPath.row) {
         case .city, .country:
-            viewModel.isItemRow(row: indexPath.row)
-            coordinator?.showListScreen()
+            if viewModel.isProfileEditing {
+                viewModel.isItemRow(row: indexPath.row)
+                coordinator?.showListScreen()
+            }
         case .birthday:
-            coordinator?.showBirthdayScreen()
+            if viewModel.isProfileEditing {
+                coordinator?.showBirthdayScreen()
+            }
         case .facebook, .twitter, .linkedin:
             guard let stringURL = viewModel.getValue(at: indexPath.row) else { return }
             if let url = URL(string: stringURL) {
@@ -170,8 +174,14 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
         viewModel.startEditUser()
         sender.setupEditBtn(isTrue: viewModel.isProfileEditing)
         
-        //        if !viewModel.isProfileEditing {
-        //            viewModel.putEditingUser()
-        //        }
+        if !viewModel.isProfileEditing {
+            viewModel.putEditingUser()
+        }
+    }
+}
+
+extension SettingsProfileViewController: TextViewTableViewCellDelegate {
+    func textViewTableViewCell(_ sender: TextViewTableViewCell, didChangeText text: String) {
+        viewModel.setNewValueToTextField(from: sender.index, from: text)
     }
 }

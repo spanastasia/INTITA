@@ -14,13 +14,13 @@ class ButtonTableViewCell: UITableViewCell, NibCapable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        isUserInteractionEnabled = true
     }
     
     func configure(with item: LabelItem) {
         titleLabel.text = item.title + ": "
         valueButton.setTitle(item.value, for: .normal)
         
+        isUserInteractionEnabled = true
     }
     
 }
