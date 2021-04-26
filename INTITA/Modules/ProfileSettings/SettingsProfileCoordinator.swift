@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SettingsProfileCoordinator: Coordinator {
     
@@ -55,6 +56,12 @@ class SettingsProfileCoordinator: Coordinator {
         birthdayCoordinator.delegate = self
         birthdayCoordinator.start()
     }
+    
+    func showSafari(with url: URL) {
+        let vc = SFSafariViewController(url: url)
+        navigationController.present(vc, animated: true)
+    }
+
 }
 
 extension SettingsProfileCoordinator: ListCoordinatorDelegate {

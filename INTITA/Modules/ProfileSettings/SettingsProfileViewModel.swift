@@ -61,6 +61,15 @@ class SettingsProfileViewModel {
         return EditingField.allCases[index].valueFromUser(userToEdit)
     }
     
+    func getArrayItems() -> [LabelItem] {
+        let labelItems: [LabelItem] = (0..<EditingField.allCases.count).map { (index) -> LabelItem in
+            let title = arrayItems[index]
+            let value = getValue(at: index)
+            return LabelItem(id: index, title: title, value: value)
+        }
+        return labelItems
+    }
+    
     func subscribe(updateCallback: ProfileViewModelCallback?) {
         self.updateCallback = updateCallback
     }
@@ -86,6 +95,14 @@ class SettingsProfileViewModel {
     func startEditUser() {
         isProfileEditing.toggle()
         updateCallback?(nil)
+    }
+    
+    func isEnableItem(with index: Int) -> Bool {
+        return EditingField(rawValue: index)?.enabletItem == EnableCell.link
+    }
+    
+    func getTypeEditingCell(with index: Int) -> CellType? {
+        return EditingField(rawValue: index)?.editType
     }
     
     func selectBirthday(_ selectedBirthday: String) {

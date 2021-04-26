@@ -93,6 +93,8 @@
 		6451A8AF2635E4F8000BC552 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8AC2635E4F8000BC552 /* LabelTableViewCell.swift */; };
 		6451A8B02635E4F8000BC552 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */; };
 		6451A8B12635E4F8000BC552 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */; };
+		6451A8B726369D7E000BC552 /* LabelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8B626369D7E000BC552 /* LabelItem.swift */; };
+		6451A8B826369D7E000BC552 /* LabelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8B626369D7E000BC552 /* LabelItem.swift */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsProfileCoordinator.swift */; };
@@ -355,6 +357,7 @@
 		6451A8A42635E4E6000BC552 /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
 		6451A8AC2635E4F8000BC552 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
+		6451A8B626369D7E000BC552 /* LabelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelItem.swift; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCoordinator.swift; sourceTree = "<group>"; };
 		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesCoordinator.swift; sourceTree = "<group>"; };
@@ -624,6 +627,7 @@
 				646615952596745200173A13 /* SettingsProfileViewController.swift */,
 				64170D1C25CB21B5000B3859 /* SettingsProfileViewModel.swift */,
 				644F73C025C5BEAE001216EB /* EditingField.swift */,
+				6451A8B626369D7E000BC552 /* LabelItem.swift */,
 				641B8702258D20DC005FAA24 /* Cells */,
 			);
 			path = ProfileSettings;
@@ -1109,6 +1113,7 @@
 				64F78E222551D9CA002C1565 /* ForgotPasswordCoordinator.swift in Sources */,
 				BA4FF3812596006F0063218C /* TasksViewController.swift in Sources */,
 				64F78E4025557CAE002C1565 /* Validate.swift in Sources */,
+				6451A8B726369D7E000BC552 /* LabelItem.swift in Sources */,
 				646615882596738300173A13 /* SettingsProfileCoordinator.swift in Sources */,
 				846E63B7255007C200C737C4 /* AppDelegate.swift in Sources */,
 				BA4FF3A0259686130063218C /* TaskHeaderCell.swift in Sources */,
@@ -1216,6 +1221,7 @@
 				64670B3F261222BD00442673 /* BirthdayViewModel.swift in Sources */,
 				BAAEC89D25D13C4B00F2660E /* LoginResponse.swift in Sources */,
 				BAAEC8F625D13CA600F2660E /* ProfileHeaderViewCell.swift in Sources */,
+				6451A8B826369D7E000BC552 /* LabelItem.swift in Sources */,
 				64EE8A9D25EBFC2400B6D9F3 /* ListCoordinator.swift in Sources */,
 				3F1DC0BD25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */,
 				BAAEC8C825D13C7800F2660E /* LogInViewController.swift in Sources */,

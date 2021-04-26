@@ -7,12 +7,20 @@
 
 import UIKit
 
-class ButtonTableViewCell: UITableViewCell {
+class ButtonTableViewCell: UITableViewCell, NibCapable {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var valueButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        isUserInteractionEnabled = true
+    }
+    
+    func configure(with item: LabelItem) {
+        titleLabel.text = item.title + ": "
+        valueButton.setTitle(item.value, for: .normal)
+        
     }
     
 }
