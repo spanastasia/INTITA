@@ -17,9 +17,9 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     weak var delegate: HeaderSettingsTableViewCellDelegate!
 
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet var avatarView: UIImageView!
-    @IBOutlet var specializationLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet weak var avatarView: UIImageView!
+    @IBOutlet weak var specializationLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var editImageButton: UIButton!
     

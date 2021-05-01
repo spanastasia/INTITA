@@ -25,9 +25,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
     private var dataSource: UITableViewDiffableDataSource<Sections, LabelItem>?
     
-    private lazy var labelItems: [LabelItem] = {
-        return viewModel.getArrayItems()
-    }()
     private var type: CellType = .inEnable
     
     @IBOutlet weak var headerView: UIView!
@@ -50,10 +47,10 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                 print(error)
                 return
             }
-            self.tableView.reloadData()
+            self.dataSource?.apply(self.viewModel.prepareSnapshot(), animatingDifferences: false)
         }
         
-        dataSource?.apply(prepareSnapshot(), animatingDifferences: false)
+        dataSource?.apply(viewModel.prepareSnapshot(), animatingDifferences: false)
     }
     
     private func setupHeaderTableView() {
@@ -101,13 +98,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         
         tableView.register(ButtonTableViewCell.nib(),
                            forCellReuseIdentifier: ButtonTableViewCell.identifier)
-    }
-    
-    func prepareSnapshot() -> NSDiffableDataSourceSnapshot<Sections, LabelItem> {
-        var snapshot = NSDiffableDataSourceSnapshot<Sections, LabelItem>()
-        snapshot.appendSections([.first])
-        snapshot.appendItems(labelItems)
-        return snapshot
     }
     
     private func labelCellForRowAt(_ indexPath: IndexPath, with item: LabelItem, with type: CellType) -> UITableViewCell {

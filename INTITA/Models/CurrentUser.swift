@@ -114,6 +114,67 @@ struct CurrentUser: Codable {
         skype = editingUser.skype
         educform = editingUser.educform
     }
+    
+    func difference(with editingUser: EditingUser) -> [String: Any] {
+        var result: [String: Any] = [:]
+      
+        if firstName != editingUser.firstName {
+            result["firstName"] = String(editingUser.firstName ?? "")
+        }
+        if secondName != editingUser.secondName {
+            result["secondName"] = String(editingUser.secondName ?? "")
+        }
+        if country != editingUser.country?.id {
+            result["country"] = editingUser.country?.id
+        }
+        if city != editingUser.city?.id {
+            result["city"] = editingUser.city?.id
+        }
+        if nickname != editingUser.nickname {
+            result["nickname"] = String(editingUser.nickname ?? "")
+        }
+        if aboutMy != editingUser.aboutMy {
+            result["about_my"] = String(editingUser.aboutMy ?? "")
+        }
+        if address != editingUser.address {
+            result["address"] = String(editingUser.address ?? "")
+        }
+        if aboutUs != editingUser.aboutUs {
+            result["about_us"] = (editingUser.aboutUs ?? "")
+        }
+        if birthday != editingUser.birthday {
+            result["birthday"] = String(editingUser.birthday ?? "")
+        }
+        if currentJob != editingUser.currentJob {
+            result["current_job"] = (editingUser.currentJob ?? "")
+        }
+        if prevJob != editingUser.prevJob {
+            result["prev_job"] = String(editingUser.prevJob ?? "")
+        }
+        if facebook != editingUser.facebook {
+            result["facebook"] = String(editingUser.facebook ?? "")
+        }
+        if interests != editingUser.interests {
+            result["interests"] = String(editingUser.interests ?? "")
+        }
+        if linkedin != editingUser.linkedin {
+            result["linkedin"] = String(editingUser.linkedin ?? "")
+        }
+        if phone != editingUser.phone {
+            result["phone"] = String(editingUser.phone ?? "")
+        }
+        if twitter != editingUser.twitter {
+            result["twitter"] = String(editingUser.twitter ?? "")
+        }
+        if skype != editingUser.skype {
+            result["skype"] = String(editingUser.skype ?? "")
+        }
+        if education != editingUser.education {
+            result["education"] = String(editingUser.education ?? "")
+        }
+
+        return result
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, firstName

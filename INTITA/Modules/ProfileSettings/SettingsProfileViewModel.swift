@@ -5,6 +5,7 @@
 //  Created by Viacheslav Markov on 03.02.2021.
 //
 
+import UIKit
 import Foundation
 
 enum ChoosenItem {
@@ -13,6 +14,9 @@ enum ChoosenItem {
 }
 
 class SettingsProfileViewModel {
+    
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Sections, LabelItem>
+    
     var arrayItems = EditingField.statusList
     private var updateCallback: ProfileViewModelCallback?
     
@@ -67,8 +71,14 @@ class SettingsProfileViewModel {
             let value = getValue(at: index)
             return LabelItem(id: index, title: title, value: value)
         }
-//        updateCallback?(nil)
         return labelItems
+    }
+    
+    func prepareSnapshot() -> Snapshot {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.first])
+        snapshot.appendItems(getArrayItems())
+        return snapshot
     }
     
     func subscribe(updateCallback: ProfileViewModelCallback?) {
