@@ -5,6 +5,7 @@
 //  Created by Viacheslav Markov on 03.02.2021.
 //
 
+import UIKit
 import Foundation
 
 enum ChoosenItem {
@@ -13,6 +14,9 @@ enum ChoosenItem {
 }
 
 class SettingsProfileViewModel {
+    
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Sections, LabelItem>
+    
     var arrayItems = EditingField.statusList
     private var updateCallback: ProfileViewModelCallback?
     
@@ -61,6 +65,22 @@ class SettingsProfileViewModel {
         return EditingField.allCases[index].valueFromUser(userToEdit)
     }
     
+    func getArrayItems() -> [LabelItem] {
+        let labelItems: [LabelItem] = (0..<numberOfStates).map { (index) -> LabelItem in
+            let title = arrayItems[index]
+            let value = getValue(at: index)
+            return LabelItem(id: index, title: title, value: value)
+        }
+        return labelItems
+    }
+    
+    func prepareSnapshot() -> Snapshot {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.first])
+        snapshot.appendItems(getArrayItems())
+        return snapshot
+    }
+    
     func subscribe(updateCallback: ProfileViewModelCallback?) {
         self.updateCallback = updateCallback
     }
@@ -88,6 +108,14 @@ class SettingsProfileViewModel {
         updateCallback?(nil)
     }
     
+    func isEnableItem(with index: Int) -> Bool {
+        return EditingField(rawValue: index)?.enabletItem == EnableCell.link
+    }
+    
+    func getTypeEditingCell(with index: Int) -> CellType? {
+        return EditingField(rawValue: index)?.editType
+    }
+    
     func selectBirthday(_ selectedBirthday: String) {
         editingUser?.birthday = selectedBirthday
         self.selectedBirthday = selectedBirthday
@@ -107,4 +135,42 @@ class SettingsProfileViewModel {
             }
         }
     }
+    
+    func setNewValueToTextField(from index: Int?, from value: String?) {
+            guard let index = index else { return }
+            switch EditingField(rawValue: index) {
+            case .firstName:
+                editingUser?.firstName = value
+            case .secondName:
+                editingUser?.secondName = value
+            case .nickname:
+                editingUser?.nickname = value
+            case .address:
+                editingUser?.address = value
+            case .phone:
+                editingUser?.phone = value
+            case .aboutMe:
+                editingUser?.aboutMy = value
+            case .interests:
+                editingUser?.interests = value
+            case .education:
+                editingUser?.education = value
+            case .previousJob:
+                editingUser?.prevJob = value
+            case .currentJob:
+                editingUser?.currentJob = value
+            case .aboutUs:
+                editingUser?.aboutUs = value
+            case .skype:
+                editingUser?.skype = value
+            case .facebook:
+                editingUser?.facebook = value
+            case .linkedin:
+                editingUser?.linkedin = value
+            case .twitter:
+                editingUser?.twitter = value
+            default:
+                break
+            }
+        }
 }

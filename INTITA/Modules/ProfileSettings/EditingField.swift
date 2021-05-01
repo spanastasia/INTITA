@@ -30,12 +30,26 @@ enum EditingField: Int, CaseIterable {
     case educform
     case educationShift
     
-    var editType: SettingProfileCell {
+    var editType: CellType {
         switch self {
-        case .country, .city, .preferedSpecializations, .birthday:
+        case .country,
+             .city,
+             .preferedSpecializations,
+             .birthday,
+             .educationShift,
+             .educform:
             return .button
         default:
-            return .textField
+            return .textView
+        }
+    }
+    
+    var enabletItem: EnableCell {
+        switch self {
+        case .facebook, .linkedin, .twitter:
+            return .link
+        default:
+            return .text
         }
     }
     

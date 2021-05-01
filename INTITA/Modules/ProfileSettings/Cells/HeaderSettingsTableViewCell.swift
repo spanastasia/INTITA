@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HeaderSettingsTableViewCellDelegate: AnyObject {
-    func editTaped(_ sender: HeaderSettingsTableViewCell)
+    func editTapped(_ sender: HeaderSettingsTableViewCell)
     func goToProfileScreen()
 }
 
@@ -17,11 +17,11 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     weak var delegate: HeaderSettingsTableViewCellDelegate!
 
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet var avatarView: UIImageView!
-    @IBOutlet var specializationLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet weak var avatarView: UIImageView!
+    @IBOutlet weak var specializationLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var editImageView: UIImageView!
+    @IBOutlet weak var editImageButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,9 +31,12 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        delegate.editTaped(self)
+        delegate.editTapped(self)
     }
     
+    @IBAction func editImageButtonTapped(_ sender: UIButton) {
+        delegate.editTapped(self)
+    }
    
     @IBAction func backBattonTapped(_ sender: Any) {
         delegate.goToProfileScreen()
@@ -64,10 +67,10 @@ class HeaderSettingsTableViewCell: UITableViewCell, NibCapable {
 
         if isTrue {
             editButton.setTitle("save".localized, for: .normal)
-            editImageView.image = UIImage(named: "checkDone")
+            editImageButton.setImage(UIImage(named: "checkDone"), for: .normal)
         } else {
             editButton.setTitle("edit".localized, for: .normal)
-            editImageView.image = UIImage(named: "editBtn")
+            editImageButton.setImage(UIImage(named: "editBtn"), for: .normal)
         }
     }
 }
