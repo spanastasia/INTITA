@@ -67,6 +67,7 @@ class SettingsProfileViewModel {
             let value = getValue(at: index)
             return LabelItem(id: index, title: title, value: value)
         }
+//        updateCallback?(nil)
         return labelItems
     }
     

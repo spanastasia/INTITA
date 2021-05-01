@@ -13,8 +13,8 @@ enum CellType {
     case inEnable
 }
 
-struct NamedSection: Hashable {
-    var title: String = ""
+enum Sections {
+    case first
 }
 
 class SettingsProfileViewController: UIViewController, Storyboarded {
@@ -23,7 +23,7 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
     var viewModel: SettingsProfileViewModel!
     
     private lazy var headerContentView: HeaderSettingsTableViewCell = .fromNib()
-    private var dataSource: UITableViewDiffableDataSource<NamedSection, LabelItem>?
+    private var dataSource: UITableViewDiffableDataSource<Sections, LabelItem>?
     
     private lazy var labelItems: [LabelItem] = {
         return viewModel.getArrayItems()
@@ -103,9 +103,9 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                            forCellReuseIdentifier: ButtonTableViewCell.identifier)
     }
     
-    func prepareSnapshot() -> NSDiffableDataSourceSnapshot<NamedSection, LabelItem> {
-        var snapshot = NSDiffableDataSourceSnapshot<NamedSection, LabelItem>()
-        snapshot.appendSections([NamedSection()])
+    func prepareSnapshot() -> NSDiffableDataSourceSnapshot<Sections, LabelItem> {
+        var snapshot = NSDiffableDataSourceSnapshot<Sections, LabelItem>()
+        snapshot.appendSections([.first])
         snapshot.appendItems(labelItems)
         return snapshot
     }
