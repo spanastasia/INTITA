@@ -57,9 +57,15 @@ class SettingsProfileCoordinator: Coordinator {
         birthdayCoordinator.start()
     }
     
+    func showMultipleSelectionScreen() {
+        let multipleSelectionCoordinator = MultipleSelectionCoordinator(
+            navigationController: navigationController)
+        multipleSelectionCoordinator.start()
+    }
+    
     func showSafari(with url: URL) {
-        let vc = SFSafariViewController(url: url)
-        navigationController.present(vc, animated: true)
+        let safariViewController = SFSafariViewController(url: url)
+        navigationController.present(safariViewController, animated: true)
     }
 
 }

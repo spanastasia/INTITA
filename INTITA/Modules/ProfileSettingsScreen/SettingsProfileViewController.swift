@@ -148,6 +148,8 @@ extension SettingsProfileViewController: UITableViewDelegate {
             if let url = URL(string: stringURL) {
                 coordinator?.showSafari(with: url)
             }
+        case .educationShift, .preferedSpecializations, .educform:
+            coordinator?.showMultipleSelectionScreen()
         default:
             break
         }
