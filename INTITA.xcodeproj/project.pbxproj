@@ -17,6 +17,8 @@
 		1522182526320BAA008F4EBE /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1522182226320BAA008F4EBE /* NotificationsTableViewCell.swift */; };
 		1522182626320BAA008F4EBE /* NotificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1522182326320BAA008F4EBE /* NotificationsTableViewCell.xib */; };
 		1522182726320BAA008F4EBE /* NotificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1522182326320BAA008F4EBE /* NotificationsTableViewCell.xib */; };
+		155ADE0626427DFC0045CCF0 /* WrongPasswordEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */; };
+		155ADE0A26427E020045CCF0 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		15D7765C2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */; };
 		15D7765D2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */; };
@@ -1064,6 +1066,7 @@
 				BAAEC90925D13CB300F2660E /* InfoSettingProfileTableViewCell.xib in Resources */,
 				64154D6425DAB92500952C67 /* Specialization.json in Resources */,
 				BAAEC8F825D13CA600F2660E /* ProfileTableViewCell.xib in Resources */,
+				155ADE0A26427E020045CCF0 /* WrongPasswordEmailTableViewCell.xib in Resources */,
 				15221811263203EA008F4EBE /* Notifications.storyboard in Resources */,
 				BAAEC87F25D13C2700F2660E /* Countries.json in Resources */,
 				BAAEC91925D13CDA00F2660E /* MyriadPro-Light.ttf in Resources */,
@@ -1282,6 +1285,7 @@
 				BAAEC90D25D13CBD00F2660E /* UserDefaultsManager.swift in Sources */,
 				BAAEC8CA25D13C7800F2660E /* TextTableViewCellModel.swift in Sources */,
 				3F1DC0EE25D905E2000EF654 /* OpportunitiesType.swift in Sources */,
+				155ADE0626427DFC0045CCF0 /* WrongPasswordEmailTableViewCell.swift in Sources */,
 				BAAEC8C725D13C7800F2660E /* LinksTableViewCell.swift in Sources */,
 				BAAEC92425D13CE000F2660E /* UIViewController+AlertView.swift in Sources */,
 				BAAEC90825D13CB300F2660E /* InfoSettingProfileTableViewCell.swift in Sources */,
