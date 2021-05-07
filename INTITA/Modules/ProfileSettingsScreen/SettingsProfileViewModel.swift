@@ -24,6 +24,7 @@ class SettingsProfileViewModel {
     var selectedItem: LocalizedResponseProtocol?
     var item: [LocalizedResponseProtocol]?
 
+    var selectedItemEducationString: String?
     var existingUser: CurrentUser?
     var selectedBirthday: String?
     
@@ -55,6 +56,16 @@ class SettingsProfileViewModel {
             selectedItem = editingUser?.city
         case .city:
             item = nil
+        case .educationShift:
+            item = JSONService<EducationShiftModel>.values
+        case .preferedSpecializations:
+            item = JSONService<SpecializationModel>.values
+//            let pref = existingUser?.preferSpecializations
+            let specializations = EditingField.preferedSpecializations
+            guard let editingUser = editingUser else { return }
+            selectedItemEducationString = specializations.valueFromUser(editingUser)
+//        case .educform:
+//            item = JSONService<Specialization>
         default:
             break
         }

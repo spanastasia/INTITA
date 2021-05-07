@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miW-Hx-2MF">
-                                <rect key="frame" x="28" y="815" width="358" height="55"/>
+                                <rect key="frame" x="28" y="791" width="358" height="55"/>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="OuP-LM-ekg"/>
@@ -41,21 +41,22 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QLt-kG-VmE">
-                                <rect key="frame" x="28" y="86" width="358" height="721"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="697"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="F2t-W2-iMS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="1AR-BG-dfk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="miW-Hx-2MF" secondAttribute="bottom" constant="16" id="57L-lV-54R"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="F2t-W2-iMS" secondAttribute="trailing" constant="28" id="6AU-xf-bUU"/>
                             <constraint firstItem="miW-Hx-2MF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="IGD-Go-F4Z"/>
                             <constraint firstItem="miW-Hx-2MF" firstAttribute="top" secondItem="QLt-kG-VmE" secondAttribute="bottom" constant="8" id="Jnp-6p-eFz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="miW-Hx-2MF" secondAttribute="trailing" constant="28" id="LKH-Lz-P7Y"/>
-                            <constraint firstItem="miW-Hx-2MF" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="8" id="l8T-Cn-3zZ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QLt-kG-VmE" secondAttribute="trailing" constant="28" id="p9h-EU-Uuy"/>
-                            <constraint firstItem="QLt-kG-VmE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="28" id="tH6-tm-aa8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QLt-kG-VmE" secondAttribute="trailing" id="p9h-EU-Uuy"/>
+                            <constraint firstItem="QLt-kG-VmE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tH6-tm-aa8"/>
                             <constraint firstItem="F2t-W2-iMS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="4" id="yqo-MN-7wS"/>
                             <constraint firstItem="QLt-kG-VmE" firstAttribute="top" secondItem="F2t-W2-iMS" secondAttribute="bottom" constant="8" id="zW4-uy-Sxa"/>
                         </constraints>

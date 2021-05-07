@@ -126,6 +126,8 @@
 		6488E7A526419E5100D898DC /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6488E7A226419E5100D898DC /* ItemTableViewCell.swift */; };
 		6488E7A626419E5100D898DC /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6488E7A326419E5100D898DC /* ItemTableViewCell.xib */; };
 		6488E7A726419E5100D898DC /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6488E7A326419E5100D898DC /* ItemTableViewCell.xib */; };
+		6488E7AA2641B58200D898DC /* MultipleSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6488E7A92641B58200D898DC /* MultipleSelectionViewModel.swift */; };
+		6488E7AB2641B58200D898DC /* MultipleSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6488E7A92641B58200D898DC /* MultipleSelectionViewModel.swift */; };
 		64B74F3B254C70E3004E6A4E /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */; };
 		64B74F3E254C71B1004E6A4E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F3D254C71B1004E6A4E /* Coordinator.swift */; };
 		64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B74F40254C71F2004E6A4E /* Storyboarded.swift */; };
@@ -384,6 +386,7 @@
 		6488E79F26419DE900D898DC /* MultipleSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultipleSelection.storyboard; sourceTree = "<group>"; };
 		6488E7A226419E5100D898DC /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		6488E7A326419E5100D898DC /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
+		6488E7A92641B58200D898DC /* MultipleSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipleSelectionViewModel.swift; path = INTITA/Modules/ProfileSettingsScreen/MultipleSelectionScreen/MultipleSelectionViewModel.swift; sourceTree = SOURCE_ROOT; };
 		64B74F3A254C70E3004E6A4E /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; tabWidth = 5; };
 		64B74F3D254C71B1004E6A4E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		64B74F40254C71F2004E6A4E /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -707,6 +710,7 @@
 			children = (
 				6488E7A826419E5800D898DC /* Cells */,
 				6488E79926419D8200D898DC /* MultipleSelectionCoordinator.swift */,
+				6488E7A92641B58200D898DC /* MultipleSelectionViewModel.swift */,
 				6488E79C26419DA800D898DC /* MultipleSelectionViewController.swift */,
 				6488E79F26419DE900D898DC /* MultipleSelection.storyboard */,
 			);
@@ -1130,6 +1134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6488E7AA2641B58200D898DC /* MultipleSelectionViewModel.swift in Sources */,
 				6466672E25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift in Sources */,
 				6488E79D26419DA800D898DC /* MultipleSelectionViewController.swift in Sources */,
 				646615A225967C4400173A13 /* HeaderSettingsTableViewCell.swift in Sources */,
@@ -1313,6 +1318,7 @@
 				3F1DC0C325D69FEB000EF654 /* JSONService.swift in Sources */,
 				BAAEC8BF25D13C6D00F2660E /* TaskHeaderCell.swift in Sources */,
 				BAAEC90D25D13CBD00F2660E /* UserDefaultsManager.swift in Sources */,
+				6488E7AB2641B58200D898DC /* MultipleSelectionViewModel.swift in Sources */,
 				BAAEC8CA25D13C7800F2660E /* TextTableViewCellModel.swift in Sources */,
 				3F1DC0EE25D905E2000EF654 /* OpportunitiesType.swift in Sources */,
 				BAAEC8C725D13C7800F2660E /* LinksTableViewCell.swift in Sources */,

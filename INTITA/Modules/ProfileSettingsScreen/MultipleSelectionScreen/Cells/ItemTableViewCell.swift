@@ -7,17 +7,29 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
-
+class ItemTableViewCell: UITableViewCell, NibCapable {
+    
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+//        setupUI()
+        isUserInteractionEnabled = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func setupUI(isTrue: Bool) {
+        colorView.rounded()
+        let fontText: UIFont = isTrue ? .boldSystemFont(ofSize: 16) : .systemFont(ofSize: 14)
+        valueLabel.font = fontText
+        let color: UIColor = isTrue ? .systemGray4 : .systemGray6
+        colorView.backgroundColor = color
+    }
+    
+    func configure(with item: ButtonItem) {
+        setupUI(isTrue: item.enabled)
+        valueLabel.text = item.title
     }
     
 }

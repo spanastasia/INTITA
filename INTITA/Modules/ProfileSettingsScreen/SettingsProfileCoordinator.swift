@@ -59,7 +59,9 @@ class SettingsProfileCoordinator: Coordinator {
     
     func showMultipleSelectionScreen() {
         let multipleSelectionCoordinator = MultipleSelectionCoordinator(
-            navigationController: navigationController)
+            navigationController: navigationController,
+            item: settingsViewModel.item ?? [],
+            selectedItemString: settingsViewModel.selectedItemEducationString ?? "")
         multipleSelectionCoordinator.start()
     }
     
