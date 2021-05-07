@@ -10,6 +10,8 @@ import UIKit
 class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
     
     var notifcationsBox : [Messeg] = []
+    
+    
 
     @IBOutlet weak var nameNotificationsLabel: UILabel!
     @IBOutlet weak var notificationTabelView: UITableView!
@@ -21,17 +23,14 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
         
         notificationTabelView.delegate = self
         notificationTabelView.dataSource = self
+        
         getData { (Notifikation) in
-            
             self.notifcationsBox = Notifikation.rows
             DispatchQueue.main.async {
                 self.notificationTabelView.reloadData()
             }
-            
-           
-            
-            //print(a)
         }
+        
         setupCell()
     }
     
@@ -41,6 +40,20 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
     }
     
 
+    @IBAction func inbox(_ sender: Any) {
+        
+    }
+    
+    @IBAction func send(_ sender: Any) {
+        
+    }
+    
+    @IBAction func system(_ sender: Any) {
+    }
+    
+    @IBAction func trash(_ sender: Any) {
+    }
+    
     @IBAction func backButtonToProfile(_ sender: Any) {
         coordinator?.returnToProfileScreen()
     }
@@ -53,6 +66,7 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = ["Content-Type" : "application/json",
                                        "Authorization" : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImVmZDIzYmVkM2QyODFmYzU4NmIzMGRlMjliZmQ4MjFkZGY3YzA4ZGNjYzEwMzBlYjE2N2Q4NDU1MmI5NjZiZTNjMTYxOWZkMDAyOGZjMmI5In0.eyJhdWQiOiIyIiwianRpIjoiZWZkMjNiZWQzZDI4MWZjNTg2YjMwZGUyOWJmZDgyMWRkZjdjMDhkY2NjMTAzMGViMTY3ZDg0NTUyYjk2NmJlM2MxNjE5ZmQwMDI4ZmMyYjkiLCJpYXQiOjE2MTg5NDE2NDgsIm5iZiI6MTYxODk0MTY0OCwiZXhwIjoxNjUwNDc3NjQ4LCJzdWIiOiIyNTcxIiwic2NvcGVzIjpbXX0.sVoVQJwv_RcP4PGD5SK0C-iWs9qYgU_qDA3oiTTQXIBYiqt3fdZuInqiftXLsnqrKTIrYNEGK9p3AEldmrJVsj_zlaMOReSSouN9O1F3tLOtMJ1aazzBxn2SaYk1tWd3IG1M5Ux1Ll2RLCiPbog-blv1XQ-oPr3spryxEJjI1TLPF7umDHeOK3lZJw5Vxijm0p3tr3HDHDtjJkw5DgU0M1GPQjDyEfDBB_6jHOeG1LvpLujgcf2RZZDvVb8t3nKD-8bSD_Znz37NrD_OIU9vF3Ttn8gw9xx_RVAXdrvC-39WF9kGKhawW_owuC6lsobVrSOtkhzlNj4P2g6kfQ8iKzz3wIPrAA49Lf73MXn_GzUBElYw12udO5hhpgkiTP5wL-Sc6eXm7W_3udm1y5FK8ofJhjv78N3ltIGGNmNEBoG2WxFjJuXhOsX29uXEJy9TD3YKrSVWfjY7qpMTu4Cl1ZiaMkDL8Ii6sLfxHOHjy8EiE4CaHGFzBhHSWY5SSCoovd0xqG0z8pzlSV9kGCzEcHwm-WIy8UWCijx22R3yuslPt7Oztoxs6oTHeEu27TSdEF-MuNVQE_WTi6iJxdxJ4QFVQ8i7zuJzFI8BKvVuLwbsb3Hb2e5TjlOxzpHxGaVjOQPhqkYUWuMsqHKZTOu9slDMZWC4kgKaHf8VRF1TPhM"]
+        var type = "sent"//"inbox' || '' || 'system' || 'trash"
 
         let json3 = [
                           "field": "id",
@@ -66,7 +80,7 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
         ] as [String : Any?]
 
         let json = [
-          "type": "sent",
+          "type": type,
           "queryParams": json2
         ] as [String : Any]
         
@@ -78,7 +92,7 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
 //        print(request.httpMethod)
 //        print(request.httpBody)
 //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        print(request)
+        //print(request)
         return request
     }
     
@@ -88,31 +102,24 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
             
             let task = session.dataTask(with: requestMesseges!) { data, response, error in
                 print(task_t.self)
-                if response != nil{
-               //     print(response)
-                }
+//                if response != nil{
+//               //     print(response)
+//                }
   
                 if error != nil {
-             //       print(error)
-                    //completionHandler()
+                    print(error)
                     return
                 }
                 guard let data = data else {
-             //       print(error)
-                    //completionHandler()
+                    print(error)
                     return
                 }
                 
                 do {
                     let response = try JSONDecoder().decode(Notifikation.self, from: data)
                     completionHandler(response)
-                    
-//                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-//                    print(response)
                 } catch {
-                   // print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
                     print(error)
-                    //completionHandler()
                 }
             }
     
@@ -126,15 +133,7 @@ struct Notifikation: Codable {
     var rows: [Messeg]
     var count: Int
     var notificationsAmount: Int
-    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//
-//        count = try container.decode(Int.self, forKey: .count)
-//        notificationsAmount = try container.decode(Int.self, forKey: .notificationsAmount)
-//        rows = try container.decode([Messeg].self, forKey: .rows)
-//    }
-    
+
     enum CodingKeys: String, CodingKey {
         case count
         case notificationsAmount
