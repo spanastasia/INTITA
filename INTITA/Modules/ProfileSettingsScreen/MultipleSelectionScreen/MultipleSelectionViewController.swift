@@ -11,7 +11,7 @@ enum Section {
     case first
 }
 
-struct ButtonItem: Hashable {
+struct SelectedItem: Hashable {
     var id: Int
     var title: String
     var enabled: Bool
@@ -19,6 +19,10 @@ struct ButtonItem: Hashable {
     mutating func changedType() {
         self.enabled.toggle()
     }
+}
+
+protocol  MultipleSelectionViewControllerDelegate: AnyObject {
+    func multipleSelectionViewController(_ sender: UIViewController, with chosenItemId: [Int])
 }
 
 class MultipleSelectionViewController: UIViewController, Storyboarded {
@@ -29,7 +33,9 @@ class MultipleSelectionViewController: UIViewController, Storyboarded {
     
     var coordinator: MultipleSelectionCoordinator?
     var viewModel: MultipleSelectionViewModel!
-    private var diffableDataSource: UITableViewDiffableDataSource<Section, ButtonItem>?
+    private var diffableDataSource: UITableViewDiffableDataSource<Section, SelectedItem>?
+    
+    weak var delegate: MultipleSelectionViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +52,7 @@ class MultipleSelectionViewController: UIViewController, Storyboarded {
     }
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
+        delegate?.multipleSelectionViewController(self, with: viewModel.setArrayItemsId())
         dismiss(animated: true)
     }
     
@@ -67,7 +74,7 @@ class MultipleSelectionViewController: UIViewController, Storyboarded {
         }
     }
     
-    private func labelCellForRowAt(_ indexPath: IndexPath, with item: ButtonItem) -> UITableViewCell {
+    private func labelCellForRowAt(_ indexPath: IndexPath, with item: SelectedItem) -> UITableViewCell {
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.identifier) as? ItemTableViewCell else {
                 return UITableViewCell()

@@ -148,7 +148,7 @@ extension SettingsProfileViewController: UITableViewDelegate {
             if let url = URL(string: stringURL) {
                 coordinator?.showSafari(with: url)
             }
-        case .educationShift, .preferedSpecializations, .educform:
+        case .preferedSpecializations, .educationShift, .educform:
             viewModel.isItemRow(row: indexPath.row)
             coordinator?.showMultipleSelectionScreen()
         default:

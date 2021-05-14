@@ -21,15 +21,20 @@ class ItemTableViewCell: UITableViewCell, NibCapable {
     
     private func setupUI(isTrue: Bool) {
         colorView.rounded()
-        let fontText: UIFont = isTrue ? .boldSystemFont(ofSize: 16) : .systemFont(ofSize: 14)
-        valueLabel.font = fontText
-        let color: UIColor = isTrue ? .systemGray4 : .systemGray6
-        colorView.backgroundColor = color
+        animationView(by: isTrue)
     }
     
-    func configure(with item: ButtonItem) {
+    func configure(with item: SelectedItem) {
         setupUI(isTrue: item.enabled)
         valueLabel.text = item.title
     }
     
+    private func animationView(by isTrue: Bool) {
+        let color: UIColor = isTrue ? .systemGray4 : .systemGray6
+        let fontText: UIFont = isTrue ? .boldSystemFont(ofSize: 16) : .systemFont(ofSize: 14)
+        UIView.animate(withDuration: 0.5) {
+            self.colorView.backgroundColor = color
+            self.valueLabel.font = fontText
+        }
+    }
 }

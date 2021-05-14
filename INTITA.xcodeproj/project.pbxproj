@@ -95,6 +95,10 @@
 		6451A8B12635E4F8000BC552 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */; };
 		6451A8B726369D7E000BC552 /* LabelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8B626369D7E000BC552 /* LabelItem.swift */; };
 		6451A8B826369D7E000BC552 /* LabelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6451A8B626369D7E000BC552 /* LabelItem.swift */; };
+		64618F69264AE152009DDCE7 /* EducationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64618F68264AE152009DDCE7 /* EducationFormModel.swift */; };
+		64618F6A264AE152009DDCE7 /* EducationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64618F68264AE152009DDCE7 /* EducationFormModel.swift */; };
+		64618F6C264AE377009DDCE7 /* EducationForm.json in Resources */ = {isa = PBXBuildFile; fileRef = 64618F6B264AE377009DDCE7 /* EducationForm.json */; };
+		64618F6D264AE377009DDCE7 /* EducationForm.json in Resources */ = {isa = PBXBuildFile; fileRef = 64618F6B264AE377009DDCE7 /* EducationForm.json */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsProfileCoordinator.swift */; };
@@ -370,6 +374,8 @@
 		6451A8AC2635E4F8000BC552 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		6451A8AD2635E4F8000BC552 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
 		6451A8B626369D7E000BC552 /* LabelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelItem.swift; sourceTree = "<group>"; };
+		64618F68264AE152009DDCE7 /* EducationFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationFormModel.swift; sourceTree = "<group>"; };
+		64618F6B264AE377009DDCE7 /* EducationForm.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EducationForm.json; sourceTree = "<group>"; };
 		646615872596738300173A13 /* SettingsProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCoordinator.swift; sourceTree = "<group>"; };
 		646615952596745200173A13 /* SettingsProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileViewController.swift; sourceTree = "<group>"; };
 		6466672D25BDD1FB00FAF5DA /* OpportunitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunitiesCoordinator.swift; sourceTree = "<group>"; };
@@ -790,6 +796,7 @@
 				841C851425C1E4E0005C32F9 /* Countries.json */,
 				64154D3F25DAA2A300952C67 /* Specialization.json */,
 				64EE8AE225F16D0100B6D9F3 /* EducationShift.json */,
+				64618F6B264AE377009DDCE7 /* EducationForm.json */,
 				3F1DC0C125D69FEB000EF654 /* JSONService.swift */,
 				3F1DC0BB25D69EB1000EF654 /* LocalizedResponseProtocol.swift */,
 				841C851B25C41D51005C32F9 /* CountryModel.swift */,
@@ -797,6 +804,7 @@
 				64154D4725DAACB400952C67 /* SpecializationModel.swift */,
 				64EE8AEB25F16D7300B6D9F3 /* EducationShiftModel.swift */,
 				646F00E925FA6D8D00D4AAD6 /* CareerModel.swift */,
+				64618F68264AE152009DDCE7 /* EducationFormModel.swift */,
 			);
 			path = JSONFiles;
 			sourceTree = "<group>";
@@ -1055,6 +1063,7 @@
 				841C852325C421CE005C32F9 /* Countries.json in Resources */,
 				84A08F5C2556B9AE00565689 /* LogIn.storyboard in Resources */,
 				3F1DC09A25D69438000EF654 /* Cities.json in Resources */,
+				64618F6C264AE377009DDCE7 /* EducationForm.json in Resources */,
 				3F87985B255E74060094D6D9 /* ProfileFooterViewCell.xib in Resources */,
 				49F53EAE25531263008327A6 /* Localizable.strings in Resources */,
 				646F00E325FA6D3E00D4AAD6 /* Careers.json in Resources */,
@@ -1083,6 +1092,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64618F6D264AE377009DDCE7 /* EducationForm.json in Resources */,
 				BAAEC8D125D13C7800F2660E /* LogoTableViewCell.xib in Resources */,
 				BAAEC8FA25D13CA600F2660E /* ProfileHeaderViewCell.xib in Resources */,
 				3F1DC0E225D905AA000EF654 /* Opportunities.storyboard in Resources */,
@@ -1223,6 +1233,7 @@
 				BA8D88572552C54D005A44C2 /* UIFont+Additions.swift in Sources */,
 				BAAEC85425CF42B500F2660E /* EducationForm.swift in Sources */,
 				64B74F41254C71F2004E6A4E /* Storyboarded.swift in Sources */,
+				64618F69264AE152009DDCE7 /* EducationFormModel.swift in Sources */,
 				BA4FF3CA25A0D6D50063218C /* TaskCell.swift in Sources */,
 				848EE5062553FBF30042E3D8 /* LogInViewModel.swift in Sources */,
 				3F1DC0BC25D69EB1000EF654 /* LocalizedResponseProtocol.swift in Sources */,
@@ -1263,6 +1274,7 @@
 				BAAEC89F25D13C4B00F2660E /* CurrentUser.swift in Sources */,
 				BAAEC8E125D13C9100F2660E /* WelcomeViewController.swift in Sources */,
 				BAAEC8E225D13C9100F2660E /* PromoTextView.swift in Sources */,
+				64618F6A264AE152009DDCE7 /* EducationFormModel.swift in Sources */,
 				BAAEC8F125D13CA100F2660E /* ProfileCoordinator.swift in Sources */,
 				BAAEC8BD25D13C6D00F2660E /* TaskCell.swift in Sources */,
 				BAAEC8F725D13CA600F2660E /* ProfileTableViewCell.swift in Sources */,

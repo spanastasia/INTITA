@@ -61,7 +61,9 @@ class SettingsProfileCoordinator: Coordinator {
         let multipleSelectionCoordinator = MultipleSelectionCoordinator(
             navigationController: navigationController,
             item: settingsViewModel.item ?? [],
-            selectedItemString: settingsViewModel.selectedItemEducationString ?? "")
+            selectedItem: settingsViewModel.selectedItemEducations ?? [])
+        
+        multipleSelectionCoordinator.delegate = self
         multipleSelectionCoordinator.start()
     }
     
@@ -81,5 +83,11 @@ extension SettingsProfileCoordinator: ListCoordinatorDelegate {
 extension SettingsProfileCoordinator: BirthdayCoordinatorDelegate {
     func birthdayCoordinator(_ sender: Coordinator, didSelectDay: String) {
         settingsViewModel.selectBirthday(didSelectDay)
+    }
+}
+
+extension SettingsProfileCoordinator: MultipleSelectionCoordinatorDelegate {
+    func multipleSelectionCoordinator(_ sender: Coordinator, with chosenItemId: [Int]) {
+        settingsViewModel.selectEducation(chosenItemId)
     }
 }

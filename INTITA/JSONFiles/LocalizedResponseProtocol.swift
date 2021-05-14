@@ -42,6 +42,7 @@ enum LocalizedFile {
     case specialization
     case educationShift
     case career
+    case educationForm
     
     var fileName: String {
         switch self {
@@ -55,6 +56,8 @@ enum LocalizedFile {
             return "EducationShift"
         case .career:
             return "Careers"
+        case .educationForm:
+            return "EducationForm"
         }
     }
 }

@@ -9,25 +9,24 @@ import UIKit
 
 class MultipleSelectionViewModel {
     
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, ButtonItem>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, SelectedItem>
     
     var item: [LocalizedResponseProtocol]
-    var listItems: [ButtonItem]?
-    var selctedItem: [LocalizedResponseProtocol]?
-    var selectedItemString: String
+    var listItems: [SelectedItem]?
+    var selectedItems: [Int]
     
-    init(item: [LocalizedResponseProtocol], selectedItemString: String) {
+    init(item: [LocalizedResponseProtocol], selectedItem: [Int]) {
         self.item = item
-        self.selectedItemString = selectedItemString
+        self.selectedItems = selectedItem
         self.listItems = getArrayItems()
     }
     
-    func getArrayItems() -> [ButtonItem] {
-        let labelItems: [ButtonItem] = (0..<item.count).map { (index) -> ButtonItem in
+    func getArrayItems() -> [SelectedItem] {
+        let labelItems: [SelectedItem] = (0..<item.count).map { (index) -> SelectedItem in
             let title = item[index].getLocalizedValue()
             let index = item[index].id
             let isTure = isContainTitle(with: title ?? "")
-            return ButtonItem(id: index, title: title ?? "", enabled: isTure)
+            return SelectedItem(id: index, title: title ?? "", enabled: isTure)
         }
         return labelItems
     }
@@ -44,7 +43,21 @@ class MultipleSelectionViewModel {
     }
     
     private func isContainTitle(with title: String) -> Bool {
-        let arrayTitles = selectedItemString.components(separatedBy: ", ")
-            return arrayTitles.contains(title) ? true : false
+        let arrayTitles = selectedItems.map { index -> String in
+            return item[index - 1].getLocalizedValue() ?? ""
+        }
+        return arrayTitles.contains(title) ? true : false
+    }
+    
+    func setArrayItemsId() -> [Int] {
+        var arrayEducations: [Int] = []
+        if let listItems = listItems {
+            for field in listItems {
+                if field.enabled {
+                    arrayEducations.append(field.id)
+                }
+            }
+        }
+        return arrayEducations
     }
 }
