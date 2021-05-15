@@ -17,7 +17,7 @@ class APIRequest: RequestAPIProtocol {
     private init() { }
     
     public func request<T: Codable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
-        let session = URLSession.shared
+        let session = URLSession(configuration: .ephemeral)
         
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil {
