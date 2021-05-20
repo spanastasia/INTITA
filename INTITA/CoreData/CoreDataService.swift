@@ -31,9 +31,9 @@ class CoreDataService {
             userDB = User(context: managedContext)
             userDB.id = Int32(appUser.id)
         }
-        userDB.firstName = appUser.firstName
+        userDB.firstName = appUser.firstName ?? ""
         userDB.secondName = appUser.secondName
-        userDB.fullName = appUser.fullName
+        userDB.fullName = appUser.fullName ?? ""
         userDB.middleName = appUser.middleName
         userDB.nickname = appUser.nickname
         userDB.birthday = appUser.birthday

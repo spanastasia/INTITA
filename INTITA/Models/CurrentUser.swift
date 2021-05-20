@@ -10,7 +10,7 @@ import Foundation
 // MARK:- CurrentUser
 struct CurrentUser: Codable {
     var id: Int
-    var firstName, fullName: String
+    var firstName, fullName: String?
     var middleName: String?
     var secondName: String?
     var nickname: String?
@@ -38,8 +38,8 @@ struct CurrentUser: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try container.decode(Int.self, forKey: .id)
-        firstName = try container.decode(String.self, forKey: .firstName)
-        fullName = try container.decode(String.self, forKey: .fullName)
+        firstName = try container.decodeIfPresent(String.self, forKey: .firstName)
+        fullName = try container.decodeIfPresent(String.self, forKey: .fullName)
         middleName = try container.decodeIfPresent(String.self, forKey: .middleName)
         secondName = try container.decodeIfPresent(String.self, forKey: .secondName)
         nickname = try container.decodeIfPresent(String.self, forKey: .nickname)
@@ -78,7 +78,7 @@ struct CurrentUser: Codable {
         secondName = editingUser.secondName ?? current.secondName
         middleName = current.middleName
         var str = ""
-        if firstName.count > 0 {
+        if let firstName = firstName, firstName.count > 0 {
             str.append(firstName)
             if secondName != nil {
                 str.append(" ")
