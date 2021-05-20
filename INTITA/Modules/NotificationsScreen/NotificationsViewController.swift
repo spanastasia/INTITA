@@ -10,8 +10,8 @@ import UIKit
 class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
     
     var notifcationsBox : [Messeg] = []
-    var displeyCount : [Messeg] = []
-    var limit = 20
+//    var displeyCount : [Messeg] = []
+//    var limit = 20
     
     var authorizationService: AuthorizationProtocol = Authorization.shared
 
@@ -64,13 +64,13 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
         coordinator?.returnToProfileScreen()
     }
     
-    func setupNewView(iN : Int){
-        var x = iN
-        while x < limit {
-            displeyCount.append(notifcationsBox[x])
-            x += 1
-        }
-    }
+//    func setupNewView(iN : Int){
+//        var x = iN
+//        while x < limit {
+//            displeyCount.append(notifcationsBox[x])
+//            x += 1
+//        }
+//    }
     
 }
 
@@ -99,11 +99,11 @@ extension NotificationsViewController: UITableViewDataSource {
         
         
         
-        if indexPath.row == displeyCount.count-1 && notifcationsBox.count != displeyCount.count{
+//        if indexPath.row == displeyCount.count-1 && notifcationsBox.count != displeyCount.count{
             
            // infinitiScroll
 
-        }
+//        }
     }
 
     
