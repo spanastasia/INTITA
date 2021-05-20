@@ -149,11 +149,10 @@ fileprivate class AuthorizationReal: AuthorizationProtocol {
         }
     }
     func fetchNotifications(completion: @escaping (Result<Notifikation, Error>) -> Void) {
-        guard let request = ApiURL.currentUser.request else { return }
+        guard let request = ApiURL.notifications.request else { return }
         APIRequest.shared.request(request: request) { (result: Result<Notifikation, Error>) in
             switch result {
             case .success(let massege):
-//                UserData.set(currentUser: user)
                 completion(.success(massege))
             case .failure(let error):
                 completion(.failure(error))

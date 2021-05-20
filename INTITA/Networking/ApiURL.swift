@@ -84,7 +84,7 @@ enum ApiURL {
                     "aboutUs" : user.aboutUs ?? "",
                     "facebook" : user.facebook ?? "",
                     
-//                    TODO: I gues there are fields which can not be changed by User
+//                    TODO: I guess there are fields which can not be changed by User
 //                    "skype" : user.skype ?? "",
 //                    "linkedin" : user.linkedin ?? "",
 //                    "twitter" : user.twitter ?? "",
@@ -95,19 +95,19 @@ enum ApiURL {
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         case .notifications:
             let json3 = [
-                              "field": "id",
-                              "type": "desc"
-                        ]
+                "field": "id",
+                "type": "desc"
+            ]
             let json2 = [
-                            "count": 20,
-                            "page": 1,
+                "count": 20,
+                "page": 1,
                 "sorting": [json3],
-                            "filter": nil
+                "filter": nil
             ] as [String : Any?]
-
+            
             let json = [
                 "type": "inbox",
-              "queryParams": json2
+                "queryParams": json2
             ] as [String : Any]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
         }
