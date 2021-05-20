@@ -12,6 +12,7 @@ enum ApiURL {
     case logout
     case currentUser
     case editUser(user: EditingUser)
+    case notifications
     
     var path: String {
         return Bundle.main.object(forInfoDictionaryKey: AppConstans.urlPath) as? String ?? "/"
@@ -32,8 +33,13 @@ enum ApiURL {
             if let id = UserData.currentUser?.id {
                 return "\(path)\(apiVersion)/editUser/\(id)"
             }
+            return ""
+        case .notifications:
+            if let id = UserData.currentUser?.id {
+                return "\(path)\(apiVersion)/notifications/\(id)"
+            }
+            return ""
         }
-        return ""
     }
     
     var httpMethod: String {
@@ -44,6 +50,8 @@ enum ApiURL {
             return "GET"
         case .editUser:
             return "PUT"
+        case .notifications:
+            return "POST"
         }
     }
     
@@ -85,6 +93,23 @@ enum ApiURL {
 //                    "educationShift" : user.educationShift ?? 0,
                 ] as [String : Any]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
+        case .notifications:
+            let json3 = [
+                              "field": "id",
+                              "type": "desc"
+                        ]
+            let json2 = [
+                            "count": 20,
+                            "page": 1,
+                "sorting": [json3],
+                            "filter": nil
+            ] as [String : Any?]
+
+            let json = [
+                "type": "inbox",
+              "queryParams": json2
+            ] as [String : Any]
+            return try? JSONSerialization.data(withJSONObject: json, options: [])
         }
     }
     
@@ -104,6 +129,12 @@ enum ApiURL {
             return ["Content-Type" : "application/json",
                     "Accept" : "application/json",
                     "Authorization" : "Bearer \(token)"]
+        case .notifications:
+            guard let token = UserData.token else {
+                return nil
+            }
+            return ["Content-Type" : "application/json",
+                    "Authorization" : "Bearer \(token)"]
         }
     }
     
@@ -122,6 +153,8 @@ enum ApiURL {
             break
         case .editUser:
             request.httpBody = bodyParams
+        case .notifications:
+            request.httpBody = bodyParams
         }
         return request
     }
@@ -136,6 +169,9 @@ enum ApiURL {
             return nil
         case .editUser:
             return "editUser"
+        case .notifications:
+            return "notifications"
         }
     }
+
 }
