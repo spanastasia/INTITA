@@ -99,6 +99,8 @@
 		64618F6A264AE152009DDCE7 /* EducationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64618F68264AE152009DDCE7 /* EducationFormModel.swift */; };
 		64618F6C264AE377009DDCE7 /* EducationForm.json in Resources */ = {isa = PBXBuildFile; fileRef = 64618F6B264AE377009DDCE7 /* EducationForm.json */; };
 		64618F6D264AE377009DDCE7 /* EducationForm.json in Resources */ = {isa = PBXBuildFile; fileRef = 64618F6B264AE377009DDCE7 /* EducationForm.json */; };
+		64618F6E26540736009DDCE7 /* WrongPasswordEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */; };
+		64618F6F26540745009DDCE7 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		646615622596683F00173A13 /* SettingsProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641B86FB258D207D005FAA24 /* SettingsProfile.storyboard */; };
 		646615672596684E00173A13 /* HeaderSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641CDF96258E0A61002537A2 /* HeaderSettingsTableViewCell.xib */; };
 		646615882596738300173A13 /* SettingsProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646615872596738300173A13 /* SettingsProfileCoordinator.swift */; };
@@ -1110,6 +1112,7 @@
 				3F1DC0F625D9064A000EF654 /* OpportunitiesTableViewCell.xib in Resources */,
 				BAAEC92E25D13CE800F2660E /* AlertView.xib in Resources */,
 				BAAEC8FB25D13CA600F2660E /* ProfileFooterViewCell.xib in Resources */,
+				64618F6F26540745009DDCE7 /* WrongPasswordEmailTableViewCell.xib in Resources */,
 				BAAEC8BC25D13C6D00F2660E /* TaskCell.xib in Resources */,
 				BAAEC8D225D13C7800F2660E /* RegisterButtonTableViewCell.xib in Resources */,
 				6451A8B12635E4F8000BC552 /* LabelTableViewCell.xib in Resources */,
@@ -1305,6 +1308,7 @@
 				3F45997C25DD2B4000AE26E9 /* EditUserResponse.swift in Sources */,
 				BAAEC92925D13CE000F2660E /* Storyboarded.swift in Sources */,
 				BAAEC91E25D13CE000F2660E /* NibCapable.swift in Sources */,
+				64618F6E26540736009DDCE7 /* WrongPasswordEmailTableViewCell.swift in Sources */,
 				BAAEC88725D13C2D00F2660E /* CountryModel.swift in Sources */,
 				BAAEC8FF25D13CAE00F2660E /* SettingsProfileViewController.swift in Sources */,
 				6488E79E26419DA800D898DC /* MultipleSelectionViewController.swift in Sources */,

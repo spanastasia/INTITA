@@ -11,9 +11,7 @@ import Foundation
 enum ChoosenItem {
     case country
     case city
-    case educationForm
     case preferSpecializations
-    case educationShift
 }
 
 class SettingsProfileViewModel {
@@ -59,20 +57,20 @@ class SettingsProfileViewModel {
             selectedItem = editingUser?.city
         case .city:
             item = nil
-        case .educationShift:
-            item = JSONService<EducationShiftModel>.values
-            choosenItem = .educationShift
-            guard let educationShift = existingUser?.educationShift else { return }
-            selectedItemEducations = [educationShift]
+//        case .educationShift:
+//            item = JSONService<EducationShiftModel>.values
+//            choosenItem = .educationShift
+//            guard let educationShift = existingUser?.educationShift else { return }
+//            selectedItemEducations = [educationShift]
         case .preferedSpecializations:
             item = JSONService<SpecializationModel>.values
             choosenItem = .preferSpecializations
             selectedItemEducations = editingUser?.preferSpecializations
-        case .educform:
-            item = JSONService<EducationFormModel>.values
-            choosenItem = .educationForm
-            guard let educationModel = existingUser?.educationShift else { return }
-            selectedItemEducations = [educationModel]
+//        case .educform:
+//            item = JSONService<EducationFormModel>.values
+//            choosenItem = .educationForm
+//            guard let educationModel = existingUser?.educationShift else { return }
+//            selectedItemEducations = [educationModel]
         default:
             break
         }
@@ -154,7 +152,7 @@ class SettingsProfileViewModel {
         }
     }
     
-    func setNewValueToTextField(from index: Int?, from value: String?) {
+    func setNewValueToTextView(from index: Int?, from value: String?) {
             guard let index = index else { return }
             switch EditingField(rawValue: index) {
             case .firstName:
@@ -193,19 +191,19 @@ class SettingsProfileViewModel {
         }
     
     func selectEducation(_ selectedEducation: [Int]) {
-        switch choosenItem {
-        case .preferSpecializations:
+//        switch choosenItem {
+//        case .preferSpecializations:
             editingUser?.preferSpecializations = selectedEducation
             self.selectedItemEducations = selectedEducation
-        case .educationForm:
-            editingUser?.educform = selectedEducation.first
-            self.selectedItemEducations = selectedEducation
-        case .educationShift:
-            editingUser?.educationShift = selectedEducation.first
-            self.selectedItemEducations = selectedEducation
-        default:
-            break
-        }
+//        case .educationForm:
+//            editingUser?.educform = selectedEducation.first
+//            self.selectedItemEducations = selectedEducation
+//        case .educationShift:
+//            editingUser?.educationShift = selectedEducation.first
+//            self.selectedItemEducations = selectedEducation
+//        default:
+//            break
+//        }
         updateCallback?(nil)
     }
 }
