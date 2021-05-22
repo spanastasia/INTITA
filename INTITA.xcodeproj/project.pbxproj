@@ -80,6 +80,7 @@
 		49F53EAE25531263008327A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49F53EAC25531263008327A6 /* Localizable.strings */; };
 		49FC4EA125D44B9600024AD6 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F0254ADD800087AEC7 /* Welcome.storyboard */; };
 		49FC4EA625D44BA100024AD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF299F5254ADD830087AEC7 /* LaunchScreen.storyboard */; };
+		533686422656D2330041920C /* Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAAEC87125D13BDB00F2660E /* Info-dev.plist */; };
 		640B812A25BF02A400F97F90 /* OpportunitiesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640B812925BF02A400F97F90 /* OpportunitiesType.swift */; };
 		64154D4025DAA2A300952C67 /* Specialization.json in Resources */ = {isa = PBXBuildFile; fileRef = 64154D3F25DAA2A300952C67 /* Specialization.json */; };
 		64154D4825DAACB400952C67 /* SpecializationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64154D4725DAACB400952C67 /* SpecializationModel.swift */; };
@@ -1070,6 +1071,7 @@
 				BAAEC90925D13CB300F2660E /* InfoSettingProfileTableViewCell.xib in Resources */,
 				64154D6425DAB92500952C67 /* Specialization.json in Resources */,
 				BAAEC8F825D13CA600F2660E /* ProfileTableViewCell.xib in Resources */,
+				533686422656D2330041920C /* Info-dev.plist in Resources */,
 				155ADE0A26427E020045CCF0 /* WrongPasswordEmailTableViewCell.xib in Resources */,
 				15221811263203EA008F4EBE /* Notifications.storyboard in Resources */,
 				BAAEC87F25D13C2700F2660E /* Countries.json in Resources */,
