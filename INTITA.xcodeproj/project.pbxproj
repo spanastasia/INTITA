@@ -21,6 +21,8 @@
 		155ADE0A26427E020045CCF0 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		1598662B2651B1950070DBBF /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598662A2651B1950070DBBF /* Notifications.swift */; };
 		1598662C2651B1950070DBBF /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598662A2651B1950070DBBF /* Notifications.swift */; };
+		15CB51CE2658C663000CEC9C /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB51CD2658C663000CEC9C /* NotificationsViewModel.swift */; };
+		15CB51CF2658C663000CEC9C /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CB51CD2658C663000CEC9C /* NotificationsViewModel.swift */; };
 		15D7765C2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */; };
 		15D7765D2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */; };
 		3F07809F2553EF4100E0332F /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */; };
@@ -299,6 +301,7 @@
 		1522182226320BAA008F4EBE /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
 		1522182326320BAA008F4EBE /* NotificationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsTableViewCell.xib; sourceTree = "<group>"; };
 		1598662A2651B1950070DBBF /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		15CB51CD2658C663000CEC9C /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		15D7765A2620391D00963F94 /* WrongPasswordEmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongPasswordEmailTableViewCell.swift; sourceTree = "<group>"; };
 		15D7765B2620391D00963F94 /* WrongPasswordEmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WrongPasswordEmailTableViewCell.xib; sourceTree = "<group>"; };
 		3F07809E2553EF4100E0332F /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -474,6 +477,7 @@
 				1522180F263203EA008F4EBE /* Notifications.storyboard */,
 				152218152632040D008F4EBE /* NotificationsViewController.swift */,
 				1522181B2632042C008F4EBE /* NotificationsCoordinator.swift */,
+				15CB51CD2658C663000CEC9C /* NotificationsViewModel.swift */,
 			);
 			path = NotificationsScreen;
 			sourceTree = "<group>";
@@ -1172,6 +1176,7 @@
 				84BF646E255E903D00E2E036 /* LinksTableViewCell.swift in Sources */,
 				64670B2B2611E2A400442673 /* BirthdayCoordinator.swift in Sources */,
 				64154D7825DC215A00952C67 /* ListViewController.swift in Sources */,
+				15CB51CE2658C663000CEC9C /* NotificationsViewModel.swift in Sources */,
 				1598662B2651B1950070DBBF /* Notifications.swift in Sources */,
 				64154D8725DD596300952C67 /* ListViewModel.swift in Sources */,
 				4972F34D2590A6D900616295 /* CustomPageControl.swift in Sources */,
@@ -1282,6 +1287,7 @@
 				BAAEC92525D13CE000F2660E /* UIViewController+ActivityIndicatorView.swift in Sources */,
 				BAAEC91F25D13CE000F2660E /* Shadow+BorderRadius+CornerRadius.swift in Sources */,
 				3F1DC0EA25D905B2000EF654 /* OpportunitiesCoordinator.swift in Sources */,
+				15CB51CF2658C663000CEC9C /* NotificationsViewModel.swift in Sources */,
 				1598662C2651B1950070DBBF /* Notifications.swift in Sources */,
 				BAAEC8CE25D13C7800F2660E /* RegisterButtonTableViewCell.swift in Sources */,
 				BAAEC93E25D13D0700F2660E /* AppDelegate.swift in Sources */,
