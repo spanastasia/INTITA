@@ -9,16 +9,24 @@ import UIKit
 
 class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
     
+    // viewModel
     var notifcationsBox : [Messeg] = []
+<<<<<<< HEAD
 //    var displeyCount : [Messeg] = []
 //    var limit = 20
     
+=======
+    var displeyCount : [Messeg] = []
+    var limit = 20
+>>>>>>> IN-62-Notifications_list
     var authorizationService: AuthorizationProtocol = Authorization.shared
+    // viewModel
 
     @IBOutlet weak var nameNotificationsLabel: UILabel!
     @IBOutlet weak var notificationTabelView: UITableView!
     
     var coordinator: NotificationsCoordinator?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +34,26 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
         notificationTabelView.delegate = self
         notificationTabelView.dataSource = self
         
+        // viewModel
         authorizationService.fetchNotifications { (response) in
            
             switch response {
             case .success(let notif):
                 self.notifcationsBox = notif.rows
+                DispatchQueue.main.async {
+                    self.notificationTabelView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             }
         }
-
+        // viewModel
+        
+        /*
+         viewModel.subscribe { error in
+         // e.g. ...reloadData()
+         }
+         */
         
         setupCell()
     }
@@ -64,6 +82,7 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
         coordinator?.returnToProfileScreen()
     }
     
+<<<<<<< HEAD
 //    func setupNewView(iN : Int){
 //        var x = iN
 //        while x < limit {
@@ -72,6 +91,17 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable  {
 //        }
 //    }
     
+=======
+    // viewModel
+    func setupNewView(iN : Int){
+        var x = iN
+        while x < limit {
+            displeyCount.append(notifcationsBox[x])
+            x += 1
+        }
+    }
+    // viewModel
+>>>>>>> IN-62-Notifications_list
 }
 
 
