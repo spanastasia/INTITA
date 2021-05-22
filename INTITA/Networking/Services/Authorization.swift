@@ -256,7 +256,7 @@ fileprivate class AuthorizationMock: AuthorizationProtocol {
     }
     
     func fetchNotifications(completion: @escaping (Result<Notifikation, Error>) -> Void) {
-        guard let file = ApiURL.currentUser.mockFileName,
+        guard let file = ApiURL.notifications.mockFileName,
               let data = JSONLoader.loadJsonData(file: file),
               let response = try? JSONDecoder().decode(Notifikation.self, from: data)
         else {
