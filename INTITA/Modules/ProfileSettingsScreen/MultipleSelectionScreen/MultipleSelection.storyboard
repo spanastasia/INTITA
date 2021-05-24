@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2t-W2-iMS">
-                                <rect key="frame" x="28" y="48" width="358" height="30"/>
+                                <rect key="frame" x="28" y="60" width="358" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ci4-4O-7PU"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QLt-kG-VmE">
-                                <rect key="frame" x="0.0" y="86" width="414" height="697"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="685"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
@@ -57,7 +57,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="miW-Hx-2MF" secondAttribute="trailing" constant="28" id="LKH-Lz-P7Y"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QLt-kG-VmE" secondAttribute="trailing" id="p9h-EU-Uuy"/>
                             <constraint firstItem="QLt-kG-VmE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tH6-tm-aa8"/>
-                            <constraint firstItem="F2t-W2-iMS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="4" id="yqo-MN-7wS"/>
+                            <constraint firstItem="F2t-W2-iMS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="yqo-MN-7wS"/>
                             <constraint firstItem="QLt-kG-VmE" firstAttribute="top" secondItem="F2t-W2-iMS" secondAttribute="bottom" constant="8" id="zW4-uy-Sxa"/>
                         </constraints>
                     </view>

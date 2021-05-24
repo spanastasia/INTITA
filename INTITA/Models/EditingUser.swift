@@ -49,7 +49,7 @@ struct EditingUser: Codable, Equatable {
         case facebook
         case linkedin
         case twitter
-        case preferSpecializations = "prefer_specializations"
+        case preferSpecializations = "specialization"
         case educform
         case educationShift = "education_shift"
     }
