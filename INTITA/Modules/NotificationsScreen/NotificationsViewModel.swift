@@ -7,11 +7,11 @@
 
 import Foundation
 
-typealias ViewModelCallback = (Error?) -> Void
+typealias NotificationsViewModelCallback = (Error?) -> Void
 
 class NotificationsViewModel{
     
-    private var updateCallback: ViewModelCallback?
+    private var updateCallback: NotificationsViewModelCallback?
     var notifcationsBox : [Messeg] = []
     var authorizationService: AuthorizationProtocol
     
@@ -23,11 +23,9 @@ class NotificationsViewModel{
     
    
     
-    /*
-     viewModel.subscribe { error in
-     // e.g. ...reloadData()
-     }
-     */
+    func subscribe(updateCallback: ProfileViewModelCallback?) {
+        self.updateCallback = updateCallback
+    }
     
    
     
@@ -44,7 +42,7 @@ extension NotificationsViewModel: NotificationsDelegate{
                     //self.notificationTabelView.reloadData()
                     //}
                     case .failure(let error):
-                        print(error)
+                        self.updateCallback?(error)
                     }
         }
     }
