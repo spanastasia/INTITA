@@ -66,7 +66,6 @@ extension ProfileCoordinator: ProfileTableViewCellDelegate {
         switch number {
         case 0:
             displayNotificationsScreen()
-//            alertPresenter?.showAlert()
         case 1:
             displayOpportunitiesScreen()
         case 2:

@@ -7,43 +7,21 @@
 
 import Foundation
 
-protocol NotificationsViewModelDelegate: AnyObject {
-    func loadNotifications()
-}
+typealias ViewModelCallback = (Error?) -> Void
 
 class NotificationsViewModel{
     
-    weak var delegate: NotificationsViewModelDelegate?
-    
-    // viewModel
+    private var updateCallback: ViewModelCallback?
     var notifcationsBox : [Messeg] = []
-//<<<<<<< HEAD
-//    var displeyCount : [Messeg] = []
-//    var limit = 20
+    var authorizationService: AuthorizationProtocol
     
-//=======
-    var displeyCount : [Messeg] = []
-    var limit = 20
-//>>>>>>> IN-62-Notifications_list
-    var authorizationService: AuthorizationProtocol = Authorization.shared
-    // viewModel
+    init(authorizationService: AuthorizationProtocol = Authorization.shared) {
+        self.authorizationService = authorizationService
+    }
     
-//    func loadNotifications(){
-//        authorizationService.fetchNotifications { (response) in
-//
-//                switch response {
-//                case .success(let notif):
-//                    self.notifcationsBox = notif.rows
-//                    DispatchQueue.main.async {
-//                        self.notificationTabelView.reloadData()
-//                    }
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//    }
-        
-        
+    var viewCont: NotificationsViewController?
+    
+   
     
     /*
      viewModel.subscribe { error in
@@ -51,26 +29,23 @@ class NotificationsViewModel{
      }
      */
     
+   
     
-    //<<<<<<< HEAD
-    //    func setupNewView(iN : Int){
-    //        var x = iN
-    //        while x < limit {
-    //            displeyCount.append(notifcationsBox[x])
-    //            x += 1
-    //        }
-    //    }
-        
-    //=======
-        // viewModel
-        func setupNewView(iN : Int){
-            var x = iN
-            while x < limit {
-                displeyCount.append(notifcationsBox[x])
-                x += 1
-            }
+}
+
+extension NotificationsViewModel: NotificationsDelegate{
+    func loadNotifications() {
+        authorizationService.fetchNotifications { (response) in
+            switch response {
+                case .success(let notif):
+                    self.notifcationsBox = notif.rows
+                    //DispatchQueue.main.async {
+                        self.viewCont?.notificationTabelView.reloadData()
+                    //self.notificationTabelView.reloadData()
+                    //}
+                    case .failure(let error):
+                        print(error)
+                    }
         }
-        // viewModel
-    //>>>>>>> IN-62-Notifications_list
-    
+    }
 }
