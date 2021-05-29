@@ -16,71 +16,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-xP-12X">
-                                <rect key="frame" x="22" y="73" width="67" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="chevron.left" catalog="system"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy5-Z8-wLb">
+                                <rect key="frame" x="60" y="52" width="136.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMN-xP-12X">
+                                <rect key="frame" x="28" y="52" width="24" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="hdZ-A1-Fu2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Button" image="chevron.backward" catalog="system"/>
                                 <connections>
                                     <action selector="backButtonToProfile:" destination="9zy-AD-jQA" eventType="touchUpInside" id="sWJ-c0-dgJ"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YFu-g6-xyP">
-                                <rect key="frame" x="20" y="134" width="374" height="614"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YFu-g6-xyP">
+                                <rect key="frame" x="28" y="168" width="358" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="yHO-Bt-ZcM"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Hem-TY-cVp">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="358" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hem-TY-cVp" id="zMn-j4-RzR">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Png-7P-FmI">
-                                <rect key="frame" x="60" y="96" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="inbox"/>
-                                <connections>
-                                    <action selector="inbox:" destination="9zy-AD-jQA" eventType="touchUpInside" id="bdZ-aO-uYB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD6-GI-PZP">
-                                <rect key="frame" x="140" y="96" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="send"/>
-                                <connections>
-                                    <action selector="send:" destination="9zy-AD-jQA" eventType="touchUpInside" id="QH5-sa-ULQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lt3-xp-pwK">
-                                <rect key="frame" x="209" y="96" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="system"/>
-                                <connections>
-                                    <action selector="system:" destination="9zy-AD-jQA" eventType="touchUpInside" id="e2h-tV-QAv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRg-op-xfj">
-                                <rect key="frame" x="312" y="96" width="35" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="trash"/>
-                                <connections>
-                                    <action selector="trash:" destination="9zy-AD-jQA" eventType="touchUpInside" id="yQ4-js-lxu"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy5-Z8-wLb">
-                                <rect key="frame" x="110" y="44" width="213" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-Em-UXd">
+                                <rect key="frame" x="28" y="93" width="358" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Png-7P-FmI">
+                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="30"/>
+                                        <state key="normal" title="inbox"/>
+                                        <connections>
+                                            <action selector="inbox:" destination="9zy-AD-jQA" eventType="touchUpInside" id="bdZ-aO-uYB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD6-GI-PZP">
+                                        <rect key="frame" x="89.5" y="0.0" width="89.5" height="30"/>
+                                        <state key="normal" title="send"/>
+                                        <connections>
+                                            <action selector="send:" destination="9zy-AD-jQA" eventType="touchUpInside" id="QH5-sa-ULQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lt3-xp-pwK">
+                                        <rect key="frame" x="179" y="0.0" width="89.5" height="30"/>
+                                        <state key="normal" title="system"/>
+                                        <connections>
+                                            <action selector="system:" destination="9zy-AD-jQA" eventType="touchUpInside" id="e2h-tV-QAv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRg-op-xfj">
+                                        <rect key="frame" x="268.5" y="0.0" width="89.5" height="30"/>
+                                        <state key="normal" title="trash"/>
+                                        <connections>
+                                            <action selector="trash:" destination="9zy-AD-jQA" eventType="touchUpInside" id="yQ4-js-lxu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aL1-hm-bh0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xAU-Em-UXd" firstAttribute="top" secondItem="ZMN-xP-12X" secondAttribute="bottom" constant="12" id="98m-JW-x44"/>
+                            <constraint firstItem="YFu-g6-xyP" firstAttribute="leading" secondItem="aL1-hm-bh0" secondAttribute="leading" constant="28" id="HZZ-kq-eg4"/>
+                            <constraint firstItem="Wy5-Z8-wLb" firstAttribute="leading" secondItem="ZMN-xP-12X" secondAttribute="trailing" constant="8" id="P6y-8A-Nmt"/>
+                            <constraint firstItem="Wy5-Z8-wLb" firstAttribute="top" secondItem="aL1-hm-bh0" secondAttribute="top" constant="8" id="Ulc-gr-9L5"/>
+                            <constraint firstItem="ZMN-xP-12X" firstAttribute="leading" secondItem="aL1-hm-bh0" secondAttribute="leading" constant="28" id="WL9-QG-4dM"/>
+                            <constraint firstItem="aL1-hm-bh0" firstAttribute="trailing" secondItem="xAU-Em-UXd" secondAttribute="trailing" constant="28" id="bjB-Dp-tnK"/>
+                            <constraint firstItem="aL1-hm-bh0" firstAttribute="trailing" secondItem="YFu-g6-xyP" secondAttribute="trailing" constant="28" id="dzG-Bd-RI9"/>
+                            <constraint firstItem="xAU-Em-UXd" firstAttribute="leading" secondItem="aL1-hm-bh0" secondAttribute="leading" constant="28" id="jlh-C2-pvQ"/>
+                            <constraint firstItem="ZMN-xP-12X" firstAttribute="top" secondItem="aL1-hm-bh0" secondAttribute="top" constant="8" id="mfp-Q4-f1G"/>
+                            <constraint firstItem="YFu-g6-xyP" firstAttribute="top" secondItem="xAU-Em-UXd" secondAttribute="bottom" constant="45" id="scj-d3-9mN"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="nameNotificationsLabel" destination="Wy5-Z8-wLb" id="y8x-xG-JA9"/>
@@ -93,7 +110,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

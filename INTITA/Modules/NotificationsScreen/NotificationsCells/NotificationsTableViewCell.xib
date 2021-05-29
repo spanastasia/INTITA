@@ -25,13 +25,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyK-ha-f0c">
-                        <rect key="frame" x="8" y="37" width="316" height="89"/>
+                        <rect key="frame" x="8" y="37" width="316" height="90"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtv-uz-vxX">
-                        <rect key="frame" x="8" y="134" width="316" height="21"/>
+                        <rect key="frame" x="8" y="135" width="316" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -46,10 +46,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ue-BY-UiO">
-                        <rect key="frame" x="20" y="163" width="292" height="2"/>
+                        <rect key="frame" x="20" y="164" width="292" height="1"/>
                         <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="2" id="lcn-oj-0sP"/>
+                            <constraint firstAttribute="height" constant="1" id="lcn-oj-0sP"/>
                         </constraints>
                     </view>
                 </subviews>
