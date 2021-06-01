@@ -77,10 +77,10 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
         dataSource = UITableViewDiffableDataSource(tableView: tableView) { tableView, indexPath, item -> UITableViewCell? in
             if self.viewModel.isProfileEditing {
                 switch self.viewModel.getTypeEditingCell(with: indexPath.row) {
-                case .button, .menu:
+                case .button:
                     self.type = .button
-//                case .menu:
-//                    self.type = .menu
+                case .menu:
+                    self.type = .menu
                 default:
                     self.type = .textView
                 }
@@ -118,8 +118,17 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                 return UITableViewCell()
             }
             buttonCell.configure(with: item)
-//            buttonCell.isItemEditing = viewModel.isEnableItem(with: indexPath.row)
+            buttonCell.itemType = .button
             cell = buttonCell
+        case .menu:
+            guard let menuCell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier) as? ButtonTableViewCell else {
+                return UITableViewCell()
+            }
+            menuCell.configure(with: item, with: viewModel.getArrayFieldFromEducation(at: indexPath.row), indexItem: indexPath.row)
+            menuCell.itemType = .menu
+//            viewModel.educationTapped(index: indexPath.row)
+            menuCell.delegate = self
+            cell = menuCell
         default:
             guard let textViewCell = tableView.dequeueReusableCell(withIdentifier: TextViewTableViewCell.identifier) as? TextViewTableViewCell else {
                 return UITableViewCell()
@@ -128,7 +137,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
             textViewCell.configure(with: item)
             cell = textViewCell
         }
-//        print(indexPath.row, viewModel.isEnableItem(with: indexPath.row))
         cell.backgroundColor = indexPath.row.isMultiple(of: 2) ? .white : .systemGray6
         return cell
     }
@@ -157,8 +165,10 @@ extension SettingsProfileViewController: UITableViewDelegate {
             viewModel.isItemRow(row: indexPath.row)
             coordinator?.showMultipleSelectionScreen()
             }
-//        case .educationShift, .educform:
-//            coordinator?.returnToProfileScreen()
+//        case .educform, .educationShift:
+//            if viewModel.isProfileEditing {
+//                viewModel?.educationTapped(index: indexPath.row)
+//            }
         default:
             break
         }
@@ -184,5 +194,13 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
 extension SettingsProfileViewController: TextViewTableViewCellDelegate {
     func textViewTableViewCell(_ sender: TextViewTableViewCell, didChangeText text: String) {
         viewModel.setNewValueToTextView(from: sender.index, from: text)
+    }
+}
+
+extension SettingsProfileViewController: ButtonTableViewCellDelegate {
+    func didTappedEducationField(_ sender: UITableViewCell, at index: Int, indexItem: Int) {
+//        print(index)
+        viewModel.setNewValueToEducation(index: index, indexItem: indexItem)
+//        tableView.reloadData()
     }
 }

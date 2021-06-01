@@ -34,5 +34,8 @@ class JSONService<T: LocalizedResponseProtocol> {
     static func getValue(by id: Int?) -> T? {
         return values?.first{ $0.id == id }
     }
+    
+    static func getValueAllCasse() -> [String]? {
+        return values?.map {$0.getLocalizedValue() ?? ""}
+    }
 }
-

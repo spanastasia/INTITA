@@ -24,11 +24,11 @@ class SettingsProfileViewModel {
     var choosenItem: ChoosenItem?
     var selectedItem: LocalizedResponseProtocol?
     var item: [LocalizedResponseProtocol]?
-
+    
     var selectedItemEducations: [Int]?
     var existingUser: CurrentUser?
     var selectedBirthday: String?
-    
+
     var numberOfStates: Int {
         EditingField.allCases.count
     }
@@ -57,20 +57,10 @@ class SettingsProfileViewModel {
             selectedItem = editingUser?.city
         case .city:
             item = nil
-//        case .educationShift:
-//            item = JSONService<EducationShiftModel>.values
-//            choosenItem = .educationShift
-//            guard let educationShift = existingUser?.educationShift else { return }
-//            selectedItemEducations = [educationShift]
         case .preferedSpecializations:
             item = JSONService<SpecializationModel>.values
             choosenItem = .preferSpecializations
             selectedItemEducations = editingUser?.preferSpecializations
-//        case .educform:
-//            item = JSONService<EducationFormModel>.values
-//            choosenItem = .educationForm
-//            guard let educationModel = existingUser?.educationShift else { return }
-//            selectedItemEducations = [educationModel]
         default:
             break
         }
@@ -100,7 +90,7 @@ class SettingsProfileViewModel {
     func subscribe(updateCallback: ProfileViewModelCallback?) {
         self.updateCallback = updateCallback
     }
-
+    
     func selectItem(_ editingItem: LocalizedResponseProtocol) {
         
         switch choosenItem {
@@ -153,57 +143,74 @@ class SettingsProfileViewModel {
     }
     
     func setNewValueToTextView(from index: Int?, from value: String?) {
-            guard let index = index else { return }
-            switch EditingField(rawValue: index) {
-            case .firstName:
-                editingUser?.firstName = value
-            case .secondName:
-                editingUser?.secondName = value
-            case .nickname:
-                editingUser?.nickname = value
-            case .address:
-                editingUser?.address = value
-            case .phone:
-                editingUser?.phone = value
-            case .aboutMe:
-                editingUser?.aboutMy = value
-            case .interests:
-                editingUser?.interests = value
-            case .education:
-                editingUser?.education = value
-            case .previousJob:
-                editingUser?.prevJob = value
-            case .currentJob:
-                editingUser?.currentJob = value
-            case .aboutUs:
-                editingUser?.aboutUs = value
-            case .skype:
-                editingUser?.skype = value
-            case .facebook:
-                editingUser?.facebook = value
-            case .linkedin:
-                editingUser?.linkedin = value
-            case .twitter:
-                editingUser?.twitter = value
+        guard let index = index else { return }
+        switch EditingField(rawValue: index) {
+        case .firstName:
+            editingUser?.firstName = value
+        case .secondName:
+            editingUser?.secondName = value
+        case .nickname:
+            editingUser?.nickname = value
+        case .address:
+            editingUser?.address = value
+        case .phone:
+            editingUser?.phone = value
+        case .aboutMe:
+            editingUser?.aboutMy = value
+        case .interests:
+            editingUser?.interests = value
+        case .education:
+            editingUser?.education = value
+        case .previousJob:
+            editingUser?.prevJob = value
+        case .currentJob:
+            editingUser?.currentJob = value
+        case .aboutUs:
+            editingUser?.aboutUs = value
+        case .skype:
+            editingUser?.skype = value
+        case .facebook:
+            editingUser?.facebook = value
+        case .linkedin:
+            editingUser?.linkedin = value
+        case .twitter:
+            editingUser?.twitter = value
+        default:
+            break
+        }
+    }
+    
+    func selectEducation(_ selectedEducation: [Int]) {
+        editingUser?.preferSpecializations = selectedEducation
+        self.selectedItemEducations = selectedEducation
+        updateCallback?(nil)
+    }
+    
+    func getArrayFieldFromEducation(at index: Int) -> [String] {
+        var educationArray = [String]()
+        switch EditingField.init(rawValue: index) {
+        case .educform:
+            educationArray.append(EditingField.educform.description)
+            educationArray += JSONService<EducationFormModel>.getValueAllCasse() ?? []
+        case .educationShift:
+            educationArray.append(EditingField.educationShift.description)
+            educationArray += JSONService<EducationShiftModel>.getValueAllCasse() ?? []
+        default:
+            break
+        }
+        return educationArray
+    }
+    
+    func setNewValueToEducation(index: Int, indexItem: Int) {
+            switch EditingField.init(rawValue: indexItem) {
+            case .educform:
+                let number = (index == 1) ? 0 : 1
+                editingUser?.educform = number
+            case .educationShift:
+                editingUser?.educationShift = index
             default:
                 break
             }
-        }
-    
-    func selectEducation(_ selectedEducation: [Int]) {
-//        switch choosenItem {
-//        case .preferSpecializations:
-            editingUser?.preferSpecializations = selectedEducation
-            self.selectedItemEducations = selectedEducation
-//        case .educationForm:
-//            editingUser?.educform = selectedEducation.first
-//            self.selectedItemEducations = selectedEducation
-//        case .educationShift:
-//            editingUser?.educationShift = selectedEducation.first
-//            self.selectedItemEducations = selectedEducation
-//        default:
-//            break
-//        }
-        updateCallback?(nil)
+            updateCallback?(nil)
     }
 }

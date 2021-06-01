@@ -15,7 +15,6 @@ class ItemTableViewCell: UITableViewCell, NibCapable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        setupUI()
         isUserInteractionEnabled = true
     }
     
