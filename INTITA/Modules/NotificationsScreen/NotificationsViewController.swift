@@ -12,7 +12,7 @@ protocol NotificationsDelegate: AnyObject {
     func loadNotifications()
 }
 
-class NotificationsViewController: UIViewController, Storyboarded, NibCapable {
+class NotificationsViewController: UIViewController, Storyboarded, NibCapable, AlertAcceptable {
     
     weak var del : NotificationsDelegate?
     
@@ -31,6 +31,17 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable {
         notificationTabelView.dataSource = self
 
         setupCell()
+        
+        viewModel?.subscribe(updateCallback: { (erorr) in
+            DispatchQueue.main.async {
+                if let erorr = erorr{
+                    self.showAlert(message: erorr.localizedDescription)
+                }
+            }
+            self.notificationTabelView.reloadData()
+        })
+        
+        viewModel?.loadNotifications()
         
     }
     

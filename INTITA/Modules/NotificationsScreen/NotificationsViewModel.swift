@@ -35,10 +35,8 @@ extension NotificationsViewModel: NotificationsDelegate{
             switch response {
                 case .success(let notif):
                     self.notifcationsBox = notif.rows
-                    DispatchQueue.main.async {
-                        self.viewCont?.notificationTabelView.reloadData()
-                    }
-                    case .failure(let error):
+                    self.updateCallback?(nil)
+                case .failure(let error):
                         self.updateCallback?(error)
                     }
         }

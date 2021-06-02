@@ -19,6 +19,9 @@ class NotificationsCoordinator: Coordinator {
     func start() {
         
         let vc = NotificationsViewController.instantiate()
+        let viewModel = NotificationsViewModel()
+        
+        vc.viewModel = viewModel
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
