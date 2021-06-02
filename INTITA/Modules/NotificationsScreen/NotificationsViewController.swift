@@ -37,8 +37,8 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable, A
                 if let erorr = erorr{
                     self.showAlert(message: erorr.localizedDescription)
                 }
-            }
             self.notificationTabelView.reloadData()
+            }
         })
         
         viewModel?.loadNotifications()
