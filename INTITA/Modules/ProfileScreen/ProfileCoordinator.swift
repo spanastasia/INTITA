@@ -15,16 +15,19 @@ class ProfileCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     weak var alertPresenter: ProfileCoordinatorAlertPresenter?
+    
+    var profileViewModel: ProfileViewModel?
 
     init(navigationController: UINavigationController, user: CurrentUser) {
         self.navigationController = navigationController
+        
+        profileViewModel = ProfileViewModel()
     }
 
     func start() {
         let vc = ProfileViewController.instantiate()
-        let viewModel = ProfileViewModel()
         vc.coordinator = self
-        vc.viewModel = viewModel
+        vc.viewModel = profileViewModel
         alertPresenter = vc
         navigationController.pushViewController(vc, animated: false)
     }
@@ -41,6 +44,7 @@ class ProfileCoordinator: Coordinator {
     func displaySettingsProfileScreen() {
         guard let user = UserData.currentUser else { return }
         let settingScreenCoordinator = SettingsProfileCoordinator(navigationController: navigationController, existingUser: user)
+        settingScreenCoordinator.delegate = self
         settingScreenCoordinator.start()
     }
     
@@ -71,5 +75,11 @@ extension ProfileCoordinator: ProfileTableViewCellDelegate {
         default:
             alertPresenter?.showAlert()
         }
+    }
+}
+
+extension ProfileCoordinator: SettingsProfileCoordinatorDelegate {
+    func settingsProfileCoordinator(_ sender: SettingsProfileCoordinator, user: CurrentUser) {
+        profileViewModel?.setUser(at: user)
     }
 }

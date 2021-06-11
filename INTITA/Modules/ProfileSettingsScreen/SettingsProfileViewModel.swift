@@ -33,7 +33,7 @@ class SettingsProfileViewModel {
         EditingField.allCases.count
     }
     
-    private var editingUser: EditingUser?
+    var editingUser: EditingUser?
     var isProfileEditing: Bool = false
     
     init(existingUser: CurrentUser) {
@@ -212,5 +212,15 @@ class SettingsProfileViewModel {
                 break
             }
             updateCallback?(nil)
+    }
+    
+    func getFirstSpecialization() -> String {
+        guard let numberSpecialization = selectedItemEducations?.first,
+              let specialization = EditingField
+                .preferedSpecializations
+                .mutateFromIdToSpec(numberSpecialization)
+        else { return "" }
+        
+        return specialization
     }
 }

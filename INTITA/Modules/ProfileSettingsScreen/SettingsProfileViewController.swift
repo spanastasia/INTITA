@@ -126,7 +126,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
             }
             menuCell.configure(with: item, with: viewModel.getArrayFieldFromEducation(at: indexPath.row), indexItem: indexPath.row)
             menuCell.itemType = .menu
-//            viewModel.educationTapped(index: indexPath.row)
             menuCell.delegate = self
             cell = menuCell
         default:
@@ -165,10 +164,6 @@ extension SettingsProfileViewController: UITableViewDelegate {
             viewModel.isItemRow(row: indexPath.row)
             coordinator?.showMultipleSelectionScreen()
             }
-//        case .educform, .educationShift:
-//            if viewModel.isProfileEditing {
-//                viewModel?.educationTapped(index: indexPath.row)
-//            }
         default:
             break
         }
@@ -187,6 +182,7 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
         
         if !viewModel.isProfileEditing {
             viewModel.putEditingUser()
+            headerContentView.specializationLabel.text = viewModel.getFirstSpecialization()
         }
     }
 }
@@ -199,8 +195,6 @@ extension SettingsProfileViewController: TextViewTableViewCellDelegate {
 
 extension SettingsProfileViewController: ButtonTableViewCellDelegate {
     func didTappedEducationField(_ sender: UITableViewCell, at index: Int, indexItem: Int) {
-//        print(index)
         viewModel.setNewValueToEducation(index: index, indexItem: indexItem)
-//        tableView.reloadData()
     }
 }

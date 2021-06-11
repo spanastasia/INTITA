@@ -526,11 +526,11 @@
 		3F87983F255E70AC0094D6D9 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				3F87985E255E74240094D6D9 /* Cells */,
 				3F87983B255E70A60094D6D9 /* Profile.storyboard */,
 				3F879840255E70D20094D6D9 /* ProfileViewController.swift */,
 				3F879844255E70E80094D6D9 /* ProfileCoordinator.swift */,
 				3F879848255E70FE0094D6D9 /* ProfileViewModel.swift */,
-				3F87985E255E74240094D6D9 /* Cells */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -769,10 +769,10 @@
 		64F78E272551D9EB002C1565 /* ForgotPasswordScreen */ = {
 			isa = PBXGroup;
 			children = (
+				64BD441F256968CC00880C9A /* ForgotCells */,
 				64F78E212551D9CA002C1565 /* ForgotPasswordCoordinator.swift */,
 				64F78E242551D9E1002C1565 /* ForgotPasswordViewController.swift */,
 				64F78E292551DA01002C1565 /* ForgotPassword.storyboard */,
-				64BD441F256968CC00880C9A /* ForgotCells */,
 			);
 			path = ForgotPasswordScreen;
 			sourceTree = "<group>";

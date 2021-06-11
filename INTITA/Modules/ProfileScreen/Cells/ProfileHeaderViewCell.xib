@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,10 +32,10 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Ol-Yq-f6n">
-                                <rect key="frame" x="132.5" y="242" width="209" height="30"/>
+                                <rect key="frame" x="139.5" y="242" width="195" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qse-Hb-MYw">
-                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="74.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="NcS-yN-4i1"/>
                                         </constraints>
@@ -44,7 +44,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Surname" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7du-MQ-zLd">
-                                        <rect key="frame" x="87.5" y="0.0" width="121.5" height="30"/>
+                                        <rect key="frame" x="82.5" y="0.0" width="112.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="4Jf-HY-EPj"/>
                                         </constraints>
