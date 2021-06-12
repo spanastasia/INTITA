@@ -48,7 +48,11 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
         navigationController?.setNavigationBarHidden(true, animated: true)
         
         viewModel?.delegate = self
-        viewModel?.subscribe(updateCallback: updateCallback)
+        viewModel?.subscribe { error in
+            DispatchQueue.main.async {
+                self.updateCallback(error: error)
+            }
+        }
         
         tableView.dataSource = self
         tableView.delegate = self
