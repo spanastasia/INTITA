@@ -172,6 +172,15 @@ struct CurrentUser: Codable {
         if education != editingUser.education {
             result["education"] = String(editingUser.education ?? "")
         }
+        if preferSpecializations.map(\.specializationId) != editingUser.preferSpecializations {
+            result["specialization"] = editingUser.preferSpecializations
+        }
+        if educform != editingUser.educform {
+            result["educform"] = editingUser.educform
+        }
+        if educationShift != editingUser.educationShift {
+            result["educationShift"] = editingUser.educationShift
+        }
 
         return result
     }
@@ -192,7 +201,7 @@ struct CurrentUser: Codable {
         case currentJob = "current_job"
         case aboutUs = "about_us"
         case skype
-        case educform = "educ_form"
+        case educform
     }
 }
 

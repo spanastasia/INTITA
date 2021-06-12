@@ -10,6 +10,7 @@ import UIKit
 enum CellType {
     case button
     case textView
+    case menu
     case inEnable
 }
 
@@ -78,6 +79,8 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                 switch self.viewModel.getTypeEditingCell(with: indexPath.row) {
                 case .button:
                     self.type = .button
+                case .menu:
+                    self.type = .menu
                 default:
                     self.type = .textView
                 }
@@ -115,7 +118,16 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
                 return UITableViewCell()
             }
             buttonCell.configure(with: item)
+            buttonCell.itemType = .button
             cell = buttonCell
+        case .menu:
+            guard let menuCell = tableView.dequeueReusableCell(withIdentifier: ButtonTableViewCell.identifier) as? ButtonTableViewCell else {
+                return UITableViewCell()
+            }
+            menuCell.configure(with: item, with: viewModel.getArrayFieldFromEducation(at: indexPath.row), indexItem: indexPath.row)
+            menuCell.itemType = .menu
+            menuCell.delegate = self
+            cell = menuCell
         default:
             guard let textViewCell = tableView.dequeueReusableCell(withIdentifier: TextViewTableViewCell.identifier) as? TextViewTableViewCell else {
                 return UITableViewCell()
@@ -124,7 +136,6 @@ class SettingsProfileViewController: UIViewController, Storyboarded {
             textViewCell.configure(with: item)
             cell = textViewCell
         }
-        
         cell.backgroundColor = indexPath.row.isMultiple(of: 2) ? .white : .systemGray6
         return cell
     }
@@ -148,6 +159,11 @@ extension SettingsProfileViewController: UITableViewDelegate {
             if let url = URL(string: stringURL) {
                 coordinator?.showSafari(with: url)
             }
+        case .preferedSpecializations:
+            if viewModel.isProfileEditing {
+            viewModel.isItemRow(row: indexPath.row)
+            coordinator?.showMultipleSelectionScreen()
+            }
         default:
             break
         }
@@ -166,12 +182,19 @@ extension SettingsProfileViewController: HeaderSettingsTableViewCellDelegate {
         
         if !viewModel.isProfileEditing {
             viewModel.putEditingUser()
+            headerContentView.specializationLabel.text = viewModel.getFirstSpecialization()
         }
     }
 }
 
 extension SettingsProfileViewController: TextViewTableViewCellDelegate {
     func textViewTableViewCell(_ sender: TextViewTableViewCell, didChangeText text: String) {
-        viewModel.setNewValueToTextField(from: sender.index, from: text)
+        viewModel.setNewValueToTextView(from: sender.index, from: text)
+    }
+}
+
+extension SettingsProfileViewController: ButtonTableViewCellDelegate {
+    func didTappedEducationField(_ sender: UITableViewCell, at index: Int, indexItem: Int) {
+        viewModel.setNewValueToEducation(index: index, indexItem: indexItem)
     }
 }

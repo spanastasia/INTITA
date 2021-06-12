@@ -82,6 +82,7 @@ class ProfileViewController: UIViewController, Storyboarded, AlertAcceptable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        headerContentView.specializationLabel.text = viewModel?.getSpecialization()
     }
     
     //MARK: - Error handling

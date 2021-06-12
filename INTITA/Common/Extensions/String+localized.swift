@@ -25,6 +25,8 @@ extension String {
             valueOptional = JSONService<EducationShiftModel>.getValue(by: self)
         case .career:
             valueOptional = JSONService<CareerModel>.getValue(by: self)
+        case .educationForm:
+            valueOptional = JSONService<EducationFormModel>.getValue(by: self)
         }
         
         guard let value = valueOptional else {

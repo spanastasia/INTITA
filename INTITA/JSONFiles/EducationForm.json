@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title_ua": "онлайн",
+        "title_ru": "оффлайн",
+        "title_en": "online",
+        "title": "онлайн"
+    },
+    {
+        "id": 2,
+        "title_ua": "офлайн",
+        "title_ru": "оффлайн",
+        "title_en": "offline",
+        "title": "офлайн"
+    }
+]

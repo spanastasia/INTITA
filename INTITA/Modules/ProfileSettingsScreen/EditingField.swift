@@ -35,10 +35,11 @@ enum EditingField: Int, CaseIterable {
         case .country,
              .city,
              .preferedSpecializations,
-             .birthday,
-             .educationShift,
-             .educform:
+             .birthday:
             return .button
+        case .educationShift,
+             .educform:
+            return .menu
         default:
             return .textView
         }

@@ -18,6 +18,8 @@ class ProfileViewModel {
     private var updateCallback: ProfileViewModelCallback?
     var authorizationService: AuthorizationProtocol
     
+    var user = UserData.currentUser
+    
     init(authorizationService: AuthorizationProtocol = Authorization.shared) {
         self.authorizationService = authorizationService
     }
@@ -37,6 +39,14 @@ class ProfileViewModel {
             }
         }
     }
+    
+    func getSpecialization() -> String {
+        let firstSpecialization = user?.preferSpecializations.first?.specialization.id
+        guard let specializationString = JSONService<SpecializationModel>
+                .getValue(by: firstSpecialization)?
+                .getLocalizedValue() else { return "" }
+        return specializationString
+    }
 }
 
 extension ProfileViewModel: ProfileFooterViewCellDelegate {
@@ -49,5 +59,9 @@ extension ProfileViewModel: ProfileFooterViewCellDelegate {
                 self.updateCallback?(error)
             }
         }
+    }
+    
+    func setUser(at user: CurrentUser) {
+        self.user = user
     }
 }

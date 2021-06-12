@@ -8,6 +8,10 @@
 import UIKit
 import SafariServices
 
+protocol SettingsProfileCoordinatorDelegate: AnyObject {
+    func settingsProfileCoordinator(_ sender: SettingsProfileCoordinator, user: CurrentUser)
+}
+
 class SettingsProfileCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
@@ -15,6 +19,7 @@ class SettingsProfileCoordinator: Coordinator {
     let settingsViewModel: SettingsProfileViewModel
     
     var existingUser: CurrentUser
+    var delegate: SettingsProfileCoordinatorDelegate?
 
     init(
         navigationController: UINavigationController,
@@ -36,6 +41,9 @@ class SettingsProfileCoordinator: Coordinator {
     }
     
     func returnToProfileScreen() {
+        guard let editing = settingsViewModel.editingUser,
+              let user = CurrentUser(from: editing) else { return }
+        delegate?.settingsProfileCoordinator(self, user: user)
         navigationController.popViewController(animated: true)
     }
     
@@ -57,9 +65,19 @@ class SettingsProfileCoordinator: Coordinator {
         birthdayCoordinator.start()
     }
     
+    func showMultipleSelectionScreen() {
+        let multipleSelectionCoordinator = MultipleSelectionCoordinator(
+            navigationController: navigationController,
+            item: settingsViewModel.item ?? [],
+            selectedItem: settingsViewModel.selectedItemEducations ?? [])
+        
+        multipleSelectionCoordinator.delegate = self
+        multipleSelectionCoordinator.start()
+    }
+    
     func showSafari(with url: URL) {
-        let vc = SFSafariViewController(url: url)
-        navigationController.present(vc, animated: true)
+        let safariViewController = SFSafariViewController(url: url)
+        navigationController.present(safariViewController, animated: true)
     }
 
 }
@@ -73,5 +91,11 @@ extension SettingsProfileCoordinator: ListCoordinatorDelegate {
 extension SettingsProfileCoordinator: BirthdayCoordinatorDelegate {
     func birthdayCoordinator(_ sender: Coordinator, didSelectDay: String) {
         settingsViewModel.selectBirthday(didSelectDay)
+    }
+}
+
+extension SettingsProfileCoordinator: MultipleSelectionCoordinatorDelegate {
+    func multipleSelectionCoordinator(_ sender: Coordinator, with chosenItemId: [Int]) {
+        settingsViewModel.selectEducation(chosenItemId)
     }
 }
