@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol NotificationsDelegate: AnyObject {
-    func loadNotifications()
+    func loadNotifications(notificationsType: String)
 }
 
 class NotificationsViewController: UIViewController, Storyboarded, NibCapable, AlertAcceptable {
@@ -41,7 +41,7 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable, A
             }
         })
         
-        viewModel?.loadNotifications()
+        viewModel!.loadNotifications(notificationsType: NotificationsType.inbox.rawValue )
         
     }
     
@@ -56,17 +56,32 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable, A
     
 
     @IBAction func inbox(_ sender: Any) {
-        
+        viewModel?.loadNotifications(notificationsType: NotificationsType.inbox.rawValue )
+        DispatchQueue.main.async {
+            self.notificationTabelView.reloadData()
+        }
     }
     
     @IBAction func send(_ sender: Any) {
-        
+        viewModel?.loadNotifications(notificationsType: NotificationsType.sent.rawValue )
+        DispatchQueue.main.async {
+            self.notificationTabelView.reloadData()
+        }
     }
     
     @IBAction func system(_ sender: Any) {
+        viewModel?.loadNotifications(notificationsType: NotificationsType.system.rawValue )
+        DispatchQueue.main.async {
+            self.notificationTabelView.reloadData()
+        }
     }
     
     @IBAction func trash(_ sender: Any) {
+        viewModel?.loadNotifications(notificationsType: NotificationsType.trash.rawValue )
+        DispatchQueue.main.async {
+            self.notificationTabelView.reloadData()
+        }
+        
     }
     
     @IBAction func backButtonToProfile(_ sender: Any) {

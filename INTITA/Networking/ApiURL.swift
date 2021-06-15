@@ -7,12 +7,20 @@
 
 import Foundation
 
+enum NotificationsType : String{
+    case inbox
+    case sent
+    case system
+    case trash
+        
+}
+
 enum ApiURL {
     case login(email: String, password: String)
     case logout
     case currentUser
     case editUser(user: EditingUser)
-    case notifications
+    case notifications(notificationsType: String)
     
     var path: String {
         return Bundle.main.object(forInfoDictionaryKey: AppConstans.urlPath) as? String ?? "/"
@@ -93,7 +101,7 @@ enum ApiURL {
 //                    "educationShift" : user.educationShift ?? 0,
                 ] as [String : Any]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
-        case .notifications:
+        case .notifications(notificationsType: let notificationsType):
             let json3 = [
                 "field": "id",
                 "type": "desc"
@@ -106,7 +114,7 @@ enum ApiURL {
             ] as [String : Any?]
             
             let json = [
-                "type": "inbox",
+                "type": notificationsType,
                 "queryParams": json2
             ] as [String : Any]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
