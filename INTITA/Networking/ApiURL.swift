@@ -20,7 +20,7 @@ enum ApiURL {
     case logout
     case currentUser
     case editUser(user: EditingUser)
-    case notifications(notificationsType: String)
+    case notifications(notificationsType: String, pageNumber: Int)
     
     var path: String {
         return Bundle.main.object(forInfoDictionaryKey: AppConstans.urlPath) as? String ?? "/"
@@ -101,14 +101,14 @@ enum ApiURL {
 //                    "educationShift" : user.educationShift ?? 0,
                 ] as [String : Any]
             return try? JSONSerialization.data(withJSONObject: json, options: [])
-        case .notifications(notificationsType: let notificationsType):
+        case .notifications(notificationsType: let notificationsType, pageNumber: let pageNumber):
             let json3 = [
                 "field": "id",
                 "type": "desc"
             ]
             let json2 = [
                 "count": 20,
-                "page": 1,
+                "page": pageNumber,
                 "sorting": [json3],
                 "filter": nil
             ] as [String : Any?]

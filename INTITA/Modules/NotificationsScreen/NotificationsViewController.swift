@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol NotificationsDelegate: AnyObject {
-    func loadNotifications(notificationsType: String)
+    func loadNotifications(notificationsType: String, pageNumber:Int)
 }
 
 class NotificationsViewController: UIViewController, Storyboarded, NibCapable, AlertAcceptable {
@@ -41,7 +41,7 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable, A
             }
         })
         
-        viewModel!.loadNotifications(notificationsType: NotificationsType.inbox.rawValue )
+        viewModel!.loadNotifications(notificationsType: NotificationsType.inbox.rawValue, pageNumber: viewModel!.pageCounter )
         
     }
     
@@ -56,28 +56,28 @@ class NotificationsViewController: UIViewController, Storyboarded, NibCapable, A
     
 
     @IBAction func inbox(_ sender: Any) {
-        viewModel?.loadNotifications(notificationsType: NotificationsType.inbox.rawValue )
+        viewModel?.loadNotifications(notificationsType: NotificationsType.inbox.rawValue, pageNumber: viewModel!.pageCounter )
         DispatchQueue.main.async {
             self.notificationTabelView.reloadData()
         }
     }
     
     @IBAction func send(_ sender: Any) {
-        viewModel?.loadNotifications(notificationsType: NotificationsType.sent.rawValue )
+        viewModel?.loadNotifications(notificationsType: NotificationsType.sent.rawValue, pageNumber: viewModel!.pageCounter )
         DispatchQueue.main.async {
             self.notificationTabelView.reloadData()
         }
     }
     
     @IBAction func system(_ sender: Any) {
-        viewModel?.loadNotifications(notificationsType: NotificationsType.system.rawValue )
+        viewModel?.loadNotifications(notificationsType: NotificationsType.system.rawValue, pageNumber: viewModel!.pageCounter )
         DispatchQueue.main.async {
             self.notificationTabelView.reloadData()
         }
     }
     
     @IBAction func trash(_ sender: Any) {
-        viewModel?.loadNotifications(notificationsType: NotificationsType.trash.rawValue )
+        viewModel?.loadNotifications(notificationsType: NotificationsType.trash.rawValue, pageNumber: viewModel!.pageCounter )
         DispatchQueue.main.async {
             self.notificationTabelView.reloadData()
         }
@@ -105,28 +105,41 @@ extension NotificationsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        //viewModel!.setupView(iN: viewModel!.indexx)
         cell.sabjectLabel.text = viewModel?.notifcationsBox[indexPath.row].subject
         cell.massegLabel.text = viewModel?.notifcationsBox[indexPath.row].messageText
         cell.emailLabel.text = viewModel?.notifcationsBox[indexPath.row].userReceiver.email
         cell.timeLabel.text = viewModel?.notifcationsBox[indexPath.row].createDate
         
-
+        
     
         return cell
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("@@@@@@@@@@@@@@@")
+        //print("viewModel?.notifcationsBox.count\(viewModel?.notifcationsBox.count)")
+        print("vindexPath.row\(indexPath.row)")
 
-
-
-//        if indexPath.row == displeyCount.count-1 && notifcationsBox.count != displeyCount.count{
-
-           // infinitiScroll
-
+        if indexPath.row == (viewModel?.notifcationsBox.count)!-1  {
+            //&& viewModel?.notifcationsBox.count != viewModel?.displeyCount.count
+            print("^^^^^^^^^^^^^^^^^^")
+//            var newIndex = (viewModel?.displeyCount.count)! - 1
+//
+//            if newIndex + 20 > (viewModel?.notifcationsBox.count)!-1{
+//                viewModel?.limit = (viewModel?.notifcationsBox.count)! - 1
 //        }
+//        else{
+//            viewModel?.limit = newIndex+20
+//        }
+//            viewModel!.loadNotifications(notificationsType: NotificationsType.sent.rawValue, pageNumber: viewModel!.pageCounter )
+            //viewModel?.setupView(iN: newIndex)
+        self.perform(#selector(loadTable), with: nil, afterDelay: 0.5)
+       }
     }
-
-
+    @objc func loadTable() {
+        self.notificationTabelView.reloadData()
+    }
 
 
 }

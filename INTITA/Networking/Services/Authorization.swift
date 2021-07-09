@@ -30,7 +30,7 @@ protocol AuthorizationProtocol {
     func fetchUserInfo(completion: @escaping (Result<CurrentUser, Error>) -> Void)
     func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void)
     
-    func fetchNotifications(notificationsType: String, completion: @escaping (Result<Notifikation, Error>) -> Void)
+    func fetchNotifications(notificationsType: String, pageNumber: Int, completion: @escaping (Result<Notifikation, Error>) -> Void)
     
     
 }
@@ -85,8 +85,8 @@ final class Authorization: AuthorizationProtocol {
         configurations[.user]?.authorizationService.editUserInfo(newUser: newUser, completion: completion)
     }
     
-    func fetchNotifications(notificationsType: String, completion: @escaping (Result<Notifikation, Error>) -> Void) {
-        configurations[.notifications]?.authorizationService.fetchNotifications(notificationsType: notificationsType, completion: completion)
+    func fetchNotifications(notificationsType: String, pageNumber: Int, completion: @escaping (Result<Notifikation, Error>) -> Void) {
+        configurations[.notifications]?.authorizationService.fetchNotifications(notificationsType: notificationsType, pageNumber: pageNumber, completion: completion)
     }
     
 }
@@ -148,8 +148,8 @@ fileprivate class AuthorizationReal: AuthorizationProtocol {
             
         }
     }
-    func fetchNotifications(notificationsType: String, completion: @escaping (Result<Notifikation, Error>) -> Void) {
-        guard let request = ApiURL.notifications(notificationsType: notificationsType).request else { return }
+    func fetchNotifications(notificationsType: String, pageNumber: Int, completion: @escaping (Result<Notifikation, Error>) -> Void) {
+        guard let request = ApiURL.notifications(notificationsType: notificationsType, pageNumber: pageNumber).request else { return }
         APIRequest.shared.request(request: request) { (result: Result<Notifikation, Error>) in
             switch result {
             case .success(let massege):
@@ -199,7 +199,7 @@ fileprivate class AuthorizationFailing: AuthorizationProtocol {
     public func editUserInfo(newUser: EditingUser, completion: @escaping (Result<EditingUser, Error>) -> Void) {
         completion(.failure(TestError.editUser))
     }
-    func fetchNotifications(notificationsType: String, completion: @escaping (Result<Notifikation, Error>) -> Void) {
+    func fetchNotifications(notificationsType: String,pageNumber: Int, completion: @escaping (Result<Notifikation, Error>) -> Void) {
         completion(.failure(TestError.editUser))
     }
     
@@ -254,8 +254,8 @@ fileprivate class AuthorizationMock: AuthorizationProtocol {
         }
     }
     
-    func fetchNotifications(notificationsType: String, completion: @escaping (Result<Notifikation, Error>) -> Void) {
-        guard let file = ApiURL.notifications(notificationsType: notificationsType).mockFileName,
+    func fetchNotifications(notificationsType: String, pageNumber: Int, completion: @escaping (Result<Notifikation, Error>) -> Void) {
+        guard let file = ApiURL.notifications(notificationsType: notificationsType, pageNumber: pageNumber).mockFileName,
               let data = JSONLoader.loadJsonData(file: file),
               let response = try? JSONDecoder().decode(Notifikation.self, from: data)
         else {

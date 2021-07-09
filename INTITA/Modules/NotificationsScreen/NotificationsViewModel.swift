@@ -11,13 +11,17 @@ typealias NotificationsViewModelCallback = (Error?) -> Void
 
 class NotificationsViewModel{
     
-    
-    
-    private var updateCallback: NotificationsViewModelCallback?
-    var notifcationsBox : [Messeg] = []
     var authorizationService: AuthorizationProtocol
     
+    private var updateCallback: NotificationsViewModelCallback?
     var viewCont: NotificationsViewController?
+    
+    var notifcationsBox : [Messeg] = []
+    var limit = 20
+    var indexx = 0
+    var displeyCount: [Messeg] = []
+    var pageCounter = 1
+    
     
     init(authorizationService: AuthorizationProtocol = Authorization.shared) {
         self.authorizationService = authorizationService
@@ -27,16 +31,22 @@ class NotificationsViewModel{
         self.updateCallback = updateCallback
     }
     
-   
+    func setupView(iN : Int){
+        var x = iN
+        while x < limit && x < notifcationsBox.count {
+            displeyCount.append(notifcationsBox[x])
+            x += 1
+        }
+    }
     
 }
 
 extension NotificationsViewModel: NotificationsDelegate{
-    func loadNotifications(notificationsType: String) {
-        authorizationService.fetchNotifications(notificationsType: notificationsType) { (response) in
+    func loadNotifications(notificationsType: String, pageNumber: Int) {
+        authorizationService.fetchNotifications(notificationsType: notificationsType, pageNumber: pageNumber) { (response) in
             switch response {
                 case .success(let notif):
-                    self.notifcationsBox = notif.rows
+                    self.notifcationsBox += notif.rows
                     self.updateCallback?(nil)
                 case .failure(let error):
                     print(error)
